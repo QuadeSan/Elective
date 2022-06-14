@@ -1,0 +1,73 @@
+/* Bordered form */
+form {
+  border: 3px solid #000000;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.5;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  border-radius: 8px;
+  width: auto;
+  padding: 10px;
+  background-color: #f44336;
+}
+
+.registerbtn {
+  border-radius: 8px;
+  width: auto;
+  padding: 10px ;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+.ablack {
+  color: #000;
+}
+
+#flex{
+  justify-content: space-between;
+  display: flex;
+  background-color: #f1f1f1;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.checkmark {
+  accent-color: #000;
+}

@@ -1,0 +1,337 @@
+html, body {
+   margin: 0;
+   height: 100%;
+   min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome {
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header {
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    flex: none;
+}
+
+footer {
+    height: 50px;
+    background-color: #000;
+    width:100%;
+    color: #FFFFFF;
+    display: flex;
+    flex: none;
+}
+
+.ahead {
+   color: #FFFFFF;
+}
+
+#homebutton {
+    padding: 15px;
+}
+
+#coursesearch {
+    padding: 15px;
+}
+
+#cabinet {
+    padding: 15px;
+}
+
+#god-mode {
+    padding: 15px;
+}
+
+#hellouser {
+    padding: 15px;
+    color: #FFFFFF;
+    margin-left: auto;
+}
+
+#logoutbtn {
+    margin-top: 15px;
+    margin-right: 15px;
+    color: #FFFFFF;
+}
+
+#loginbtn {
+    margin-top: 15px;
+    margin-right: 15px;
+    color: #FFFFFF;
+}
+
+/* Bordered centered form */
+
+.form-centered {
+  border: 3px solid #000000;
+  width:500px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input:disabled, textarea:disabled {
+  background-color: #FFFFFF !important;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.5;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  border-radius: 8px;
+  width: auto;
+  padding: 10px;
+  background-color: #f44336;
+}
+
+.registerbtn {
+  border-radius: 8px;
+  width: auto;
+  padding: 10px;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+.ablack {
+  color: #000;
+}
+
+#flex{
+  justify-content: space-between;
+  display: flex;
+  background-color: #f1f1f1;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* color of checkbox background */
+.checkmark {
+  accent-color: #000;
+}
+
+/* My account style */
+textarea {
+  padding: 12px 12px;
+  margin: 8px 0;
+  overflow: auto;
+  width: 100%;
+  resize: none;
+}
+
+.main {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  flex: auto;
+}
+
+.info-container {
+  padding: 15px;
+  background-color: #f1f1f1;
+  clear: left;
+}
+
+#account-field {
+ width: 75%;
+}
+
+label {
+ display: block;
+}
+
+.col-1-2 {
+  width: 50%;
+  float: left;
+}
+
+.col-1-1 {
+  width: 100%;
+  clear: both;
+}
+
+.editbtn {
+  width: auto;
+  margin-right: 15px;
+}
+
+.account-head {
+  display:flex;
+  justify-content: space-between;
+}
+
+.applybtn {
+  width: auto;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.main-h2 {
+  padding: 8px;
+  float: left;
+}
+
+.myCourses {
+  margin-left: 10px;
+  clear:left;
+}
+
+.myCourses .courseTable {
+  float:left;
+}
+
+/* error/infoMessage */
+
+.info-box {
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.info-span {
+    padding: 5px;
+    width: 100%;
+    border: 2px solid #000;
+}
+
+.error-span {
+    color: red;
+    font-weight: bold;
+}
+
+.stealth-span {
+    padding:5px;
+    width: 100%;
+    visibility:hidden;
+}
+
+/* Edit page style */
+
+
+/* Admin panel */
+.tools {
+  width: 100%;
+  text-align: center;
+}
+
+/* Courses page */
+
+.courseTable {
+  width: 50%;
+  text-align: center;
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.courseBody:hover{
+  background-color: #f1f1f1;
+}
+
+#courseItem:hover {
+
+}
+
+#courseHead {
+  border-bottom: 1px solid #000000;
+}
+
+table.courseTable th {
+  position:relative;
+}
+
+table.courseTable th button {
+  padding: 4px;
+  margin: 1px;
+  color: #000000;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  display: inline;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+table.courseTable th button span {
+  position: absolute;
+  right: 4px;
+}
+
+table.courseTable th[aria-sort="descending"] span::after {
+  content: "▼";
+  color: currentcolor;
+  font-size: 100%;
+  top: 0;
+}
+
+table.courseTable th[aria-sort="ascending"] span::after {
+  content: "▲";
+  color: currentcolor;
+  font-size: 100%;
+  top: 0;
+}
+
+table.show-unsorted-icon th:not([aria-sort]) button span::after {
+  content: "♢";
+  color: currentcolor;
+  font-size: 100%;
+  position: relative;
+  top: -3px;
+  left: -4px;
+}
+
+
+table.courseTable th:not([aria-sort]) button:focus span::after,
+table.courseTable th:not([aria-sort]) button:hover span::after {
+  content: "▼";
+  color: currentcolor;
+  font-size: 100%;
+  top: 0;
+}

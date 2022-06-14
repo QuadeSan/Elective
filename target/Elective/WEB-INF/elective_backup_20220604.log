@@ -1,0 +1,538 @@
+2022-06-04 12:05:57.742 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 12:05:57.755 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 12:06:17.096 DEBUG [http-nio-8080-exec-1] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 12:06:36.389 DEBUG [http-nio-8080-exec-2] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:28)] - doPost of /login with forward to login.jsp
+2022-06-04 12:18:33.519 DEBUG [http-nio-8080-exec-6] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 12:20:16.185 DEBUG [http-nio-8080-exec-9] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:28)] - doPost of /login with forward to login.jsp
+2022-06-04 12:25:29.770 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 12:25:29.784 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 12:26:35.277 DEBUG [http-nio-8080-exec-10] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 12:26:57.115 DEBUG [http-nio-8080-exec-4] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to main.jsp
+2022-06-04 12:26:57.118 DEBUG [http-nio-8080-exec-4] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - Can't close StudentDAO
+2022-06-04 12:28:57.572 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 12:28:57.585 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 12:29:20.501 DEBUG [http-nio-8080-exec-12] [Controller.LogoutServlet.doGet(LogoutServlet.java:22)] - doGet of /logout with forward to main.jsp
+2022-06-04 12:29:27.563 DEBUG [http-nio-8080-exec-17] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-04 12:29:45.397 DEBUG [http-nio-8080-exec-19] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 12:29:56.270 DEBUG [http-nio-8080-exec-18] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to main.jsp
+2022-06-04 12:29:56.273 DEBUG [http-nio-8080-exec-18] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - Can't close StudentDAO
+java.lang.NullPointerException: null
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:35) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 12:30:40.336 DEBUG [http-nio-8080-exec-23] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-04 12:30:44.277 DEBUG [http-nio-8080-exec-24] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 12:31:54.327 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 12:31:54.339 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 12:32:05.337 DEBUG [http-nio-8080-exec-26] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 12:32:05.340 DEBUG [http-nio-8080-exec-26] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - Can't close StudentDAO
+java.lang.NullPointerException: null
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:35) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 13:06:08.660 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 13:06:08.673 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 13:08:10.983 DEBUG [http-nio-8080-exec-37] [Controller.MainPageServlet.doPost(MainPageServlet.java:34)] - doPost of /main with redirect to main
+2022-06-04 13:08:10.991 DEBUG [http-nio-8080-exec-29] [Controller.MainPageServlet.doGet(MainPageServlet.java:21)] - doGet of /main with forward to main.jsp
+2022-06-04 13:08:33.853 DEBUG [http-nio-8080-exec-30] [Controller.LogoutServlet.doGet(LogoutServlet.java:22)] - doGet of /logout with forward to main.jsp
+2022-06-04 13:08:36.353 DEBUG [http-nio-8080-exec-32] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-04 13:08:38.054 DEBUG [http-nio-8080-exec-34] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 13:09:02.728 DEBUG [http-nio-8080-exec-38] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 13:09:02.730 DEBUG [http-nio-8080-exec-38] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - Can't close StudentDAO
+java.lang.NullPointerException: null
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:35) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 13:13:14.273 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 13:13:14.287 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 13:13:20.295 DEBUG [http-nio-8080-exec-38] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 13:13:23.559 DEBUG [http-nio-8080-exec-43] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 13:13:23.561 DEBUG [http-nio-8080-exec-43] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created
+2022-06-04 13:13:23.561 DEBUG [http-nio-8080-exec-43] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:43)] - Can't close StudentDAO
+java.lang.NullPointerException: null
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:37) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:35) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 13:31:54.664 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 13:31:54.678 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 13:32:14.387 DEBUG [http-nio-8080-exec-54] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 13:32:17.619 DEBUG [http-nio-8080-exec-48] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 13:33:20.659 DEBUG [http-nio-8080-exec-57] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 13:35:53.571 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 13:35:53.584 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 13:36:30.264 DEBUG [http-nio-8080-exec-60] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-04 13:36:34.120 DEBUG [http-nio-8080-exec-59] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 13:36:37.702 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 13:36:37.702 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 13:36:37.705 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 13:44:32.418 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 13:44:32.431 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 13:45:03.745 DEBUG [http-nio-8080-exec-65] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 13:45:03.745 DEBUG [http-nio-8080-exec-65] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 13:45:03.747 DEBUG [http-nio-8080-exec-65] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 13:45:03.747 DEBUG [http-nio-8080-exec-65] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created
+2022-06-04 13:45:03.747 DEBUG [http-nio-8080-exec-65] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:43)] - Can't close StudentDAO
+java.lang.NullPointerException: null
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:37) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 13:45:03.754 DEBUG [http-nio-8080-exec-65] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 13:47:08.569 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:22)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 13:47:08.583 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:25)] - DAOFactory was set to MySQL implementation
+2022-06-04 13:47:09.916 DEBUG [http-nio-8080-exec-67] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 13:47:12.599 DEBUG [http-nio-8080-exec-74] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 13:47:12.599 DEBUG [http-nio-8080-exec-74] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 13:47:12.601 DEBUG [http-nio-8080-exec-74] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 13:47:12.601 DEBUG [http-nio-8080-exec-74] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => null
+2022-06-04 13:47:12.601 DEBUG [http-nio-8080-exec-74] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:43)] - Can't close StudentDAO
+java.lang.NullPointerException: null
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:37) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 13:47:12.608 DEBUG [http-nio-8080-exec-74] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 13:54:45.274 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 13:54:45.287 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-04 13:55:08.929 DEBUG [http-nio-8080-exec-84] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 13:55:11.639 DEBUG [http-nio-8080-exec-79] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 13:55:11.640 DEBUG [http-nio-8080-exec-79] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 13:55:11.642 DEBUG [http-nio-8080-exec-79] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 13:55:11.642 DEBUG [http-nio-8080-exec-79] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@536ff6bd
+2022-06-04 13:55:11.642 DEBUG [http-nio-8080-exec-79] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-04 13:55:11.646 DEBUG [http-nio-8080-exec-79] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@76429dfb
+2022-06-04 13:55:11.646 DEBUG [http-nio-8080-exec-79] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-04 13:55:12.174 DEBUG [http-nio-8080-exec-79] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-04 13:55:12.204 DEBUG [http-nio-8080-exec-79] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:48)] - Creating user failed
+2022-06-04 13:55:12.204 DEBUG [http-nio-8080-exec-79] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:43)] - Can't close StudentDAO
+DataBaseLayer.DAOException: nullis null
+	at DataBaseLayer.DAO.MySQLStudentDAO.close(MySQLStudentDAO.java:260) ~[classes/:?]
+	at DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:67) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:39) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 13:55:12.211 DEBUG [http-nio-8080-exec-79] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 14:18:58.933 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 14:18:58.945 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-04 14:19:16.691 DEBUG [http-nio-8080-exec-90] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 14:19:19.612 DEBUG [http-nio-8080-exec-89] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 14:19:19.612 DEBUG [http-nio-8080-exec-89] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 14:19:19.615 DEBUG [http-nio-8080-exec-89] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 14:19:19.615 DEBUG [http-nio-8080-exec-89] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7bec6093
+2022-06-04 14:19:19.615 DEBUG [http-nio-8080-exec-89] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-04 14:19:19.618 DEBUG [http-nio-8080-exec-89] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@5ec10ec5
+2022-06-04 14:19:19.619 DEBUG [http-nio-8080-exec-89] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-04 14:19:19.846 DEBUG [http-nio-8080-exec-89] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-04 14:19:19.869 DEBUG [http-nio-8080-exec-89] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:47)] - Creating user failed
+2022-06-04 14:19:19.869 DEBUG [http-nio-8080-exec-89] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:43)] - Can't close StudentDAO
+DataBaseLayer.DAOException: NULL is null
+	at DataBaseLayer.DAO.MySQLStudentDAO.close(MySQLStudentDAO.java:259) ~[classes/:?]
+	at DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:67) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:39) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 14:19:19.875 DEBUG [http-nio-8080-exec-89] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 14:43:34.052 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 14:43:34.064 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-04 14:43:56.875 DEBUG [http-nio-8080-exec-107] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 14:43:59.487 DEBUG [http-nio-8080-exec-105] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 14:43:59.488 DEBUG [http-nio-8080-exec-105] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 14:43:59.490 DEBUG [http-nio-8080-exec-105] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 14:43:59.490 DEBUG [http-nio-8080-exec-105] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7306a63
+2022-06-04 14:43:59.490 DEBUG [http-nio-8080-exec-105] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-04 14:43:59.494 DEBUG [http-nio-8080-exec-105] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@221d1bae
+2022-06-04 14:43:59.494 DEBUG [http-nio-8080-exec-105] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-04 14:43:59.713 DEBUG [http-nio-8080-exec-105] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-04 14:43:59.736 DEBUG [http-nio-8080-exec-105] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:48)] - Creating user failed
+2022-06-04 14:43:59.736 DEBUG [http-nio-8080-exec-105] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:43)] - Can't close StudentDAO
+DataBaseLayer.DAOException: NULL is null
+	at DataBaseLayer.DAO.MySQLStudentDAO.close(MySQLStudentDAO.java:261) ~[classes/:?]
+	at DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:69) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:39) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 14:43:59.743 DEBUG [http-nio-8080-exec-105] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 14:46:21.911 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 14:46:21.923 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-04 14:46:42.525 DEBUG [http-nio-8080-exec-99] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 14:46:44.967 DEBUG [http-nio-8080-exec-102] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 14:46:44.967 DEBUG [http-nio-8080-exec-102] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 14:46:44.969 DEBUG [http-nio-8080-exec-102] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 14:46:44.969 DEBUG [http-nio-8080-exec-102] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3182f94
+2022-06-04 14:46:44.969 DEBUG [http-nio-8080-exec-102] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-04 14:46:44.974 DEBUG [http-nio-8080-exec-102] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@5f45a783
+2022-06-04 14:46:44.974 DEBUG [http-nio-8080-exec-102] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-04 14:46:45.189 DEBUG [http-nio-8080-exec-102] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-04 14:46:45.211 DEBUG [http-nio-8080-exec-102] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:48)] - Creating user failed
+2022-06-04 14:46:45.212 DEBUG [http-nio-8080-exec-102] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:43)] - Can't close StudentDAO
+DataBaseLayer.DAOException: java.sql.SQLException: Generated keys not requested. You need to specify Statement.RETURN_GENERATED_KEYS to Statement.executeUpdate(), Statement.executeLargeUpdate() or Connection.prepareStatement().
+	at DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:49) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:39) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLException: Generated keys not requested. You need to specify Statement.RETURN_GENERATED_KEYS to Statement.executeUpdate(), Statement.executeLargeUpdate() or Connection.prepareStatement().
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.StatementImpl.getGeneratedKeys(StatementImpl.java:1376) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingStatement.getGeneratedKeys(DelegatingStatement.java:443) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingStatement.getGeneratedKeys(DelegatingStatement.java:443) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:41) ~[classes/:?]
+	... 26 more
+2022-06-04 14:46:45.218 DEBUG [http-nio-8080-exec-102] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 14:50:33.061 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-04 14:50:33.073 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-04 14:50:45.227 DEBUG [http-nio-8080-exec-120] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 14:50:48.278 DEBUG [http-nio-8080-exec-119] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 14:50:48.278 DEBUG [http-nio-8080-exec-119] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 14:50:48.281 DEBUG [http-nio-8080-exec-119] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 14:50:48.281 DEBUG [http-nio-8080-exec-119] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@25ce88f8
+2022-06-04 14:50:48.281 DEBUG [http-nio-8080-exec-119] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-04 14:50:48.284 DEBUG [http-nio-8080-exec-119] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@e3fd6a
+2022-06-04 14:50:48.284 DEBUG [http-nio-8080-exec-119] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-04 14:50:48.496 DEBUG [http-nio-8080-exec-119] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-04 14:50:48.549 DEBUG [http-nio-8080-exec-119] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:58)] - Transaction was rolled back
+2022-06-04 14:50:48.549 DEBUG [http-nio-8080-exec-119] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:63)] - Can't create user
+java.sql.SQLIntegrityConstraintViolationException: Column 'status' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:39) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-04 14:50:48.556 DEBUG [http-nio-8080-exec-119] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:43)] - Can't close StudentDAO
+DataBaseLayer.DAOException: java.sql.SQLIntegrityConstraintViolationException: Column 'status' cannot be null
+	at DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:64) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:39) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'status' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52) ~[classes/:?]
+	... 26 more
+2022-06-04 14:50:48.557 DEBUG [http-nio-8080-exec-119] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 14:57:05.573 DEBUG [http-nio-8080-exec-125] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 14:57:16.661 DEBUG [http-nio-8080-exec-126] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 14:57:16.661 DEBUG [http-nio-8080-exec-126] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 14:57:16.661 DEBUG [http-nio-8080-exec-126] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 14:57:16.661 DEBUG [http-nio-8080-exec-126] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@25ce88f8
+2022-06-04 14:57:16.661 DEBUG [http-nio-8080-exec-126] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-04 14:57:16.661 DEBUG [http-nio-8080-exec-126] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-04 14:57:16.676 DEBUG [http-nio-8080-exec-126] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-04 14:57:16.684 INFO [http-nio-8080-exec-126] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:54)] - Student with empty fields created
+2022-06-04 14:57:16.684 DEBUG [http-nio-8080-exec-126] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-04 14:57:16.685 DEBUG [http-nio-8080-exec-126] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 14:59:29.594 DEBUG [http-nio-8080-exec-130] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 15:00:08.010 DEBUG [http-nio-8080-exec-133] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 15:00:08.011 DEBUG [http-nio-8080-exec-133] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 15:00:08.011 DEBUG [http-nio-8080-exec-133] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 15:00:08.011 DEBUG [http-nio-8080-exec-133] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@25ce88f8
+2022-06-04 15:00:08.011 DEBUG [http-nio-8080-exec-133] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-04 15:00:08.011 DEBUG [http-nio-8080-exec-133] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-04 15:00:08.012 DEBUG [http-nio-8080-exec-133] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-04 15:00:08.020 INFO [http-nio-8080-exec-133] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:54)] - Student with empty fields created
+2022-06-04 15:00:08.020 DEBUG [http-nio-8080-exec-133] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-04 15:00:08.021 DEBUG [http-nio-8080-exec-133] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created
+2022-06-04 15:14:56.504 DEBUG [http-nio-8080-exec-127] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 15:16:57.400 DEBUG [http-nio-8080-exec-130] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-04 15:17:07.735 DEBUG [http-nio-8080-exec-131] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-04 15:17:35.518 DEBUG [http-nio-8080-exec-134] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-04 15:17:35.519 DEBUG [http-nio-8080-exec-134] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:34)] - creating studentService
+2022-06-04 15:17:35.519 DEBUG [http-nio-8080-exec-134] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:36)] - StudentService was created
+2022-06-04 15:17:35.519 DEBUG [http-nio-8080-exec-134] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@25ce88f8
+2022-06-04 15:17:35.519 DEBUG [http-nio-8080-exec-134] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-04 15:17:35.519 DEBUG [http-nio-8080-exec-134] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-04 15:17:35.520 DEBUG [http-nio-8080-exec-134] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-04 15:17:35.529 INFO [http-nio-8080-exec-134] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:54)] - Student with empty fields created
+2022-06-04 15:17:35.529 DEBUG [http-nio-8080-exec-134] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-04 15:17:35.530 DEBUG [http-nio-8080-exec-134] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:38)] - Student was created

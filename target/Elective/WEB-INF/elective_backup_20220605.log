@@ -1,0 +1,868 @@
+2022-06-05 15:07:48.446 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 15:07:48.474 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 15:08:07.102 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 15:08:07.116 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 15:08:37.570 DEBUG [http-nio-8080-exec-4] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 15:08:45.285 DEBUG [http-nio-8080-exec-5] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 15:08:45.286 DEBUG [http-nio-8080-exec-5] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 15:08:45.288 DEBUG [http-nio-8080-exec-5] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 15:08:45.288 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:51)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3e42ae4c
+2022-06-05 15:08:45.289 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:08:45.295 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@396ad062
+2022-06-05 15:08:45.295 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:08:45.806 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:53)] - StudentDAO created
+2022-06-05 15:08:45.808 ERROR [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:107)] - can't find student because of 
+java.sql.SQLException: Connection is null.
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.checkOpen(DelegatingConnection.java:116) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:716) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:91) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:55) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-05 15:08:45.819 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:57)] - Can't close StudentDAO
+DataBaseLayer.DAOException: java.sql.SQLException: Connection is null.
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:108) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:55) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLException: Connection is null.
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.checkOpen(DelegatingConnection.java:116) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:716) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:91) ~[classes/:?]
+	... 26 more
+2022-06-05 15:08:45.819 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3e42ae4c
+2022-06-05 15:08:45.819 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:08:45.819 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:08:45.820 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 15:08:45.872 INFO [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 15:08:45.872 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 15:08:45.873 DEBUG [http-nio-8080-exec-5] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Student was created
+2022-06-05 15:14:14.253 DEBUG [http-nio-8080-exec-7] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 15:14:26.552 DEBUG [http-nio-8080-exec-9] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 15:14:33.857 DEBUG [http-nio-8080-exec-10] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 15:14:33.857 DEBUG [http-nio-8080-exec-10] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 15:14:33.857 DEBUG [http-nio-8080-exec-10] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 15:14:33.857 DEBUG [http-nio-8080-exec-10] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:51)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3e42ae4c
+2022-06-05 15:14:33.857 DEBUG [http-nio-8080-exec-10] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:14:33.857 DEBUG [http-nio-8080-exec-10] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:14:33.859 DEBUG [http-nio-8080-exec-10] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:53)] - StudentDAO created
+2022-06-05 15:14:33.859 ERROR [http-nio-8080-exec-10] [DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:107)] - can't find student because of 
+java.sql.SQLException: Connection is null.
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.checkOpen(DelegatingConnection.java:116) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:716) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:91) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:55) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-05 15:14:33.860 DEBUG [http-nio-8080-exec-10] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:57)] - Can't close StudentDAO
+DataBaseLayer.DAOException: java.sql.SQLException: Connection is null.
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:108) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:55) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLException: Connection is null.
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.checkOpen(DelegatingConnection.java:116) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingConnection.prepareStatement(DelegatingConnection.java:716) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:91) ~[classes/:?]
+	... 26 more
+2022-06-05 15:14:33.860 DEBUG [http-nio-8080-exec-10] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3e42ae4c
+2022-06-05 15:14:33.860 DEBUG [http-nio-8080-exec-10] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:14:33.860 DEBUG [http-nio-8080-exec-10] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:14:33.861 DEBUG [http-nio-8080-exec-10] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 15:14:33.868 INFO [http-nio-8080-exec-10] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 15:14:33.869 DEBUG [http-nio-8080-exec-10] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 15:14:33.870 DEBUG [http-nio-8080-exec-10] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Student was created
+2022-06-05 15:28:04.439 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 15:28:04.453 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 15:28:39.458 DEBUG [http-nio-8080-exec-2] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 15:28:40.405 DEBUG [http-nio-8080-exec-3] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 15:28:56.850 DEBUG [http-nio-8080-exec-4] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 15:28:56.850 DEBUG [http-nio-8080-exec-4] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 15:28:56.853 DEBUG [http-nio-8080-exec-4] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 15:28:56.853 DEBUG [http-nio-8080-exec-4] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@1f318a35
+2022-06-05 15:28:56.853 DEBUG [http-nio-8080-exec-4] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:28:56.860 DEBUG [http-nio-8080-exec-4] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@3560f04f
+2022-06-05 15:28:56.860 DEBUG [http-nio-8080-exec-4] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:28:57.257 DEBUG [http-nio-8080-exec-4] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 15:28:57.280 ERROR [http-nio-8080-exec-4] [DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:107)] - can't find student because of 
+java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() with statements that produce result sets
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1038) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:94) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:55) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-05 15:28:57.288 DEBUG [http-nio-8080-exec-4] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:59)] - Can't close StudentDAO
+DataBaseLayer.DAOException: java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() with statements that produce result sets
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:108) ~[classes/:?]
+	at ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:55) ~[classes/:?]
+	at Controller.LoginPageServlet.doPost(LoginPageServlet.java:37) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLException: Can not issue executeUpdate() or executeLargeUpdate() with statements that produce result sets
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1038) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:94) ~[classes/:?]
+	... 26 more
+2022-06-05 15:28:57.288 DEBUG [http-nio-8080-exec-4] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@1f318a35
+2022-06-05 15:28:57.289 DEBUG [http-nio-8080-exec-4] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:28:57.289 DEBUG [http-nio-8080-exec-4] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:28:57.305 DEBUG [http-nio-8080-exec-4] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 15:28:57.335 INFO [http-nio-8080-exec-4] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 15:28:57.335 DEBUG [http-nio-8080-exec-4] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 15:28:57.337 DEBUG [http-nio-8080-exec-4] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Student was created
+2022-06-05 15:30:31.337 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 15:30:31.349 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 15:32:33.914 DEBUG [http-nio-8080-exec-11] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 15:32:33.914 DEBUG [http-nio-8080-exec-11] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 15:32:33.916 DEBUG [http-nio-8080-exec-11] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 15:32:33.916 DEBUG [http-nio-8080-exec-11] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6bf5cc9f
+2022-06-05 15:32:33.917 DEBUG [http-nio-8080-exec-11] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:32:33.923 DEBUG [http-nio-8080-exec-11] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@3d30fe1c
+2022-06-05 15:32:33.923 DEBUG [http-nio-8080-exec-11] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:32:34.155 DEBUG [http-nio-8080-exec-11] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 15:32:34.191 DEBUG [http-nio-8080-exec-11] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6bf5cc9f
+2022-06-05 15:32:34.191 DEBUG [http-nio-8080-exec-11] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:32:34.191 DEBUG [http-nio-8080-exec-11] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:32:34.191 DEBUG [http-nio-8080-exec-11] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 15:32:34.199 INFO [http-nio-8080-exec-11] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 15:32:34.199 DEBUG [http-nio-8080-exec-11] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 15:32:34.200 DEBUG [http-nio-8080-exec-11] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Student was created
+2022-06-05 15:38:21.743 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 15:38:21.755 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 15:39:03.689 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 15:39:03.701 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 15:41:09.645 DEBUG [http-nio-8080-exec-19] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 15:41:20.825 DEBUG [http-nio-8080-exec-20] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 15:41:34.322 DEBUG [http-nio-8080-exec-22] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 15:41:34.322 DEBUG [http-nio-8080-exec-22] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 15:41:34.324 DEBUG [http-nio-8080-exec-22] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 15:41:34.324 DEBUG [http-nio-8080-exec-22] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@105a55be
+2022-06-05 15:41:34.324 DEBUG [http-nio-8080-exec-22] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:41:34.330 DEBUG [http-nio-8080-exec-22] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@663eede2
+2022-06-05 15:41:34.330 DEBUG [http-nio-8080-exec-22] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:41:34.552 DEBUG [http-nio-8080-exec-22] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 15:41:34.589 DEBUG [http-nio-8080-exec-22] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@105a55be
+2022-06-05 15:41:34.589 DEBUG [http-nio-8080-exec-22] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:41:34.589 DEBUG [http-nio-8080-exec-22] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:41:34.590 DEBUG [http-nio-8080-exec-22] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 15:41:34.600 INFO [http-nio-8080-exec-22] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 15:41:34.600 DEBUG [http-nio-8080-exec-22] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 15:41:34.601 DEBUG [http-nio-8080-exec-22] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Student was created
+2022-06-05 15:42:41.442 DEBUG [http-nio-8080-exec-23] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 15:42:57.569 DEBUG [http-nio-8080-exec-19] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 15:42:57.569 DEBUG [http-nio-8080-exec-19] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 15:42:57.569 DEBUG [http-nio-8080-exec-19] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 15:42:57.569 DEBUG [http-nio-8080-exec-19] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@105a55be
+2022-06-05 15:42:57.569 DEBUG [http-nio-8080-exec-19] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:42:57.570 DEBUG [http-nio-8080-exec-19] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:42:57.571 DEBUG [http-nio-8080-exec-19] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 15:42:57.573 DEBUG [http-nio-8080-exec-19] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 15:44:06.242 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 15:44:06.256 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 15:44:21.706 DEBUG [http-nio-8080-exec-25] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 15:44:21.706 DEBUG [http-nio-8080-exec-25] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 15:44:21.708 DEBUG [http-nio-8080-exec-25] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 15:44:21.708 DEBUG [http-nio-8080-exec-25] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@32a3d44d
+2022-06-05 15:44:21.709 DEBUG [http-nio-8080-exec-25] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 15:44:21.713 DEBUG [http-nio-8080-exec-25] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@1c8f94e
+2022-06-05 15:44:21.714 DEBUG [http-nio-8080-exec-25] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 15:44:21.961 DEBUG [http-nio-8080-exec-25] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 15:44:21.997 DEBUG [http-nio-8080-exec-25] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:04:18.113 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:04:18.125 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:07:17.849 DEBUG [http-nio-8080-exec-39] [Controller.LogoutServlet.doGet(LogoutServlet.java:22)] - doGet of /logout with forward to main.jsp
+2022-06-05 19:07:20.349 DEBUG [http-nio-8080-exec-40] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:07:22.532 DEBUG [http-nio-8080-exec-31] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 19:07:32.735 DEBUG [http-nio-8080-exec-37] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:07:32.735 DEBUG [http-nio-8080-exec-37] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:07:32.737 DEBUG [http-nio-8080-exec-37] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:07:32.737 DEBUG [http-nio-8080-exec-37] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6d83baf
+2022-06-05 19:07:32.738 DEBUG [http-nio-8080-exec-37] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:07:32.742 DEBUG [http-nio-8080-exec-37] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@2b9cb3be
+2022-06-05 19:07:32.742 DEBUG [http-nio-8080-exec-37] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:07:32.959 DEBUG [http-nio-8080-exec-37] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:07:32.992 DEBUG [http-nio-8080-exec-37] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:11:35.661 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:11:35.673 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:12:00.287 DEBUG [http-nio-8080-exec-45] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:12:00.287 DEBUG [http-nio-8080-exec-45] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:12:00.290 DEBUG [http-nio-8080-exec-45] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:12:00.291 DEBUG [http-nio-8080-exec-45] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@40ee75db
+2022-06-05 19:12:00.291 DEBUG [http-nio-8080-exec-45] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:12:00.297 DEBUG [http-nio-8080-exec-45] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@2319c6c1
+2022-06-05 19:12:00.297 DEBUG [http-nio-8080-exec-45] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:12:00.510 DEBUG [http-nio-8080-exec-45] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:12:00.542 DEBUG [http-nio-8080-exec-45] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:12:03.574 DEBUG [http-nio-8080-exec-39] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:12:05.115 DEBUG [http-nio-8080-exec-40] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 19:12:08.177 DEBUG [http-nio-8080-exec-46] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:12:08.177 DEBUG [http-nio-8080-exec-46] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:12:08.177 DEBUG [http-nio-8080-exec-46] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:12:08.177 DEBUG [http-nio-8080-exec-46] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@40ee75db
+2022-06-05 19:12:08.177 DEBUG [http-nio-8080-exec-46] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:12:08.177 DEBUG [http-nio-8080-exec-46] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:12:08.179 DEBUG [http-nio-8080-exec-46] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:12:08.180 DEBUG [http-nio-8080-exec-46] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:12:58.542 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:12:58.542 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:12:58.542 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:12:58.542 DEBUG [http-nio-8080-exec-49] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@40ee75db
+2022-06-05 19:12:58.543 DEBUG [http-nio-8080-exec-49] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:12:58.543 DEBUG [http-nio-8080-exec-49] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:12:58.543 DEBUG [http-nio-8080-exec-49] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:12:58.544 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:13:51.770 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:13:51.783 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:14:06.866 DEBUG [http-nio-8080-exec-51] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:14:06.866 DEBUG [http-nio-8080-exec-51] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:14:06.868 DEBUG [http-nio-8080-exec-51] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:14:06.869 DEBUG [http-nio-8080-exec-51] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@4258e360
+2022-06-05 19:14:06.869 DEBUG [http-nio-8080-exec-51] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:14:06.874 DEBUG [http-nio-8080-exec-51] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@4cccc9f9
+2022-06-05 19:14:06.874 DEBUG [http-nio-8080-exec-51] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:14:07.098 DEBUG [http-nio-8080-exec-51] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:14:07.131 DEBUG [http-nio-8080-exec-51] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:15:26.148 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:15:26.161 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:15:27.445 DEBUG [http-nio-8080-exec-41] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:15:27.445 DEBUG [http-nio-8080-exec-41] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:15:27.447 DEBUG [http-nio-8080-exec-41] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:15:27.447 DEBUG [http-nio-8080-exec-41] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7f32f002
+2022-06-05 19:15:27.447 DEBUG [http-nio-8080-exec-41] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:15:27.452 DEBUG [http-nio-8080-exec-41] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@390f52b2
+2022-06-05 19:15:27.453 DEBUG [http-nio-8080-exec-41] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:15:27.673 DEBUG [http-nio-8080-exec-41] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:15:27.706 DEBUG [http-nio-8080-exec-41] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:16:17.144 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:16:17.145 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:16:17.145 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:16:17.145 DEBUG [http-nio-8080-exec-49] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7f32f002
+2022-06-05 19:16:17.145 DEBUG [http-nio-8080-exec-49] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:16:17.145 DEBUG [http-nio-8080-exec-49] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:16:17.146 DEBUG [http-nio-8080-exec-49] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:16:17.148 DEBUG [http-nio-8080-exec-49] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:16:18.865 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:16:18.878 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:17:11.129 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:17:11.141 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:17:11.572 DEBUG [http-nio-8080-exec-63] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:17:11.573 DEBUG [http-nio-8080-exec-63] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:17:11.575 DEBUG [http-nio-8080-exec-63] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:17:11.576 DEBUG [http-nio-8080-exec-63] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6e3c8d87
+2022-06-05 19:17:11.576 DEBUG [http-nio-8080-exec-63] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:17:11.581 DEBUG [http-nio-8080-exec-63] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@251cf055
+2022-06-05 19:17:11.581 DEBUG [http-nio-8080-exec-63] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:17:11.796 DEBUG [http-nio-8080-exec-63] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:17:11.829 DEBUG [http-nio-8080-exec-63] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:19:22.076 DEBUG [http-nio-8080-exec-64] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:19:22.076 DEBUG [http-nio-8080-exec-64] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:19:22.076 DEBUG [http-nio-8080-exec-64] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:19:22.076 DEBUG [http-nio-8080-exec-64] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6e3c8d87
+2022-06-05 19:19:22.076 DEBUG [http-nio-8080-exec-64] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:19:22.076 DEBUG [http-nio-8080-exec-64] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:19:22.078 DEBUG [http-nio-8080-exec-64] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:19:22.080 DEBUG [http-nio-8080-exec-64] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:19:26.698 DEBUG [http-nio-8080-exec-66] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:19:26.699 DEBUG [http-nio-8080-exec-66] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:19:26.699 DEBUG [http-nio-8080-exec-66] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:19:26.699 DEBUG [http-nio-8080-exec-66] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6e3c8d87
+2022-06-05 19:19:26.699 DEBUG [http-nio-8080-exec-66] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:19:26.699 DEBUG [http-nio-8080-exec-66] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:19:26.700 DEBUG [http-nio-8080-exec-66] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:19:26.701 DEBUG [http-nio-8080-exec-66] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:20:51.132 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:20:51.144 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:20:51.844 DEBUG [http-nio-8080-exec-62] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:20:51.845 DEBUG [http-nio-8080-exec-62] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:20:51.849 DEBUG [http-nio-8080-exec-62] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:20:51.849 DEBUG [http-nio-8080-exec-62] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@169c227
+2022-06-05 19:20:51.849 DEBUG [http-nio-8080-exec-62] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:20:51.854 DEBUG [http-nio-8080-exec-62] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@27b4250c
+2022-06-05 19:20:51.854 DEBUG [http-nio-8080-exec-62] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:20:52.055 DEBUG [http-nio-8080-exec-62] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:20:52.086 DEBUG [http-nio-8080-exec-62] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:22:04.674 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:22:04.687 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:22:09.827 DEBUG [http-nio-8080-exec-73] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:22:09.828 DEBUG [http-nio-8080-exec-73] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:22:09.830 DEBUG [http-nio-8080-exec-73] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:22:09.830 DEBUG [http-nio-8080-exec-73] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@167f02ed
+2022-06-05 19:22:09.830 DEBUG [http-nio-8080-exec-73] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:22:09.835 DEBUG [http-nio-8080-exec-73] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@5d95685e
+2022-06-05 19:22:09.835 DEBUG [http-nio-8080-exec-73] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:22:10.048 DEBUG [http-nio-8080-exec-73] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:22:10.080 DEBUG [http-nio-8080-exec-73] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:23:49.554 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:23:49.565 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:23:54.300 DEBUG [http-nio-8080-exec-78] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:23:54.301 DEBUG [http-nio-8080-exec-78] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:23:54.303 DEBUG [http-nio-8080-exec-78] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:23:54.303 DEBUG [http-nio-8080-exec-78] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@8798ebf
+2022-06-05 19:23:54.303 DEBUG [http-nio-8080-exec-78] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:23:54.308 DEBUG [http-nio-8080-exec-78] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@474fb09
+2022-06-05 19:23:54.308 DEBUG [http-nio-8080-exec-78] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:23:54.514 DEBUG [http-nio-8080-exec-78] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:23:54.545 DEBUG [http-nio-8080-exec-78] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:24:00.028 DEBUG [http-nio-8080-exec-79] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:24:00.028 DEBUG [http-nio-8080-exec-79] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:24:00.028 DEBUG [http-nio-8080-exec-79] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:24:00.028 DEBUG [http-nio-8080-exec-79] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@8798ebf
+2022-06-05 19:24:00.028 DEBUG [http-nio-8080-exec-79] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:24:00.028 DEBUG [http-nio-8080-exec-79] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:24:00.029 DEBUG [http-nio-8080-exec-79] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:24:00.030 DEBUG [http-nio-8080-exec-79] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:24:04.059 DEBUG [http-nio-8080-exec-77] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:24:04.059 DEBUG [http-nio-8080-exec-77] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:24:04.059 DEBUG [http-nio-8080-exec-77] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:24:04.059 DEBUG [http-nio-8080-exec-77] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@8798ebf
+2022-06-05 19:24:04.059 DEBUG [http-nio-8080-exec-77] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:24:04.059 DEBUG [http-nio-8080-exec-77] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:24:04.060 DEBUG [http-nio-8080-exec-77] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:24:04.061 DEBUG [http-nio-8080-exec-77] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:27:18.841 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:27:18.853 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:27:20.710 DEBUG [http-nio-8080-exec-87] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:27:20.710 DEBUG [http-nio-8080-exec-87] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:27:20.713 DEBUG [http-nio-8080-exec-87] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:27:20.713 DEBUG [http-nio-8080-exec-87] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3c3d3a7
+2022-06-05 19:27:20.713 DEBUG [http-nio-8080-exec-87] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:27:20.718 DEBUG [http-nio-8080-exec-87] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@71d04ef2
+2022-06-05 19:27:20.718 DEBUG [http-nio-8080-exec-87] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:27:20.932 DEBUG [http-nio-8080-exec-87] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:27:20.964 DEBUG [http-nio-8080-exec-87] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:27:23.587 DEBUG [http-nio-8080-exec-85] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:27:23.588 DEBUG [http-nio-8080-exec-85] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:27:23.588 DEBUG [http-nio-8080-exec-85] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:27:23.588 DEBUG [http-nio-8080-exec-85] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3c3d3a7
+2022-06-05 19:27:23.588 DEBUG [http-nio-8080-exec-85] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:27:23.588 DEBUG [http-nio-8080-exec-85] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:27:23.589 DEBUG [http-nio-8080-exec-85] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:27:23.591 DEBUG [http-nio-8080-exec-85] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:27:26.527 DEBUG [http-nio-8080-exec-86] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:27:26.528 DEBUG [http-nio-8080-exec-86] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:27:26.528 DEBUG [http-nio-8080-exec-86] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:27:26.528 DEBUG [http-nio-8080-exec-86] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3c3d3a7
+2022-06-05 19:27:26.528 DEBUG [http-nio-8080-exec-86] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:27:26.528 DEBUG [http-nio-8080-exec-86] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:27:26.528 DEBUG [http-nio-8080-exec-86] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:27:26.529 DEBUG [http-nio-8080-exec-86] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:27:29.525 DEBUG [http-nio-8080-exec-89] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:27:29.525 DEBUG [http-nio-8080-exec-89] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:27:29.525 DEBUG [http-nio-8080-exec-89] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:27:29.525 DEBUG [http-nio-8080-exec-89] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3c3d3a7
+2022-06-05 19:27:29.525 DEBUG [http-nio-8080-exec-89] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:27:29.525 DEBUG [http-nio-8080-exec-89] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:27:29.525 DEBUG [http-nio-8080-exec-89] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:27:29.526 DEBUG [http-nio-8080-exec-89] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:27:36.762 DEBUG [http-nio-8080-exec-81] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:27:37.650 DEBUG [http-nio-8080-exec-90] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 19:27:41.092 DEBUG [http-nio-8080-exec-88] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:27:41.092 DEBUG [http-nio-8080-exec-88] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:27:41.092 DEBUG [http-nio-8080-exec-88] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:27:41.092 DEBUG [http-nio-8080-exec-88] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3c3d3a7
+2022-06-05 19:27:41.092 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:27:41.093 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:27:41.093 DEBUG [http-nio-8080-exec-88] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:27:41.094 DEBUG [http-nio-8080-exec-88] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:28:21.967 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:28:21.979 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:28:28.235 DEBUG [http-nio-8080-exec-94] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:28:28.235 DEBUG [http-nio-8080-exec-94] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:28:28.237 DEBUG [http-nio-8080-exec-94] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:28:28.238 DEBUG [http-nio-8080-exec-94] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@67c840c3
+2022-06-05 19:28:28.238 DEBUG [http-nio-8080-exec-94] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:28:28.243 DEBUG [http-nio-8080-exec-94] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@27cd09ee
+2022-06-05 19:28:28.243 DEBUG [http-nio-8080-exec-94] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:28:28.447 DEBUG [http-nio-8080-exec-94] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:28:28.480 DEBUG [http-nio-8080-exec-94] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:29:53.091 DEBUG [http-nio-8080-exec-96] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:29:53.091 DEBUG [http-nio-8080-exec-96] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:29:53.091 DEBUG [http-nio-8080-exec-96] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:29:53.091 DEBUG [http-nio-8080-exec-96] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@67c840c3
+2022-06-05 19:29:53.091 DEBUG [http-nio-8080-exec-96] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:29:53.092 DEBUG [http-nio-8080-exec-96] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:29:53.093 DEBUG [http-nio-8080-exec-96] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:29:53.095 DEBUG [http-nio-8080-exec-96] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:29:56.426 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:29:56.438 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:30:38.359 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:30:38.371 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:30:39.276 DEBUG [http-nio-8080-exec-98] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:30:39.277 DEBUG [http-nio-8080-exec-98] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:30:39.281 DEBUG [http-nio-8080-exec-98] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:30:39.281 DEBUG [http-nio-8080-exec-98] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@715fb531
+2022-06-05 19:30:39.281 DEBUG [http-nio-8080-exec-98] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:30:39.286 DEBUG [http-nio-8080-exec-98] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@506074cf
+2022-06-05 19:30:39.286 DEBUG [http-nio-8080-exec-98] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:30:39.492 DEBUG [http-nio-8080-exec-98] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:30:39.524 DEBUG [http-nio-8080-exec-98] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:31:06.404 DEBUG [http-nio-8080-exec-103] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:31:06.404 DEBUG [http-nio-8080-exec-103] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:31:06.404 DEBUG [http-nio-8080-exec-103] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:31:06.404 DEBUG [http-nio-8080-exec-103] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@715fb531
+2022-06-05 19:31:06.404 DEBUG [http-nio-8080-exec-103] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:31:06.404 DEBUG [http-nio-8080-exec-103] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:31:06.405 DEBUG [http-nio-8080-exec-103] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:31:06.407 DEBUG [http-nio-8080-exec-103] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:31:10.112 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:31:10.123 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:31:52.032 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:31:52.045 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:31:54.953 DEBUG [http-nio-8080-exec-108] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:31:54.953 DEBUG [http-nio-8080-exec-108] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:31:54.955 DEBUG [http-nio-8080-exec-108] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:31:54.955 DEBUG [http-nio-8080-exec-108] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@48fc0d38
+2022-06-05 19:31:54.955 DEBUG [http-nio-8080-exec-108] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:31:54.959 DEBUG [http-nio-8080-exec-108] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@7ccba75c
+2022-06-05 19:31:54.960 DEBUG [http-nio-8080-exec-108] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:31:55.163 DEBUG [http-nio-8080-exec-108] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:31:55.200 DEBUG [http-nio-8080-exec-108] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:32:34.214 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:32:34.226 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:32:36.210 DEBUG [http-nio-8080-exec-107] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:32:36.210 DEBUG [http-nio-8080-exec-107] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:32:36.212 DEBUG [http-nio-8080-exec-107] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:32:36.212 DEBUG [http-nio-8080-exec-107] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6aa66a6a
+2022-06-05 19:32:36.213 DEBUG [http-nio-8080-exec-107] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:32:36.218 DEBUG [http-nio-8080-exec-107] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@270cea05
+2022-06-05 19:32:36.218 DEBUG [http-nio-8080-exec-107] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:32:36.418 DEBUG [http-nio-8080-exec-107] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:32:36.449 DEBUG [http-nio-8080-exec-107] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:32:55.544 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:32:55.556 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:32:59.566 DEBUG [http-nio-8080-exec-104] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:32:59.567 DEBUG [http-nio-8080-exec-104] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:32:59.569 DEBUG [http-nio-8080-exec-104] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:32:59.569 DEBUG [http-nio-8080-exec-104] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5fca3c12
+2022-06-05 19:32:59.569 DEBUG [http-nio-8080-exec-104] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:32:59.576 DEBUG [http-nio-8080-exec-104] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@2b891396
+2022-06-05 19:32:59.577 DEBUG [http-nio-8080-exec-104] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:32:59.786 DEBUG [http-nio-8080-exec-104] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:32:59.818 DEBUG [http-nio-8080-exec-104] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:34:29.990 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:34:30.002 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:34:37.856 DEBUG [http-nio-8080-exec-113] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:34:37.856 DEBUG [http-nio-8080-exec-113] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:34:37.858 DEBUG [http-nio-8080-exec-113] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:34:37.858 DEBUG [http-nio-8080-exec-113] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7b1eb33b
+2022-06-05 19:34:37.859 DEBUG [http-nio-8080-exec-113] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:34:37.863 DEBUG [http-nio-8080-exec-113] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@e05eca5
+2022-06-05 19:34:37.863 DEBUG [http-nio-8080-exec-113] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:34:38.066 DEBUG [http-nio-8080-exec-113] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:34:38.098 DEBUG [http-nio-8080-exec-113] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:34:43.913 DEBUG [http-nio-8080-exec-114] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:34:45.940 DEBUG [http-nio-8080-exec-115] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 19:34:48.613 DEBUG [http-nio-8080-exec-118] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:34:48.613 DEBUG [http-nio-8080-exec-118] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:34:48.613 DEBUG [http-nio-8080-exec-118] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:34:48.613 DEBUG [http-nio-8080-exec-118] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7b1eb33b
+2022-06-05 19:34:48.613 DEBUG [http-nio-8080-exec-118] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:34:48.613 DEBUG [http-nio-8080-exec-118] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:34:48.615 DEBUG [http-nio-8080-exec-118] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:34:48.617 DEBUG [http-nio-8080-exec-118] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:34:53.454 DEBUG [http-nio-8080-exec-109] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:34:53.455 DEBUG [http-nio-8080-exec-109] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:34:53.455 DEBUG [http-nio-8080-exec-109] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:34:53.455 DEBUG [http-nio-8080-exec-109] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7b1eb33b
+2022-06-05 19:34:53.455 DEBUG [http-nio-8080-exec-109] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:34:53.455 DEBUG [http-nio-8080-exec-109] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:34:53.456 DEBUG [http-nio-8080-exec-109] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:34:53.458 DEBUG [http-nio-8080-exec-109] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:35:15.176 DEBUG [http-nio-8080-exec-121] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:35:15.176 DEBUG [http-nio-8080-exec-121] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:35:15.176 DEBUG [http-nio-8080-exec-121] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:35:15.176 DEBUG [http-nio-8080-exec-121] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7b1eb33b
+2022-06-05 19:35:15.176 DEBUG [http-nio-8080-exec-121] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:35:15.176 DEBUG [http-nio-8080-exec-121] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:35:15.176 DEBUG [http-nio-8080-exec-121] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:35:15.178 DEBUG [http-nio-8080-exec-121] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 19:35:48.088 DEBUG [http-nio-8080-exec-123] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:35:48.088 DEBUG [http-nio-8080-exec-123] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:35:48.088 DEBUG [http-nio-8080-exec-123] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:35:48.088 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7b1eb33b
+2022-06-05 19:35:48.088 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:35:48.088 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:35:48.089 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:35:48.090 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@7b1eb33b
+2022-06-05 19:35:48.090 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:35:48.090 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:35:48.090 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 19:35:48.099 INFO [http-nio-8080-exec-123] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 19:35:48.099 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 19:35:48.100 DEBUG [http-nio-8080-exec-123] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Student was created
+2022-06-05 19:44:15.067 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:44:15.080 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:44:18.187 DEBUG [http-nio-8080-exec-120] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 19:44:23.487 DEBUG [http-nio-8080-exec-123] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 19:44:23.487 DEBUG [http-nio-8080-exec-123] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 19:44:23.490 DEBUG [http-nio-8080-exec-123] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 19:44:23.490 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5f174843
+2022-06-05 19:44:23.490 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:44:23.494 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@3947874e
+2022-06-05 19:44:23.494 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:44:23.704 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 19:44:23.735 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5f174843
+2022-06-05 19:44:23.735 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 19:44:23.735 DEBUG [http-nio-8080-exec-123] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 19:44:23.736 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 19:44:23.744 INFO [http-nio-8080-exec-123] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 19:44:23.744 DEBUG [http-nio-8080-exec-123] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 19:44:23.745 DEBUG [http-nio-8080-exec-123] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Student was created
+2022-06-05 19:44:23.748 DEBUG [http-nio-8080-exec-125] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:44:40.364 DEBUG [http-nio-8080-exec-126] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:44:57.543 DEBUG [http-nio-8080-exec-124] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:45:55.334 DEBUG [http-nio-8080-exec-133] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:45:57.278 DEBUG [http-nio-8080-exec-134] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:45:59.979 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:45:59.991 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:46:29.278 DEBUG [http-nio-8080-exec-137] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 19:46:31.566 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 19:46:31.578 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 19:46:37.036 DEBUG [http-nio-8080-exec-135] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 20:05:43.340 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 20:05:43.353 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 20:05:43.968 DEBUG [http-nio-8080-exec-144] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 20:05:45.551 DEBUG [http-nio-8080-exec-148] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 20:05:53.769 DEBUG [http-nio-8080-exec-146] [Controller.MainPageServlet.doPost(MainPageServlet.java:34)] - doPost of /main with redirect to main
+2022-06-05 20:05:53.772 DEBUG [http-nio-8080-exec-142] [Controller.MainPageServlet.doGet(MainPageServlet.java:21)] - doGet of /main with forward to main.jsp
+2022-06-05 20:05:56.367 DEBUG [http-nio-8080-exec-149] [Controller.LogoutServlet.doGet(LogoutServlet.java:22)] - doGet of /logout with forward to main.jsp
+2022-06-05 20:05:57.640 DEBUG [http-nio-8080-exec-141] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 20:05:59.519 DEBUG [http-nio-8080-exec-140] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 20:06:03.302 DEBUG [http-nio-8080-exec-143] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 20:06:03.302 DEBUG [http-nio-8080-exec-143] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 20:06:03.304 DEBUG [http-nio-8080-exec-143] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 20:06:03.304 DEBUG [http-nio-8080-exec-143] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@1ac1db87
+2022-06-05 20:06:03.304 DEBUG [http-nio-8080-exec-143] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 20:06:03.307 DEBUG [http-nio-8080-exec-143] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@3feca9f4
+2022-06-05 20:06:03.307 DEBUG [http-nio-8080-exec-143] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 20:06:03.521 DEBUG [http-nio-8080-exec-143] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 20:06:03.553 DEBUG [http-nio-8080-exec-143] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:43)] - User already exist, forward to /error
+2022-06-05 20:06:11.078 DEBUG [http-nio-8080-exec-150] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 20:06:11.078 DEBUG [http-nio-8080-exec-150] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 20:06:11.078 DEBUG [http-nio-8080-exec-150] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 20:06:11.079 DEBUG [http-nio-8080-exec-150] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@1ac1db87
+2022-06-05 20:06:11.079 DEBUG [http-nio-8080-exec-150] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 20:06:11.079 DEBUG [http-nio-8080-exec-150] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 20:06:11.080 DEBUG [http-nio-8080-exec-150] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 20:06:11.083 DEBUG [http-nio-8080-exec-150] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@1ac1db87
+2022-06-05 20:06:11.083 DEBUG [http-nio-8080-exec-150] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 20:06:11.083 DEBUG [http-nio-8080-exec-150] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 20:06:11.083 DEBUG [http-nio-8080-exec-150] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 20:06:11.095 INFO [http-nio-8080-exec-150] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 20:06:11.096 DEBUG [http-nio-8080-exec-150] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 20:06:11.096 DEBUG [http-nio-8080-exec-150] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Student was created
+2022-06-05 20:06:11.100 DEBUG [http-nio-8080-exec-147] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 20:06:14.849 DEBUG [http-nio-8080-exec-151] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 20:10:05.058 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 20:10:05.069 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 20:10:09.806 DEBUG [http-nio-8080-exec-155] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 20:10:17.810 DEBUG [http-nio-8080-exec-157] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 20:10:17.810 DEBUG [http-nio-8080-exec-157] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 20:10:17.812 DEBUG [http-nio-8080-exec-157] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 20:10:17.812 DEBUG [http-nio-8080-exec-157] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@37abd847
+2022-06-05 20:10:17.812 DEBUG [http-nio-8080-exec-157] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 20:10:17.818 DEBUG [http-nio-8080-exec-157] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@3b858b51
+2022-06-05 20:10:17.818 DEBUG [http-nio-8080-exec-157] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 20:10:18.023 DEBUG [http-nio-8080-exec-157] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 20:10:18.053 DEBUG [http-nio-8080-exec-157] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:48)] - User already exist, forward to /error
+2022-06-05 20:10:23.531 DEBUG [http-nio-8080-exec-154] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 20:10:23.531 DEBUG [http-nio-8080-exec-154] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 20:10:23.531 DEBUG [http-nio-8080-exec-154] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 20:10:23.531 INFO [http-nio-8080-exec-154] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Passwords doesn't match
+2022-06-05 20:11:30.256 DEBUG [http-nio-8080-exec-160] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 20:11:30.256 DEBUG [http-nio-8080-exec-160] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 20:11:30.256 DEBUG [http-nio-8080-exec-160] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 20:11:30.256 INFO [http-nio-8080-exec-160] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:39)] - Passwords doesn't match
+2022-06-05 20:11:36.439 DEBUG [http-nio-8080-exec-161] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:30)] - doPost of /login with forward to login.jsp
+2022-06-05 20:11:36.439 DEBUG [http-nio-8080-exec-161] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - creating studentService
+2022-06-05 20:11:36.439 DEBUG [http-nio-8080-exec-161] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:33)] - StudentService was created
+2022-06-05 20:11:36.439 DEBUG [http-nio-8080-exec-161] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@37abd847
+2022-06-05 20:11:36.439 DEBUG [http-nio-8080-exec-161] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 20:11:36.439 DEBUG [http-nio-8080-exec-161] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 20:11:36.440 DEBUG [http-nio-8080-exec-161] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 20:11:36.442 DEBUG [http-nio-8080-exec-161] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@37abd847
+2022-06-05 20:11:36.442 DEBUG [http-nio-8080-exec-161] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 20:11:36.442 DEBUG [http-nio-8080-exec-161] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 20:11:36.442 DEBUG [http-nio-8080-exec-161] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 20:11:36.453 INFO [http-nio-8080-exec-161] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 20:11:36.453 DEBUG [http-nio-8080-exec-161] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 20:11:36.454 INFO [http-nio-8080-exec-161] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:44)] - Student was created
+2022-06-05 20:11:36.457 DEBUG [http-nio-8080-exec-162] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:24)] - doGet of /login with forward to login.jsp
+2022-06-05 20:13:02.545 DEBUG [http-nio-8080-exec-165] [Controller.MainPageServlet.doPost(MainPageServlet.java:34)] - doPost of /main with redirect to main
+2022-06-05 20:13:02.549 DEBUG [http-nio-8080-exec-166] [Controller.MainPageServlet.doGet(MainPageServlet.java:21)] - doGet of /main with forward to main.jsp
+2022-06-05 22:13:24.799 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 22:13:24.811 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 22:13:26.604 DEBUG [http-nio-8080-exec-164] [Controller.LogoutServlet.doGet(LogoutServlet.java:22)] - doGet of /logout with forward to main.jsp
+2022-06-05 22:13:36.200 DEBUG [http-nio-8080-exec-163] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:13:44.505 DEBUG [http-nio-8080-exec-167] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:13:44.507 DEBUG [http-nio-8080-exec-167] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:13:44.507 DEBUG [http-nio-8080-exec-167] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@29974ea8
+2022-06-05 22:13:44.507 DEBUG [http-nio-8080-exec-167] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:13:44.511 DEBUG [http-nio-8080-exec-167] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@cba3ab1
+2022-06-05 22:13:44.512 DEBUG [http-nio-8080-exec-167] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:13:44.732 DEBUG [http-nio-8080-exec-167] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:13:44.767 DEBUG [http-nio-8080-exec-169] [Controller.MainPageServlet.doGet(MainPageServlet.java:24)] - doGet of /main with forward to main.jsp
+2022-06-05 22:18:17.690 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 22:18:17.701 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 22:18:22.426 DEBUG [http-nio-8080-exec-177] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:18:22.429 DEBUG [http-nio-8080-exec-177] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:18:22.429 DEBUG [http-nio-8080-exec-177] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6d72f0ee
+2022-06-05 22:18:22.429 DEBUG [http-nio-8080-exec-177] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:18:22.434 DEBUG [http-nio-8080-exec-177] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@37c36a1f
+2022-06-05 22:18:22.434 DEBUG [http-nio-8080-exec-177] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:18:22.640 DEBUG [http-nio-8080-exec-177] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:18:22.675 DEBUG [http-nio-8080-exec-175] [Controller.MainPageServlet.doGet(MainPageServlet.java:24)] - doGet of /main with forward to main.jsp
+2022-06-05 22:19:16.376 DEBUG [http-nio-8080-exec-171] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:19:16.376 DEBUG [http-nio-8080-exec-171] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:19:16.376 DEBUG [http-nio-8080-exec-171] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6d72f0ee
+2022-06-05 22:19:16.376 DEBUG [http-nio-8080-exec-171] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:19:16.376 DEBUG [http-nio-8080-exec-171] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:19:16.377 DEBUG [http-nio-8080-exec-171] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:19:16.385 DEBUG [http-nio-8080-exec-173] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:19:31.249 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-05 22:19:31.261 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-05 22:19:49.109 DEBUG [http-nio-8080-exec-174] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:20:00.983 DEBUG [http-nio-8080-exec-182] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:20:00.986 DEBUG [http-nio-8080-exec-182] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:20:00.986 DEBUG [http-nio-8080-exec-182] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:20:00.986 DEBUG [http-nio-8080-exec-182] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:20:00.991 DEBUG [http-nio-8080-exec-182] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@274e0e59
+2022-06-05 22:20:00.991 DEBUG [http-nio-8080-exec-182] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:20:01.203 DEBUG [http-nio-8080-exec-182] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:20:01.237 INFO [http-nio-8080-exec-182] [Controller.MainPageServlet.doPost(MainPageServlet.java:50)] - You was logged as DataBaseLayer.entity.Student@27
+2022-06-05 22:20:01.240 DEBUG [http-nio-8080-exec-176] [Controller.MainPageServlet.doGet(MainPageServlet.java:24)] - doGet of /main with forward to main.jsp
+2022-06-05 22:20:07.824 DEBUG [http-nio-8080-exec-184] [Controller.LogoutServlet.doGet(LogoutServlet.java:22)] - doGet of /logout with forward to main.jsp
+2022-06-05 22:20:10.819 DEBUG [http-nio-8080-exec-178] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:20:22.093 DEBUG [http-nio-8080-exec-185] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:20:22.093 DEBUG [http-nio-8080-exec-185] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:20:22.093 DEBUG [http-nio-8080-exec-185] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:20:22.093 DEBUG [http-nio-8080-exec-185] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:20:22.093 DEBUG [http-nio-8080-exec-185] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:20:22.094 DEBUG [http-nio-8080-exec-185] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:20:22.100 DEBUG [http-nio-8080-exec-186] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:20:35.453 DEBUG [http-nio-8080-exec-180] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:20:35.453 DEBUG [http-nio-8080-exec-180] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:20:35.453 DEBUG [http-nio-8080-exec-180] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:20:35.453 DEBUG [http-nio-8080-exec-180] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:20:35.454 DEBUG [http-nio-8080-exec-180] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:20:35.454 DEBUG [http-nio-8080-exec-180] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:20:35.459 DEBUG [http-nio-8080-exec-188] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:20:45.445 DEBUG [http-nio-8080-exec-189] [Controller.RegisterPageServlet.doGet(RegisterPageServlet.java:19)] - doGet of /register with forward to register.jsp
+2022-06-05 22:20:58.117 DEBUG [http-nio-8080-exec-190] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:28)] - doPost of /login with forward to login.jsp
+2022-06-05 22:20:58.117 DEBUG [http-nio-8080-exec-190] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:29)] - creating studentService
+2022-06-05 22:20:58.117 DEBUG [http-nio-8080-exec-190] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - StudentService was created
+2022-06-05 22:20:58.117 INFO [http-nio-8080-exec-190] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:37)] - Passwords doesn't match
+2022-06-05 22:21:08.322 DEBUG [http-nio-8080-exec-191] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:28)] - doPost of /login with forward to login.jsp
+2022-06-05 22:21:08.322 DEBUG [http-nio-8080-exec-191] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:29)] - creating studentService
+2022-06-05 22:21:08.322 DEBUG [http-nio-8080-exec-191] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - StudentService was created
+2022-06-05 22:21:08.322 DEBUG [http-nio-8080-exec-191] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:21:08.322 DEBUG [http-nio-8080-exec-191] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:21:08.322 DEBUG [http-nio-8080-exec-191] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:21:08.323 DEBUG [http-nio-8080-exec-191] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 22:21:08.324 DEBUG [http-nio-8080-exec-191] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:46)] - User already exist, forward to /error
+2022-06-05 22:21:20.857 DEBUG [http-nio-8080-exec-185] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:28)] - doPost of /login with forward to login.jsp
+2022-06-05 22:21:20.857 DEBUG [http-nio-8080-exec-185] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:29)] - creating studentService
+2022-06-05 22:21:20.857 DEBUG [http-nio-8080-exec-185] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:31)] - StudentService was created
+2022-06-05 22:21:20.857 DEBUG [http-nio-8080-exec-185] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:52)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:21:20.857 DEBUG [http-nio-8080-exec-185] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:21:20.857 DEBUG [http-nio-8080-exec-185] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:21:20.858 DEBUG [http-nio-8080-exec-185] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - StudentDAO created
+2022-06-05 22:21:20.859 DEBUG [http-nio-8080-exec-185] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:36)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:21:20.859 DEBUG [http-nio-8080-exec-185] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:21:20.859 DEBUG [http-nio-8080-exec-185] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:21:20.859 DEBUG [http-nio-8080-exec-185] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:38)] - StudentDAO created
+2022-06-05 22:21:20.870 INFO [http-nio-8080-exec-185] [DataBaseLayer.DAO.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:52)] - Student with empty fields created
+2022-06-05 22:21:20.870 DEBUG [http-nio-8080-exec-185] [ServicesImpl.StudentServiceImpl.createStudent(StudentServiceImpl.java:40)] - CreateStudent Method used
+2022-06-05 22:21:20.871 INFO [http-nio-8080-exec-185] [Controller.LoginPageServlet.doPost(LoginPageServlet.java:42)] - Student was created
+2022-06-05 22:21:20.874 DEBUG [http-nio-8080-exec-186] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:21:29.578 DEBUG [http-nio-8080-exec-187] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:21:29.578 DEBUG [http-nio-8080-exec-187] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:21:29.578 DEBUG [http-nio-8080-exec-187] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:21:29.578 DEBUG [http-nio-8080-exec-187] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:21:29.578 DEBUG [http-nio-8080-exec-187] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:21:29.578 DEBUG [http-nio-8080-exec-187] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:21:29.582 DEBUG [http-nio-8080-exec-193] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:21:32.979 DEBUG [http-nio-8080-exec-188] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:21:32.980 DEBUG [http-nio-8080-exec-188] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:21:32.980 DEBUG [http-nio-8080-exec-188] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:21:32.980 DEBUG [http-nio-8080-exec-188] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:21:32.980 DEBUG [http-nio-8080-exec-188] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:21:32.980 DEBUG [http-nio-8080-exec-188] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:21:32.985 DEBUG [http-nio-8080-exec-189] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:21:36.470 DEBUG [http-nio-8080-exec-194] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:21:36.470 DEBUG [http-nio-8080-exec-194] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:21:36.470 DEBUG [http-nio-8080-exec-194] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:21:36.470 DEBUG [http-nio-8080-exec-194] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:21:36.470 DEBUG [http-nio-8080-exec-194] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:21:36.471 DEBUG [http-nio-8080-exec-194] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:21:36.475 DEBUG [http-nio-8080-exec-190] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:21:40.259 DEBUG [http-nio-8080-exec-191] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:21:40.259 DEBUG [http-nio-8080-exec-191] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:21:40.259 DEBUG [http-nio-8080-exec-191] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:21:40.259 DEBUG [http-nio-8080-exec-191] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:21:40.259 DEBUG [http-nio-8080-exec-191] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:21:40.259 DEBUG [http-nio-8080-exec-191] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:21:40.263 DEBUG [http-nio-8080-exec-192] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:22)] - doGet of /login with forward to login.jsp
+2022-06-05 22:21:42.934 DEBUG [http-nio-8080-exec-186] [Controller.MainPageServlet.doPost(MainPageServlet.java:37)] - doPost of /main with redirect to main
+2022-06-05 22:21:42.934 DEBUG [http-nio-8080-exec-186] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-05 22:21:42.934 DEBUG [http-nio-8080-exec-186] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3951ed47
+2022-06-05 22:21:42.934 DEBUG [http-nio-8080-exec-186] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:27)] - MySQLStudentDAO created
+2022-06-05 22:21:42.934 DEBUG [http-nio-8080-exec-186] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-05 22:21:42.935 DEBUG [http-nio-8080-exec-186] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-05 22:21:42.936 INFO [http-nio-8080-exec-186] [Controller.MainPageServlet.doPost(MainPageServlet.java:50)] - You was logged as DataBaseLayer.entity.Student@29
+2022-06-05 22:21:42.939 DEBUG [http-nio-8080-exec-187] [Controller.MainPageServlet.doGet(MainPageServlet.java:24)] - doGet of /main with forward to main.jsp
+2022-06-05 22:22:30.323 DEBUG [http-nio-8080-exec-189] [Controller.AccountPageServlet.doGet(AccountPageServlet.java:22)] - doGet of /account with forward to account.jsp

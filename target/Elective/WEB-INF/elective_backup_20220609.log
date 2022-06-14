@@ -1,0 +1,671 @@
+2022-06-09 13:47:49.034 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 13:47:49.062 DEBUG [main] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 13:48:02.232 DEBUG [http-nio-8080-exec-3] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:23)] - doGet of /login with forward to login.jsp
+2022-06-09 13:48:07.100 DEBUG [http-nio-8080-exec-5] [Controller.MainPageServlet.doPost(MainPageServlet.java:43)] - doPost of /main with redirect to main
+2022-06-09 13:48:07.103 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-09 13:48:07.103 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3df35c7b
+2022-06-09 13:48:07.103 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:28)] - MySQLStudentDAO created
+2022-06-09 13:48:07.111 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@581e01a6
+2022-06-09 13:48:07.111 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 13:48:07.658 DEBUG [http-nio-8080-exec-5] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-09 13:48:07.703 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLStudentDAO.close(MySQLStudentDAO.java:275)] - connection was closed
+2022-06-09 13:48:07.703 INFO [http-nio-8080-exec-5] [Controller.MainPageServlet.doPost(MainPageServlet.java:55)] - Student was not found
+2022-06-09 13:48:07.704 DEBUG [http-nio-8080-exec-5] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:72)] - Start of authorization
+2022-06-09 13:48:07.704 DEBUG [http-nio-8080-exec-5] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:76)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3df35c7b
+2022-06-09 13:48:07.705 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 13:48:07.706 DEBUG [http-nio-8080-exec-5] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:78)] - TeacherDAO created
+2022-06-09 13:48:07.709 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLTeacherDAO.close(MySQLTeacherDAO.java:177)] - connection was closed
+2022-06-09 13:48:07.709 INFO [http-nio-8080-exec-5] [Controller.MainPageServlet.doPost(MainPageServlet.java:64)] - Teacher was not found
+2022-06-09 13:48:07.710 DEBUG [http-nio-8080-exec-5] [ServicesImpl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:57)] - Start of authorization
+2022-06-09 13:48:07.710 DEBUG [http-nio-8080-exec-5] [ServicesImpl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:61)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@3df35c7b
+2022-06-09 13:48:07.710 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:12)] - MySQLAdministratorDAO created
+2022-06-09 13:48:07.711 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 13:48:07.711 DEBUG [http-nio-8080-exec-5] [ServicesImpl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:63)] - AdministratorDAO created
+2022-06-09 13:48:07.714 DEBUG [http-nio-8080-exec-5] [DataBaseLayer.DAO.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:184)] - connection was closed
+2022-06-09 13:48:07.714 INFO [http-nio-8080-exec-5] [Controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as DataBaseLayer.entity.Administrator@20
+2022-06-09 13:48:07.718 DEBUG [http-nio-8080-exec-6] [Controller.MainPageServlet.doGet(MainPageServlet.java:30)] - doGet of /main with forward to main.jsp
+2022-06-09 13:48:08.938 DEBUG [http-nio-8080-exec-7] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:16:39.042 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:16:39.055 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:16:44.055 DEBUG [http-nio-8080-exec-1] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:17:52.548 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:17:52.563 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:18:03.480 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:18:03.494 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:18:03.529 DEBUG [http-nio-8080-exec-6] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:18:54.879 DEBUG [http-nio-8080-exec-3] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:18:56.066 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:18:56.079 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:19:25.171 DEBUG [http-nio-8080-exec-15] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:19:27.725 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:19:27.740 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:20:13.586 DEBUG [http-nio-8080-exec-5] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:20:20.360 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:20:20.373 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:20:48.179 DEBUG [http-nio-8080-exec-18] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:20:52.006 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:20:52.018 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:22:21.832 DEBUG [http-nio-8080-exec-23] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:22:25.781 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:22:25.794 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:22:53.310 DEBUG [http-nio-8080-exec-23] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:22:54.871 DEBUG [http-nio-8080-exec-8] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:22:56.472 DEBUG [http-nio-8080-exec-14] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:22:57.408 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:22:57.421 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:22:58.123 DEBUG [http-nio-8080-exec-21] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:22:58.432 DEBUG [http-nio-8080-exec-29] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:23:02.760 DEBUG [http-nio-8080-exec-19] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:23:29.027 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:23:29.040 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:23:29.253 DEBUG [http-nio-8080-exec-34] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:23:30.866 DEBUG [http-nio-8080-exec-31] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:23:34.183 DEBUG [http-nio-8080-exec-33] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:23:35.111 DEBUG [http-nio-8080-exec-30] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:24:00.660 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:24:00.672 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:24:02.875 DEBUG [http-nio-8080-exec-2] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:24:04.134 DEBUG [http-nio-8080-exec-36] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:24:05.840 DEBUG [http-nio-8080-exec-29] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:24:28.462 DEBUG [http-nio-8080-exec-26] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:24:32.273 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:24:32.284 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:27:03.200 DEBUG [http-nio-8080-exec-47] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:28:11.219 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:28:11.233 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:28:24.233 DEBUG [http-nio-8080-exec-50] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:29:03.627 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:29:03.640 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:29:35.269 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:29:35.282 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:29:52.213 DEBUG [http-nio-8080-exec-53] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:30:58.791 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:30:58.803 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:31:02.476 DEBUG [http-nio-8080-exec-45] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:34:58.499 DEBUG [http-nio-8080-exec-57] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:43:05.383 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 14:43:05.395 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 14:43:08.390 DEBUG [http-nio-8080-exec-60] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:43:14.149 DEBUG [http-nio-8080-exec-59] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:30)] - doPost of /admin with redirect to /admin
+2022-06-09 14:43:14.151 DEBUG [http-nio-8080-exec-59] [Controller.AdminPageServlet.createNewTeacher(AdminPageServlet.java:64)] - TeacherService was created
+2022-06-09 14:43:14.151 INFO [http-nio-8080-exec-59] [Controller.AdminPageServlet.createNewTeacher(AdminPageServlet.java:66)] - Teacher's passwords don't match
+2022-06-09 14:43:14.155 DEBUG [http-nio-8080-exec-62] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:43:17.691 DEBUG [http-nio-8080-exec-65] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:30)] - doPost of /admin with redirect to /admin
+2022-06-09 14:43:17.691 DEBUG [http-nio-8080-exec-65] [Controller.AdminPageServlet.createNewTeacher(AdminPageServlet.java:64)] - TeacherService was created
+2022-06-09 14:43:17.692 DEBUG [http-nio-8080-exec-65] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:58)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5100d01c
+2022-06-09 14:43:17.698 DEBUG [http-nio-8080-exec-65] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@79a78975
+2022-06-09 14:43:17.698 DEBUG [http-nio-8080-exec-65] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 14:43:17.923 DEBUG [http-nio-8080-exec-65] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:60)] - TeacherDAO created
+2022-06-09 14:43:17.958 DEBUG [http-nio-8080-exec-65] [DataBaseLayer.DAO.MySQLTeacherDAO.close(MySQLTeacherDAO.java:177)] - connection was closed
+2022-06-09 14:43:17.958 DEBUG [http-nio-8080-exec-65] [Controller.AdminPageServlet.createNewTeacher(AdminPageServlet.java:75)] - User already exist, redirect to /admin
+2022-06-09 14:43:17.962 DEBUG [http-nio-8080-exec-57] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 14:43:45.389 DEBUG [http-nio-8080-exec-64] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:30)] - doPost of /admin with redirect to /admin
+2022-06-09 14:43:45.390 DEBUG [http-nio-8080-exec-64] [Controller.AdminPageServlet.createNewTeacher(AdminPageServlet.java:64)] - TeacherService was created
+2022-06-09 14:43:45.390 DEBUG [http-nio-8080-exec-64] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:58)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5100d01c
+2022-06-09 14:43:45.390 DEBUG [http-nio-8080-exec-64] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 14:43:45.392 DEBUG [http-nio-8080-exec-64] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:60)] - TeacherDAO created
+2022-06-09 14:43:45.394 DEBUG [http-nio-8080-exec-64] [DataBaseLayer.DAO.MySQLTeacherDAO.close(MySQLTeacherDAO.java:177)] - connection was closed
+2022-06-09 14:43:45.394 DEBUG [http-nio-8080-exec-64] [ServicesImpl.TeacherServiceImpl.createTeacher(TeacherServiceImpl.java:25)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5100d01c
+2022-06-09 14:43:45.394 DEBUG [http-nio-8080-exec-64] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 14:43:45.395 DEBUG [http-nio-8080-exec-64] [ServicesImpl.TeacherServiceImpl.createTeacher(TeacherServiceImpl.java:27)] - TeacherDAO created
+2022-06-09 14:43:45.421 INFO [http-nio-8080-exec-64] [DataBaseLayer.DAO.MySQLTeacherDAO.createTeacher(MySQLTeacherDAO.java:52)] - Teacher with empty fields created
+2022-06-09 14:43:45.421 DEBUG [http-nio-8080-exec-64] [ServicesImpl.TeacherServiceImpl.createTeacher(TeacherServiceImpl.java:29)] - CreateTeacher Method used
+2022-06-09 14:43:45.422 DEBUG [http-nio-8080-exec-64] [DataBaseLayer.DAO.MySQLTeacherDAO.close(MySQLTeacherDAO.java:177)] - connection was closed
+2022-06-09 14:43:45.422 INFO [http-nio-8080-exec-64] [Controller.AdminPageServlet.createNewTeacher(AdminPageServlet.java:71)] - Teacher was created
+2022-06-09 14:43:45.426 DEBUG [http-nio-8080-exec-58] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:24)] - doGet of /admin with forward to admin.jsp
+2022-06-09 15:02:37.632 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 15:02:37.644 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 15:03:42.408 DEBUG [http-nio-8080-exec-75] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:26)] - doGet of /admin with forward to admin.jsp
+2022-06-09 15:03:54.292 DEBUG [http-nio-8080-exec-74] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:32)] - doPost of /admin with redirect to /admin
+2022-06-09 15:03:54.292 DEBUG [http-nio-8080-exec-74] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:38)] - Creating course process started
+2022-06-09 15:03:54.295 DEBUG [http-nio-8080-exec-74] [Controller.AdminPageServlet.createNewCourse(AdminPageServlet.java:71)] - CourseService was created
+2022-06-09 15:03:54.295 DEBUG [http-nio-8080-exec-74] [ServicesImpl.CourseServiceImpl.createCourse(CourseServiceImpl.java:20)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@33680781
+2022-06-09 15:03:54.301 DEBUG [http-nio-8080-exec-74] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@616fa0ca
+2022-06-09 15:03:54.301 DEBUG [http-nio-8080-exec-74] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 15:03:54.518 DEBUG [http-nio-8080-exec-74] [ServicesImpl.CourseServiceImpl.createCourse(CourseServiceImpl.java:22)] - CourseDAO created
+2022-06-09 15:03:54.542 INFO [http-nio-8080-exec-74] [DataBaseLayer.DAO.MySQLCourseDAO.createCourse(MySQLCourseDAO.java:33)] - Course was created
+2022-06-09 15:03:54.543 DEBUG [http-nio-8080-exec-74] [ServicesImpl.CourseServiceImpl.createCourse(CourseServiceImpl.java:24)] - createCourse Method used
+2022-06-09 15:03:54.543 DEBUG [http-nio-8080-exec-74] [DataBaseLayer.DAO.MySQLCourseDAO.close(MySQLCourseDAO.java:146)] - connection was closed
+2022-06-09 15:03:54.543 INFO [http-nio-8080-exec-74] [Controller.AdminPageServlet.createNewCourse(AdminPageServlet.java:74)] - Course TestCourse was successfully created
+2022-06-09 15:03:54.547 DEBUG [http-nio-8080-exec-69] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:26)] - doGet of /admin with forward to admin.jsp
+2022-06-09 16:39:14.341 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 16:39:14.355 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 17:08:49.130 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 17:08:49.146 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 17:11:04.437 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 17:11:04.450 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 17:11:08.750 DEBUG [http-nio-8080-exec-95] [Controller.MainPageServlet.doGet(MainPageServlet.java:30)] - doGet of /main with forward to main.jsp
+2022-06-09 17:11:10.891 DEBUG [http-nio-8080-exec-92] [Controller.LoginPageServlet.doGet(LoginPageServlet.java:23)] - doGet of /login with forward to login.jsp
+2022-06-09 17:11:15.907 DEBUG [http-nio-8080-exec-88] [Controller.MainPageServlet.doPost(MainPageServlet.java:43)] - doPost of /main with redirect to main
+2022-06-09 17:11:15.909 DEBUG [http-nio-8080-exec-88] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:66)] - Start of authorization
+2022-06-09 17:11:15.909 DEBUG [http-nio-8080-exec-88] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:70)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@1af3047e
+2022-06-09 17:11:15.909 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DAO.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:28)] - MySQLStudentDAO created
+2022-06-09 17:11:15.914 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@1e81e592
+2022-06-09 17:11:15.914 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:11:16.142 DEBUG [http-nio-8080-exec-88] [ServicesImpl.StudentServiceImpl.findStudent(StudentServiceImpl.java:72)] - StudentDAO created
+2022-06-09 17:11:16.180 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DAO.MySQLStudentDAO.close(MySQLStudentDAO.java:275)] - connection was closed
+2022-06-09 17:11:16.180 INFO [http-nio-8080-exec-88] [Controller.MainPageServlet.doPost(MainPageServlet.java:55)] - Student was not found
+2022-06-09 17:11:16.181 DEBUG [http-nio-8080-exec-88] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:72)] - Start of authorization
+2022-06-09 17:11:16.181 DEBUG [http-nio-8080-exec-88] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:76)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@1af3047e
+2022-06-09 17:11:16.182 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:11:16.183 DEBUG [http-nio-8080-exec-88] [ServicesImpl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:78)] - TeacherDAO created
+2022-06-09 17:11:16.185 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DAO.MySQLTeacherDAO.close(MySQLTeacherDAO.java:177)] - connection was closed
+2022-06-09 17:11:16.185 INFO [http-nio-8080-exec-88] [Controller.MainPageServlet.doPost(MainPageServlet.java:64)] - Teacher was not found
+2022-06-09 17:11:16.186 DEBUG [http-nio-8080-exec-88] [ServicesImpl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:57)] - Start of authorization
+2022-06-09 17:11:16.186 DEBUG [http-nio-8080-exec-88] [ServicesImpl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:61)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@1af3047e
+2022-06-09 17:11:16.186 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DAO.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:12)] - MySQLAdministratorDAO created
+2022-06-09 17:11:16.187 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:11:16.188 DEBUG [http-nio-8080-exec-88] [ServicesImpl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:63)] - AdministratorDAO created
+2022-06-09 17:11:16.190 DEBUG [http-nio-8080-exec-88] [DataBaseLayer.DAO.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:184)] - connection was closed
+2022-06-09 17:11:16.190 INFO [http-nio-8080-exec-88] [Controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as DataBaseLayer.entity.Administrator@20
+2022-06-09 17:11:16.194 DEBUG [http-nio-8080-exec-96] [Controller.MainPageServlet.doGet(MainPageServlet.java:30)] - doGet of /main with forward to main.jsp
+2022-06-09 17:11:17.418 DEBUG [http-nio-8080-exec-91] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:11:26.623 DEBUG [http-nio-8080-exec-98] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:11:26.624 DEBUG [http-nio-8080-exec-98] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:44)] - Teacher assignment process started
+2022-06-09 17:11:26.625 DEBUG [http-nio-8080-exec-98] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:95)] - AssignmentService was created
+2022-06-09 17:11:26.625 INFO [http-nio-8080-exec-98] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:97)] - Teacher was assigned to a course
+2022-06-09 17:11:26.629 DEBUG [http-nio-8080-exec-90] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:15:29.812 DEBUG [http-nio-8080-exec-99] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:15:33.910 DEBUG [http-nio-8080-exec-100] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:15:33.911 DEBUG [http-nio-8080-exec-100] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:44)] - Teacher assignment process started
+2022-06-09 17:15:33.911 DEBUG [http-nio-8080-exec-100] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:95)] - AssignmentService was created
+2022-06-09 17:15:33.911 INFO [http-nio-8080-exec-100] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:97)] - Teacher was assigned to a course
+2022-06-09 17:15:33.916 DEBUG [http-nio-8080-exec-101] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:15:36.630 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 17:15:36.643 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 17:15:49.746 DEBUG [http-nio-8080-exec-108] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:15:52.804 DEBUG [http-nio-8080-exec-102] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:15:52.804 DEBUG [http-nio-8080-exec-102] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:44)] - Teacher assignment process started
+2022-06-09 17:15:52.806 DEBUG [http-nio-8080-exec-102] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:95)] - AssignmentService was created
+2022-06-09 17:15:52.806 DEBUG [http-nio-8080-exec-102] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:17)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6deb2cd
+2022-06-09 17:15:52.810 DEBUG [http-nio-8080-exec-102] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@23f3d33d
+2022-06-09 17:15:52.810 DEBUG [http-nio-8080-exec-102] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:15:53.019 DEBUG [http-nio-8080-exec-102] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:19)] - AssignmentDAO created
+2022-06-09 17:15:53.041 INFO [http-nio-8080-exec-102] [DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:32)] - Teacher was assigned to a course
+2022-06-09 17:15:53.041 DEBUG [http-nio-8080-exec-102] [DataBaseLayer.DAO.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:61)] - connection was closed
+2022-06-09 17:15:53.041 INFO [http-nio-8080-exec-102] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:97)] - Teacher was assigned to a course
+2022-06-09 17:15:53.044 DEBUG [http-nio-8080-exec-103] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:16:04.382 DEBUG [http-nio-8080-exec-99] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:16:04.382 DEBUG [http-nio-8080-exec-99] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:44)] - Teacher assignment process started
+2022-06-09 17:16:04.382 DEBUG [http-nio-8080-exec-99] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:95)] - AssignmentService was created
+2022-06-09 17:16:04.383 DEBUG [http-nio-8080-exec-99] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:17)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@6deb2cd
+2022-06-09 17:16:04.383 DEBUG [http-nio-8080-exec-99] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:16:04.384 DEBUG [http-nio-8080-exec-99] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:19)] - AssignmentDAO created
+2022-06-09 17:16:04.400 ERROR [http-nio-8080-exec-99] [DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:34)] - Can't assign teacher to course
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-09 17:16:04.410 DEBUG [http-nio-8080-exec-99] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:23)] - Can't close AssignmentDAO
+DataBaseLayer.DAOException: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:35) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	... 27 more
+2022-06-09 17:16:04.411 INFO [http-nio-8080-exec-99] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:97)] - Teacher was assigned to a course
+2022-06-09 17:16:04.414 DEBUG [http-nio-8080-exec-104] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:26:56.062 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 17:26:56.076 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 17:26:57.939 DEBUG [http-nio-8080-exec-118] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:27:01.327 DEBUG [http-nio-8080-exec-111] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:27:01.327 DEBUG [http-nio-8080-exec-111] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:44)] - Teacher assignment process started
+2022-06-09 17:27:01.329 DEBUG [http-nio-8080-exec-111] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:95)] - AssignmentService was created
+2022-06-09 17:27:01.330 DEBUG [http-nio-8080-exec-111] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:17)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5251d976
+2022-06-09 17:27:01.334 DEBUG [http-nio-8080-exec-111] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@777ca217
+2022-06-09 17:27:01.334 DEBUG [http-nio-8080-exec-111] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:27:01.541 DEBUG [http-nio-8080-exec-111] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:19)] - AssignmentDAO created
+2022-06-09 17:27:01.569 ERROR [http-nio-8080-exec-111] [DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:34)] - Can't assign teacher to course
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-09 17:27:01.575 DEBUG [http-nio-8080-exec-111] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:24)] - Can't close AssignmentDAO
+DataBaseLayer.DAOException: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:35) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	... 27 more
+2022-06-09 17:27:01.576 INFO [http-nio-8080-exec-111] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:101)] - Teacher was not assigned to a course
+2022-06-09 17:27:01.580 DEBUG [http-nio-8080-exec-113] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:27:42.641 DEBUG [http-nio-8080-exec-116] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:27:42.641 DEBUG [http-nio-8080-exec-116] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:44)] - Teacher assignment process started
+2022-06-09 17:27:42.641 DEBUG [http-nio-8080-exec-116] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:95)] - AssignmentService was created
+2022-06-09 17:27:42.641 DEBUG [http-nio-8080-exec-116] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:17)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5251d976
+2022-06-09 17:27:42.642 DEBUG [http-nio-8080-exec-116] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:27:42.656 DEBUG [http-nio-8080-exec-116] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:19)] - AssignmentDAO created
+2022-06-09 17:27:42.660 ERROR [http-nio-8080-exec-116] [DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:34)] - Can't assign teacher to course
+java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`elective`.`teachers_assignments`, CONSTRAINT `fk_teacher_assignments_courses` FOREIGN KEY (`courses_course_id`) REFERENCES `courses` (`course_id`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-09 17:27:42.660 DEBUG [http-nio-8080-exec-116] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:24)] - Can't close AssignmentDAO
+DataBaseLayer.DAOException: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`elective`.`teachers_assignments`, CONSTRAINT `fk_teacher_assignments_courses` FOREIGN KEY (`courses_course_id`) REFERENCES `courses` (`course_id`))
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:35) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`elective`.`teachers_assignments`, CONSTRAINT `fk_teacher_assignments_courses` FOREIGN KEY (`courses_course_id`) REFERENCES `courses` (`course_id`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	... 27 more
+2022-06-09 17:27:42.661 INFO [http-nio-8080-exec-116] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:101)] - Teacher was not assigned to a course
+2022-06-09 17:27:42.665 DEBUG [http-nio-8080-exec-110] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:31:03.902 DEBUG [http-nio-8080-exec-121] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:31:03.902 DEBUG [http-nio-8080-exec-121] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:44)] - Teacher assignment process started
+2022-06-09 17:31:03.902 DEBUG [http-nio-8080-exec-121] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:95)] - AssignmentService was created
+2022-06-09 17:31:03.902 DEBUG [http-nio-8080-exec-121] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:17)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@5251d976
+2022-06-09 17:31:03.902 DEBUG [http-nio-8080-exec-121] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:31:03.916 DEBUG [http-nio-8080-exec-121] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:19)] - AssignmentDAO created
+2022-06-09 17:31:03.917 ERROR [http-nio-8080-exec-121] [DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:34)] - Can't assign teacher to course
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-09 17:31:03.918 DEBUG [http-nio-8080-exec-121] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:24)] - Can't close AssignmentDAO
+DataBaseLayer.DAOException: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:35) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	... 27 more
+2022-06-09 17:31:03.918 INFO [http-nio-8080-exec-121] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:101)] - Teacher was not assigned to a course
+2022-06-09 17:31:03.921 DEBUG [http-nio-8080-exec-122] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:31:07.200 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 17:31:07.212 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 17:31:09.712 DEBUG [http-nio-8080-exec-125] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:31:09.713 DEBUG [http-nio-8080-exec-125] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:44)] - Teacher assignment process started
+2022-06-09 17:31:09.715 DEBUG [http-nio-8080-exec-125] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:95)] - AssignmentService was created
+2022-06-09 17:31:09.715 DEBUG [http-nio-8080-exec-125] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:17)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@73223cbc
+2022-06-09 17:31:09.720 DEBUG [http-nio-8080-exec-125] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@1c29382e
+2022-06-09 17:31:09.720 DEBUG [http-nio-8080-exec-125] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:31:09.928 DEBUG [http-nio-8080-exec-125] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:19)] - AssignmentDAO created
+2022-06-09 17:31:09.954 ERROR [http-nio-8080-exec-125] [DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:34)] - Can't assign teacher to course
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2022-06-09 17:31:09.959 DEBUG [http-nio-8080-exec-125] [ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:24)] - Can't close AssignmentDAO
+DataBaseLayer.DAOException: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:35) ~[classes/:?]
+	at ServicesImpl.AssignmentServiceImpl.assignTeacherToCourse(AssignmentServiceImpl.java:20) ~[classes/:?]
+	at Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:96) ~[classes/:?]
+	at Controller.AdminPageServlet.doPost(AdminPageServlet.java:45) ~[classes/:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-1' for key 'teachers_assignments.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.62]
+	at DataBaseLayer.DAO.MySQLAssignmentDAO.assignTeacherToCourse(MySQLAssignmentDAO.java:28) ~[classes/:?]
+	... 27 more
+2022-06-09 17:31:09.959 INFO [http-nio-8080-exec-125] [Controller.AdminPageServlet.assignTeacherToCourse(AdminPageServlet.java:101)] - Teacher was not assigned to a course
+2022-06-09 17:31:09.964 DEBUG [http-nio-8080-exec-123] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:32:20.753 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 17:32:20.766 DEBUG [Catalina-utility-2] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 17:32:31.315 DEBUG [http-nio-8080-exec-120] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:32:31.315 DEBUG [http-nio-8080-exec-120] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:36)] - Creating teacher process started
+2022-06-09 17:32:31.318 DEBUG [http-nio-8080-exec-120] [Controller.AdminPageServlet.createNewTeacher(AdminPageServlet.java:57)] - TeacherService was created
+2022-06-09 17:32:31.318 INFO [http-nio-8080-exec-120] [Controller.AdminPageServlet.createNewTeacher(AdminPageServlet.java:59)] - Teacher's passwords don't match
+2022-06-09 17:32:31.321 DEBUG [http-nio-8080-exec-122] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:32:40.121 DEBUG [http-nio-8080-exec-127] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:32:40.122 DEBUG [http-nio-8080-exec-127] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:40)] - Creating course process started
+2022-06-09 17:32:40.123 DEBUG [http-nio-8080-exec-127] [Controller.AdminPageServlet.createNewCourse(AdminPageServlet.java:78)] - CourseService was created
+2022-06-09 17:32:40.123 DEBUG [http-nio-8080-exec-127] [ServicesImpl.CourseServiceImpl.createCourse(CourseServiceImpl.java:20)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@798c760f
+2022-06-09 17:32:40.127 DEBUG [http-nio-8080-exec-127] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@5ca11815
+2022-06-09 17:32:40.127 DEBUG [http-nio-8080-exec-127] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:32:40.338 DEBUG [http-nio-8080-exec-127] [ServicesImpl.CourseServiceImpl.createCourse(CourseServiceImpl.java:22)] - CourseDAO created
+2022-06-09 17:32:40.362 INFO [http-nio-8080-exec-127] [DataBaseLayer.DAO.MySQLCourseDAO.createCourse(MySQLCourseDAO.java:33)] - Course was created
+2022-06-09 17:32:40.362 DEBUG [http-nio-8080-exec-127] [ServicesImpl.CourseServiceImpl.createCourse(CourseServiceImpl.java:24)] - createCourse Method used
+2022-06-09 17:32:40.362 DEBUG [http-nio-8080-exec-127] [DataBaseLayer.DAO.MySQLCourseDAO.close(MySQLCourseDAO.java:146)] - connection was closed
+2022-06-09 17:32:40.363 INFO [http-nio-8080-exec-127] [Controller.AdminPageServlet.createNewCourse(AdminPageServlet.java:81)] - Course TestCourse was successfully created
+2022-06-09 17:32:40.367 DEBUG [http-nio-8080-exec-131] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
+2022-06-09 17:36:52.700 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:23)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-06-09 17:36:52.711 DEBUG [Catalina-utility-1] [Listeners.MyContextListener.contextInitialized(MyContextListener.java:26)] - DAOFactory was set to MySQL implementation
+2022-06-09 17:36:54.493 DEBUG [http-nio-8080-exec-137] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:34)] - doPost of /admin with redirect to /admin
+2022-06-09 17:36:54.494 DEBUG [http-nio-8080-exec-137] [Controller.AdminPageServlet.doPost(AdminPageServlet.java:40)] - Creating course process started
+2022-06-09 17:36:54.495 DEBUG [http-nio-8080-exec-137] [Controller.AdminPageServlet.createNewCourse(AdminPageServlet.java:78)] - CourseService was created
+2022-06-09 17:36:54.496 DEBUG [http-nio-8080-exec-137] [ServicesImpl.CourseServiceImpl.findCourse(CourseServiceImpl.java:41)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@22f93c39
+2022-06-09 17:36:54.502 DEBUG [http-nio-8080-exec-137] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:25)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@310666ca
+2022-06-09 17:36:54.502 DEBUG [http-nio-8080-exec-137] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-09 17:36:54.713 DEBUG [http-nio-8080-exec-137] [ServicesImpl.CourseServiceImpl.findCourse(CourseServiceImpl.java:43)] - CourseDAO created
+2022-06-09 17:36:54.744 DEBUG [http-nio-8080-exec-137] [ServicesImpl.CourseServiceImpl.findCourse(CourseServiceImpl.java:45)] - findCurse by title Method used
+2022-06-09 17:36:54.744 DEBUG [http-nio-8080-exec-137] [DataBaseLayer.DAO.MySQLCourseDAO.close(MySQLCourseDAO.java:146)] - connection was closed
+2022-06-09 17:36:54.744 DEBUG [http-nio-8080-exec-137] [Controller.AdminPageServlet.createNewCourse(AdminPageServlet.java:84)] - Course with title TestCourse already exist
+2022-06-09 17:36:54.748 DEBUG [http-nio-8080-exec-139] [Controller.AdminPageServlet.doGet(AdminPageServlet.java:28)] - doGet of /admin with forward to admin.jsp
