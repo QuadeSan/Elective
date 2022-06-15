@@ -21,27 +21,14 @@ public class StudentServiceImpl implements StudentService {
     private static final Logger logger = LogManager.getLogger(StudentServiceImpl.class);
 
     @Override
-    public void assignToCourse(Student student, Course course) {
-        student.addCourse(course);
-        course.addStudent(student);
-    }
-
-    @Override
-    public void dropCourse(Student student, Course course) {
-        student.dropCourse(course);
-        course.removeStudent(student);
-    }
-
-
-    @Override
-    public QueryResult createStudent(String login, String password, String email) {
+    public QueryResult createStudent(String login, String password, String email, String name, String lastName) {
         QueryResult result = new QueryResult();
         try {
             DAOFactory factory = DAOFactory.getInstance();
             logger.debug("DAOFactory created => " + factory);
             StudentDAO studentDAO = factory.getStudentDAO();
             logger.debug("StudentDAO created");
-            studentDAO.createStudent(login, password, email);
+            studentDAO.createStudent(login, password, email, name, lastName);
             logger.debug("CreateStudent Method used");
             studentDAO.close();
             return result;
@@ -69,6 +56,8 @@ public class StudentServiceImpl implements StudentService {
             currentStudent = studentDAO.findStudent(login);
             studentDAO.close();
             return currentStudent;
+        } catch (DAOException e) {
+            logger.error("Can't find Student by login", e);
         } catch (Exception e) {
             logger.error("Can't close StudentDAO", e);
         }
@@ -87,6 +76,8 @@ public class StudentServiceImpl implements StudentService {
             currentStudent = studentDAO.findStudent(login, password);
             studentDAO.close();
             return currentStudent;
+        } catch (DAOException e) {
+            logger.error("Can't authorize as student", e);
         } catch (Exception e) {
             logger.error("Can't close StudentDAO", e);
         }
@@ -104,6 +95,8 @@ public class StudentServiceImpl implements StudentService {
             currentStudent = studentDAO.findStudent(student_id);
             studentDAO.close();
             return currentStudent;
+        } catch (DAOException e) {
+            logger.debug("Can't find Student by ID", e);
         } catch (Exception e) {
             logger.debug("Can't close StudentDAO", e);
         }
@@ -119,6 +112,8 @@ public class StudentServiceImpl implements StudentService {
             logger.debug("StudentDAO created");
             studentDAO.deleteAccount(user_id);
             studentDAO.close();
+        } catch (DAOException e) {
+            logger.debug("Can't delete account", e);
         } catch (Exception e) {
             logger.debug("Can't close StudentDAO", e);
         }

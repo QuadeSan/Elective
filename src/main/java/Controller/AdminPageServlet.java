@@ -64,6 +64,8 @@ public class AdminPageServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String teacherLogin = req.getParameter("login");
         String teacherEmail = req.getParameter("email");
+        String teacherName = req.getParameter("name");
+        String teacherLastName = req.getParameter("lastName");
         String teacherPass = req.getParameter("psw");
         String teacherRepPass = req.getParameter("psw-repeat");
         TeacherService teacherService = new TeacherServiceImpl();
@@ -72,16 +74,17 @@ public class AdminPageServlet extends HttpServlet {
             logger.info("Teacher's passwords don't match");
             session.setAttribute("errorMessage", "Passwords don't match");
             resp.sendRedirect("admin");
-        } else if (teacherService.findTeacher(teacherLogin) == null) {
-            teacherService.createTeacher(teacherLogin, teacherPass, teacherEmail);
+            return;
+        }
+        QueryResult queryResult = teacherService.createTeacher(teacherLogin, teacherPass, teacherEmail, teacherName, teacherLastName);
+        if (queryResult.getResult()) {
             logger.info("Teacher was created");
             session.setAttribute("infoMessage", "Teacher was successfully created");
-            resp.sendRedirect("admin");
         } else {
             logger.debug("User already exist, redirect to /admin");
-            session.setAttribute("errorMessage", "Login already exist");
-            resp.sendRedirect("admin");
+            session.setAttribute("errorMessage", queryResult.getException());
         }
+        resp.sendRedirect("admin");
     }
 
     private void createNewCourse(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -130,23 +133,28 @@ public class AdminPageServlet extends HttpServlet {
             session.setAttribute("errorMessage", "Something went wrong! Student with ID = "
                     + studentID + " does not exist");
             resp.sendRedirect("admin");
-        } else {
-            studentService.lockStudent(studentID, status);
-            if (status.equalsIgnoreCase("locked")) {
-                logger.info("Student " + studentID + " was locked");
-                session.setAttribute("infoMessage", "Student " + studentID + " was locked");
-                resp.sendRedirect("admin");
-            } else if (status.equalsIgnoreCase("unlocked")) {
-                logger.info("Student " + studentID + " was unlocked");
-                session.setAttribute("infoMessage", "Student " + studentID + " was unlocked");
-                resp.sendRedirect("admin");
-            } else {
-                logger.info("Wrong status");
-                session.setAttribute("errorMessage", "Something went wrong! " +
-                        "Status is \"" + status + "\" but can be \"locked\" or \"unlocked\" only!");
-                resp.sendRedirect("admin");
-            }
+            return;
         }
+        if (!status.equalsIgnoreCase("locked") &&
+                !status.equalsIgnoreCase("unlocked")) {
+            logger.info("Wrong status");
+            session.setAttribute("errorMessage", "Something went wrong! " +
+                    "Status is \"" + status + "\" but can be \"locked\" or \"unlocked\" only!");
+            resp.sendRedirect("admin");
+            return;
+        }
+        if (status.equalsIgnoreCase("locked")) {
+            logger.info("Student " + studentID + " was " + status);
+            session.setAttribute("infoMessage", "Student " + studentID + " was " + status);
+        }
+        if (status.equalsIgnoreCase("unlocked")) {
+            logger.info("Student " + studentID + " was " + status);
+            session.setAttribute("infoMessage", "Student " + studentID + " was " + status);
+        }
+        studentService.lockStudent(studentID, status);
+        resp.sendRedirect("admin");
+
+
     }
 
     private void deleteCourse(HttpServletRequest req, HttpServletResponse resp) throws IOException {

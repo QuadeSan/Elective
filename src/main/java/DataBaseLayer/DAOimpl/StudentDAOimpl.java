@@ -24,7 +24,7 @@ public class StudentDAOimpl implements StudentDAO {
     }
 
     @Override
-    public void createStudent(String login, String password, String email) {
+    public void createStudent(String login, String password, String email,String name, String lastName) {
         StudentInMemory students = StudentInMemory.getInstance();
         Student student = new Student();
         students.addStudent(student);

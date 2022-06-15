@@ -4,23 +4,14 @@ import DataBaseLayer.DAO.UserDAO;
 import DataBaseLayer.DAOimpl.UserDAOImpl;
 import Services.UserService;
 import DataBaseLayer.entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    private static UserServiceImpl instance;
-
-    private UserServiceImpl() {
-
-    }
-
-    public static UserServiceImpl getInstance() {
-        if (instance == null) {
-            instance = new UserServiceImpl();
-        }
-        return instance;
-    }
+    private static final Logger logger = LogManager.getLogger(UserServiceImpl.class);
 
     @Override
     public void createUser(String login, String password) {

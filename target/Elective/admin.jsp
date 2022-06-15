@@ -42,19 +42,27 @@
                 <div class="info-container">
                 <p>USER INFORMATION</p>
                 <div class="col-1-2">
-                    <label for="Login"><b>Login</b></label>
+                    <label><b>Login</b></label>
                     <input type="text" placeholder="New Login" name="login" id="account-field" required>
                 </div>
                 <div class="col-1-2">
-                    <label for="Email adress"><b>Email</b></label>
+                    <label><b>Email</b></label>
                     <input type="text" placeholder="New Email" name="email" id="account-field" required>
                 </div>
                 <div class="col-1-2">
-                    <label for="psw"><b>Password</b></label>
+                    <label><b>Name</b></label>
+                    <input type="text" placeholder="Teacher's name" name="name" id="account-field" required>
+                </div>
+                <div class="col-1-2">
+                    <label><b>Last name</b></label>
+                    <input type="text" placeholder="Teacher's last name" name="lastName" id="account-field" required>
+                </div>
+                <div class="col-1-2">
+                    <label><b>Password</b></label>
                     <input type="password" placeholder="New Password" name="psw" id="account-field" required>
                 </div>
                 <div class="col-1-2">
-                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <label><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="account-field" required>
                 </div>
                  <button class="applybtn" type="submit"> Create new teacher </button>
@@ -65,19 +73,19 @@
                 <div class="info-container">
                 <p>COURSE INFORMATION</p>
                 <div class="col-1-2">
-                    <label for="Course ID"><b>Course ID</b></label>
+                    <label><b>Course ID</b></label>
                     <input type="text" placeholder="Course ID" name="course-id" id="account-field" required>
                 </div>
                 <div class="col-1-2">
-                    <label for="New title"><b>New title</b></label>
+                    <label><b>New title</b></label>
                     <input type="text" placeholder="New title" name="new-title" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="Cancel assignment"><b>Cancel teacher assignment</b></label>
+                    <label><b>Cancel teacher assignment</b></label>
                     <input type="password" placeholder="Teacher ID" name="cteacher-id" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="New assignment"><b>New teacher assignment</b></label>
+                    <label><b>New teacher assignment</b></label>
                     <input type="password" placeholder="Teacher ID" name="nteacher-id" id="account-field">
                 </div>
                  <button class="applybtn" type="submit"> Apply changes </button>
@@ -88,7 +96,7 @@
                   <div class="info-container">
                   <p>COURSE INFORMATION</p>
                   <div>
-                  <label for="Course title"><b>Course title</b></label>
+                  <label><b>Course title</b></label>
                   <input type="text" placeholder="New Course" name="course-title" style="width:37%">
                   </div>
                   <button class="applybtn" type="submit"> Create new course </button>
@@ -99,7 +107,7 @@
                 <div class="info-container">
                 <p>COURSE INFORMATION</p>
                 <div>
-                    <label for="Course ID"><b>Course ID</b></label>
+                    <label><b>Course ID</b></label>
                     <input type="text" placeholder="Course ID" name="course-id" style="width:37%">
                 </div>
                 <button class="applybtn" type="submit" > Delete course </button>
@@ -110,11 +118,11 @@
                 <div class="info-container">
                 <p>COURSE AND TEACHER INFORMATION</p>
                 <div class="col-1-2">
-                    <label for="Course ID"><b>Course ID</b></label>
+                    <label><b>Course ID</b></label>
                     <input type="text" placeholder="Course ID" name="course-id" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="Teacher ID"><b>Teacher ID</b></label>
+                    <label><b>Teacher ID</b></label>
                     <input type="text" placeholder="Teacher ID" name="teacher-id" id="account-field">
                 </div>
                 <button class="applybtn" type="submit"> Assign teacher </button>
@@ -125,11 +133,11 @@
                 <div class="info-container">
                 <p>STUDENT INFORMATION</p>
                 <div class="col-1-2">
-                    <label for="Student ID"><b>Student ID</b></label>
+                    <label><b>Student ID</b></label>
                     <input type="text" placeholder="Student ID" name="student-id" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="Student status"><b>Student status</b></label>
+                    <label><b>Student status</b></label>
                     <input type="text" placeholder="Locked/unlocked" name="student-status" id="account-field">
                 </div>
                 <button class="applybtn" type="submit" onclick="confirmAlert()"> Apply changes </button>

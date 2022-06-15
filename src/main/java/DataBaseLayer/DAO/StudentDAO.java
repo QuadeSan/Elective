@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface StudentDAO extends AutoCloseable {
 
-    void createStudent(String login, String password, String email);
+    void createStudent(String login, String password, String email, String name, String lastName);
 
     Student findStudent(int id);
 

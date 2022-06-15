@@ -1,8 +1,8 @@
 package DataBaseLayer.DAO;
 
+import DataBaseLayer.AlreadyExistException;
 import DataBaseLayer.DAOException;
 import DataBaseLayer.DataSourcePool;
-import DataBaseLayer.entity.Student;
 import DataBaseLayer.entity.Teacher;
 import DataBaseLayer.entity.User;
 import org.apache.logging.log4j.LogManager;
@@ -18,7 +18,7 @@ public class MySQLTeacherDAO implements TeacherDAO {
     private Connection con = DataSourcePool.getConnection();
 
     @Override
-    public void createTeacher(String login, String password, String email) {
+    public void createTeacher(String login, String password, String email, String name, String lastName) throws AlreadyExistException {
         User newUser = new User();
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
@@ -45,8 +45,11 @@ public class MySQLTeacherDAO implements TeacherDAO {
                 logger.debug("Creating user failed");
                 throw new DAOException(ex);
             }
-            stmt2 = con.prepareStatement("INSERT INTO teachers VALUES (DEFAULT, ?, null,null)");
-            stmt2.setInt(1, newUser.getUserID());
+            stmt2 = con.prepareStatement("INSERT INTO teachers VALUES (DEFAULT, ?, ?,?)");
+            int l = 1;
+            stmt2.setInt(l++, newUser.getUserID());
+            stmt2.setString(l++,name);
+            stmt2.setString(l++,lastName);
             stmt2.executeUpdate();
             con.commit();
             logger.info("Teacher with empty fields created");
@@ -57,6 +60,10 @@ public class MySQLTeacherDAO implements TeacherDAO {
             } catch (SQLException e) {
                 logger.error("rollback failed");
                 throw new DAOException(e);
+            }
+            if (ex instanceof java.sql.SQLIntegrityConstraintViolationException) {
+                logger.debug("AlreadyExistException catch clause " + ex);
+                throw new AlreadyExistException(ex);
             }
             logger.error("Can't create user", ex);
             throw new DAOException(ex);
@@ -107,7 +114,7 @@ public class MySQLTeacherDAO implements TeacherDAO {
                     "JOIN users ON users.user_id=teachers.user_id WHERE users.login =? AND users.password =?");
             int k = 1;
             stmt.setString(k++, login);
-            stmt.setString(k++,password);
+            stmt.setString(k++, password);
             rs = stmt.executeQuery();
             if (!rs.next()) {
                 return null;

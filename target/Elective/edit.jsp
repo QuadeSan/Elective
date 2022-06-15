@@ -21,59 +21,66 @@
         </c:if>
     </header>
     <div class="main">
+       <div class="account-head">
          <h2 class="main-h2">My account</h2>
+         <c:if test="${errorMessage != null}">
+         <div class="info-box"> <span class="error-span"> ${errorMessage} </span> </div>
+         <c:remove var="errorMessage"/>
+         </c:if>
+         <div> <span class="stealth-span"> hidden </span> </div>
+       </div>
          <form class="edit-form" action="account" method="post">
                 <div class="info-container">
                 <p>USER INFORMATION</p>
                 <div class="col-1-2">
-                    <label for="Login"><b>Login</b></label>
+                    <label><b>Login</b></label>
                     <input type="text" placeholder="New Login" name="login" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="Email adress"><b>Email</b></label>
+                    <label><b>Email</b></label>
                     <input type="text" placeholder="New Email" name="email" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="First name"><b>First name</b></label>
+                    <label><b>First name</b></label>
                     <input type="text" placeholder="New First name" name="firstname" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="Last name"><b>Last name</b></label>
+                    <label><b>Last name</b></label>
                     <input type="text" placeholder="New Last name" name="lastname" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="psw"><b>Password</b></label>
+                    <label><b>Password</b></label>
                     <input type="password" placeholder="New Password" name="psw" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <label><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="account-field">
                 </div>
             <hr>
             <p>CONTACT INFORMATION</p>
                 <div class="col-1-2">
-                    <label for="Country"><b>Country</b></label>
+                    <label><b>Country</b></label>
                     <input type="text" placeholder="New Country" name="country" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="City"><b>City</b></label>
+                    <label><b>City</b></label>
                     <input type="text" placeholder="New City" name="city" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="Postal code"><b>Postal code</b></label>
+                    <label><b>Postal code</b></label>
                     <input type="text" pattern="[0-9]{5}" placeholder="New Postal code" name="postal-code" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="Address"><b>Address</b></label>
+                    <label><b>Address</b></label>
                     <input type="text" placeholder="New Address" name="city" id="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label for="Phone number"><b>Phone number</b></label>
+                    <label><b>Phone number</b></label>
                     <input type="text" placeholder="+38(XXX)-XXX-XX-XX" name="phone-number" id="account-field">
                 </div>
                 <div class="col-1-1">
                     <hr>
-                    <label for="About me"><b>About me<b></label>
+                    <label><b>About me<b></label>
                     <textarea rows="4" placeholder="A few words about you ..." name="about-me"></textarea>
                  </div>
                  <button class="applybtn" type="submit"> Apply changes </button>

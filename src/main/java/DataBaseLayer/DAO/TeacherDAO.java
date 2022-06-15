@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface TeacherDAO extends AutoCloseable {
 
-    void createTeacher(String login, String password, String email);
+    void createTeacher(String login, String password, String email, String name, String lastName);
 
     Teacher findTeacher(int user_id);
 

@@ -2,6 +2,7 @@ package ServicesImpl;
 
 import DataBaseLayer.DAO.CourseDAO;
 import DataBaseLayer.DAO.DAOFactory;
+import DataBaseLayer.DAOException;
 import DataBaseLayer.entity.Course;
 import Services.CourseService;
 import org.apache.logging.log4j.LogManager;
@@ -23,6 +24,8 @@ public class CourseServiceImpl implements CourseService {
             courseDAO.createCourse(title);
             logger.debug("createCourse Method used");
             courseDAO.close();
+        } catch (DAOException e) {
+            logger.debug("Can't create new Course", e);
         } catch (Exception e) {
             logger.debug("Can't close CourseDAO", e);
         }
@@ -40,6 +43,8 @@ public class CourseServiceImpl implements CourseService {
             logger.debug("findCurse by ID Method used");
             courseDAO.close();
             return currentCourse;
+        } catch (DAOException e) {
+            logger.debug("Can't find Course with ID " + course_id, e);
         } catch (Exception e) {
             logger.debug("Can't close CourseDAO", e);
         }
@@ -58,6 +63,8 @@ public class CourseServiceImpl implements CourseService {
             logger.debug("findCurse by title Method used");
             courseDAO.close();
             return currentCourse;
+        } catch (DAOException e) {
+            logger.debug("Can't find Course with title " + title, e);
         } catch (Exception e) {
             logger.debug("Can't close CourseDAO", e);
         }
@@ -74,6 +81,8 @@ public class CourseServiceImpl implements CourseService {
             courseDAO.deleteCourse(course_id);
             logger.debug("deleteCourse Method used");
             courseDAO.close();
+        } catch (DAOException e) {
+            logger.debug("Can't delete Course with ID" + course_id, e);
         } catch (Exception e) {
             logger.debug("Can't close CourseDAO", e);
         }
@@ -89,6 +98,8 @@ public class CourseServiceImpl implements CourseService {
             courseDAO.changeStatus(courseID, status);
             logger.debug("changeStatus Method used");
             courseDAO.close();
+        } catch (DAOException e) {
+            logger.debug("Can't change status of Course " + courseID, e);
         } catch (Exception e) {
             logger.debug("Can't close CourseDAO", e);
         }
@@ -106,6 +117,8 @@ public class CourseServiceImpl implements CourseService {
             logger.debug("showAllCourses Method used");
             courseDAO.close();
             return result;
+        } catch (DAOException e) {
+            logger.debug("Can't show all courses", e);
         } catch (Exception e) {
             logger.debug("Can't close CourseDAO", e);
         }

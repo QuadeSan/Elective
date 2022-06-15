@@ -17,6 +17,12 @@
      <label for="email"><b>Email</b></label>
      <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
+     <label for="name"><b>First name</b></label>
+     <input type="text" placeholder="Enter first name" name="name" id="name" required>
+
+     <label for="lastName"><b>Last name</b></label>
+     <input type="text" placeholder="Enter last name" name="lastName" id="lastName" required>
+
      <label for="login"><b>Login</b></label>
      <input type="text" placeholder="Enter Login" name="login" id="login" required>
 

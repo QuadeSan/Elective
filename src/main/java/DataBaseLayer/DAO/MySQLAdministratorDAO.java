@@ -3,7 +3,6 @@ package DataBaseLayer.DAO;
 import DataBaseLayer.DAOException;
 import DataBaseLayer.DataSourcePool;
 import DataBaseLayer.entity.Administrator;
-import DataBaseLayer.entity.Student;
 import DataBaseLayer.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -105,7 +104,7 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
         try {
             stmt = con.prepareStatement(
                     "SELECT administrators.administrator_id, administrators.user_id, administrators.name, administrators.last_name FROM students " +
-                    "JOIN users ON users.user_id=administrators.user_id WHERE users.login =?");
+                            "JOIN users ON users.user_id=administrators.user_id WHERE users.login =?");
             stmt.setString(1, login);
             rs = stmt.executeQuery();
             if (!rs.next()) {
@@ -138,7 +137,7 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
                     "JOIN users ON users.user_id=administrators.user_id WHERE users.login =? AND users.password =?");
             int k = 1;
             stmt.setString(k++, login);
-            stmt.setString(k++,password);
+            stmt.setString(k++, password);
             rs = stmt.executeQuery();
             if (!rs.next()) {
                 return null;

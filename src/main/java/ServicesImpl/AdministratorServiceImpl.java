@@ -1,8 +1,10 @@
 package ServicesImpl;
 
+import DataBaseLayer.AlreadyExistException;
 import DataBaseLayer.DAO.AdministratorDAO;
 import DataBaseLayer.DAO.DAOFactory;
 import DataBaseLayer.DAOException;
+import DataBaseLayer.QueryResult;
 import DataBaseLayer.entity.Administrator;
 import Services.AdministartorService;
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +15,8 @@ public class AdministratorServiceImpl implements AdministartorService {
     private static final Logger logger = LogManager.getLogger(AdministratorServiceImpl.class);
 
     @Override
-    public void createAdministrator(String login, String password, String email) {
+    public QueryResult createAdministrator(String login, String password, String email) {
+        QueryResult result = new QueryResult();
         try {
             DAOFactory factory = DAOFactory.getInstance();
             logger.debug("DAOFactory created => " + factory);
@@ -22,10 +25,17 @@ public class AdministratorServiceImpl implements AdministartorService {
             administratorDAO.createAdministrator(login, password, email);
             logger.debug("CreateAdministrator Method used");
             administratorDAO.close();
+            return result;
+        } catch (AlreadyExistException ex) {
+            logger.info("Login already exist");
+            result.addException(ex);
+            return result;
         } catch (DAOException e) {
             logger.debug("Can't create new Administrator", e);
+            return null;
         } catch (Exception e) {
             logger.debug("Can't close AdministratorDAO", e);
+            return null;
         }
     }
 

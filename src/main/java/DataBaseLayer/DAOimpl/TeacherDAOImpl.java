@@ -15,7 +15,7 @@ public class TeacherDAOImpl implements TeacherDAO {
     private static final Logger logger = LogManager.getLogger(TeacherDAOImpl.class);
 
     @Override
-    public void createTeacher(String login, String password, String email) {
+    public void createTeacher(String login, String password, String email, String name, String lastName) {
 
     }
 

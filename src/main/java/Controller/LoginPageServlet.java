@@ -33,6 +33,8 @@ public class LoginPageServlet extends HttpServlet {
         StudentService studentService = new StudentServiceImpl();
         logger.debug("StudentService was created");
         String login = req.getParameter("login");
+        String name = req.getParameter("name");
+        String lastName = req.getParameter("lastName");
         String email = req.getParameter("email");
         String password = req.getParameter("psw");
         String reppassword = req.getParameter("psw-repeat");
@@ -42,7 +44,7 @@ public class LoginPageServlet extends HttpServlet {
             resp.sendRedirect("register");
             return;
         }
-        QueryResult queryResult = studentService.createStudent(login, password, email);
+        QueryResult queryResult = studentService.createStudent(login, password, email, name, lastName);
         if (queryResult.getResult()) {
             logger.info("Student was created");
             session.setAttribute("infoMessage", "Account was successfully created!");

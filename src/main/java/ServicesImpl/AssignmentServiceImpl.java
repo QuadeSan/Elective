@@ -3,6 +3,7 @@ package ServicesImpl;
 import DataBaseLayer.AssignmentException;
 import DataBaseLayer.DAO.AssignmentDAO;
 import DataBaseLayer.DAO.DAOFactory;
+import DataBaseLayer.DAOException;
 import DataBaseLayer.QueryResult;
 import Services.AssignmentService;
 import org.apache.logging.log4j.LogManager;
@@ -71,6 +72,9 @@ public class AssignmentServiceImpl implements AssignmentService {
             logger.debug("AssignmentDAO created");
             assignmentDAO.unassignStudentFromCourse(course_id, student_id);
             assignmentDAO.close();
+        } catch (DAOException e) {
+            logger.debug("Can't cancel assignment of Student "
+                    + student_id + "from course " + course_id, e);
         } catch (Exception e) {
             logger.debug("Can't close AssignmentDAO", e);
         }

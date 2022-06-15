@@ -20,7 +20,7 @@ public class MySQLStudentDAO implements StudentDAO {
     private Connection con = DataSourcePool.getConnection();
 
     @Override
-    public void createStudent(String login, String pass, String email) {
+    public void createStudent(String login, String pass, String email, String name, String lastName) throws AlreadyExistException {
         User newUser = new User();
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
@@ -47,8 +47,11 @@ public class MySQLStudentDAO implements StudentDAO {
                 logger.debug("Creating user failed");
                 throw new DAOException(ex);
             }
-            stmt2 = con.prepareStatement("INSERT INTO students VALUES (DEFAULT, ?, null, null,null)");
-            stmt2.setInt(1, newUser.getUserID());
+            stmt2 = con.prepareStatement("INSERT INTO students VALUES (DEFAULT, ?, ?, ?,DEFAULT)");
+            int l = 1;
+            stmt2.setInt(l++, newUser.getUserID());
+            stmt2.setString(l++, name);
+            stmt2.setString(l++, lastName);
             stmt2.executeUpdate();
             con.commit();
             logger.info("Student with empty fields created");

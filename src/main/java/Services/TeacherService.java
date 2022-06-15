@@ -1,5 +1,6 @@
 package Services;
 
+import DataBaseLayer.QueryResult;
 import DataBaseLayer.entity.Course;
 import DataBaseLayer.entity.Journal;
 import DataBaseLayer.entity.Student;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public interface TeacherService {
 
-    void createTeacher(String login, String password, String email);
+    QueryResult createTeacher(String login, String password, String email, String name, String lastName);
 
     Teacher findTeacher(int teacher_id);
 

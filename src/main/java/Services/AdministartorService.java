@@ -1,5 +1,6 @@
 package Services;
 
+import DataBaseLayer.QueryResult;
 import DataBaseLayer.entity.Administrator;
 import DataBaseLayer.entity.Course;
 import DataBaseLayer.entity.Student;
@@ -7,7 +8,7 @@ import DataBaseLayer.entity.Teacher;
 
 public interface AdministartorService {
 
-    void createAdministrator(String login, String password, String email);
+    QueryResult createAdministrator(String login, String password, String email);
 
     Administrator findAdministrator(int admin_id);
 
