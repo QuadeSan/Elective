@@ -716,3 +716,11 @@ Caused by: java.sql.SQLException: Parameter index out of range (2 > number of pa
 2022-06-15 13:29:52.341 DEBUG [http-nio-8080-exec-271] [ServicesImpl.CourseServiceImpl.showAllCourses(CourseServiceImpl.java:117)] - showAllCourses Method used
 2022-06-15 13:29:52.341 DEBUG [http-nio-8080-exec-271] [DataBaseLayer.DAO.MySQLCourseDAO.close(MySQLCourseDAO.java:171)] - connection was closed
 2022-06-15 13:29:52.341 DEBUG [http-nio-8080-exec-271] [Controller.CoursesPageServlet.doGet(CoursesPageServlet.java:55)] - List of all courses -1671596857
+2022-06-15 13:32:50.065 DEBUG [http-nio-8080-exec-264] [Controller.CoursesPageServlet.doGet(CoursesPageServlet.java:29)] - doGet of /courses with forward to courses.jsp
+2022-06-15 13:32:50.066 DEBUG [http-nio-8080-exec-264] [Controller.CoursesPageServlet.doGet(CoursesPageServlet.java:52)] - CourseService was created
+2022-06-15 13:32:50.066 DEBUG [http-nio-8080-exec-264] [ServicesImpl.CourseServiceImpl.showAllCourses(CourseServiceImpl.java:113)] - DAOFactory created => DataBaseLayer.DAO.MySQLDAOFactory@536335a2
+2022-06-15 13:32:50.066 DEBUG [http-nio-8080-exec-264] [DataBaseLayer.DataSourcePool.getConnection(DataSourcePool.java:32)] - Connection created
+2022-06-15 13:32:50.067 DEBUG [http-nio-8080-exec-264] [ServicesImpl.CourseServiceImpl.showAllCourses(CourseServiceImpl.java:115)] - CourseDAO created
+2022-06-15 13:32:50.068 DEBUG [http-nio-8080-exec-264] [ServicesImpl.CourseServiceImpl.showAllCourses(CourseServiceImpl.java:117)] - showAllCourses Method used
+2022-06-15 13:32:50.068 DEBUG [http-nio-8080-exec-264] [DataBaseLayer.DAO.MySQLCourseDAO.close(MySQLCourseDAO.java:171)] - connection was closed
+2022-06-15 13:32:50.068 DEBUG [http-nio-8080-exec-264] [Controller.CoursesPageServlet.doGet(CoursesPageServlet.java:55)] - List of all courses -1671596857
