@@ -3,27 +3,14 @@ package DataBaseLayer.DAOimpl;
 import DataBaseLayer.DAO.CourseDAO;
 import DataBaseLayer.TempDB.CourseInMemory;
 import DataBaseLayer.entity.Course;
-import DataBaseLayer.entity.Teacher;
 
 import java.util.List;
 
-public class CourseDAOimpl implements CourseDAO {
+abstract public class CourseDAOimpl implements CourseDAO {
 
-    private static CourseDAOimpl instance;
-
-    private CourseDAOimpl() {
-
-    }
-
-    public static synchronized CourseDAOimpl getInstance() {
-        if (instance == null) {
-            instance = new CourseDAOimpl();
-        }
-        return instance;
-    }
 
     @Override
-    public void createCourse(String name) {
+    public void createCourse(String topic,String name) {
         CourseInMemory courses = CourseInMemory.getInstance();
         Course newCourse = new Course();
         newCourse.setTitle(name);

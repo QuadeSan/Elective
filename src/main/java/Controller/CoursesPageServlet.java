@@ -37,23 +37,19 @@ public class CoursesPageServlet extends HttpServlet {
             logger.debug("AssignmentService was created");
             QueryResult result = assignmentService.assignStudentToCourse(courseID, studentID);
             if (result.getResult()) {
-                CourseService courseService = new CourseServiceImpl();
-                logger.debug("CourseService was created");
-                Course currentCourse = courseService.findCourse(courseID);
-                currentStudent.addCourse(currentCourse);
-                session.setAttribute("currentUser", currentStudent);
                 session.setAttribute("infoMessage", "You was signed for course #" + courseID);
             } else {
                 session.setAttribute("errorMessage", result.getException());
             }
             resp.sendRedirect("courses");
-        } else {
-            CourseService courseService = new CourseServiceImpl();
-            logger.debug("CourseService was created");
-            List<Course> courses = courseService.showAllCourses();
-            req.setAttribute("Courses", courses);
-            logger.debug("List of all courses " + courses.hashCode());
-            req.getRequestDispatcher("courses.jsp").forward(req, resp);
+            return;
         }
+        CourseService courseService = new CourseServiceImpl();
+        logger.debug("CourseService was created");
+        List<Course> courses = courseService.showAllCourses();
+        req.setAttribute("Courses", courses);
+        logger.debug("List of all courses " + courses.hashCode());
+        req.getRequestDispatcher("courses.jsp").forward(req, resp);
+
     }
 }

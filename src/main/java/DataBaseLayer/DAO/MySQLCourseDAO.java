@@ -1,5 +1,6 @@
 package DataBaseLayer.DAO;
 
+import DataBaseLayer.AlreadyExistException;
 import DataBaseLayer.DAOException;
 import DataBaseLayer.DataSourcePool;
 import DataBaseLayer.entity.Course;
@@ -21,18 +22,24 @@ public class MySQLCourseDAO implements CourseDAO {
     private Connection con = DataSourcePool.getConnection();
 
     @Override
-    public void createCourse(String title) {
+    public void createCourse(String topic, String title) throws AlreadyExistException {
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("INSERT INTO courses VALUES (DEFAULT,?,DEFAULT)");
+            stmt = con.prepareStatement("INSERT INTO courses VALUES (DEFAULT,?,?,DEFAULT)");
             int k = 1;
+            stmt.setString(k++, topic);
             stmt.setString(k++, title);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
+                logger.error("Creating course failed");
                 throw new SQLException("Creating course failed, no rows affected.");
             }
             logger.info("Course was created");
         } catch (SQLException ex) {
+            if (ex instanceof java.sql.SQLIntegrityConstraintViolationException) {
+                logger.debug("AlreadyExistException catch clause " + ex);
+                throw new AlreadyExistException(ex);
+            }
             logger.error("Can't create course", ex);
             throw new DAOException(ex);
         } finally {
@@ -140,22 +147,29 @@ public class MySQLCourseDAO implements CourseDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            stmt = con.prepareStatement("SELECT * FROM courses");
+            stmt = con.prepareStatement("SELECT course_id, topic, title, status, name, last_name, " +
+                    "COUNT(students_assignments.courses_course_id) AS student_count FROM courses " +
+                    "LEFT JOIN teachers_assignments ON courses.course_id = teachers_assignments.courses_course_id " +
+                    "LEFT JOIN teachers ON teachers.teacher_id = teachers_assignments.teachers_teacher_id " +
+                    "LEFT JOIN students_assignments ON courses.course_id = students_assignments.courses_course_id " +
+                    "GROUP BY courses.course_id;");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Course currentCourse = new Course();
                 currentCourse.setCourseID(rs.getInt("course_id"));
+                currentCourse.setTopic(rs.getString("topic"));
                 currentCourse.setTitle(rs.getString("title"));
                 currentCourse.setStatus(rs.getString("status"));
+                currentCourse.setAssignedTeacher(rs.getString("name"),rs.getString("last_name"));
+                currentCourse.setStudentCount(rs.getInt("student_count"));
                 courses.add(currentCourse);
             }
             if (courses.isEmpty()) {
                 logger.info("There are no courses yet");
-                return null;
             }
             return courses;
         } catch (SQLException ex) {
-            logger.debug("Can't execute findCourse by title query");
+            logger.debug("Can't execute showAllCourses query");
             throw new DAOException(ex);
         } finally {
             close(rs);

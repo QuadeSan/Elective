@@ -45,12 +45,27 @@
             </button>
           </th>
           <th id="courseHead">
+            <button> Topic
+            <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th id="courseHead">
             <button> Title
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
             <button> Status
+            <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th id="courseHead">
+            <button> Students on course
+            <span aria-hidden="true"></span>
+            </button>
+          </th>
+          <th id="courseHead">
+            <button> Teacher
             <span aria-hidden="true"></span>
             </button>
           </th>
@@ -65,8 +80,11 @@
         <c:forEach items="${Courses}" var="course">
            <tr class="courseBody">
            <td class="num"> ${course.courseID} </td>
+           <td> ${course.topic} </td>
            <td> ${course.title} </td>
            <td> ${course.status} </td>
+           <td> ${course.studentCount} </td>
+           <td> ${course.assignedTeacher} </td>
            <c:if test="${userRole == 'Student' && course.status == 'New'}">
            <td> <a class="ablack" href="courses?course_id=${course.courseID}"> sign for course </a> </td>
            </c:if>

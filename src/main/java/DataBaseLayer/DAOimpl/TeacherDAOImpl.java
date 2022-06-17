@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
-public class TeacherDAOImpl implements TeacherDAO {
+abstract public class TeacherDAOImpl implements TeacherDAO {
 
     private static final Logger logger = LogManager.getLogger(TeacherDAOImpl.class);
 

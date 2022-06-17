@@ -79,52 +79,76 @@
                 <textarea rows="4" placeholder="A few words about you ..." name="about-me" disabled></textarea>
             </div>
        </div>
-       <c:if test="${userRole != 'Admin'}">
-       <h2 class="main-h2"> My courses </h2> <br>
-       <c:if test="${empty currentUser.courses}">
-       <div class="myCourses">
-       You have not assigned for any course yet
+       <div class="tools">
+         <c:if test="${userRole != 'Admin'}">
+         <h2> My courses </h2> <br>
+         <c:if test="${empty currentUser.courses}">
+         <div class="myCourses">
+         You have not assigned for any course yet
+         </div>
+         </c:if>
+         <c:if test="${not empty currentUser.courses}">
+          <table class="courseTable">
+            <thead>
+              <tr>
+              <th id="courseHead" class="num" aria-sort="ascending">
+                <button> Course ID
+                <span aria-hidden="true"></span>
+                </button>
+                </th>
+              <th id="courseHead">
+                <button> Topic
+                <span aria-hidden="true"></span>
+                </button>
+              </th>
+              <th id="courseHead">
+                <button> Title
+                <span aria-hidden="true"></span>
+                </button>
+              </th>
+              <th id="courseHead">
+                 <button> Status
+                 <span aria-hidden="true"></span>
+                 </button>
+              </th>
+              <c:if test="${userRole == 'Student'}">
+              <th id="courseHead">
+                 Total mark
+              </th>
+              <th id="courseHead">
+                  Quite course
+              </th>
+              </c:if>
+              <c:if test="${userRole == 'Teacher'}">
+              <th id="courseHead">
+                  Journal
+              </th>
+              </c:if>
+              </tr>
+            </thead>
+            <tbody>
+               <c:forEach items="${currentUser.courses}" var="course">
+                 <tr class="courseBody">
+                 <td class="num"> ${course.courseID} </td>
+                 <td> ${course.topic} </td>
+                 <td> ${course.title} </td>
+                 <td> ${course.status} </td>
+               <c:if test="${userRole == 'Student'}">
+                 <td> ${course.mark} </td>
+                 <td> <a class="ablack" href="account?course_id=${course.courseID}" onclick="confirmAlert()"> Leave course </a> </td>
+               </c:if>
+               <c:if test="${userRole == 'Teacher'}">
+                 <td>
+                    <a class="ablack" href="journal?viewedCourse=${course.courseID}"> See journal </a>
+                 </td>
+               </c:if>
+                 </tr>
+               </c:forEach>
+            </tbody>
+          </table>
+       </c:if>
+       </c:if>
        </div>
-       </c:if>
-       <c:if test="${not empty currentUser.courses}">
-       <div class="myCourses">
-                <table class="courseTable">
-                  <thead>
-                    <tr>
-                      <th id="courseHead" class="num" aria-sort="ascending">
-                        <button> Course ID
-                        <span aria-hidden="true"></span>
-                        </button>
-                      </th>
-                      <th id="courseHead">
-                        <button> Title
-                        <span aria-hidden="true"></span>
-                        </button>
-                      </th>
-                      <th id="courseHead">
-                        <button> Status
-                        <span aria-hidden="true"></span>
-                        </button>
-                      </th>
-                      <th id="courseHead">
-                         Quite course
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <c:forEach items="${currentUser.courses}" var="course">
-                       <tr class="courseBody">
-                       <td class="num"> ${course.courseID} </td>
-                       <td> ${course.title} </td>
-                       <td> ${course.status} </td>
-                       <td> <a class="ablack" href="account?course_id=${course.courseID}" onclick="confirmAlert()"> Leave course </a> </td>
-                       </tr>
-                    </c:forEach>
-                  </tbody>
-                </table>
-       </div>
-       </c:if>
-       </c:if>
     </div>
     <footer>
         Here should be some footer information

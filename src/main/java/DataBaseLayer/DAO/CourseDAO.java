@@ -4,10 +4,11 @@ import DataBaseLayer.entity.Course;
 import DataBaseLayer.entity.Teacher;
 
 import java.util.List;
+import java.util.StringTokenizer;
 
 public interface CourseDAO extends AutoCloseable {
 
-    void createCourse(String title);
+    void createCourse(String topic,String title);
 
     Course findCourse(int course_id);
 

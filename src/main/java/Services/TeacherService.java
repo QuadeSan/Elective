@@ -2,7 +2,6 @@ package Services;
 
 import DataBaseLayer.QueryResult;
 import DataBaseLayer.entity.Course;
-import DataBaseLayer.entity.Journal;
 import DataBaseLayer.entity.Student;
 import DataBaseLayer.entity.Teacher;
 
@@ -23,6 +22,4 @@ public interface TeacherService {
     List<Course> showAssignedCourses(Teacher teacher);
 
     void setMarkForCourse(Student student, Course course);
-
-    Journal showTeacherJournal();
 }

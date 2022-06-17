@@ -4,12 +4,16 @@ import DataBaseLayer.AssignmentException;
 import DataBaseLayer.DAOException;
 import DataBaseLayer.DataSourcePool;
 import DataBaseLayer.entity.Course;
+import DataBaseLayer.entity.Student;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySQLAssignmentDAO implements AssignmentDAO {
 
@@ -100,14 +104,119 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
     }
 
     @Override
-    public void setMarkForStudent(int courseID, int studentID, int mark) {
-
+    public List<Course> showTeacherCourses(int teacherID) {
+        List<Course> courses = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("SELECT * FROM courses " +
+                    "JOIN teachers_assignments ON teachers_assignments.courses_course_id = courses.course_id " +
+                    "WHERE teachers_teacher_id = ?;");
+            int k = 1;
+            stmt.setInt(k++, teacherID);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Course currentCourse = new Course();
+                currentCourse.setCourseID(rs.getInt("course_id"));
+                currentCourse.setTopic(rs.getString("topic"));
+                currentCourse.setTitle(rs.getString("title"));
+                currentCourse.setStatus(rs.getString("status"));
+                courses.add(currentCourse);
+            }
+            logger.debug("List of courses of teacher with ID " + teacherID);
+            return courses;
+        } catch (SQLException ex) {
+            logger.debug("Can't execute showTeacherCourses query");
+            throw new DAOException(ex);
+        } finally {
+            close(rs);
+            close(stmt);
+        }
     }
 
     @Override
-    public Course getFullInfoAboutCourse(int courseID) {
-        return null;
+    public List<Course> showStudentCourses(int studentID) {
+        List<Course> courses = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("SELECT * FROM courses " +
+                    "JOIN students_assignments ON students_assignments.courses_course_id = courses.course_id " +
+                    "WHERE students_student_id = ?;");
+            int k = 1;
+            stmt.setInt(k++, studentID);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Course currentCourse = new Course();
+                currentCourse.setCourseID(rs.getInt("course_id"));
+                currentCourse.setTopic(rs.getString("topic"));
+                currentCourse.setTitle(rs.getString("title"));
+                currentCourse.setStatus(rs.getString("status"));
+                currentCourse.setMark(rs.getInt("mark"));
+                courses.add(currentCourse);
+            }
+            logger.debug("List of courses of student with ID " + studentID);
+            return courses;
+        } catch (SQLException ex) {
+            logger.debug("Can't execute showStudentCourses query");
+            throw new DAOException(ex);
+        } finally {
+            close(rs);
+            close(stmt);
+        }
     }
+
+    @Override
+    public List<Student> showStudentsOnCourse(int courseID) {
+        List<Student> students = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("SELECT student_id, name, last_name, mark FROM courses " +
+                    "RIGHT JOIN students_assignments ON courses.course_id = students_assignments.courses_course_id " +
+                    "LEFT JOIN students ON  students_assignments.students_student_id = students.student_id " +
+                    "WHERE course_id = ?");
+            int k = 1;
+            stmt.setInt(k++, courseID);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Student currentStudent = new Student()  ;
+                currentStudent.setStudentID(rs.getInt("student_id"));
+                currentStudent.setName(rs.getString("name"));
+                currentStudent.setLastName(rs.getString("last_name"));
+                currentStudent.setMarkForCurrentCourse(rs.getInt("mark"));
+                students.add(currentStudent);
+            }
+            logger.debug("List of students on course with ID " + courseID);
+            return students;
+        } catch (SQLException ex) {
+            logger.debug("Can't execute showStudentsOnCourse query");
+            throw new DAOException(ex);
+        } finally {
+            close(rs);
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void setMarkForStudent(int courseID, int studentID, int mark) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE students_assignments SET mark=? " +
+                    "WHERE courses_course_id=? AND students_student_id=?;");
+            int k = 1;
+            stmt.setInt(k++, mark);
+            stmt.setInt(k++, courseID);
+            stmt.setInt(k++,studentID);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute set mark query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
 
     @Override
     public void close() throws DAOException {

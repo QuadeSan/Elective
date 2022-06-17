@@ -334,3 +334,21 @@ table.courseTable th:not([aria-sort]) button:hover span::after {
   font-size: 100%;
   top: 0;
 }
+
+/* Journal */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#mark {
+    margin-bottom: auto;
+    width: 75px;
+}
+
+.markbtn {
+    width: auto;
+    margin-bottom: auto;
+}

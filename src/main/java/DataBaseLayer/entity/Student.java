@@ -15,12 +15,17 @@ public class Student implements Serializable {
     private String lastName;
     private List<Course> courses;
     private String status;
+    private int markForCurrentCourse;
     private static int k;
 
     public Student() {
         this.studentID = k;
         k++;
         courses = new ArrayList<>();
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 
     public int getUserID() {
@@ -55,10 +60,6 @@ public class Student implements Serializable {
         return courses;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public void setLogin(String login) {
         this.login = login;
     }
@@ -83,8 +84,20 @@ public class Student implements Serializable {
         this.name = name;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setMarkForCurrentCourse(int markForCurrentCourse) {
+        this.markForCurrentCourse = markForCurrentCourse;
+    }
+
+    public int getMarkForCurrentCourse() {
+        return markForCurrentCourse;
     }
 
     public boolean isLocked() {

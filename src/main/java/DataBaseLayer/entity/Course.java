@@ -7,14 +7,57 @@ import java.util.Objects;
 
 public class Course implements Serializable {
     private int courseID;
+    private String topic;
     private String title;
-    private List<Student> students;
     private String status;
-    private Teacher assignedTeacher;
+    private String assignedTeacher;
+    private int studentCount;
+    private int mark;
+    private List<Student> students;
     private static int k;
+
+
+    public Course() {
+        this.courseID = k;
+        k++;
+        this.status = "In progress";
+        this.students = new ArrayList<>();
+    }
 
     public void setCourseID(int courseID) {
         this.courseID = courseID;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setAssignedTeacher(String name, String last_name) {
+        this.assignedTeacher = name + " " + last_name;
+    }
+
+    public void setStudentCount(int studentCount) {
+        this.studentCount = studentCount;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
+
+    public int getCourseID() {
+        return courseID;
+    }
+
+    public String getTopic() {
+        return topic;
     }
 
     public String getTitle() {
@@ -25,23 +68,20 @@ public class Course implements Serializable {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public String getAssignedTeacher() {
+        return assignedTeacher;
     }
 
-    public Course() {
-        this.courseID = k;
-        k++;
-        this.status = "In progress";
-        this.students = new ArrayList<>();
+    public int getStudentCount() {
+        return studentCount;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public int getMark() {
+        return mark;
     }
 
-    public void setAssignedTeacher(Teacher assignedTeacher) {
-        this.assignedTeacher = assignedTeacher;
+    public List<Student> getStudents() {
+        return students;
     }
 
     public void addStudent(Student student) {
@@ -52,20 +92,8 @@ public class Course implements Serializable {
         students.remove(student);
     }
 
-    public List<Student> showStudentsOnCourse() {
-        return students;
-    }
-
-    public Teacher showAssignedTeacher() {
-        return assignedTeacher;
-    }
-
     public void changeStatus(String newStatus) {
         this.status = status;
-    }
-
-    public int getCourseID() {
-        return courseID;
     }
 
     @Override

@@ -7,7 +7,7 @@ import DataBaseLayer.entity.User;
 
 import java.util.List;
 
-public class AdministratorDAOImlp implements AdministratorDAO {
+abstract public class AdministratorDAOImlp implements AdministratorDAO {
 
 
 //    @Override

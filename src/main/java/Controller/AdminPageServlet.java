@@ -39,24 +39,26 @@ public class AdminPageServlet extends HttpServlet {
         if (req.getParameter("login") != null) {
             logger.debug("Creating teacher process started");
             createNewTeacher(req, resp);
-        } else {
-            if (req.getParameter("course-title") != null) {
-                logger.debug("Creating course process started");
-                createNewCourse(req, resp);
-            } else {
-                if (req.getParameter("course-id") != null && req.getParameter("teacher-id") != null) {
-                    logger.debug("Teacher assignment process started");
-                    assignTeacherToCourse(req, resp);
-                } else {
-                    if (req.getParameter("student-status") != null) {
-                        logger.debug("Locking / unlocking student");
-                        lockStudent(req, resp);
-                    } else if (req.getParameter("course-id") != null) {
-                        logger.debug("Deleting course");
-                        deleteCourse(req, resp);
-                    }
-                }
-            }
+            return;
+        }
+        if (req.getParameter("title") != null) {
+            logger.debug("Creating course process started");
+            createNewCourse(req, resp);
+            return;
+        }
+        if (req.getParameter("course-id") != null && req.getParameter("teacher-id") != null) {
+            logger.debug("Teacher assignment process started");
+            assignTeacherToCourse(req, resp);
+            return;
+        }
+        if (req.getParameter("student-status") != null) {
+            logger.debug("Locking / unlocking student");
+            lockStudent(req, resp);
+            return;
+        }
+        if (req.getParameter("course-id") != null) {
+            logger.debug("Deleting course");
+            deleteCourse(req, resp);
         }
     }
 
@@ -89,16 +91,17 @@ public class AdminPageServlet extends HttpServlet {
 
     private void createNewCourse(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
-        String courseTitle = req.getParameter("course-title");
+        String courseTitle = req.getParameter("title");
+        String courseTopic = req.getParameter("topic");
         CourseService courseService = new CourseServiceImpl();
         logger.debug("CourseService was created");
-        if (courseService.findCourse(courseTitle) == null) {
-            courseService.createCourse(courseTitle);
+        QueryResult queryResult = courseService.createCourse(courseTopic, courseTitle);
+        if (queryResult.getResult()) {
             logger.info("Course " + courseTitle + " was successfully created");
             session.setAttribute("infoMessage", "New course was successfully created");
         } else {
             logger.debug("Course with title " + courseTitle + " already exist");
-            session.setAttribute("errorMessage", "Course with title " + courseTitle + " already exist");
+            session.setAttribute("errorMessage", queryResult.getException());
         }
         resp.sendRedirect("admin");
     }

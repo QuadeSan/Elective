@@ -1,12 +1,13 @@
 package Services;
 
+import DataBaseLayer.QueryResult;
 import DataBaseLayer.entity.Course;
 
 import java.util.List;
 
 public interface CourseService {
 
-    void createCourse(String title);
+    QueryResult createCourse(String topic, String title);
 
     Course findCourse(int course_id);
 

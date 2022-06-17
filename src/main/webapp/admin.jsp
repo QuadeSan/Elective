@@ -95,9 +95,13 @@
           <form class="edit-form" action="admin" method="post">
                   <div class="info-container">
                   <p>COURSE INFORMATION</p>
-                  <div>
+                  <div class="col-1-2">
                   <label><b>Course title</b></label>
-                  <input type="text" placeholder="New Course" name="course-title" style="width:37%">
+                  <input type="text" placeholder="Course title" name="title" id="account-field" required>
+                  </div>
+                  <div class="col-1-2">
+                  <label><b>Course topic</b></label>
+                  <input type="text" placeholder="Course topic" name="topic" id="account-field" required>
                   </div>
                   <button class="applybtn" type="submit"> Create new course </button>
                   </div>
@@ -119,11 +123,11 @@
                 <p>COURSE AND TEACHER INFORMATION</p>
                 <div class="col-1-2">
                     <label><b>Course ID</b></label>
-                    <input type="text" placeholder="Course ID" name="course-id" id="account-field">
+                    <input type="text" placeholder="Course ID" name="course-id" id="account-field" required>
                 </div>
                 <div class="col-1-2">
                     <label><b>Teacher ID</b></label>
-                    <input type="text" placeholder="Teacher ID" name="teacher-id" id="account-field">
+                    <input type="text" placeholder="Teacher ID" name="teacher-id" id="account-field"required>
                 </div>
                 <button class="applybtn" type="submit"> Assign teacher </button>
                 </div>

@@ -2,14 +2,11 @@ package ServicesImpl;
 
 import DataBaseLayer.AlreadyExistException;
 import DataBaseLayer.DAO.DAOFactory;
-import DataBaseLayer.DAO.StudentDAO;
 import DataBaseLayer.DAO.TeacherDAO;
 import DataBaseLayer.DAOException;
-import DataBaseLayer.DAOimpl.TeacherDAOImpl;
 import DataBaseLayer.QueryResult;
 import Services.TeacherService;
 import DataBaseLayer.entity.Course;
-import DataBaseLayer.entity.Journal;
 import DataBaseLayer.entity.Student;
 import DataBaseLayer.entity.Teacher;
 import org.apache.logging.log4j.LogManager;
@@ -128,10 +125,5 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void setMarkForCourse(Student student, Course course) {
 
-    }
-
-    @Override
-    public Journal showTeacherJournal() {
-        return null;
     }
 }

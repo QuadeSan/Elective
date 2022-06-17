@@ -8,20 +8,8 @@ import DataBaseLayer.entity.User;
 
 import java.util.List;
 
-public class StudentDAOimpl implements StudentDAO {
+abstract public class StudentDAOimpl implements StudentDAO {
 
-    private static StudentDAOimpl instance;
-
-    private StudentDAOimpl() {
-
-    }
-
-    public static synchronized StudentDAOimpl getInstance() {
-        if (instance == null) {
-            instance = new StudentDAOimpl();
-        }
-        return instance;
-    }
 
     @Override
     public void createStudent(String login, String password, String email,String name, String lastName) {

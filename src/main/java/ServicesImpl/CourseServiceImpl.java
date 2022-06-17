@@ -1,8 +1,10 @@
 package ServicesImpl;
 
+import DataBaseLayer.AlreadyExistException;
 import DataBaseLayer.DAO.CourseDAO;
 import DataBaseLayer.DAO.DAOFactory;
 import DataBaseLayer.DAOException;
+import DataBaseLayer.QueryResult;
 import DataBaseLayer.entity.Course;
 import Services.CourseService;
 import org.apache.logging.log4j.LogManager;
@@ -15,19 +17,29 @@ public class CourseServiceImpl implements CourseService {
     private static final Logger logger = LogManager.getLogger(CourseServiceImpl.class);
 
     @Override
-    public void createCourse(String title) {
+    public QueryResult createCourse(String topic, String title) {
+        QueryResult result = new QueryResult();
         try {
             DAOFactory factory = DAOFactory.getInstance();
             logger.debug("DAOFactory created => " + factory);
             CourseDAO courseDAO = factory.getCourseDAO();
             logger.debug("CourseDAO created");
-            courseDAO.createCourse(title);
+            courseDAO.createCourse(topic,title);
             logger.debug("createCourse Method used");
             courseDAO.close();
+            return result;
+        } catch (AlreadyExistException ex) {
+            logger.info("Course with title " + title + " already exist");
+            result.addException(ex);
+            return result;
         } catch (DAOException e) {
             logger.debug("Can't create new Course", e);
+            result.addException(e);
+            return result;
         } catch (Exception e) {
             logger.debug("Can't close CourseDAO", e);
+            result.addException(e);
+            return result;
         }
     }
 

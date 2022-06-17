@@ -1,9 +1,7 @@
 package ServicesImpl;
 
-import DataBaseLayer.DAO.UserDAO;
-import DataBaseLayer.DAOimpl.UserDAOImpl;
-import Services.UserService;
 import DataBaseLayer.entity.User;
+import Services.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,43 +13,36 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(String login, String password) {
-        UserDAO userDAO = UserDAOImpl.getInstance();
-        userDAO.createUser(login, password);
+
     }
 
     @Override
     public void deleteUser(int id) {
-        UserDAO userDAO = UserDAOImpl.getInstance();
-        userDAO.deleteUser(id);
+
     }
 
     @Override
     public User findUser(int id) {
-        UserDAO userDAO = UserDAOImpl.getInstance();
-        return userDAO.findUser(id);
+        return null;
     }
 
     @Override
     public User findUser(String login) {
-        UserDAO userDAO = UserDAOImpl.getInstance();
-        return userDAO.findUser(login);
+        return null;
     }
 
     @Override
     public List<User> showAll() {
-        UserDAO userDAO = UserDAOImpl.getInstance();
-        return userDAO.showAllUsers();
+        return null;
     }
 
     @Override
     public void changeLogin(User user, String newLogin) {
-        UserDAO userDAO = UserDAOImpl.getInstance();
-        userDAO.changeLogin(user, newLogin);
+
     }
 
     @Override
     public void changePassword(User user, String newPassword) {
-        UserDAO userDAO = UserDAOImpl.getInstance();
-        userDAO.changePassword(user, newPassword);
+
     }
 }

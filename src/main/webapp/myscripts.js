@@ -16,6 +16,10 @@ function confirmAlert() {
     }
 }
 
+function getMark() {
+    return var document.getElementById("mark").value
+}
+
 'use strict';
 
 class SortableTable {

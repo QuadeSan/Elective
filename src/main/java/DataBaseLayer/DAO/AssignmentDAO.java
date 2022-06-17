@@ -1,6 +1,9 @@
 package DataBaseLayer.DAO;
 
 import DataBaseLayer.entity.Course;
+import DataBaseLayer.entity.Student;
+
+import java.util.List;
 
 public interface AssignmentDAO extends AutoCloseable {
 
@@ -12,7 +15,11 @@ public interface AssignmentDAO extends AutoCloseable {
 
     void unassignStudentFromCourse(int courseID, int studentID);
 
+    List<Course> showTeacherCourses(int teacherID);
+
+    List<Course> showStudentCourses(int studentID);
+
     void setMarkForStudent(int courseID, int studentID, int mark);
 
-    Course getFullInfoAboutCourse(int courseID);
+    List<Student> showStudentsOnCourse(int courseID);
 }

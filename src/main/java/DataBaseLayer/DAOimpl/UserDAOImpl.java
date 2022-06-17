@@ -6,20 +6,7 @@ import DataBaseLayer.entity.User;
 
 import java.util.List;
 
-public class UserDAOImpl implements UserDAO {
-
-    private static UserDAOImpl instance;
-
-    private UserDAOImpl() {
-
-    }
-
-    public static synchronized UserDAOImpl getInstance() {
-        if (instance == null) {
-            instance = new UserDAOImpl();
-        }
-        return instance;
-    }
+abstract public class UserDAOImpl implements UserDAO {
 
     @Override
     public void createUser(String login, String password) {

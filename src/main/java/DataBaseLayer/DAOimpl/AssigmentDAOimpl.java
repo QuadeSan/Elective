@@ -3,7 +3,7 @@ package DataBaseLayer.DAOimpl;
 import DataBaseLayer.DAO.AssignmentDAO;
 import DataBaseLayer.entity.Course;
 
-public class AssigmentDAOimpl implements AssignmentDAO {
+public abstract class AssigmentDAOimpl implements AssignmentDAO {
 
     @Override
     public void close() throws Exception {
@@ -33,10 +33,5 @@ public class AssigmentDAOimpl implements AssignmentDAO {
     @Override
     public void setMarkForStudent(int courseID, int studentID, int mark) {
 
-    }
-
-    @Override
-    public Course getFullInfoAboutCourse(int courseID) {
-        return null;
     }
 }
