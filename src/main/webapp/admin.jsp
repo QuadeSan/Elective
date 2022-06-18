@@ -37,6 +37,58 @@
         <c:remove var="errorMessage" scope="session" />
         </div>
         </c:if>
+        <h2 class="main-h2">Create new course </h2>
+          <form class="edit-form" action="admin" method="post">
+                  <div class="info-container">
+                  <p>COURSE INFORMATION</p>
+                  <div class="col-1-2">
+                  <label><b>Course title</b></label>
+                  <input type="text" placeholder="Course title" name="title" id="account-field" required>
+                  </div>
+                  <div class="col-1-2">
+                  <label><b>Course topic</b></label>
+                  <input type="text" placeholder="Course topic" name="topic" id="account-field" required>
+                  </div>
+                  <input type="hidden" name="adminAction" value="createCourse">
+                  <button class="applybtn" type="submit"> Create new course </button>
+                  </div>
+          </form>
+         <h2 class="main-h2">Edit course</h2>
+         <form class="edit-form" action="admin" method="post">
+                <div class="info-container">
+                <p>COURSE INFORMATION</p>
+                <div class="col-1-2">
+                    <label><b>Course ID</b></label>
+                    <input type="text" placeholder="Course ID" name="course-id" id="account-field" required>
+                </div>
+                <div class="col-1-2">
+                    <label><b>New title</b></label>
+                    <input type="text" placeholder="New title" name="new-title" id="account-field">
+                </div>
+                <div class="col-1-2">
+                    <label><b>New topic</b></label>
+                    <input type="password" placeholder="Teacher ID" name="new-topic" id="account-field">
+                </div>
+                <div class="col-1-2">
+                    <label><b>New teacher assignment</b></label>
+                    <input type="password" placeholder="Teacher ID" name="nteacher-id" id="account-field">
+                </div>
+                <input type="hidden" name="adminAction" value="editCourse">
+                <button class="applybtn" type="submit"> Apply changes </button>
+                </div>
+         </form>
+         <h2 class="main-h2">Delete course</h2>
+         <form class="edit-form" action="admin" method="post" onSubmit="confirmAlert()">
+                <div class="info-container">
+                <p>COURSE INFORMATION</p>
+                <div>
+                    <label><b>Course ID</b></label>
+                    <input type="text" placeholder="Course ID" name="course-id" style="width:37%">
+                </div>
+                <input type="hidden" name="adminAction" value="deleteCourse">
+                <button class="applybtn" type="submit" > Delete course </button>
+                </div>
+         </form>
         <h2 class="main-h2">Create teacher</h2>
          <form class="edit-form" action="admin" method="post">
                 <div class="info-container">
@@ -65,56 +117,8 @@
                     <label><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="account-field" required>
                 </div>
-                 <button class="applybtn" type="submit"> Create new teacher </button>
-                </div>
-         </form>
-         <h2 class="main-h2">Edit course</h2>
-         <form class="edit-form" action="admin" method="post">
-                <div class="info-container">
-                <p>COURSE INFORMATION</p>
-                <div class="col-1-2">
-                    <label><b>Course ID</b></label>
-                    <input type="text" placeholder="Course ID" name="course-id" id="account-field" required>
-                </div>
-                <div class="col-1-2">
-                    <label><b>New title</b></label>
-                    <input type="text" placeholder="New title" name="new-title" id="account-field">
-                </div>
-                <div class="col-1-2">
-                    <label><b>Cancel teacher assignment</b></label>
-                    <input type="password" placeholder="Teacher ID" name="cteacher-id" id="account-field">
-                </div>
-                <div class="col-1-2">
-                    <label><b>New teacher assignment</b></label>
-                    <input type="password" placeholder="Teacher ID" name="nteacher-id" id="account-field">
-                </div>
-                 <button class="applybtn" type="submit"> Apply changes </button>
-                </div>
-         </form>
-      <h2 class="main-h2">Create new course </h2>
-          <form class="edit-form" action="admin" method="post">
-                  <div class="info-container">
-                  <p>COURSE INFORMATION</p>
-                  <div class="col-1-2">
-                  <label><b>Course title</b></label>
-                  <input type="text" placeholder="Course title" name="title" id="account-field" required>
-                  </div>
-                  <div class="col-1-2">
-                  <label><b>Course topic</b></label>
-                  <input type="text" placeholder="Course topic" name="topic" id="account-field" required>
-                  </div>
-                  <button class="applybtn" type="submit"> Create new course </button>
-                  </div>
-          </form>
-          <h2 class="main-h2">Delete course</h2>
-         <form class="edit-form" action="admin" method="post" onSubmit="confirmAlert()">
-                <div class="info-container">
-                <p>COURSE INFORMATION</p>
-                <div>
-                    <label><b>Course ID</b></label>
-                    <input type="text" placeholder="Course ID" name="course-id" style="width:37%">
-                </div>
-                <button class="applybtn" type="submit" > Delete course </button>
+                <input type="hidden" name="adminAction" value="createTeacher">
+                <button class="applybtn" type="submit"> Create new teacher </button>
                 </div>
          </form>
          <h2 class="main-h2">Assign teacher to course</h2>
@@ -129,6 +133,7 @@
                     <label><b>Teacher ID</b></label>
                     <input type="text" placeholder="Teacher ID" name="teacher-id" id="account-field"required>
                 </div>
+                <input type="hidden" name="adminAction" value="assignTeacher">
                 <button class="applybtn" type="submit"> Assign teacher </button>
                 </div>
          </form>
@@ -138,12 +143,13 @@
                 <p>STUDENT INFORMATION</p>
                 <div class="col-1-2">
                     <label><b>Student ID</b></label>
-                    <input type="text" placeholder="Student ID" name="student-id" id="account-field">
+                    <input type="text" placeholder="Student ID" name="student-id" id="account-field" required>
                 </div>
                 <div class="col-1-2">
                     <label><b>Student status</b></label>
-                    <input type="text" placeholder="Locked/unlocked" name="student-status" id="account-field">
+                    <input type="text" placeholder="Locked/unlocked" name="student-status" id="account-field" required>
                 </div>
+                <input type="hidden" name="adminAction" value="lockStudent">
                 <button class="applybtn" type="submit" onclick="confirmAlert()"> Apply changes </button>
                 </div>
          </form>

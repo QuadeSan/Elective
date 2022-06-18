@@ -4,6 +4,7 @@ import DataBaseLayer.AlreadyExistException;
 import DataBaseLayer.DAO.CourseDAO;
 import DataBaseLayer.DAO.DAOFactory;
 import DataBaseLayer.DAOException;
+import DataBaseLayer.NotExistException;
 import DataBaseLayer.QueryResult;
 import DataBaseLayer.entity.Course;
 import Services.CourseService;
@@ -24,7 +25,7 @@ public class CourseServiceImpl implements CourseService {
             logger.debug("DAOFactory created => " + factory);
             CourseDAO courseDAO = factory.getCourseDAO();
             logger.debug("CourseDAO created");
-            courseDAO.createCourse(topic,title);
+            courseDAO.createCourse(topic, title);
             logger.debug("createCourse Method used");
             courseDAO.close();
             return result;
@@ -84,7 +85,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public void deleteCourse(int course_id) {
+    public QueryResult deleteCourse(int course_id) {
+        QueryResult result = new QueryResult();
         try {
             DAOFactory factory = DAOFactory.getInstance();
             logger.debug("DAOFactory created => " + factory);
@@ -93,11 +95,18 @@ public class CourseServiceImpl implements CourseService {
             courseDAO.deleteCourse(course_id);
             logger.debug("deleteCourse Method used");
             courseDAO.close();
+            return result;
+        } catch (NotExistException e) {
+            logger.error("Course with if #" + course_id + "doesn't exist");
+            result.addException(e);
         } catch (DAOException e) {
             logger.debug("Can't delete Course with ID" + course_id, e);
+            result.addException(e);
         } catch (Exception e) {
             logger.debug("Can't close CourseDAO", e);
+            result.addException(e);
         }
+        return result;
     }
 
     @Override

@@ -35,8 +35,11 @@
         <c:remove var="infoMessage"/>
         <c:remove var="errorMessage"/>
     </div>
-    <h2 class="tools"> List of courses </h2>
-    <table class="courseTable">
+    <div class="tools">
+    <h2> List of courses </h2>
+    <input type="text" id="filterInput" onkeyup="tableFilter()" placeholder="Filter by topic/teacher">
+    </div>
+    <table class="courseTable" id="courseTable">
       <thead>
         <tr>
           <th id="courseHead" class="num" aria-sort="ascending">

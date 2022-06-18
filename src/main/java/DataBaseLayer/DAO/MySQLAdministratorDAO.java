@@ -1,5 +1,6 @@
 package DataBaseLayer.DAO;
 
+import DataBaseLayer.AlreadyExistException;
 import DataBaseLayer.DAOException;
 import DataBaseLayer.DataSourcePool;
 import DataBaseLayer.entity.Administrator;
@@ -56,6 +57,10 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
             } catch (SQLException e) {
                 logger.error("rollback failed");
                 throw new DAOException(e);
+            }
+            if (ex instanceof java.sql.SQLIntegrityConstraintViolationException) {
+                logger.debug("AlreadyExistException catch clause " + ex);
+                throw new AlreadyExistException("Login already exist",ex);
             }
             logger.error("Can't create user", ex);
             throw new DAOException(ex);

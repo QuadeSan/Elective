@@ -1,6 +1,5 @@
 package Controller;
 
-import DataBaseLayer.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,19 +20,18 @@ public class AccountEditPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doGet of /editaccount with forward to edit.jsp");
-//        HttpSession session = req.getSession();
-//        String currentUser = (String) session.getAttribute("currentUser");
-//        if (currentUser == null) {
-//            User guest = new User();
-//            guest.setLogin("guest");
-//            session.setAttribute("currentUser", "guest");
-//        }
+        HttpSession session = req.getSession();
+        String userRole = (String) session.getAttribute("userRole");
+        if (userRole == null || userRole.equals("guest")) {
+            resp.sendRedirect("main");
+            return;
+        }
         req.getRequestDispatcher("edit.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.debug("doPost of /editaccount with forward to account.jsp");
-        req.getRequestDispatcher("account.jsp").forward(req, resp);
+        logger.debug("doPost of /editaccount with redirect to editaccount");
+        resp.sendRedirect("editaccount");
     }
 }

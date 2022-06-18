@@ -63,7 +63,7 @@ public class MySQLTeacherDAO implements TeacherDAO {
             }
             if (ex instanceof java.sql.SQLIntegrityConstraintViolationException) {
                 logger.debug("AlreadyExistException catch clause " + ex);
-                throw new AlreadyExistException(ex);
+                throw new AlreadyExistException("Login already exist",ex);
             }
             logger.error("Can't create user", ex);
             throw new DAOException(ex);

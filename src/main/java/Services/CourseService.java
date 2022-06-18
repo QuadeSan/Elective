@@ -13,7 +13,7 @@ public interface CourseService {
 
     Course findCourse(String title);
 
-    void deleteCourse(int course_id);
+    QueryResult deleteCourse(int course_id);
 
     void changeStatus(int courseID, String status);
 

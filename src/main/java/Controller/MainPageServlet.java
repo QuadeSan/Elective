@@ -63,21 +63,20 @@ public class MainPageServlet extends HttpServlet {
             session.setAttribute("userRole", "Teacher");
             logger.info("You was logged as " + currentTeacher);
             resp.sendRedirect("main");
-        } else {
-            logger.info("Teacher was not found");
-            AdministartorService administartorService = new AdministratorServiceImpl();
-            Administrator currentAdmin = administartorService.findAdministrator(login, password);
-            if (currentAdmin != null) {
-                session.setAttribute("currentUser", currentAdmin);
-                session.setAttribute("userRole", "Admin");
-                logger.info("You was logged as " + currentAdmin);
-                resp.sendRedirect("main");
-            } else {
-                session.setAttribute("errorMessage",
-                        "Unable to login. Either Login or Password is incorrect");
-                resp.sendRedirect("login");
-            }
+            return;
         }
-
+        logger.info("Teacher was not found");
+        AdministartorService administartorService = new AdministratorServiceImpl();
+        Administrator currentAdmin = administartorService.findAdministrator(login, password);
+        if (currentAdmin != null) {
+            session.setAttribute("currentUser", currentAdmin);
+            session.setAttribute("userRole", "Admin");
+            logger.info("You was logged as " + currentAdmin);
+            resp.sendRedirect("main");
+            return;
+        }
+        session.setAttribute("errorMessage",
+                "Unable to login. Either Login or Password is incorrect");
+        resp.sendRedirect("login");
     }
 }

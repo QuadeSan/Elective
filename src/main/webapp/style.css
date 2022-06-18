@@ -335,6 +335,10 @@ table.courseTable th:not([aria-sort]) button:hover span::after {
   top: 0;
 }
 
+#filterInput {
+  width:50%;
+}
+
 /* Journal */
 
 input[type="number"]::-webkit-outer-spin-button,

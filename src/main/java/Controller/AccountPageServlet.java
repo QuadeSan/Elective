@@ -40,13 +40,13 @@ public class AccountPageServlet extends HttpServlet {
         }
         AssignmentService assignmentService = new AssignmentServiceImpl();
         logger.debug("AssignmentService was created");
-        if (userRole.equals("Student")){
+        if (userRole.equals("Student")) {
             Student currentStudent = (Student) session.getAttribute("currentUser");
             int studentID = currentStudent.getStudentID();
             List<Course> courseList = assignmentService.showStudentCourses(studentID);
             currentStudent.setCourses(courseList);
         }
-        if (userRole.equals("Teacher")){
+        if (userRole.equals("Teacher")) {
             Teacher currentTeacher = (Teacher) session.getAttribute("currentUser");
             int teacherID = currentTeacher.getTeacherID();
             List<Course> courseList = assignmentService.showTeacherCourses(teacherID);
@@ -58,12 +58,12 @@ public class AccountPageServlet extends HttpServlet {
             Student currentStudent = (Student) session.getAttribute("currentUser");
             int studentID = currentStudent.getStudentID();
             assignmentService.unassignStudentFromCourse(courseID, studentID);
-            logger.info("Student " +studentID +" left the course # " + courseID);
+            logger.info("Student " + studentID + " left the course # " + courseID);
             session.setAttribute("infoMessage", "You left the course #" + courseID);
             resp.sendRedirect("account");
-        } else {
-            req.getRequestDispatcher("account.jsp").forward(req, resp);
+            return;
         }
+        req.getRequestDispatcher("account.jsp").forward(req, resp);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class AccountPageServlet extends HttpServlet {
         return result;
     }
 
-    boolean checkPasswords(Map<String,String> parameters) {
+    boolean checkPasswords(Map<String, String> parameters) {
 
         return parameters.get("password").equals(parameters.get("reppassword"));
     }

@@ -3,6 +3,7 @@ package DataBaseLayer.DAO;
 import DataBaseLayer.AlreadyExistException;
 import DataBaseLayer.DAOException;
 import DataBaseLayer.DataSourcePool;
+import DataBaseLayer.NotExistException;
 import DataBaseLayer.entity.Course;
 import DataBaseLayer.entity.Teacher;
 import org.apache.logging.log4j.LogManager;
@@ -38,7 +39,7 @@ public class MySQLCourseDAO implements CourseDAO {
         } catch (SQLException ex) {
             if (ex instanceof java.sql.SQLIntegrityConstraintViolationException) {
                 logger.debug("AlreadyExistException catch clause " + ex);
-                throw new AlreadyExistException(ex);
+                throw new AlreadyExistException("Title already exist",ex);
             }
             logger.error("Can't create course", ex);
             throw new DAOException(ex);
@@ -104,7 +105,7 @@ public class MySQLCourseDAO implements CourseDAO {
     }
 
     @Override
-    public void deleteCourse(int course_id) {
+    public void deleteCourse(int course_id) throws NotExistException {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("DELETE FROM courses WHERE course_id=?");
@@ -112,6 +113,7 @@ public class MySQLCourseDAO implements CourseDAO {
             stmt.setInt(k++, course_id);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
+                logger.error("Course does not exist");
                 throw new SQLException("Deleting course failed, no rows affected.");
             }
             logger.info("Course was deleted");

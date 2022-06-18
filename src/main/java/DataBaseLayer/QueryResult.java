@@ -22,10 +22,10 @@ public class QueryResult {
     }
 
     public String getException() {
-        if (exceptions.get(0).contains("users.login")) {
+        if (exceptions.get(0).contains("Login already exist")){
             return "Login already exist";
         }
-        if (exceptions.get(0).contains("courses.title")) {
+        if (exceptions.get(0).contains("Title already exist")) {
             return "Course with current title already exist";
         }
         if (exceptions.get(0).contains("teachers_assignments.PRIMARY")) {
@@ -36,6 +36,9 @@ public class QueryResult {
         }
         if (exceptions.get(0).contains("foreign key constraint fails")) {
             return "Either the course or the teacher does not exist!";
+        }
+        if (exceptions.get(0).contains("Deleting course failed")){
+            return "Course with current ID doest not exist";
         }
         return "Unhandled exception";
     }

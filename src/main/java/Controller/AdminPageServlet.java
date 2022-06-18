@@ -36,30 +36,52 @@ public class AdminPageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doPost of /admin with redirect to /admin");
-        if (req.getParameter("login") != null) {
-            logger.debug("Creating teacher process started");
-            createNewTeacher(req, resp);
-            return;
+        switch (req.getParameter("adminAction")) {
+            case "createTeacher":
+                logger.debug("Creating teacher process started");
+                createNewTeacher(req, resp);
+                break;
+            case "createCourse":
+                logger.debug("Creating course process started");
+                createNewCourse(req, resp);
+                break;
+            case "assignTeacher":
+                logger.debug("Teacher assignment process started");
+                assignTeacherToCourse(req, resp);
+                break;
+            case "lockStudent":
+                logger.debug("Locking / unlocking student");
+                lockStudent(req, resp);
+                break;
+            case "deleteCourse":
+                logger.debug("Deleting course");
+                deleteCourse(req, resp);
+                break;
         }
-        if (req.getParameter("title") != null) {
-            logger.debug("Creating course process started");
-            createNewCourse(req, resp);
-            return;
-        }
-        if (req.getParameter("course-id") != null && req.getParameter("teacher-id") != null) {
-            logger.debug("Teacher assignment process started");
-            assignTeacherToCourse(req, resp);
-            return;
-        }
-        if (req.getParameter("student-status") != null) {
-            logger.debug("Locking / unlocking student");
-            lockStudent(req, resp);
-            return;
-        }
-        if (req.getParameter("course-id") != null) {
-            logger.debug("Deleting course");
-            deleteCourse(req, resp);
-        }
+//        if (req.getParameter("adminAction").equals("createTeacher")) {
+//            logger.debug("Creating teacher process started");
+//            createNewTeacher(req, resp);
+//            return;
+//        }
+//        if (req.getParameter("adminAction").equals("createCourse")) {
+//            logger.debug("Creating course process started");
+//            createNewCourse(req, resp);
+//            return;
+//        }
+//        if (req.getParameter("adminAction").equals("assignTeacher")) {
+//            logger.debug("Teacher assignment process started");
+//            assignTeacherToCourse(req, resp);
+//            return;
+//        }
+//        if (req.getParameter("adminAction").equals("lockStudent")) {
+//            logger.debug("Locking / unlocking student");
+//            lockStudent(req, resp);
+//            return;
+//        }
+//        if (req.getParameter("adminAction").equals("deleteCourse")) {
+//            logger.debug("Deleting course");
+//            deleteCourse(req, resp);
+//        }
     }
 
     private void createNewTeacher(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -165,16 +187,14 @@ public class AdminPageServlet extends HttpServlet {
         int courseID = Integer.parseInt(req.getParameter("course-id"));
         CourseService courseService = new CourseServiceImpl();
         logger.debug("CourseService was created");
-        Course currentCourse = courseService.findCourse(courseID);
-        logger.debug("Current course is " + currentCourse);
-        if (currentCourse != null) {
-            courseService.deleteCourse(courseID);
-            logger.info("Course " + currentCourse.getTitle() + " was deleted");
-            session.setAttribute("infoMessage", "Course " +
-                    currentCourse.getTitle() + " was deleted");
+        QueryResult queryResult = courseService.deleteCourse(courseID);
+        if (queryResult.getResult()) {
+            logger.info("Course #" + courseID + " was deleted");
+            session.setAttribute("infoMessage", "Course #" +
+                    courseID + " was deleted");
         } else {
             logger.info("Course with ID " + courseID + " does not exist");
-            session.setAttribute("errorMessage", "Course with ID " + courseID + " does not exist");
+            session.setAttribute("errorMessage", queryResult.getException());
         }
         resp.sendRedirect("admin");
     }

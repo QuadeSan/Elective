@@ -45,7 +45,7 @@ public class MySQLStudentDAO implements StudentDAO {
                 }
             } catch (SQLException ex) {
                 logger.debug("Creating user failed");
-                throw new DAOException(ex);
+                throw new DAOException("no ID obtained",ex);
             }
             stmt2 = con.prepareStatement("INSERT INTO students VALUES (DEFAULT, ?, ?, ?,DEFAULT)");
             int l = 1;
@@ -65,7 +65,7 @@ public class MySQLStudentDAO implements StudentDAO {
             }
             if (ex instanceof java.sql.SQLIntegrityConstraintViolationException) {
                 logger.debug("AlreadyExistException catch clause " + ex);
-                throw new AlreadyExistException(ex);
+                throw new AlreadyExistException("Login already exist",ex);
             }
             logger.error("Can't create user", ex);
             throw new DAOException(ex);
