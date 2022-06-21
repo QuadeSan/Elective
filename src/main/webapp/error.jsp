@@ -22,7 +22,12 @@
         </c:if>
     </header>
     <div class="main">
-<b> ${errorMessage} </b>
+        <c:if test="${errorMessage != null}">
+        <div class="info-box">
+        <span class="error-span"> ${errorMessage} </span>
+        <c:remove var="errorMessage" scope="session" />
+        </c:if>
+        </div>
     </div>
     <footer>
         Here should be some footer information
