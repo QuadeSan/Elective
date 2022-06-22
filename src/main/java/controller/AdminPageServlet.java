@@ -1,13 +1,14 @@
 package controller;
 
-import services.AssignmentService;
-import services.CourseService;
-import services.StudentService;
-import services.TeacherService;
-import services.impl.AssignmentServiceImpl;
-import services.impl.CourseServiceImpl;
-import services.impl.StudentServiceImpl;
-import services.impl.TeacherServiceImpl;
+import application.*;
+import application.services.impl.AssignmentServiceImpl;
+import application.services.impl.CourseServiceImpl;
+import application.services.impl.StudentServiceImpl;
+import application.services.impl.TeacherServiceImpl;
+import application.services.AssignmentService;
+import application.services.CourseService;
+import application.services.StudentService;
+import application.services.TeacherService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -88,13 +89,13 @@ public class AdminPageServlet extends HttpServlet {
             resp.sendRedirect("admin");
             return;
         }
-        Response response = teacherService.createTeacher(teacherLogin, teacherPass, teacherEmail, teacherName, teacherLastName);
-        if (response.isSuccess()) {
+        OperationResult operationResult = teacherService.createTeacher(teacherLogin, teacherPass, teacherEmail, teacherName, teacherLastName);
+        if (operationResult.isSuccess()) {
             logger.info("Teacher was created");
-            session.setAttribute("infoMessage", response.getMessage());
+            session.setAttribute("infoMessage", operationResult.getMessage());
         } else {
             logger.debug("User already exist, redirect to /admin");
-            session.setAttribute("errorMessage", response.getMessage());
+            session.setAttribute("errorMessage", operationResult.getMessage());
         }
         resp.sendRedirect("admin");
     }
@@ -105,11 +106,11 @@ public class AdminPageServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-        Response response = courseService.createCourse(courseTopic, courseTitle);
-        if (response.isSuccess()) {
-            session.setAttribute("infoMessage", response.getMessage());
+        OperationResult operationResult = courseService.createCourse(courseTopic, courseTitle);
+        if (operationResult.isSuccess()) {
+            session.setAttribute("infoMessage", operationResult.getMessage());
         } else {
-            session.setAttribute("errorMessage", response.getMessage());
+            session.setAttribute("errorMessage", operationResult.getMessage());
         }
         resp.sendRedirect("admin");
     }
@@ -120,7 +121,7 @@ public class AdminPageServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-        Response response = assignmentService.assignTeacherToCourse(courseID, teacherID);
+        OperationResult response = assignmentService.assignTeacherToCourse(courseID, teacherID);
         if (response.isSuccess()) {
             session.setAttribute("infoMessage", response.getMessage());
         } else {
@@ -136,11 +137,11 @@ public class AdminPageServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-        Response response = studentService.lockStudent(studentID, status);
-        if (response.isSuccess()) {
-            session.setAttribute("infoMessage", response.getMessage());
+        OperationResult operationResult = studentService.lockStudent(studentID, status);
+        if (operationResult.isSuccess()) {
+            session.setAttribute("infoMessage", operationResult.getMessage());
         } else {
-            session.setAttribute("errorMessage", response.getMessage());
+            session.setAttribute("errorMessage", operationResult.getMessage());
         }
         resp.sendRedirect("admin");
     }
@@ -150,12 +151,12 @@ public class AdminPageServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
 
-        Response response = courseService.deleteCourse(courseID);
-        if (response.isSuccess()) {
+        OperationResult operationResult = courseService.deleteCourse(courseID);
+        if (operationResult.isSuccess()) {
 
-            session.setAttribute("infoMessage", response.getMessage());
+            session.setAttribute("infoMessage", operationResult.getMessage());
         } else {
-            session.setAttribute("errorMessage", response.getMessage());
+            session.setAttribute("errorMessage", operationResult.getMessage());
         }
         resp.sendRedirect("admin");
     }

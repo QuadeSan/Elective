@@ -1,10 +1,11 @@
 package controller;
 
-import dataBaseLayer.entity.Course;
-import dataBaseLayer.entity.Student;
-import dataBaseLayer.entity.Teacher;
-import services.AssignmentService;
-import services.impl.AssignmentServiceImpl;
+import application.entity.Course;
+import application.entity.Student;
+import application.entity.Teacher;
+import application.services.AssignmentService;
+import application.services.impl.AssignmentServiceImpl;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @WebServlet("/account")
@@ -46,14 +46,14 @@ public class AccountPageServlet extends HttpServlet {
             Student currentStudent = (Student) session.getAttribute("currentUser");
             int studentID = currentStudent.getStudentID();
 
-            List<Course> courseList = assignmentService.showStudentCourses(studentID);
+            Iterable<Course> courseList = assignmentService.showStudentCourses(studentID);
             currentStudent.setCourses(courseList);
         }
         if (userRole.equals("Teacher")) {
             Teacher currentTeacher = (Teacher) session.getAttribute("currentUser");
             int teacherID = currentTeacher.getTeacherID();
 
-            List<Course> courseList = assignmentService.showTeacherCourses(teacherID);
+            Iterable<Course> courseList = assignmentService.showTeacherCourses(teacherID);
             currentTeacher.setCourses(courseList);
         }
         if (req.getParameter("course_id") != null) {

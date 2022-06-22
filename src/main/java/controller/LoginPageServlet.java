@@ -1,7 +1,8 @@
 package controller;
 
-import services.StudentService;
-import services.impl.StudentServiceImpl;
+import application.OperationResult;
+import application.services.StudentService;
+import application.services.impl.StudentServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -51,14 +52,14 @@ public class LoginPageServlet extends HttpServlet {
             resp.sendRedirect("register");
             return;
         }
-        Response response = studentService.createStudent(login, password, email, name, lastName);
-        if (response.isSuccess()) {
+        OperationResult operationResult = studentService.createStudent(login, password, email, name, lastName);
+        if (operationResult.isSuccess()) {
             logger.info("Student was created");
-            session.setAttribute("infoMessage", response.getMessage());
+            session.setAttribute("infoMessage", operationResult.getMessage());
             resp.sendRedirect("login");
         } else {
-            logger.error("Unsuccessful operation" + response.getMessage());
-            session.setAttribute("errorMessage", response.getMessage());
+            logger.error("Unsuccessful operation" + operationResult.getMessage());
+            session.setAttribute("errorMessage", operationResult.getMessage());
             resp.sendRedirect("register");
         }
     }

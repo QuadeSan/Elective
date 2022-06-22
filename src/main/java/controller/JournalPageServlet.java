@@ -1,8 +1,8 @@
 package controller;
 
-import dataBaseLayer.entity.Student;
-import services.AssignmentService;
-import services.impl.AssignmentServiceImpl;
+import application.entity.Student;
+import application.services.AssignmentService;
+import application.services.impl.AssignmentServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,7 +43,7 @@ public class JournalPageServlet extends HttpServlet {
         int courseID = (int) session.getAttribute("viewedCourse");
         logger.debug("Trying to find all students on course #" + courseID);
 
-        List<Student> studentList = assignmentService.showStudentsOnCourse(courseID);
+        Iterable<Student> studentList = assignmentService.showStudentsOnCourse(courseID);
         logger.info("List of students " + studentList.hashCode());
 
         session.setAttribute("studentList", studentList);

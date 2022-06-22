@@ -1,15 +1,14 @@
 package controller;
 
-import dataBaseLayer.entity.Administrator;
-import dataBaseLayer.entity.Student;
-import dataBaseLayer.entity.Teacher;
-import dataBaseLayer.entity.User;
-import services.AdministartorService;
-import services.StudentService;
-import services.TeacherService;
-import services.impl.AdministratorServiceImpl;
-import services.impl.StudentServiceImpl;
-import services.impl.TeacherServiceImpl;
+import application.entity.Administrator;
+import application.entity.Student;
+import application.entity.Teacher;
+import application.services.AdministratorService;
+import application.services.StudentService;
+import application.services.TeacherService;
+import application.services.impl.AdministratorServiceImpl;
+import application.services.impl.StudentServiceImpl;
+import application.services.impl.TeacherServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,7 +23,20 @@ import java.io.IOException;
 @WebServlet("/main")
 public class MainPageServlet extends HttpServlet {
 
-    private static Logger logger = LogManager.getLogger(MainPageServlet.class);
+    private static final Logger logger = LogManager.getLogger(MainPageServlet.class);
+    private StudentService studentService;
+    private TeacherService teacherService;
+    private AdministratorService administratorService;
+
+    @Override
+    public void init() throws ServletException {
+        studentService = new StudentServiceImpl();
+        logger.debug("StudentService was created");
+        teacherService = new TeacherServiceImpl();
+        logger.debug("TeacherService was created");
+        administratorService = new AdministratorServiceImpl();
+        logger.debug("AdministratorService was created");
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,9 +44,6 @@ public class MainPageServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String userRole = (String) session.getAttribute("userRole");
         if (userRole == null) {
-            User guest = new User();
-            guest.setLogin("guest");
-            session.setAttribute("currentUser", guest);
             session.setAttribute("userRole", "guest");
         }
         req.getRequestDispatcher("main.jsp").forward(req, resp);
@@ -46,7 +55,6 @@ public class MainPageServlet extends HttpServlet {
         String login = req.getParameter("uname");
         String password = req.getParameter("psw");
         HttpSession session = req.getSession();
-        StudentService studentService = new StudentServiceImpl();
         Student currentStudent = studentService.findStudent(login, password);
         if (currentStudent != null) {
             session.setAttribute("currentUser", currentStudent);
@@ -56,7 +64,6 @@ public class MainPageServlet extends HttpServlet {
             return;
         }
         logger.info("Student was not found");
-        TeacherService teacherService = new TeacherServiceImpl();
         Teacher currentTeacher = teacherService.findTeacher(login, password);
         if (currentTeacher != null) {
             session.setAttribute("currentUser", currentTeacher);
@@ -66,8 +73,7 @@ public class MainPageServlet extends HttpServlet {
             return;
         }
         logger.info("Teacher was not found");
-        AdministartorService administartorService = new AdministratorServiceImpl();
-        Administrator currentAdmin = administartorService.findAdministrator(login, password);
+        Administrator currentAdmin = administratorService.findAdministrator(login, password);
         if (currentAdmin != null) {
             session.setAttribute("currentUser", currentAdmin);
             session.setAttribute("userRole", "Admin");

@@ -1,11 +1,12 @@
 package controller;
 
-import dataBaseLayer.entity.Course;
-import dataBaseLayer.entity.Student;
-import services.AssignmentService;
-import services.CourseService;
-import services.impl.AssignmentServiceImpl;
-import services.impl.CourseServiceImpl;
+import application.entity.Course;
+import application.entity.Student;
+import application.services.AssignmentService;
+import application.services.CourseService;
+import application.OperationResult;
+import application.services.impl.AssignmentServiceImpl;
+import application.services.impl.CourseServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,7 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/courses")
 public class CoursesPageServlet extends HttpServlet {
@@ -46,16 +46,16 @@ public class CoursesPageServlet extends HttpServlet {
             Student currentStudent = (Student) session.getAttribute("currentUser");
             int studentID = currentStudent.getStudentID();
 
-            Response response = assignmentService.assignStudentToCourse(courseID, studentID);
-            if (response.isSuccess()) {
-                session.setAttribute("infoMessage", response.getMessage());
+            OperationResult operationResult = assignmentService.assignStudentToCourse(courseID, studentID);
+            if (operationResult.isSuccess()) {
+                session.setAttribute("infoMessage", operationResult.getMessage());
             } else {
-                session.setAttribute("errorMessage", response.getMessage());
+                session.setAttribute("errorMessage", operationResult.getMessage());
             }
             resp.sendRedirect("courses");
             return;
         }
-        List<Course> courses = courseService.showAllCourses();
+        Iterable<Course> courses = courseService.showAllCourses();
         req.setAttribute("Courses", courses);
         logger.debug("List of all courses " + courses.hashCode());
 

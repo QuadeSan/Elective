@@ -1,4 +1,4 @@
-import dataBaseLayer.entity.User;
+import application.entity.User;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
