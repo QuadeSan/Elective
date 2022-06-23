@@ -1,6 +1,7 @@
 package application.services;
 
 import application.OperationResult;
+import application.ValuedOperationResult;
 import application.entity.Course;
 import application.entity.Student;
 
@@ -12,13 +13,13 @@ public interface AssignmentService {
 
     OperationResult assignStudentToCourse(int courseId, int studentId);
 
-    void unassignStudentFromCourse(int courseId, int studentId);
+    OperationResult unassignStudentFromCourse(int courseId, int studentId);
 
-    Iterable<Course> showTeacherCourses(int teacherId);
+    ValuedOperationResult<Iterable<Course>> showTeacherCourses(int teacherId);
 
-    Iterable<Course> showStudentCourses(int studentId);
+    ValuedOperationResult<Iterable<Course>> showStudentCourses(int studentId);
 
-    Iterable<Student> showStudentsOnCourse(int courseId);
+    ValuedOperationResult<Iterable<Student>> showStudentsOnCourse(int courseId);
 
     void setMarkForStudent(int courseId, int studentId, int mark);
 }

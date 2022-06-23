@@ -14,10 +14,10 @@
         <div id="hellouser">
         Hello, <a class="ahead" href="account">${currentUser.login}</a> !
         </div>
-        <c:if test="${currentUser.login != 'guest'}">
-        <div id="logoutbtn"><a class="ahead" href="logout">Logout</a></div>
+        <c:if test="${userRole != 'guest'}">
+            <div id="logoutbtn"><a class="ahead" href="logout">Logout</a></div>
         </c:if>
-        <c:if test="${currentUser.login == 'guest'}">
+        <c:if test="${userRole == 'guest'}">
             <div id="loginbtn"><a class="ahead" href="login">Login</a></div>
         </c:if>
     </header>

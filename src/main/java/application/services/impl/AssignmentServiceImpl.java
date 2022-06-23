@@ -1,10 +1,11 @@
 package application.services.impl;
 
+import application.OperationResult;
+import application.ValuedOperationResult;
 import application.dao.AlreadyExistException;
 import application.dao.AssignmentDAO;
-import application.dao.DAOFactory;
 import application.dao.DAOException;
-import application.OperationResult;
+import application.dao.DAOFactory;
 import application.entity.Course;
 import application.entity.Student;
 import application.services.AssignmentService;
@@ -20,11 +21,7 @@ public class AssignmentServiceImpl implements AssignmentService {
     private final DAOFactory daoFactory;
 
     public AssignmentServiceImpl() {
-        this(DAOFactory.getInstance());
-    }
-
-    public AssignmentServiceImpl(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+        this.daoFactory = DAOFactory.getInstance();
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
@@ -103,17 +100,19 @@ public class AssignmentServiceImpl implements AssignmentService {
 
 
     @Override
-    public void unassignStudentFromCourse(int courseId, int studentId) {
+    public OperationResult unassignStudentFromCourse(int courseId, int studentId) {
         AssignmentDAO assignmentDAO = null;
         try {
             assignmentDAO = daoFactory.getAssignmentDAO();
             logger.debug("AssignmentDAO created");
 
             assignmentDAO.unassignStudentFromCourse(courseId, studentId);
-
+            logger.info("Student " + studentId + " left the course # " + courseId);
+            return new OperationResult(true, "Student was unassigned from course");
         } catch (DAOException e) {
             logger.error("Can't cancel assignment of Student "
                     + studentId + "from course " + courseId, e);
+            return new OperationResult(false,"Unhandled exception");
         } finally {
             try {
                 if (assignmentDAO != null) {
@@ -126,8 +125,8 @@ public class AssignmentServiceImpl implements AssignmentService {
     }
 
     @Override
-    public Iterable<Course> showTeacherCourses(int teacherId) {
-        Iterable<Course> result = new ArrayList<>();
+    public ValuedOperationResult<Iterable<Course>> showTeacherCourses(int teacherId) {
+        Iterable<Course> result;
         AssignmentDAO assignmentDAO = null;
         try {
             assignmentDAO = daoFactory.getAssignmentDAO();
@@ -135,10 +134,11 @@ public class AssignmentServiceImpl implements AssignmentService {
             result = assignmentDAO.showTeacherCourses(teacherId);
             logger.debug("showTeacherCourses Method used");
 
-            return result;
+            return new ValuedOperationResult<>
+                    (true, "List of courses of teacher " + teacherId, result);
         } catch (DAOException e) {
             logger.error("Can't show all courses", e);
-            return result;
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         } finally {
             try {
                 if (assignmentDAO != null) {
@@ -151,8 +151,8 @@ public class AssignmentServiceImpl implements AssignmentService {
     }
 
     @Override
-    public Iterable<Course> showStudentCourses(int studentId) {
-        Iterable<Course> result = new ArrayList<>();
+    public ValuedOperationResult<Iterable<Course>> showStudentCourses(int studentId) {
+        Iterable<Course> result;
         AssignmentDAO assignmentDAO = null;
         try {
             assignmentDAO = daoFactory.getAssignmentDAO();
@@ -161,10 +161,11 @@ public class AssignmentServiceImpl implements AssignmentService {
             result = assignmentDAO.showStudentCourses(studentId);
             logger.debug("showStudentCourses Method used");
 
-            return result;
+            return new ValuedOperationResult<>
+                    (true, "list of courses of student " + studentId, result);
         } catch (DAOException e) {
             logger.error("Can't show all courses", e);
-            return result;
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         } finally {
             try {
                 if (assignmentDAO != null) {
@@ -177,8 +178,8 @@ public class AssignmentServiceImpl implements AssignmentService {
     }
 
     @Override
-    public Iterable<Student> showStudentsOnCourse(int courseId) {
-        Iterable<Student> result = new ArrayList<>();
+    public ValuedOperationResult<Iterable<Student>> showStudentsOnCourse(int courseId) {
+        Iterable<Student> result;
         AssignmentDAO assignmentDAO = null;
         try {
             assignmentDAO = daoFactory.getAssignmentDAO();
@@ -187,10 +188,11 @@ public class AssignmentServiceImpl implements AssignmentService {
             result = assignmentDAO.showStudentsOnCourse(courseId);
             logger.debug("showStudentsOnCourses Method used");
 
-            return result;
+            return new ValuedOperationResult<>
+                    (true, "List of students on course " + courseId, result);
         } catch (DAOException e) {
-            logger.error("Can't show all courses", e);
-            return result;
+            logger.error("Can't show all students", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         } finally {
             try {
                 if (assignmentDAO != null) {

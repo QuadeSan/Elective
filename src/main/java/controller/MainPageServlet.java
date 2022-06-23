@@ -1,5 +1,6 @@
 package controller;
 
+import application.ValuedOperationResult;
 import application.entity.Administrator;
 import application.entity.Student;
 import application.entity.Teacher;
@@ -43,6 +44,7 @@ public class MainPageServlet extends HttpServlet {
         logger.debug("doGet of /main with forward to main.jsp");
         HttpSession session = req.getSession();
         String userRole = (String) session.getAttribute("userRole");
+        logger.debug("Current role is " + userRole);
         if (userRole == null) {
             session.setAttribute("userRole", "guest");
         }
@@ -54,30 +56,31 @@ public class MainPageServlet extends HttpServlet {
         logger.debug("doPost of /main with redirect to main");
         String login = req.getParameter("uname");
         String password = req.getParameter("psw");
+
         HttpSession session = req.getSession();
-        Student currentStudent = studentService.findStudent(login, password);
-        if (currentStudent != null) {
-            session.setAttribute("currentUser", currentStudent);
+        ValuedOperationResult<Student> operationResultS = studentService.findStudent(login, password);
+        if (operationResultS.isSuccess()) {
+            session.setAttribute("currentUser", operationResultS.getResult());
             session.setAttribute("userRole", "Student");
-            logger.info("You was logged as " + currentStudent);
+            logger.info("You was logged as " + operationResultS.getResult());
             resp.sendRedirect("main");
             return;
         }
         logger.info("Student was not found");
-        Teacher currentTeacher = teacherService.findTeacher(login, password);
-        if (currentTeacher != null) {
-            session.setAttribute("currentUser", currentTeacher);
+        ValuedOperationResult<Teacher> operationResultT = teacherService.findTeacher(login, password);
+        if (operationResultT.isSuccess()) {
+            session.setAttribute("currentUser", operationResultT.getResult());
             session.setAttribute("userRole", "Teacher");
-            logger.info("You was logged as " + currentTeacher);
+            logger.info("You was logged as " + operationResultT.getResult());
             resp.sendRedirect("main");
             return;
         }
         logger.info("Teacher was not found");
-        Administrator currentAdmin = administratorService.findAdministrator(login, password);
-        if (currentAdmin != null) {
-            session.setAttribute("currentUser", currentAdmin);
+        ValuedOperationResult<Administrator> operationResultA = administratorService.findAdministrator(login, password);
+        if (operationResultA.isSuccess()) {
+            session.setAttribute("currentUser", operationResultA.getResult());
             session.setAttribute("userRole", "Admin");
-            logger.info("You was logged as " + currentAdmin);
+            logger.info("You was logged as " + operationResultA.getResult());
             resp.sendRedirect("main");
             return;
         }

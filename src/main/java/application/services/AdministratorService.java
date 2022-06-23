@@ -1,16 +1,16 @@
 package application.services;
 
 import application.OperationResult;
+import application.ValuedOperationResult;
 import application.entity.Administrator;
 
 public interface AdministratorService {
 
     OperationResult createAdministrator(String login, String password, String email);
 
-    Administrator findAdministrator(int adminId);
+    ValuedOperationResult<Administrator> findAdministrator(String login, String password);
 
-    Administrator findAdministrator(String login);
+    ValuedOperationResult<Administrator> findAdministrator(String login);
 
-    Administrator findAdministrator(String login, String password);
-
+    ValuedOperationResult<Administrator> findAdministrator(int adminId);
 }

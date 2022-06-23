@@ -1,10 +1,8 @@
 package application.services.impl;
 
 import application.OperationResult;
-import application.dao.AlreadyExistException;
-import application.dao.DAOException;
-import application.dao.AdministratorDAO;
-import application.dao.DAOFactory;
+import application.ValuedOperationResult;
+import application.dao.*;
 import application.entity.Administrator;
 import application.services.AdministratorService;
 import org.apache.logging.log4j.LogManager;
@@ -18,11 +16,7 @@ public class AdministratorServiceImpl implements AdministratorService {
     private final DAOFactory daoFactory;
 
     public AdministratorServiceImpl() {
-        this(DAOFactory.getInstance());
-    }
-
-    public AdministratorServiceImpl(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+        this.daoFactory = DAOFactory.getInstance();
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
@@ -51,61 +45,12 @@ public class AdministratorServiceImpl implements AdministratorService {
             } catch (Exception e) {
                 logger.error("Can't close AdministratorDAO");
             }
+            logger.debug("AdministratorDAO was closed");
         }
     }
 
     @Override
-    public Administrator findAdministrator(int adminId) {
-        Administrator currentAdmin;
-        AdministratorDAO administratorDAO = null;
-        try {
-            administratorDAO = daoFactory.getAdministratorDAO();
-            logger.debug("AdministratorDAO created");
-
-            currentAdmin = administratorDAO.findAdministrator(adminId);
-
-            return currentAdmin;
-        } catch (DAOException e) {
-            logger.error("Can't find Admin by id", e);
-            return new Administrator();
-        } finally {
-            try {
-                if (administratorDAO != null) {
-                    administratorDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AdministratorDAO");
-            }
-        }
-    }
-
-    @Override
-    public Administrator findAdministrator(String login) {
-        Administrator currentAdmin;
-        AdministratorDAO administratorDAO = null;
-        try {
-            administratorDAO = daoFactory.getAdministratorDAO();
-            logger.debug("AdministratorDAO created");
-
-            currentAdmin = administratorDAO.findAdministrator(login);
-
-            return currentAdmin;
-        } catch (DAOException e) {
-            logger.error("Can't find Admin by login", e);
-            return new Administrator();
-        } finally {
-            try {
-                if (administratorDAO != null) {
-                    administratorDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AdministratorDAO");
-            }
-        }
-    }
-
-    @Override
-    public Administrator findAdministrator(String login, String password) {
+    public ValuedOperationResult<Administrator> findAdministrator(String login, String password) {
         logger.debug("Start of authorization");
         Administrator currentAdmin;
         AdministratorDAO administratorDAO = null;
@@ -115,10 +60,15 @@ public class AdministratorServiceImpl implements AdministratorService {
 
             currentAdmin = administratorDAO.findAdministrator(login, password);
 
-            return currentAdmin;
+            return new ValuedOperationResult<>(true, "Administrator found", currentAdmin);
+        } catch (NotExistException e) {
+            logger.error("Can't authorize as administrator");
+            return new ValuedOperationResult<>(false,
+                    "Administrator with login = " + login + " does not exist", null);
         } catch (DAOException e) {
-            logger.error("Can't authorize as Admin", e);
-            return new Administrator();
+            logger.error("Unhandled exception", e);
+            return new ValuedOperationResult<>(false,
+                    "Unhandled exception", null);
         } finally {
             try {
                 if (administratorDAO != null) {
@@ -127,6 +77,68 @@ public class AdministratorServiceImpl implements AdministratorService {
             } catch (Exception e) {
                 logger.error("Can't close AdministratorDAO");
             }
+            logger.debug("AdministratorDAO was closed");
+        }
+    }
+
+    @Override
+    public ValuedOperationResult<Administrator> findAdministrator(String login) {
+        Administrator currentAdmin;
+        AdministratorDAO administratorDAO = null;
+        try {
+            administratorDAO = daoFactory.getAdministratorDAO();
+            logger.debug("AdministratorDAO created");
+
+            currentAdmin = administratorDAO.findAdministrator(login);
+
+            return new ValuedOperationResult<>(true, "Administrator found", currentAdmin);
+        } catch (NotExistException e) {
+            logger.error("Administrator with login " + login + "does not exist");
+            return new ValuedOperationResult<>(false,
+                    "Administrator with login " + login + " does not exist", null);
+        } catch (DAOException e) {
+            logger.error("Unhandled exception", e);
+            return new ValuedOperationResult<>(false,
+                    "Unhandled exception", null);
+        } finally {
+            try {
+                if (administratorDAO != null) {
+                    administratorDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close AdministratorDAO");
+            }
+            logger.debug("AdministratorDAO was closed");
+        }
+    }
+
+    @Override
+    public ValuedOperationResult<Administrator> findAdministrator(int adminId) {
+        Administrator currentAdmin;
+        AdministratorDAO administratorDAO = null;
+        try {
+            administratorDAO = daoFactory.getAdministratorDAO();
+            logger.debug("AdministratorDAO created");
+
+            currentAdmin = administratorDAO.findAdministrator(adminId);
+
+            return new ValuedOperationResult<>(true, "Administrator found", currentAdmin);
+        } catch (NotExistException e) {
+            logger.error("Can't find Student by ID");
+            return new ValuedOperationResult<>(false,
+                    "Administrator with ID " + adminId + " does not exist", null);
+        } catch (DAOException e) {
+            return new ValuedOperationResult<>(false,
+                    "Unhandled exception", null);
+        } finally {
+            try {
+                if (administratorDAO != null) {
+                    administratorDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close AdministratorDAO");
+            }
+            logger.debug("AdministratorDAO was closed");
         }
     }
 }

@@ -1,21 +1,18 @@
 package data.dao.impl;
 
 import application.dao.AlreadyExistException;
+import application.dao.DAOException;
 import application.dao.NotExistException;
 import application.dao.StudentDAO;
-import application.dao.DAOException;
 import application.entity.Student;
 import application.entity.User;
-
 import data.DataSourcePool;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class MySQLStudentDAO implements StudentDAO {
 
@@ -228,7 +225,7 @@ public class MySQLStudentDAO implements StudentDAO {
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
                 logger.error("Student does not exist");
-                throw new NotExistException("Deleting course failed, no rows affected.");
+                throw new NotExistException("Changing status failed, no rows affected.");
             }
         } catch (SQLException ex) {
             logger.debug("Can't execute change status query");

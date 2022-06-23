@@ -1,17 +1,18 @@
 package application.services;
 
 import application.OperationResult;
+import application.ValuedOperationResult;
 import application.entity.Teacher;
 
 public interface TeacherService {
 
     OperationResult createTeacher(String login, String password, String email, String name, String lastName);
 
-    Teacher findTeacher(int teacherId);
+    ValuedOperationResult<Teacher> findTeacher(String login, String password);
 
-    Teacher findTeacher(String login);
+    ValuedOperationResult<Teacher> findTeacher(String login);
 
-    Teacher findTeacher(String login, String password);
+    ValuedOperationResult<Teacher> findTeacher(int teacherId);
 
-    void deleteAccount(int userId);
+    OperationResult deleteAccount(int userId);
 }

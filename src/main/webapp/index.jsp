@@ -6,7 +6,7 @@
 <body>
     <div class="welcome">
     <h2> Welcome ! How you want to continue? </h2>
-    <a href="main">
+    <a href="logout">
     <button>Continue as guest</button>
     </a>
     <a href="login">

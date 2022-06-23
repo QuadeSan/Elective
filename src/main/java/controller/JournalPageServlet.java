@@ -1,5 +1,6 @@
 package controller;
 
+import application.ValuedOperationResult;
 import application.entity.Student;
 import application.services.AssignmentService;
 import application.services.impl.AssignmentServiceImpl;
@@ -43,11 +44,17 @@ public class JournalPageServlet extends HttpServlet {
         int courseID = (int) session.getAttribute("viewedCourse");
         logger.debug("Trying to find all students on course #" + courseID);
 
-        Iterable<Student> studentList = assignmentService.showStudentsOnCourse(courseID);
-        logger.info("List of students " + studentList.hashCode());
+        ValuedOperationResult<Iterable<Student>> operationResult = assignmentService.showStudentsOnCourse(courseID);
+        if (operationResult.isSuccess()) {
+            logger.info("List of students " + operationResult.hashCode());
+            session.setAttribute("studentList", operationResult);
+            req.getRequestDispatcher("journal.jsp").forward(req, resp);
+        } else {
+            logger.error("Error while loading journal");
+            session.setAttribute("errorMessage", operationResult.getMessage());
+            req.getRequestDispatcher("error").forward(req, resp);
+        }
 
-        session.setAttribute("studentList", studentList);
-        req.getRequestDispatcher("journal.jsp").forward(req, resp);
     }
 
     @Override
@@ -60,8 +67,8 @@ public class JournalPageServlet extends HttpServlet {
         int studentID = Integer.parseInt(req.getParameter("student_id"));
         int mark = Integer.parseInt(req.getParameter("mark"));
 
-        logger.debug("Going to set mark for course #" +courseID+" for student with ID " +studentID);
-        assignmentService.setMarkForStudent(courseID,studentID,mark);
+        logger.debug("Going to set mark for course #" + courseID + " for student with ID " + studentID);
+        assignmentService.setMarkForStudent(courseID, studentID, mark);
         resp.sendRedirect("journal");
     }
 }

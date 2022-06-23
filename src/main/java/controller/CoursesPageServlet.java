@@ -1,5 +1,6 @@
 package controller;
 
+import application.ValuedOperationResult;
 import application.entity.Course;
 import application.entity.Student;
 import application.services.AssignmentService;
@@ -37,11 +38,10 @@ public class CoursesPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doGet of /courses with forward to courses.jsp");
 
+        HttpSession session = req.getSession();
         if (req.getParameter("course_id") != null) {
             int courseID = Integer.parseInt(req.getParameter("course_id"));
             logger.debug("Trying to assign to course " + courseID);
-
-            HttpSession session = req.getSession();
 
             Student currentStudent = (Student) session.getAttribute("currentUser");
             int studentID = currentStudent.getStudentID();
@@ -55,10 +55,14 @@ public class CoursesPageServlet extends HttpServlet {
             resp.sendRedirect("courses");
             return;
         }
-        Iterable<Course> courses = courseService.showAllCourses();
-        req.setAttribute("Courses", courses);
-        logger.debug("List of all courses " + courses.hashCode());
-
-        req.getRequestDispatcher("courses.jsp").forward(req, resp);
+        ValuedOperationResult<Iterable<Course>> operationResult = courseService.showAllCourses();
+        if (operationResult.isSuccess()) {
+            req.setAttribute("Courses", operationResult.getResult());
+            logger.debug("List of all courses revealed");
+            req.getRequestDispatcher("courses.jsp").forward(req, resp);
+        } else {
+            session.setAttribute("errorMessage", operationResult.getMessage());
+            resp.sendRedirect("error");
+        }
     }
 }

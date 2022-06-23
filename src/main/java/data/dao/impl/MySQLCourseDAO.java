@@ -130,7 +130,11 @@ public class MySQLCourseDAO implements CourseDAO {
             int k = 1;
             stmt.setString(k++, status);
             stmt.setInt(k++, id);
-            stmt.executeUpdate();
+            int affectedRows = stmt.executeUpdate();
+            if (affectedRows == 0) {
+                logger.error("Course does not exist");
+                throw new NotExistException("Changing status failed, no rows affected.");
+            }
         } catch (SQLException ex) {
             logger.debug("Can't execute change status query");
             throw new DAOException(ex);

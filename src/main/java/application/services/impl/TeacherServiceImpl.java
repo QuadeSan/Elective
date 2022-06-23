@@ -1,15 +1,12 @@
 package application.services.impl;
 
 import application.OperationResult;
-import application.dao.AlreadyExistException;
-import application.dao.DAOException;
-import application.dao.DAOFactory;
-import application.dao.TeacherDAO;
+import application.ValuedOperationResult;
+import application.dao.*;
 import application.entity.Teacher;
 import application.services.TeacherService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 
 public class TeacherServiceImpl implements TeacherService {
 
@@ -18,11 +15,7 @@ public class TeacherServiceImpl implements TeacherService {
     private final DAOFactory daoFactory;
 
     public TeacherServiceImpl() {
-        this(DAOFactory.getInstance());
-    }
-
-    public TeacherServiceImpl(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+        this.daoFactory = DAOFactory.getInstance();
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
@@ -51,61 +44,12 @@ public class TeacherServiceImpl implements TeacherService {
             } catch (Exception e) {
                 logger.error("Can't close TeacherDAO");
             }
+            logger.debug("TeacherDAO was closed");
         }
     }
 
     @Override
-    public Teacher findTeacher(int teacherId) {
-        Teacher currentTeacher;
-        TeacherDAO teacherDAO = null;
-        try {
-            teacherDAO = daoFactory.getTeacherDAO();
-            logger.debug("TeacherDAO created");
-
-            currentTeacher = teacherDAO.findTeacher(teacherId);
-
-            return currentTeacher;
-        } catch (DAOException e) {
-            logger.error("Can't find teacher by ID", e);
-            return new Teacher();
-        } finally {
-            try {
-                if (teacherDAO != null) {
-                    teacherDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close TeacherDAO");
-            }
-        }
-    }
-
-    @Override
-    public Teacher findTeacher(String login) {
-        Teacher currentTeacher;
-        TeacherDAO teacherDAO = null;
-        try {
-            teacherDAO = daoFactory.getTeacherDAO();
-            logger.debug("TeacherDAO created");
-
-            currentTeacher = teacherDAO.findTeacher(login);
-
-            return currentTeacher;
-        } catch (DAOException e) {
-            logger.error("Can't find teacher by login", e);
-            return new Teacher();
-        } finally {
-            try {
-                if (teacherDAO != null) {
-                    teacherDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close TeacherDAO");
-            }
-        }
-    }
-
-    @Override
-    public Teacher findTeacher(String login, String password) {
+    public ValuedOperationResult<Teacher> findTeacher(String login, String password) {
         logger.debug("Start of authorization");
         Teacher currentTeacher;
         TeacherDAO teacherDAO = null;
@@ -115,10 +59,15 @@ public class TeacherServiceImpl implements TeacherService {
 
             currentTeacher = teacherDAO.findTeacher(login, password);
 
-            return currentTeacher;
+            return new ValuedOperationResult<>(true, "Teacher found", currentTeacher);
+        } catch (NotExistException e) {
+            logger.error("Can't authorize as Teacher");
+            return new ValuedOperationResult<>(false,
+                    "Teacher with login " + login + " does not exist", null);
         } catch (DAOException e) {
-            logger.error("Can't authorize as teacher", e);
-            return new Teacher();
+            logger.error("Unhandled exception", e);
+            return new ValuedOperationResult<>(false,
+                    "Unhandled exception", null);
         } finally {
             try {
                 if (teacherDAO != null) {
@@ -127,19 +76,84 @@ public class TeacherServiceImpl implements TeacherService {
             } catch (Exception e) {
                 logger.error("Can't close TeacherDAO");
             }
+            logger.debug("TeacherDAO was closed");
         }
     }
 
     @Override
-    public void deleteAccount(int userId) {
+    public ValuedOperationResult<Teacher> findTeacher(String login) {
+        Teacher currentTeacher;
+        TeacherDAO teacherDAO = null;
+        try {
+            teacherDAO = daoFactory.getTeacherDAO();
+            logger.debug("TeacherDAO created");
+
+            currentTeacher = teacherDAO.findTeacher(login);
+
+            return new ValuedOperationResult<>(true, "Teacher found", currentTeacher);
+        } catch (NotExistException e) {
+            logger.error("Teacher with login " + login + "does not exist");
+            return new ValuedOperationResult<>(false,
+                    "Teacher with login " + login + " does not exist", null);
+        } catch (DAOException e) {
+            logger.error("Unhandled exception", e);
+            return new ValuedOperationResult<>(false,
+                    "Unhandled exception", null);
+        } finally {
+            try {
+                if (teacherDAO != null) {
+                    teacherDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close TeacherDAO");
+            }
+            logger.debug("TeacherDAO was closed");
+        }
+    }
+
+    @Override
+    public ValuedOperationResult<Teacher> findTeacher(int teacherId) {
+        Teacher currentTeacher;
+        TeacherDAO teacherDAO = null;
+        try {
+            teacherDAO = daoFactory.getTeacherDAO();
+            logger.debug("TeacherDAO created");
+
+            currentTeacher = teacherDAO.findTeacher(teacherId);
+
+            return new ValuedOperationResult<>(true, "Teacher found", currentTeacher);
+        } catch (NotExistException e) {
+            logger.error("Teacher with id " + teacherId + "does not exist");
+            return new ValuedOperationResult<>(false,
+                    "Teacher with id " + teacherId + " does not exist", null);
+        } catch (DAOException e) {
+            logger.error("Unhandled exception", e);
+            return new ValuedOperationResult<>(false,
+                    "Unhandled exception", null);
+        } finally {
+            try {
+                if (teacherDAO != null) {
+                    teacherDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close TeacherDAO");
+            }
+            logger.debug("TeacherDAO was closed");
+        }
+    }
+
+    @Override
+    public OperationResult deleteAccount(int userId) {
         TeacherDAO teacherDAO = null;
         try {
             teacherDAO = daoFactory.getTeacherDAO();
             logger.debug("TeacherDAO created");
 
             teacherDAO.deleteAccount(userId);
+            return new OperationResult(true,"Account was deleted");
         } catch (DAOException e) {
             logger.error("Can't delete account", e);
+            return new OperationResult(false,"Account was not deleted");
         } finally {
             try {
                 if (teacherDAO != null) {
@@ -148,6 +162,7 @@ public class TeacherServiceImpl implements TeacherService {
             } catch (Exception e) {
                 logger.error("Can't close TeacherDAO");
             }
+            logger.debug("TeacherDAO was closed");
         }
     }
 }

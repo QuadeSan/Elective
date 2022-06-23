@@ -14,12 +14,13 @@
             <div id="god-mode"><a class="ahead" href="admin">God mode on</a></div>
         </c:if>
         <div id="hellouser">
-        Hello, <a class="ahead" href="account">${currentUser.login}</a> !
+        Hello, <a class="ahead" href="account">${currentUser.login}</a>
+        <c:if test="${userRole == 'guest'}"> guest </c:if> !
         </div>
-        <c:if test="${currentUser.login != 'guest'}">
-        <div id="logoutbtn"><a class="ahead" href="logout">Logout</a></div>
+        <c:if test="${userRole != 'guest'}">
+            <div id="logoutbtn"><a class="ahead" href="logout">Logout</a></div>
         </c:if>
-        <c:if test="${currentUser.login == 'guest'}">
+        <c:if test="${userRole == 'guest'}">
             <div id="loginbtn"><a class="ahead" href="login">Login</a></div>
         </c:if>
     </header>

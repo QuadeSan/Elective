@@ -1,5 +1,7 @@
 package controller;
 
+import application.OperationResult;
+import application.ValuedOperationResult;
 import application.entity.Course;
 import application.entity.Student;
 import application.entity.Teacher;
@@ -42,19 +44,22 @@ public class AccountPageServlet extends HttpServlet {
             req.getRequestDispatcher("error.jsp").forward(req, resp);
             return;
         }
-        if (userRole.equals("Student")) {
-            Student currentStudent = (Student) session.getAttribute("currentUser");
-            int studentID = currentStudent.getStudentID();
+        ValuedOperationResult<Iterable<Course>> operationResult;
+        switch (userRole) {
+            case "Student":
+                Student currentStudent = (Student) session.getAttribute("currentUser");
+                int studentID = currentStudent.getStudentID();
 
-            Iterable<Course> courseList = assignmentService.showStudentCourses(studentID);
-            currentStudent.setCourses(courseList);
-        }
-        if (userRole.equals("Teacher")) {
-            Teacher currentTeacher = (Teacher) session.getAttribute("currentUser");
-            int teacherID = currentTeacher.getTeacherID();
+                operationResult = assignmentService.showStudentCourses(studentID);
+                currentStudent.setCourses(operationResult.getResult());
+                break;
+            case "Teacher":
+                Teacher currentTeacher = (Teacher) session.getAttribute("currentUser");
+                int teacherID = currentTeacher.getTeacherID();
 
-            Iterable<Course> courseList = assignmentService.showTeacherCourses(teacherID);
-            currentTeacher.setCourses(courseList);
+                operationResult = assignmentService.showTeacherCourses(teacherID);
+                currentTeacher.setCourses(operationResult.getResult());
+                break;
         }
         if (req.getParameter("course_id") != null) {
             int courseID = Integer.parseInt(req.getParameter("course_id"));
@@ -62,11 +67,16 @@ public class AccountPageServlet extends HttpServlet {
             Student currentStudent = (Student) session.getAttribute("currentUser");
             int studentID = currentStudent.getStudentID();
 
-            assignmentService.unassignStudentFromCourse(courseID, studentID);
-            logger.info("Student " + studentID + " left the course # " + courseID);
-            session.setAttribute("infoMessage", "You left the course #" + courseID);
-            resp.sendRedirect("account");
-            return;
+            OperationResult OperationResultU = assignmentService.unassignStudentFromCourse(courseID, studentID);
+            if (OperationResultU.isSuccess()) {
+                session.setAttribute("infoMessage", "You left the course # " + courseID);
+                resp.sendRedirect("account");
+                return;
+            } else {
+                session.setAttribute("errorMessage", OperationResultU.getMessage());
+                resp.sendRedirect("error");
+                return;
+            }
         }
         req.getRequestDispatcher("account.jsp").forward(req, resp);
     }
