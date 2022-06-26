@@ -16,6 +16,13 @@ function confirmAlert() {
     }
 }
 
+function SingleRefresh() {
+     if(!window.location.hash) {
+             window.location = window.location + '#r';
+             window.location.reload();
+         }
+}
+
 function tableFilter() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
@@ -28,6 +35,30 @@ function tableFilter() {
   for (i = 0; i < tr.length; i++) {
     td_topic = tr[i].getElementsByTagName("td")[1];
     td_teacher = tr[i].getElementsByTagName("td")[5];
+    if (td_topic && td_teacher) {
+      txtValue = td_topic.textContent || td_topic.innerText;
+      txtValue2 = td_teacher.textContent || td_teacher.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1 ) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+function adminTableFilter() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("filterInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("courseTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td_topic = tr[i].getElementsByTagName("td")[1];
+    td_teacher = tr[i].getElementsByTagName("td")[2];
     if (td_topic && td_teacher) {
       txtValue = td_topic.textContent || td_topic.innerText;
       txtValue2 = td_teacher.textContent || td_teacher.innerText;
@@ -193,7 +224,7 @@ class SortableTable {
 
 // Initialize sortable table buttons
 window.addEventListener('load', function () {
-  var sortableTables = document.querySelectorAll('table.courseTable');
+  var sortableTables = document.querySelectorAll("table.courseTable,table.adminCourseTable");
   for (var i = 0; i < sortableTables.length; i++) {
     new SortableTable(sortableTables[i]);
   }

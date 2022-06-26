@@ -56,6 +56,10 @@ public class Student implements Serializable {
         return lastName;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     public Iterable<Course> getCourses() {
         return courses;
     }

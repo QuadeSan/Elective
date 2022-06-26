@@ -14,5 +14,7 @@ public interface TeacherService {
 
     ValuedOperationResult<Teacher> findTeacher(int teacherId);
 
+    ValuedOperationResult<Iterable<Teacher>> showAllTeachers();
+
     OperationResult deleteAccount(int userId);
 }

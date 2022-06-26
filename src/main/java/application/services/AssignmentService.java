@@ -9,7 +9,7 @@ public interface AssignmentService {
 
     OperationResult assignTeacherToCourse(int courseId, int teacherId);
 
-    void unassignTeacherFromCourse(int courseId, int teacherId);
+    OperationResult changeTeacherAssignment(int courseId, int newTeacherId);
 
     OperationResult assignStudentToCourse(int courseId, int studentId);
 

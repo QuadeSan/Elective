@@ -53,7 +53,10 @@ public class MySQLCourseDAO implements CourseDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            stmt = con.prepareStatement("SELECT * FROM courses WHERE course_id=?");
+            stmt = con.prepareStatement("SELECT course_id, topic, title, status, name, last_name FROM courses " +
+                    "LEFT JOIN teachers_assignments ON courses.course_id = teachers_assignments.courses_course_id " +
+                    "LEFT JOIN teachers ON teachers_assignments.teachers_teacher_id = teachers.teacher_id " +
+                    "WHERE course_id = ?;");
             stmt.setInt(1, courseId);
             rs = stmt.executeQuery();
             if (!rs.next()) {
@@ -61,12 +64,15 @@ public class MySQLCourseDAO implements CourseDAO {
                 throw new NotExistException("Can't find course with id " + courseId);
             } else {
                 currentCourse.setCourseID(rs.getInt("course_id"));
+                currentCourse.setTopic(rs.getString("topic"));
                 currentCourse.setTitle(rs.getString("title"));
                 currentCourse.setStatus(rs.getString("status"));
+                currentCourse.setAssignedTeacher(
+                        rs.getString("name"), rs.getString("last_name"));
                 return currentCourse;
             }
         } catch (SQLException ex) {
-            logger.debug("Can't execute findCourse by id query",ex);
+            logger.debug("Can't execute findCourse by id query", ex);
             throw new DAOException(ex);
         } finally {
             close(rs);
@@ -135,6 +141,40 @@ public class MySQLCourseDAO implements CourseDAO {
                 logger.error("Course does not exist");
                 throw new NotExistException("Changing status failed, no rows affected.");
             }
+        } catch (SQLException ex) {
+            logger.debug("Can't execute change status query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void changeTopic(int courseId, String newTopic) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE courses SET topic=? WHERE course_id=?");
+            int k = 1;
+            stmt.setString(k++, newTopic);
+            stmt.setInt(k++, courseId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute change status query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void changeTitle(int courseId, String newTitle) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE courses SET title=? WHERE course_id=?");
+            int k = 1;
+            stmt.setString(k++, newTitle);
+            stmt.setInt(k++, courseId);
+            stmt.executeUpdate();
         } catch (SQLException ex) {
             logger.debug("Can't execute change status query");
             throw new DAOException(ex);

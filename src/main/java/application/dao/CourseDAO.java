@@ -16,6 +16,9 @@ public interface CourseDAO extends AutoCloseable {
 
     void changeStatus(int id, String status)throws NotExistException;
 
-    Iterable<Course> showAllCourses();
+    void changeTopic(int courseId, String newTopic);
 
+    void changeTitle(int courseId, String newTitle);
+
+    Iterable<Course> showAllCourses();
 }

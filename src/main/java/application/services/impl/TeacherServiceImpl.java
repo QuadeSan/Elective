@@ -3,6 +3,7 @@ package application.services.impl;
 import application.OperationResult;
 import application.ValuedOperationResult;
 import application.dao.*;
+import application.entity.Student;
 import application.entity.Teacher;
 import application.services.TeacherService;
 import org.apache.logging.log4j.LogManager;
@@ -15,8 +16,12 @@ public class TeacherServiceImpl implements TeacherService {
     private final DAOFactory daoFactory;
 
     public TeacherServiceImpl() {
-        this.daoFactory = DAOFactory.getInstance();
+        this(DAOFactory.getInstance());
         logger.debug("DAOFactory created => " + daoFactory);
+    }
+
+    public TeacherServiceImpl(DAOFactory daoFactory) {
+        this.daoFactory = daoFactory;
     }
 
     @Override
@@ -143,6 +148,33 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
+    public ValuedOperationResult<Iterable<Teacher>> showAllTeachers() {
+        TeacherDAO teacherDAO = null;
+        Iterable<Teacher> result;
+        try {
+            teacherDAO = daoFactory.getTeacherDAO();
+            logger.debug("StudentDAO created");
+
+            result = teacherDAO.showAllTeachers();
+            logger.debug("showAllStudents Method used");
+
+            return new ValuedOperationResult<>(true, "List of students", result);
+        } catch (DAOException e) {
+            logger.error("Can't show all teachers", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
+        } finally {
+            try {
+                if (teacherDAO != null) {
+                    teacherDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close TeacherDAO");
+            }
+            logger.debug("TeacherDAO was closed");
+        }
+    }
+
+    @Override
     public OperationResult deleteAccount(int userId) {
         TeacherDAO teacherDAO = null;
         try {
@@ -150,10 +182,10 @@ public class TeacherServiceImpl implements TeacherService {
             logger.debug("TeacherDAO created");
 
             teacherDAO.deleteAccount(userId);
-            return new OperationResult(true,"Account was deleted");
+            return new OperationResult(true, "Account was deleted");
         } catch (DAOException e) {
             logger.error("Can't delete account", e);
-            return new OperationResult(false,"Account was not deleted");
+            return new OperationResult(false, "Account was not deleted");
         } finally {
             try {
                 if (teacherDAO != null) {

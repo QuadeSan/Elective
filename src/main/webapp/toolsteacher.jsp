@@ -32,7 +32,6 @@
         </c:if>
     </header>
     <div class="main">
-        <h1 class="tools"> Admin tools </h1>
         <c:if test="${infoMessage != null}">
         <div class="info-box">
         <span class="info-span"> ${infoMessage}! </span>
@@ -45,10 +44,38 @@
         <c:remove var="errorMessage" scope="session" />
         </div>
         </c:if>
-         <a class="ablack" href="allcourses"> <button class="toolbtn">Course tools </button> </a>
-         <a class="ablack" href="toolsteacher"> <button class="toolbtn">Teacher tools </button> </a>
-         <a class="ablack" href="allstudents"> <button class="toolbtn">Student tools</button> </a>
-
+        <h2 class="main-h2">Create teacher</h2>
+         <form class="edit-form" action="admin" method="post">
+                <div class="info-container">
+                <p>USER INFORMATION</p>
+                <div class="col-1-2">
+                    <label><b>Login</b></label>
+                    <input type="text" placeholder="New Login" name="login" id="account-field" required>
+                </div>
+                <div class="col-1-2">
+                    <label><b>Email</b></label>
+                    <input type="text" placeholder="New Email" name="email" id="account-field" required>
+                </div>
+                <div class="col-1-2">
+                    <label><b>Name</b></label>
+                    <input type="text" placeholder="Teacher's name" name="name" id="account-field" required>
+                </div>
+                <div class="col-1-2">
+                    <label><b>Last name</b></label>
+                    <input type="text" placeholder="Teacher's last name" name="lastName" id="account-field" required>
+                </div>
+                <div class="col-1-2">
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="New Password" name="psw" id="account-field" required>
+                </div>
+                <div class="col-1-2">
+                    <label><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="account-field" required>
+                </div>
+                <input type="hidden" name="adminAction" value="createTeacher">
+                <button class="applybtn" type="submit"> Create new teacher </button>
+                </div>
+         </form>
     </div>
     <footer>
         Here should be some footer information

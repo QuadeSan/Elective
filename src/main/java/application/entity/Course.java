@@ -41,7 +41,9 @@ public class Course implements Serializable {
     }
 
     public void setAssignedTeacher(String name, String last_name) {
-        this.assignedTeacher = name + " " + last_name;
+        if (name != null) {
+            this.assignedTeacher = name + " " + last_name;
+        } else this.assignedTeacher = null;
     }
 
     public void setStudentCount(int studentCount) {

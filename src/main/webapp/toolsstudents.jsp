@@ -1,9 +1,11 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
-<body>
+</head>
+<body onLoad="SingleRefresh()">
     <header>
         <div id="homebutton"><a class="ahead" href="main">Home</a></div>
         <div id="coursesearch"><a class="ahead" href="courses">Courses</a></div>
@@ -30,24 +32,12 @@
         </c:if>
     </header>
     <div class="main">
-       <div class="account-head">
-         <h2 class="main-h2">Journal of course # ${viewedCourse}</h2>
-         <c:if test="${infoMessage != null}">
-         <div class="info-box"> <span class="info-span"> ${infoMessage} </span> </div>
-         <c:remove var="infoMessage"/>
-         </c:if>
-         <c:if test="${errorMessage != null}">
-         <div class="info-box"> <span class="error-span"> ${errorMessage} </span> </div>
-         <c:remove var="errorMessage"/>
-         </c:if>
-         <div> <span class="stealth-span"> hidden </span> </div>
-       </div>
-       <div class="tools">
-         <c:if test="${userRole == 'Teacher' || userRole == 'Admin'}">
-         <c:if test="${studentList == null || empty studentList}">
-         <b> There are no students on current course yet </b>
-         </c:if>
-         <c:if test="${studentList != null && not empty studentList}">
+        <h1 class="tools"> List of students </h1>
+    <div class="tools">
+        <c:if test="${allStudentsList == null || empty allStudentsList}">
+        <b> There are no students yet </b>
+        </c:if>
+        <c:if test="${allStudentsList != null && not empty allStudentsList}">
           <table class="courseTable">
             <thead>
               <tr>
@@ -67,7 +57,9 @@
                 </button>
               </th>
               <th id="courseHead">
-                Current mark
+                <button> Status
+                <span aria-hidden="true"></span>
+                </button>
               </th>
               <th id="courseHead">
                 Set mark for course
@@ -75,28 +67,39 @@
               </tr>
             </thead>
             <tbody>
-               <c:forEach items="${studentList}" var="student">
+               <c:forEach items="${allStudentsList}" var="student">
                  <tr class="courseBody">
                  <td class="num"> ${student.studentID} </td>
                  <td> ${student.name} </td>
                  <td> ${student.lastName} </td>
-                 <td> ${student.markForCurrentCourse} </td>
+                 <td> ${student.status} </td>
+                 <c:if test="${student.status == 'locked'}">
                  <td>
-                    <form action="journal?student_id=${student.studentID}" method="post">
-                    <input type="text" name="mark" id="mark" required>
-                    <button type="submit" class="markbtn"> set mark
+                    <form action="allstudents" method="post">
+                    <input type="hidden" name="student_id" value="${student.studentID}">
+                    <input type="hidden" name="status" value="unlocked">
+                    <button type="submit" class="lockbtn"> unlock
                     </form>
                  </td>
+                 </c:if>
+                 <c:if test="${student.status == 'unlocked'}">
+                 <td>
+                    <form action="allstudents" method="post">
+                    <input type="hidden" name="student_id" value="${student.studentID}">
+                    <input type="hidden" name="status" value="locked">
+                    <button type="submit" class="lockbtn"> lock
+                    </form>
+                 </td>
+                 </c:if>
                  </tr>
                </c:forEach>
             </tbody>
           </table>
        </c:if>
-       </c:if>
-       </div>
+    </div>
     </div>
     <footer>
         Here should be some footer information
     </footer>
 </body>
-</html>
+<html>

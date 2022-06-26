@@ -3,6 +3,7 @@ package data.dao.impl;
 import application.dao.AlreadyExistException;
 import application.dao.AssignmentDAO;
 import application.dao.DAOException;
+import application.dao.NotExistException;
 import application.entity.Course;
 import application.entity.Student;
 import data.DataSourcePool;
@@ -49,21 +50,33 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
     }
 
     @Override
-    public void unassignTeacherFromCourse(int courseID, int teacherID) {
+    public void changeTeacherAssignment(int courseId, int newTeacherId) throws NotExistException {
         PreparedStatement stmt = null;
         try {
+            con.setAutoCommit(false);
             stmt = con.prepareStatement("DELETE FROM teachers_assignments " +
-                    "WHERE courses_course_id=? AND teachers_teacher_id=?");
+                    "WHERE courses_course_id=?");
             int k = 1;
-            stmt.setInt(k++, courseID);
-            stmt.setInt(k++, teacherID);
+            stmt.setInt(k++, courseId);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
-                throw new SQLException("Assignment cancellation failed, no rows affected.");
+                logger.debug("Course with id " + courseId + " have no assignment yet");
             }
             logger.info("Teacher was unassigned from course");
+            assignTeacherToCourse(courseId, newTeacherId);
+            con.commit();
+        } catch (AlreadyExistException ex) {
+            logger.debug("Assignment does not exist " + ex);
+            try {
+                con.rollback();
+                logger.error("Assignment was not changed, transaction rolled back");
+            } catch (SQLException e) {
+                logger.error("Can't rollback transaction");
+                throw new DAOException(e);
+            }
+            throw new NotExistException("Teacher with id " + newTeacherId + "does not exist", ex);
         } catch (SQLException ex) {
-            logger.error("Can't cancel assignment of teacher from course",ex);
+            logger.error("Can't change assignment for current course", ex);
             throw new DAOException(ex);
         } finally {
             close(stmt);

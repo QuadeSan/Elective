@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
 <body>
@@ -43,11 +44,27 @@
         <c:remove var="infoMessage"/>
         <c:remove var="errorMessage"/>
     </div>
+        <h2 class="main-h2">Create new course </h2>
+          <form class="edit-form" action="allcourses" method="post">
+                  <div class="info-container">
+                  <p>COURSE INFORMATION</p>
+                  <div class="col-1-2">
+                  <label><b>Course title</b></label>
+                  <input type="text" placeholder="Course title" name="title" id="account-field" required>
+                  </div>
+                  <div class="col-1-2">
+                  <label><b>Course topic</b></label>
+                  <input type="text" placeholder="Course topic" name="topic" id="account-field" required>
+                  </div>
+                  <input type="hidden" name="adminAction" value="createCourse">
+                  <button class="applybtn" type="submit"> Create new course </button>
+                  </div>
+          </form>
     <div class="tools">
     <h2> List of courses </h2>
-    <input type="text" id="filterInput" onkeyup="tableFilter()" placeholder="Filter by topic/teacher">
+    <input type="text" id="filterInput" onkeyup="adminTableFilter()" placeholder="Filter by topic/title">
     </div>
-    <table class="courseTable" id="courseTable">
+    <table class="adminCourseTable" id="courseTable">
       <thead>
         <tr>
           <th id="courseHead" class="num" aria-sort="ascending">
@@ -80,15 +97,16 @@
             <span aria-hidden="true"></span>
             </button>
           </th>
-          <c:if test="${userRole == 'Student'}">
           <th id="courseHead">
-            Available for entry
+            Edit course
           </th>
-          </c:if>
+          <th id="courseHead">
+            Delete course
+          </th>
         </tr>
       </thead>
       <tbody>
-        <c:forEach items="${Courses}" var="course">
+        <c:forEach items="${allCoursesList}" var="course">
            <tr class="courseBody">
            <td class="num"> ${course.courseID} </td>
            <td> ${course.topic} </td>
@@ -96,12 +114,19 @@
            <td> ${course.status} </td>
            <td> ${course.studentCount} </td>
            <td> ${course.assignedTeacher} </td>
-           <c:if test="${userRole == 'Student' && course.status == 'New'}">
-           <td> <a class="ablack" href="courses?course_id=${course.courseID}"> sign for course </a> </td>
-           </c:if>
-           <c:if test="${userRole == 'Student' && course.status == 'In progress'}">
-           <td> Not available </td>
-           </c:if>
+           <td>
+               <form action="toolseditcourse" method="post">
+               <input type="hidden" name="course-id" value="${course.courseID}">
+               <button type="submit" class="lockbtn"> Edit course
+               </form>
+           </td>
+           <td>
+               <form action="toolscourses" method="post" onSubmit="return confirmAlert()">
+               <input type="hidden" name="course-id" value="${course.courseID}">
+               <input type="hidden" name="adminAction" value="deleteCourse">
+               <button type="submit" class="lockbtn"> Delete course
+               </form>
+           </td>
            </tr>
         </c:forEach>
       </tbody>

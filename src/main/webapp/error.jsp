@@ -9,10 +9,18 @@
         <div id="coursesearch"><a class="ahead" href="courses">Courses</a></div>
         <div id="cabinet"><a class="ahead" href="account">My account</a></div>
         <c:if test="${userRole == 'Admin'}">
-            <div id="god-mode"><a class="ahead" href="admin">God mode on</a></div>
+        <div class="dropdown" id="god-mode">
+            <button class="dropbtn"> Admin tools </button>
+            <div class="dropdown-content">
+                <a class="ablack" href="allcourses"> <button>Course tools </button> </a>
+                <a class="ablack" href="toolsteacher"> <button>Teacher tools </button> </a>
+                <a class="ablack" href="allstudents"> <button>Student tools</button> </a>
+            </div>
+        </div>
         </c:if>
         <div id="hellouser">
-        Hello, <a class="ahead" href="account">${currentUser.login}</a> !
+        Hello, <a class="ahead" href="account">${currentUser.login}</a>
+        <c:if test="${userRole == 'guest'}"> guest </c:if> !
         </div>
         <c:if test="${userRole != 'guest'}">
             <div id="logoutbtn"><a class="ahead" href="logout">Logout</a></div>

@@ -47,7 +47,7 @@ public class JournalPageServlet extends HttpServlet {
         ValuedOperationResult<Iterable<Student>> operationResult = assignmentService.showStudentsOnCourse(courseID);
         if (operationResult.isSuccess()) {
             logger.info("List of students " + operationResult.hashCode());
-            session.setAttribute("studentList", operationResult);
+            session.setAttribute("studentList", operationResult.getResult());
             req.getRequestDispatcher("journal.jsp").forward(req, resp);
         } else {
             logger.error("Error while loading journal");

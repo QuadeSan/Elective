@@ -18,17 +18,20 @@ public class StudentServiceImplTest {
 
     @Test
     public void AddingNewStudentWithNewAccountIsOK() {
-        StudentService studentServiceMock = mock(StudentServiceImpl.class);
+        StudentService studentServiceMock = spy(new StudentServiceImpl());
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
+        DAOFactory.setInstance(daoFactoryMock);
 
         when(daoFactoryMock.getStudentDAO()).thenReturn(studentDAOMock);
         doNothing().when(studentDAOMock).createStudent(eq("newLogin"), any(), any(), any(), any());
-        when(studentServiceMock.createStudent(any(), any(), any(), any(), any()))
-                .thenReturn(new OperationResult(true, "Account was successfully created!"));
+        doReturn(new OperationResult(true, "Account was successfully created!"))
+                .when(studentServiceMock).createStudent(eq("newLogin"),any(), any(), any(), any());
+//        when(studentServiceMock.createStudent(eq("newLogin"), any(), any(), any(), any()))
+//                .thenReturn(new OperationResult(true, "Account was successfully created!"));
 
         OperationResult expected = new OperationResult(true, "Account was successfully created!");
-        OperationResult actual = studentServiceMock.createStudent(eq("newLogin"), any(), any(), any(), any());
+        OperationResult actual = studentServiceMock.createStudent("newLogin","1","1","1","1");
 
         assertEquals(expected, actual);
     }
@@ -191,7 +194,7 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void SuccessfulOperationResultWhenChangingStatusWithRightValueOfExistedStudent() {
+    public void SuccessfulOperationResultWhenChangingStatusOfExistedStudent() {
         StudentService studentServiceMock = mock(StudentServiceImpl.class);
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
@@ -214,7 +217,7 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void FailedOperationalResultWhenChangingStatusWithRightValueOfUnExistedStudent() {
+    public void FailedOperationalResultWhenChangingStatusOfUnExistedStudent() {
         StudentService studentServiceMock = mock(StudentServiceImpl.class);
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
@@ -237,21 +240,7 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void FailedOperationalResultWhenChangingStatusWithWrongValue() {
-        StudentService studentServiceMock = mock(StudentServiceImpl.class);
-
-        when(studentServiceMock.lockStudent(any(Integer.class), AdditionalMatchers.not(
-                AdditionalMatchers.or(eq("locked"), eq("unlocked")))))
-                .thenReturn(new OperationResult(false, "Status is wrong"));
-
-        OperationResult expected = new OperationResult(false, "Status is wrong");
-        OperationResult actual = studentServiceMock.lockStudent(1, "Wrong status");
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void SuccessfulOperationResultWhenUsingShowAllStudentsMethod(){
+    public void SuccessfulOperationResultWhenUsingShowAllStudentsMethod() {
         StudentService studentServiceMock = mock(StudentServiceImpl.class);
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
@@ -260,9 +249,9 @@ public class StudentServiceImplTest {
         when(daoFactoryMock.getStudentDAO()).thenReturn(studentDAOMock);
         when(studentDAOMock.showAllStudents()).thenReturn(students);
         when(studentServiceMock.showAllStudents())
-                .thenReturn(new ValuedOperationResult<>(true, "List of Students",students));
+                .thenReturn(new ValuedOperationResult<>(true, "List of Students", students));
 
-        OperationResult expected = new ValuedOperationResult<>(true, "List of Students",students);
+        OperationResult expected = new ValuedOperationResult<>(true, "List of Students", students);
         OperationResult actual = studentServiceMock.showAllStudents();
 
         assertEquals(expected, actual);

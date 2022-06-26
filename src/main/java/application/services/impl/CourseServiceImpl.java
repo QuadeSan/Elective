@@ -146,6 +146,56 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public OperationResult changeTopic(int courseId, String newTopic) {
+        CourseDAO courseDAO = null;
+        try {
+            courseDAO = factory.getCourseDAO();
+            logger.debug("CourseDAO created");
+
+            courseDAO.changeTopic(courseId, newTopic);
+            logger.debug("changeTopic Method used");
+            return new OperationResult(true, "Topic was changed");
+        } catch (DAOException e) {
+            logger.error("Can't change status of course", e);
+            return new OperationResult(false, "Unhandled exception");
+        } finally {
+            try {
+                if (courseDAO != null) {
+                    courseDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close CourseDAO");
+            }
+            logger.debug("CourseDAO was closed");
+        }
+    }
+
+    @Override
+    public OperationResult changeTitle(int courseId, String newTitle) {
+        CourseDAO courseDAO = null;
+        try {
+            courseDAO = factory.getCourseDAO();
+            logger.debug("CourseDAO created");
+
+            courseDAO.changeTitle(courseId, newTitle);
+            logger.debug("changeTopic Method used");
+            return new OperationResult(true, "Title was changed");
+        } catch (DAOException e) {
+            logger.error("Can't change status of course", e);
+            return new OperationResult(false, "Unhandled exception");
+        } finally {
+            try {
+                if (courseDAO != null) {
+                    courseDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close CourseDAO");
+            }
+            logger.debug("CourseDAO was closed");
+        }
+    }
+
+    @Override
     public OperationResult changeStatus(int courseId, String status) {
         CourseDAO courseDAO = null;
         try {
@@ -154,7 +204,7 @@ public class CourseServiceImpl implements CourseService {
 
             courseDAO.changeStatus(courseId, status);
             logger.debug("changeStatus Method used");
-            return new OperationResult(true,"Status was changed");
+            return new OperationResult(true, "Status was changed");
         } catch (NotExistException e) {
             logger.error("Course with id " + courseId + " does not exist");
             return new OperationResult(false, "Course with id " + courseId + " does not exist");

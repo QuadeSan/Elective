@@ -18,4 +18,7 @@ public interface CourseService {
 
     ValuedOperationResult<Iterable<Course>> showAllCourses();
 
+    OperationResult changeTopic(int courseId, String newTopic);
+
+    OperationResult changeTitle(int courseId, String newTitle);
 }

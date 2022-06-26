@@ -177,18 +177,13 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public OperationResult lockStudent(int studentId, String status) {
-        if (!status.equalsIgnoreCase("locked") &&
-                !status.equalsIgnoreCase("unlocked")) {
-            logger.info("Wrong status");
-            return new OperationResult(false, "Something went wrong! " +
-                    "Status is \"" + status + "\" but can be \"locked\" or \"unlocked\" only!");
-        }
         StudentDAO studentDAO = null;
         try {
             studentDAO = daoFactory.getStudentDAO();
             logger.debug("StudentDAO created");
 
             studentDAO.changeStatus(studentId, status);
+            logger.debug("Status was changed");
             return new OperationResult(true, "Student was " + status);
         } catch (NotExistException e) {
             logger.error("Student with id = " + studentId + " does not exist");

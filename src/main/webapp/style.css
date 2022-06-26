@@ -248,11 +248,70 @@ label {
 
 /* Edit page style */
 
+/* Admin dropdown */
+
+.dropbtn {
+  border: none;
+  cursor: pointer;
+  margin:0;
+  padding:0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+}
+
+.dropdown-content a {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+  background-color: #000000;
+  display: block;
+}
 
 /* Admin panel */
 .tools {
   width: 100%;
   text-align: center;
+}
+
+.lockbtn {
+  width: 100px;
+  margin-bottom: auto;
+}
+.toolbtn {
+  width: auto;
+  margin-left: 10px;
+}
+
+.adminCourseTable {
+  width: 75%;
+  text-align: center;
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom:20px;
+}
+
+.editCourseTable {
+   width: 40%;
+   text-align: center;
+   border: 2px solid #000000;
+   border-collapse: collapse;
+   margin: auto;
+   margin-top:20px;
 }
 
 /* Courses page */
@@ -277,11 +336,13 @@ label {
   border-bottom: 1px solid #000000;
 }
 
-table.courseTable th {
+table.courseTable th,
+table.adminCourseTable th {
   position:relative;
 }
 
-table.courseTable th button {
+table.courseTable th button,
+table.adminCourseTable th button{
   padding: 4px;
   margin: 1px;
   color: #000000;
@@ -298,19 +359,22 @@ table.courseTable th button {
   cursor: pointer;
 }
 
-table.courseTable th button span {
+table.courseTable th button span,
+table.adminCourseTable th button span {
   position: absolute;
   right: 4px;
 }
 
-table.courseTable th[aria-sort="descending"] span::after {
+table.courseTable th[aria-sort="descending"] span::after,
+table.adminCourseTable th[aria-sort="descending"] span::after{
   content: "▼";
   color: currentcolor;
   font-size: 100%;
   top: 0;
 }
 
-table.courseTable th[aria-sort="ascending"] span::after {
+table.courseTable th[aria-sort="ascending"] span::after,
+table.adminCourseTable th[aria-sort="ascending"] span::after{
   content: "▲";
   color: currentcolor;
   font-size: 100%;
@@ -328,7 +392,9 @@ table.show-unsorted-icon th:not([aria-sort]) button span::after {
 
 
 table.courseTable th:not([aria-sort]) button:focus span::after,
-table.courseTable th:not([aria-sort]) button:hover span::after {
+table.courseTable th:not([aria-sort]) button:hover span::after,
+table.adminCourseTable th:not([aria-sort]) button:focus span::after,
+table.adminCourseTable th:not([aria-sort]) button:hover span::after {
   content: "▼";
   color: currentcolor;
   font-size: 100%;

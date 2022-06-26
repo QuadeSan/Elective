@@ -10,7 +10,7 @@ public interface AssignmentDAO extends AutoCloseable {
 
     void assignTeacherToCourse(int courseID, int teacherID) throws AlreadyExistException;
 
-    void unassignTeacherFromCourse(int courseID, int teacherID) throws NotExistException;
+    void changeTeacherAssignment(int courseId,int newTeacherId) throws NotExistException;
 
     void assignStudentToCourse(int courseID, int studentID) throws AlreadyExistException;
 

@@ -2,10 +2,7 @@ package application.services.impl;
 
 import application.OperationResult;
 import application.ValuedOperationResult;
-import application.dao.AlreadyExistException;
-import application.dao.AssignmentDAO;
-import application.dao.DAOException;
-import application.dao.DAOFactory;
+import application.dao.*;
 import application.entity.Course;
 import application.entity.Student;
 import application.services.AssignmentService;
@@ -51,17 +48,21 @@ public class AssignmentServiceImpl implements AssignmentService {
     }
 
     @Override
-    public void unassignTeacherFromCourse(int courseId, int teacherId) {
+    public OperationResult changeTeacherAssignment(int courseId, int newTeacherId) {
         AssignmentDAO assignmentDAO = null;
         try {
             assignmentDAO = daoFactory.getAssignmentDAO();
             logger.debug("AssignmentDAO created");
 
-            assignmentDAO.unassignStudentFromCourse(courseId, teacherId);
-
+            assignmentDAO.changeTeacherAssignment(courseId, newTeacherId);
+            return new OperationResult(true, "Teacher new teacher was assigned to course");
+        } catch (NotExistException e) {
+            logger.error("Teacher with id " + newTeacherId + " does not exist");
+            return new OperationResult(false, "Teacher with id " + newTeacherId + " does not exist");
         } catch (DAOException e) {
-            logger.error("Can't cancel assignment of Teacher "
-                    + teacherId + "from course " + courseId, e);
+            logger.error("Can't cancel assignment of teacher "
+                    + "from course " + courseId, e);
+            return new OperationResult(false, "Unhandled exception");
         } finally {
             try {
                 if (assignmentDAO != null) {
@@ -112,7 +113,7 @@ public class AssignmentServiceImpl implements AssignmentService {
         } catch (DAOException e) {
             logger.error("Can't cancel assignment of Student "
                     + studentId + "from course " + courseId, e);
-            return new OperationResult(false,"Unhandled exception");
+            return new OperationResult(false, "Unhandled exception");
         } finally {
             try {
                 if (assignmentDAO != null) {
