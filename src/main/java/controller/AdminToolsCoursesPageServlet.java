@@ -68,11 +68,25 @@ public class AdminToolsCoursesPageServlet extends HttpServlet {
     }
 
     private void createNewCourse(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        StringBuilder errors = new StringBuilder();
+
         String courseTitle = req.getParameter("title");
+        if (courseTitle.isBlank() || courseTitle.length() > 15) {
+            errors.append("Title can't be black or longer then 15 characters").append("\n");
+        }
+
         String courseTopic = req.getParameter("topic");
-        logger.debug(courseTitle + " " + courseTopic);
+        if (courseTopic.isBlank() || courseTopic.length() > 15) {
+            errors.append("Title can't be black or longer then 15 characters").append("\n");
+        }
 
         HttpSession session = req.getSession();
+
+        if (errors.length() > 0) {
+            session.setAttribute("errorMessage", errors.toString());
+            resp.sendRedirect("toolscourses");
+            return;
+        }
 
         OperationResult operationResult = courseService.createCourse(courseTopic, courseTitle);
         if (operationResult.isSuccess()) {
@@ -90,7 +104,6 @@ public class AdminToolsCoursesPageServlet extends HttpServlet {
 
         OperationResult operationResult = courseService.deleteCourse(courseID);
         if (operationResult.isSuccess()) {
-
             session.setAttribute("infoMessage", operationResult.getMessage());
         } else {
             session.setAttribute("errorMessage", operationResult.getMessage());

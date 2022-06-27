@@ -36,22 +36,42 @@ public class LoginPageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doPost of /login with forward to login.jsp");
+        StringBuilder errors = new StringBuilder();
 
         String login = req.getParameter("login");
+        if (login.isBlank() || login.length() > 15) {
+            errors.append("Login can't be black or longer then 15 characters").append("\n");
+        }
+
         String name = req.getParameter("name");
+        if (name.isBlank() || name.length() > 15) {
+            errors.append("Name can't be black or longer then 15 characters").append("\n");
+        }
+
         String lastName = req.getParameter("lastName");
+        if (lastName.isBlank() || lastName.length() > 15) {
+            errors.append("Last name can't be black or longer then 15 characters").append("\n");
+        }
+
         String email = req.getParameter("email");
+        if (email.isBlank() || !email.contains("@")) {
+            errors.append("Login can't be black and must contain @ symbol").append("\n");
+        }
+
         String password = req.getParameter("psw");
         String reppassword = req.getParameter("psw-repeat");
+        if (!password.equals(reppassword)) {
+            errors.append("Passwords don't match").append("\n");
+        }
 
         HttpSession session = req.getSession();
 
-        if (!password.equals(reppassword)) {
-            logger.info("Passwords don't match");
-            session.setAttribute("errorMessage", "Passwords don't match");
+        if (errors.length() > 0) {
+            session.setAttribute("errorMessage", errors.toString());
             resp.sendRedirect("register");
             return;
         }
+
         OperationResult operationResult = studentService.createStudent(login, password, email, name, lastName);
         if (operationResult.isSuccess()) {
             logger.info("Student was created");

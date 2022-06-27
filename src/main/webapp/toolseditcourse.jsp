@@ -63,17 +63,16 @@
                </tr>
           </tbody>
         </table>
-        <h2 class="main-h2">Edit course</h2>
          <form class="edit-form" action="toolscourses" method="post">
                 <div class="info-container">
                 <p>COURSE INFORMATION</p>
                 <div class="col-1-2">
                     <label><b>New title</b></label>
-                    <input type="text" placeholder="New title" name="new-title" id="account-field">
+                    <input type="text" placeholder="New title" name="new-title" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>New topic</b></label>
-                    <input type="text" placeholder="New topic" name="new-topic" id="account-field">
+                    <input type="text" placeholder="New topic" name="new-topic" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>New status</b></label>

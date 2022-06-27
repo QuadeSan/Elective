@@ -46,19 +46,27 @@
         <c:remove var="errorMessage"/>
     </div>
         <h2 class="main-h2">Create new course </h2>
-          <form class="edit-form" action="toolscourses" method="post">
+          <form id="for-validation" action="toolscourses" method="post">
                   <div class="info-container">
                   <p>COURSE INFORMATION</p>
                   <div class="col-1-2">
+                  <div class="form-field">
                   <label><b>Course title</b></label>
-                  <input type="text" placeholder="Course title" name="title" id="account-field" required>
+                  <input type="text" placeholder="Course title" name="title" class="account-field" id="title" autocomplete="off">
+                  <small> </small>
+                  </div>
                   </div>
                   <div class="col-1-2">
+                  <div class="form-field">
                   <label><b>Course topic</b></label>
-                  <input type="text" placeholder="Course topic" name="topic" id="account-field" required>
+                  <input type="text" placeholder="Course topic" name="topic" class="account-field" id="topic" autocomplete="off">
+                  <small> </small>
+                  </div>
                   </div>
                   <input type="hidden" name="adminAction" value="createCourse">
+                  <div style="clear:both;">
                   <button class="applybtn" type="submit"> Create new course </button>
+                  </div>
                   </div>
           </form>
     <div class="tools">
@@ -132,6 +140,7 @@
         </c:forEach>
       </tbody>
     </table>
+    <script type="text/javascript" src="validationcourse.js"></script>
     </div>
     <footer>
         Here should be some footer information

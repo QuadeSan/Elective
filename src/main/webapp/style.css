@@ -375,7 +375,7 @@ table.adminCourseTable th button span {
 
 table.courseTable th[aria-sort="descending"] span::after,
 table.adminCourseTable th[aria-sort="descending"] span::after{
-  content: "▼";
+  content: "\25BC";
   color: currentcolor;
   font-size: 100%;
   top: 0;
@@ -383,14 +383,14 @@ table.adminCourseTable th[aria-sort="descending"] span::after{
 
 table.courseTable th[aria-sort="ascending"] span::after,
 table.adminCourseTable th[aria-sort="ascending"] span::after{
-  content: "▲";
+  content: "\25B2";
   color: currentcolor;
   font-size: 100%;
   top: 0;
 }
 
 table.show-unsorted-icon th:not([aria-sort]) button span::after {
-  content: "♢";
+  content: "\2662";
   color: currentcolor;
   font-size: 100%;
   position: relative;
@@ -403,7 +403,7 @@ table.courseTable th:not([aria-sort]) button:focus span::after,
 table.courseTable th:not([aria-sort]) button:hover span::after,
 table.adminCourseTable th:not([aria-sort]) button:focus span::after,
 table.adminCourseTable th:not([aria-sort]) button:hover span::after {
-  content: "▼";
+  content: "\25BC";
   color: currentcolor;
   font-size: 100%;
   top: 0;

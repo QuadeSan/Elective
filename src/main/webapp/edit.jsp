@@ -42,49 +42,49 @@
                 <p>USER INFORMATION</p>
                 <div class="col-1-2">
                     <label><b>Login</b></label>
-                    <input type="text" placeholder="New Login" name="login" id="account-field">
+                    <input type="text" placeholder="New Login" name="login" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>Email</b></label>
-                    <input type="text" placeholder="New Email" name="email" id="account-field">
+                    <input type="text" placeholder="New Email" name="email" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>First name</b></label>
-                    <input type="text" placeholder="New First name" name="firstname" id="account-field">
+                    <input type="text" placeholder="New First name" name="firstname" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>Last name</b></label>
-                    <input type="text" placeholder="New Last name" name="lastname" id="account-field">
+                    <input type="text" placeholder="New Last name" name="lastname" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="New Password" name="psw" id="account-field">
+                    <input type="password" placeholder="New Password" name="psw" class="account-field">
                 </div>
                 <div class="col-1-2">
                     <label><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="account-field">
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" class="account-field">
                 </div>
             <hr>
             <p>CONTACT INFORMATION</p>
                 <div class="col-1-2">
                     <label><b>Country</b></label>
-                    <input type="text" placeholder="New Country" name="country" id="account-field">
+                    <input type="text" placeholder="New Country" name="country" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>City</b></label>
-                    <input type="text" placeholder="New City" name="city" id="account-field">
+                    <input type="text" placeholder="New City" name="city" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>Postal code</b></label>
-                    <input type="text" pattern="[0-9]{5}" placeholder="New Postal code" name="postal-code" id="account-field">
+                    <input type="text" pattern="[0-9]{5}" placeholder="New Postal code" name="postal-code" class="account-field">
                 </div>
                 <div class="col-1-2">
                     <label><b>Address</b></label>
-                    <input type="text" placeholder="New Address" name="city" id="account-field">
+                    <input type="text" placeholder="New Address" name="city" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b>Phone number</b></label>
-                    <input type="text" placeholder="+38(XXX)-XXX-XX-XX" name="phone-number" id="account-field">
+                    <input type="text" placeholder="+38(XXX)-XXX-XX-XX" name="phone-number" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-1">
                     <hr>

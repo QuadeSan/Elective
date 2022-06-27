@@ -45,20 +45,42 @@ public class AdminToolsTeacherPageServlet extends HttpServlet {
     }
 
     private void createNewTeacher(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        StringBuilder errors = new StringBuilder();
+
         String teacherLogin = req.getParameter("login");
+        if (teacherLogin.isBlank() || teacherLogin.length() > 15) {
+            errors.append("Login can't be black or longer then 15 characters").append("\n");
+        }
+
         String teacherEmail = req.getParameter("email");
+        if (teacherEmail.isBlank() || !teacherEmail.contains("@")) {
+            errors.append("Login can't be black and must contain @ symbol").append("\n");
+        }
+
         String teacherName = req.getParameter("name");
+        if (teacherName.isBlank() || teacherName.length() > 15) {
+            errors.append("Name can't be black or longer then 15 characters").append("\n");
+        }
+
         String teacherLastName = req.getParameter("lastName");
+        if (teacherLastName.isBlank() || teacherLastName.length() > 15) {
+            errors.append("Last name can't be black or longer then 15 characters").append("\n");
+        }
+
         String teacherPass = req.getParameter("psw");
         String teacherRepPass = req.getParameter("psw-repeat");
+        if (!teacherPass.equals(teacherRepPass)) {
+            errors.append("Passwords don't match").append("\n");
+        }
 
         HttpSession session = req.getSession();
-        if (!teacherPass.equals(teacherRepPass)) {
-            logger.info("Teacher's passwords don't match");
-            session.setAttribute("errorMessage", "Passwords don't match");
+
+        if (errors.length() > 0) {
+            session.setAttribute("errorMessage", errors.toString());
             resp.sendRedirect("toolsteacher");
             return;
         }
+
         OperationResult operationResult = teacherService.createTeacher(teacherLogin, teacherPass, teacherEmail, teacherName, teacherLastName);
         if (operationResult.isSuccess()) {
             logger.info("Teacher was created");
