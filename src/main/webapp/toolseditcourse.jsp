@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
-    <body>
+    <script type="text/javascript" src="tablescripts.js"></script>
+<body>
     <header>
         <div id="homebutton"><a class="ahead" href="main">Home</a></div>
         <div id="coursesearch"><a class="ahead" href="courses">Courses</a></div>
@@ -13,9 +14,9 @@
         <div class="dropdown" id="god-mode">
             <button class="dropbtn"> Admin tools </button>
             <div class="dropdown-content">
-                <a class="ablack" href="allcourses"> <button>Course tools </button> </a>
+                <a class="ablack" href="toolscourses"> <button>Course tools </button> </a>
                 <a class="ablack" href="toolsteacher"> <button>Teacher tools </button> </a>
-                <a class="ablack" href="allstudents"> <button>Student tools</button> </a>
+                <a class="ablack" href="toolsstudents"> <button>Student tools</button> </a>
             </div>
         </div>
         </c:if>
@@ -31,6 +32,7 @@
         </c:if>
     </header>
     <div class="main">
+    <h2 class="tools"> Course information </h2>
     <table class="editCourseTable" id="editCourseTable">
           <thead>
             <tr>
@@ -61,7 +63,6 @@
                </tr>
           </tbody>
         </table>
-    <h2 class="tools"> Course information </h2>
         <h2 class="main-h2">Edit course</h2>
          <form class="edit-form" action="toolscourses" method="post">
                 <div class="info-container">
@@ -76,7 +77,12 @@
                 </div>
                 <div class="col-1-2">
                     <label><b>New status</b></label>
-                    <input type="text" placeholder="New status" name="new-status" id="account-field">
+                    <select id="statusSelect" name="new-status">
+                    <option value=""> </option>
+                    <option value="New"> New </option>
+                    <option value="In progress"> In progress </option>
+                    <option value="Finished"> Finished </option>
+                    </select>
                 </div>
                 <div class="col-1-2">
                     <label><b>New teacher assignment</b></label>

@@ -14,9 +14,9 @@
         <div class="dropdown" id="god-mode">
             <button class="dropbtn"> Admin tools </button>
             <div class="dropdown-content">
-                <a class="ablack" href="allcourses"> <button>Course tools </button> </a>
+                <a class="ablack" href="toolscourses"> <button>Course tools </button> </a>
                 <a class="ablack" href="toolsteacher"> <button>Teacher tools </button> </a>
-                <a class="ablack" href="allstudents"> <button>Student tools</button> </a>
+                <a class="ablack" href="toolsstudents"> <button>Student tools</button> </a>
             </div>
         </div>
         </c:if>
@@ -45,37 +45,44 @@
         </div>
         </c:if>
         <h2 class="main-h2">Create teacher</h2>
-         <form class="edit-form" action="admin" method="post">
+         <form class="teacher-form" id="for-validation" action="toolsteacher" method="post">
                 <div class="info-container">
                 <p>USER INFORMATION</p>
-                <div class="col-1-2">
+                    <div class="form-field">
                     <label><b>Login</b></label>
-                    <input type="text" placeholder="New Login" name="login" id="account-field" required>
-                </div>
-                <div class="col-1-2">
+                    <input type="text" placeholder="New Login" name="login" id="login" autocomplete="off">
+                    <small> </small>
+                    </div>
+                    <div class="form-field">
                     <label><b>Email</b></label>
-                    <input type="text" placeholder="New Email" name="email" id="account-field" required>
-                </div>
-                <div class="col-1-2">
+                    <input type="text" placeholder="New Email" name="email" id="email" autocomplete="off">
+                    <small> </small>
+                    </div>
+                    <div class="form-field">
                     <label><b>Name</b></label>
-                    <input type="text" placeholder="Teacher's name" name="name" id="account-field" required>
-                </div>
-                <div class="col-1-2">
+                    <input type="text" placeholder="Teacher's name" name="name" id="name" autocomplete="off">
+                    <small> </small>
+                    </div>
+                    <div class="form-field">
                     <label><b>Last name</b></label>
-                    <input type="text" placeholder="Teacher's last name" name="lastName" id="account-field" required>
-                </div>
-                <div class="col-1-2">
+                    <input type="text" placeholder="Teacher's last name" name="lastName" id="lastName" autocomplete="off">
+                    <small> </small>
+                    </div>
+                    <div class="form-field">
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="New Password" name="psw" id="account-field" required>
-                </div>
-                <div class="col-1-2">
+                    <input type="password" placeholder="New Password" name="psw" id="psw" autocomplete="off">
+                    <small> </small>
+                    </div>
+                    <div class="form-field">
                     <label><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="account-field" required>
-                </div>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" autocomplete="off">
+                    <small> </small>
+                    </div>
                 <input type="hidden" name="adminAction" value="createTeacher">
                 <button class="applybtn" type="submit"> Create new teacher </button>
                 </div>
          </form>
+          <script type="text/javascript" src="validation.js"></script>
     </div>
     <footer>
         Here should be some footer information

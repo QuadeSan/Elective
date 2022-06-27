@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter("/admin")
+@WebFilter
 public class AdminAccessFilter implements Filter {
 
     private static final Logger logger = LogManager.getLogger(AdminAccessFilter.class);

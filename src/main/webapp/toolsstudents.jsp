@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
+    <script type="text/javascript" src="tablescripts.js"></script>
 </head>
-<body onLoad="SingleRefresh()">
+<body>
     <header>
         <div id="homebutton"><a class="ahead" href="main">Home</a></div>
         <div id="coursesearch"><a class="ahead" href="courses">Courses</a></div>
@@ -14,9 +15,9 @@
         <div class="dropdown" id="god-mode">
             <button class="dropbtn"> Admin tools </button>
             <div class="dropdown-content">
-                <a class="ablack" href="allcourses"> <button>Course tools </button> </a>
+                <a class="ablack" href="toolscourses"> <button>Course tools </button> </a>
                 <a class="ablack" href="toolsteacher"> <button>Teacher tools </button> </a>
-                <a class="ablack" href="allstudents"> <button>Student tools</button> </a>
+                <a class="ablack" href="toolsstudents"> <button>Student tools</button> </a>
             </div>
         </div>
         </c:if>
@@ -75,7 +76,7 @@
                  <td> ${student.status} </td>
                  <c:if test="${student.status == 'locked'}">
                  <td>
-                    <form action="allstudents" method="post">
+                    <form action="toolsstudents" method="post">
                     <input type="hidden" name="student_id" value="${student.studentID}">
                     <input type="hidden" name="status" value="unlocked">
                     <button type="submit" class="lockbtn"> unlock
@@ -84,7 +85,7 @@
                  </c:if>
                  <c:if test="${student.status == 'unlocked'}">
                  <td>
-                    <form action="allstudents" method="post">
+                    <form action="toolsstudents" method="post">
                     <input type="hidden" name="student_id" value="${student.studentID}">
                     <input type="hidden" name="status" value="locked">
                     <button type="submit" class="lockbtn"> lock

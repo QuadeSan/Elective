@@ -14,9 +14,9 @@
         <div class="dropdown" id="god-mode">
             <button class="dropbtn"> Admin tools </button>
             <div class="dropdown-content">
-                <a class="ablack" href="allcourses"> <button>Course tools </button> </a>
+                <a class="ablack" href="toolscourses"> <button>Course tools </button> </a>
                 <a class="ablack" href="toolsteacher"> <button>Teacher tools </button> </a>
-                <a class="ablack" href="allstudents"> <button>Student tools</button> </a>
+                <a class="ablack" href="toolsstudents"> <button>Student tools</button> </a>
             </div>
         </div>
         </c:if>

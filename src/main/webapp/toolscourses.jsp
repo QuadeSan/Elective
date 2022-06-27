@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
+    <script type="text/javascript" src="tablescripts.js"></script>
 <body>
     <header>
         <div id="homebutton"><a class="ahead" href="main">Home</a></div>
@@ -13,9 +14,9 @@
         <div class="dropdown" id="god-mode">
             <button class="dropbtn"> Admin tools </button>
             <div class="dropdown-content">
-                <a class="ablack" href="allcourses"> <button>Course tools </button> </a>
+                <a class="ablack" href="toolscourses"> <button>Course tools </button> </a>
                 <a class="ablack" href="toolsteacher"> <button>Teacher tools </button> </a>
-                <a class="ablack" href="allstudents"> <button>Student tools</button> </a>
+                <a class="ablack" href="toolsstudents"> <button>Student tools</button> </a>
             </div>
         </div>
         </c:if>
@@ -45,7 +46,7 @@
         <c:remove var="errorMessage"/>
     </div>
         <h2 class="main-h2">Create new course </h2>
-          <form class="edit-form" action="allcourses" method="post">
+          <form class="edit-form" action="toolscourses" method="post">
                   <div class="info-container">
                   <p>COURSE INFORMATION</p>
                   <div class="col-1-2">
