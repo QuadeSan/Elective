@@ -43,7 +43,7 @@
     </header>
     <div class="main">
        <div class="account-head">
-         <h2 class="main-h2">My account</h2>
+         <h2 class="main-h2"><fmt:message key='account_page.account.h'/></h2>
          <c:if test="${errorMessage != null}">
          <div class="info-box"> <span class="error-span"> ${errorMessage} </span> </div>
          <c:remove var="errorMessage"/>
@@ -52,64 +52,64 @@
        </div>
          <form class="edit-form" action="account" method="post">
                 <div class="info-container">
-                <p>USER INFORMATION</p>
+                <p><fmt:message key='account_page.user_information'/></p>
                 <div class="col-1-2">
-                    <label><b>Login</b></label>
+                    <label><b><fmt:message key='account_page.login_field'/></b></label>
                     <input type="text" placeholder="New Login" name="login" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>Email</b></label>
+                    <label><b><fmt:message key='account_page.email_field'/></b></label>
                     <input type="text" placeholder="New Email" name="email" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>First name</b></label>
+                    <label><b><fmt:message key='account_page.first_name_field'/></b></label>
                     <input type="text" placeholder="New First name" name="firstname" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>Last name</b></label>
+                    <label><b><fmt:message key='account_page.last_name_field'/></b></label>
                     <input type="text" placeholder="New Last name" name="lastname" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>Password</b></label>
+                    <label><b><fmt:message key='account_page.password_field'/></b></label>
                     <input type="password" placeholder="New Password" name="psw" class="account-field">
                 </div>
                 <div class="col-1-2">
-                    <label><b>Repeat Password</b></label>
+                    <label><b><fmt:message key='account_page.password_repeat_field'/></b></label>
                     <input type="password" placeholder="Repeat Password" name="psw-repeat" class="account-field">
                 </div>
             <hr>
-            <p>CONTACT INFORMATION</p>
+            <p><fmt:message key='account_page.contact_info'/></p>
                 <div class="col-1-2">
-                    <label><b>Country</b></label>
+                    <label><b><fmt:message key='account_page.contact_country'/></b></label>
                     <input type="text" placeholder="New Country" name="country" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>City</b></label>
+                    <label><b><fmt:message key='account_page.contact_city'/></b></label>
                     <input type="text" placeholder="New City" name="city" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>Postal code</b></label>
+                    <label><b><fmt:message key='account_page.contact_postal_code'/></b></label>
                     <input type="text" pattern="[0-9]{5}" placeholder="New Postal code" name="postal-code" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>Address</b></label>
+                    <label><b><fmt:message key='account_page.contact_address'/></b></label>
                     <input type="text" placeholder="New Address" name="city" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>Phone number</b></label>
+                    <label><b><fmt:message key='account_page.contact_phone'/></b></label>
                     <input type="text" placeholder="+38(XXX)-XXX-XX-XX" name="phone-number" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-1">
                     <hr>
-                    <label><b>About me<b></label>
-                    <textarea rows="4" placeholder="A few words about you ..." name="about-me"></textarea>
+                    <label><b><fmt:message key='account_page.contact_about_me'/><b></label>
+                    <textarea rows="4" placeholder="<fmt:message key='account_page.contact_about_me.field'/>" name="about-me"></textarea>
                  </div>
-                 <button class="applybtn" type="submit"> Apply changes </button>
-                 <button class="cancelbtn" onclick="history.back()">Cancel</button>
+                 <button class="applybtn" type="submit"> <fmt:message key='edit_account_page.apply'/> </button>
+                 <button class="cancelbtn" onclick="history.back()"><fmt:message key='edit_account_page.cancel'/></button>
             </div>
          </form>
           <form class="container" action="account" method="post" onSubmit="return confirmAlert()">
-          <button type="submit" class="cancelbtn"> Delete account
+          <button type="submit" class="cancelbtn"> <fmt:message key='edit_account_page.delete_account'/>
           <input type="hidden" name="user-id" value="${currentUser.userID}">
           </form>
     </div>

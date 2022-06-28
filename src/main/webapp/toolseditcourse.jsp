@@ -44,24 +44,24 @@
         </c:if>
     </header>
     <div class="main">
-    <h2 class="tools"> Course information </h2>
+    <h2 class="tools"> <fmt:message key='tools_courses.course_info_lc'/> </h2>
     <table class="editCourseTable" id="editCourseTable">
           <thead>
             <tr>
               <th id="courseHead">
-              Course ID
+              <fmt:message key='courses_page.course_id'/>
               </th>
               <th id="courseHead">
-              Topic
+              <fmt:message key='courses_page.topic'/>
               </th>
               <th id="courseHead">
-              Title
+              <fmt:message key='courses_page.title'/>
               </th>
               <th id="courseHead">
-              Status
+              <fmt:message key='courses_page.status'/>
               </th>
               <th id="courseHead">
-              Teacher
+              <fmt:message key='courses_page.teacher'/>
               </th>
             </tr>
           </thead>
@@ -75,28 +75,29 @@
                </tr>
           </tbody>
         </table>
+        <br>
          <form class="edit-form" action="toolscourses" method="post">
                 <div class="info-container">
-                <p>COURSE INFORMATION</p>
+                <p><fmt:message key='tools_courses.course_info'/></p>
                 <div class="col-1-2">
-                    <label><b>New title</b></label>
-                    <input type="text" placeholder="New title" name="new-title" class="account-field" autocomplete="off">
+                    <label><b><fmt:message key='tools_courses.new_title'/></b></label>
+                    <input type="text" placeholder="<fmt:message key='tools_courses.new_title'/>" name="new-title" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>New topic</b></label>
-                    <input type="text" placeholder="New topic" name="new-topic" class="account-field" autocomplete="off">
+                    <label><b><fmt:message key='tools_courses.new_topic'/></b></label>
+                    <input type="text" placeholder="<fmt:message key='tools_courses.new_topic'/>" name="new-topic" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
-                    <label><b>New status</b></label>
+                    <label><b><fmt:message key='tools_courses.new_status'/></b></label>
                     <select id="statusSelect" name="new-status">
                     <option value=""> </option>
-                    <option value="New"> New </option>
-                    <option value="In progress"> In progress </option>
-                    <option value="Finished"> Finished </option>
+                    <option value="New"> <fmt:message key='tools_courses.status_new'/> </option>
+                    <option value="In progress"> <fmt:message key='tools_courses.status_in_progress'/> </option>
+                    <option value="Finished"> <fmt:message key='tools_courses.status_finished'/> </option>
                     </select>
                 </div>
                 <div class="col-1-2">
-                    <label><b>New teacher assignment</b></label>
+                    <label><b><fmt:message key='tools_courses.new_teacher'/></b></label>
                     <select id="teacherSelect" name="teacher-id">
                     <option value="0"> </option>
                     <c:forEach items="${teachers}" var="teacher">
@@ -105,7 +106,7 @@
                     </select>
                 </div>
                 <input type="hidden" name="adminAction" value="editCourse">
-                <button class="applybtn" type="submit"> Apply changes </button>
+                <button class="applybtn" type="submit"> <fmt:message key='tools_courses.apply'/> </button>
                 </div>
          </form>
     </div>

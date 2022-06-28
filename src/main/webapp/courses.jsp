@@ -57,45 +57,45 @@
         <c:remove var="errorMessage"/>
     </div>
     <div class="tools">
-    <h2> List of courses </h2>
-    <input type="text" id="filterInput" onkeyup="tableFilter()" placeholder="Filter by topic/teacher">
+    <h2> <fmt:message key='courses_page.course_list'/> </h2>
+    <input type="text" id="filterInput" onkeyup="tableFilter()" placeholder="<fmt:message key='courses_page.filter'/>">
     </div>
     <table class="courseTable" id="courseTable">
       <thead>
         <tr>
           <th id="courseHead" class="num" aria-sort="ascending">
-            <button> Course ID
+            <button> <fmt:message key='courses_page.course_id'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Topic
+            <button> <fmt:message key='courses_page.topic'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Title
+            <button> <fmt:message key='courses_page.title'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Status
+            <button> <fmt:message key='courses_page.status'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Students on course
+            <button> <fmt:message key='courses_page.student_count'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Teacher
+            <button> <fmt:message key='courses_page.teacher'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <c:if test="${userRole == 'Student'}">
           <th id="courseHead">
-            Available for entry
+            <fmt:message key='courses_page.availability'/>
           </th>
           </c:if>
         </tr>
@@ -110,10 +110,10 @@
            <td> ${course.studentCount} </td>
            <td> ${course.assignedTeacher} </td>
            <c:if test="${userRole == 'Student' && course.status == 'New'}">
-           <td> <a class="ablack" href="courses?course_id=${course.courseID}"> sign for course </a> </td>
+           <td> <a class="ablack" href="courses?course_id=${course.courseID}"> <fmt:message key='courses_page.availability_yes'/> </a> </td>
            </c:if>
            <c:if test="${userRole == 'Student' && course.status == 'In progress'}">
-           <td> Not available </td>
+           <td> <fmt:message key='courses_page.availability_no'/> </td>
            </c:if>
            </tr>
         </c:forEach>

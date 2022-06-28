@@ -57,72 +57,72 @@
         <c:remove var="infoMessage"/>
         <c:remove var="errorMessage"/>
     </div>
-        <h2 class="main-h2">Create new course </h2>
+        <h2 class="main-h2"> <fmt:message key='tools_courses.create_new'/> </h2>
           <form id="for-validation" action="toolscourses" method="post">
                   <div class="info-container">
-                  <p>COURSE INFORMATION</p>
+                  <p><fmt:message key='tools_courses.course_info'/></p>
                   <div class="col-1-2">
                   <div class="form-field">
-                  <label><b>Course title</b></label>
-                  <input type="text" placeholder="Course title" name="title" class="account-field" id="title" autocomplete="off">
+                  <label><b><fmt:message key='tools_courses.course_title'/></b></label>
+                  <input type="text" placeholder="<fmt:message key='tools_courses.course_title.ph'/>" name="title" class="account-field" id="title" autocomplete="off">
                   <small> </small>
                   </div>
                   </div>
                   <div class="col-1-2">
                   <div class="form-field">
-                  <label><b>Course topic</b></label>
-                  <input type="text" placeholder="Course topic" name="topic" class="account-field" id="topic" autocomplete="off">
+                  <label><b><fmt:message key='tools_courses.course_topic'/></b></label>
+                  <input type="text" placeholder="<fmt:message key='tools_courses.course_topic.ph'/>" name="topic" class="account-field" id="topic" autocomplete="off">
                   <small> </small>
                   </div>
                   </div>
                   <input type="hidden" name="adminAction" value="createCourse">
                   <div style="clear:both;">
-                  <button class="applybtn" type="submit"> Create new course </button>
+                  <button class="applybtn" type="submit"> <fmt:message key='tools_courses.create_new.button'/> </button>
                   </div>
                   </div>
           </form>
     <div class="tools">
-    <h2> List of courses </h2>
-    <input type="text" id="filterInput" onkeyup="adminTableFilter()" placeholder="Filter by topic/title">
+    <h2> <fmt:message key='courses_page.course_list'/> </h2>
+    <input type="text" id="filterInput" onkeyup="adminTableFilter()" placeholder="<fmt:message key='tools_courses.filter'/>">
     </div>
     <table class="adminCourseTable" id="courseTable">
       <thead>
         <tr>
           <th id="courseHead" class="num" aria-sort="ascending">
-            <button> Course ID
+            <button> <fmt:message key='courses_page.course_id'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Topic
+            <button> <fmt:message key='courses_page.topic'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Title
+            <button> <fmt:message key='courses_page.title'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Status
+            <button> <fmt:message key='courses_page.status'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Students on course
+            <button> <fmt:message key='courses_page.student_count'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            <button> Teacher
+            <button> <fmt:message key='courses_page.teacher'/>
             <span aria-hidden="true"></span>
             </button>
           </th>
           <th id="courseHead">
-            Edit course
+            <fmt:message key='tools_courses.edit_course'/>
           </th>
           <th id="courseHead">
-            Delete course
+            <fmt:message key='tools_courses.delete_course'/>
           </th>
         </tr>
       </thead>
@@ -138,14 +138,14 @@
            <td>
                <form action="toolseditcourse" method="post">
                <input type="hidden" name="course-id" value="${course.courseID}">
-               <button type="submit" class="lockbtn"> Edit course
+               <button type="submit" class="lockbtn"> <fmt:message key='tools_courses.edit_course'/>
                </form>
            </td>
            <td>
                <form action="toolscourses" method="post" onSubmit="return confirmAlert()">
                <input type="hidden" name="course-id" value="${course.courseID}">
                <input type="hidden" name="adminAction" value="deleteCourse">
-               <button type="submit" class="lockbtn"> Delete course
+               <button type="submit" class="lockbtn"> <fmt:message key='tools_courses.delete_course'/>
                </form>
            </td>
            </tr>

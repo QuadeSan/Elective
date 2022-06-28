@@ -44,7 +44,7 @@
     </header>
     <div class="main">
        <div class="account-head">
-         <h2 class="main-h2">Journal of course # ${viewedCourse}</h2>
+         <h2 class="main-h2"><fmt:message key='journal_page.journal.h'/> ${viewedCourse}</h2>
          <c:if test="${infoMessage != null}">
          <div class="info-box"> <span class="info-span"> ${infoMessage} </span> </div>
          <c:remove var="infoMessage"/>
@@ -58,32 +58,32 @@
        <div class="tools">
          <c:if test="${userRole == 'Teacher' || userRole == 'Admin'}">
          <c:if test="${studentList == null || empty studentList}">
-         <b> There are no students on current course yet </b>
+         <b> <fmt:message key='journal_page.no_students'/> </b>
          </c:if>
          <c:if test="${studentList != null && not empty studentList}">
           <table class="courseTable">
             <thead>
               <tr>
               <th id="courseHead" class="num" aria-sort="ascending">
-                <button> Student ID
+                <button> <fmt:message key='journal_page.student_id'/>
                 <span aria-hidden="true"></span>
                 </button>
                 </th>
               <th id="courseHead">
-                <button> Name
+                <button> <fmt:message key='journal_page.student_name'/>
                 <span aria-hidden="true"></span>
                 </button>
               </th>
               <th id="courseHead">
-                <button> Last name
+                <button> <fmt:message key='journal_page.student_last_name'/> name
                 <span aria-hidden="true"></span>
                 </button>
               </th>
               <th id="courseHead">
-                Current mark
+                <fmt:message key='journal_page.current_mark'/>
               </th>
               <th id="courseHead">
-                Set mark for course
+                <fmt:message key='journal_page.set_mark'/>
               </th>
               </tr>
             </thead>
@@ -97,7 +97,7 @@
                  <td>
                     <form action="journal?student_id=${student.studentID}" method="post">
                     <input type="text" name="mark" id="mark" required>
-                    <button type="submit" class="markbtn"> set mark
+                    <button type="submit" class="markbtn"> <fmt:message key='journal_page.set_mark.button'/>
                     </form>
                  </td>
                  </tr>
