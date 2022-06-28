@@ -56,42 +56,42 @@
         <c:remove var="errorMessage" scope="session" />
         </div>
         </c:if>
-        <h2 class="main-h2">Create teacher</h2>
+        <h2 class="main-h2"><fmt:message key='tools_teacher.create_teacher'/></h2>
          <form class="teacher-form" id="for-validation" action="toolsteacher" method="post">
                 <div class="info-container">
-                <p>USER INFORMATION</p>
+                <p><fmt:message key='account_page.user_information'/></p>
                     <div class="form-field">
-                    <label><b>Login</b></label>
-                    <input type="text" placeholder="New Login" name="login" id="login" autocomplete="off">
+                    <label><b><fmt:message key='register.login'/></b></label>
+                    <input type="text" placeholder="<fmt:message key='register.login.ph'/>" name="login" id="login" autocomplete="off">
                     <small> </small>
                     </div>
                     <div class="form-field">
-                    <label><b>Email</b></label>
-                    <input type="text" placeholder="New Email" name="email" id="email" autocomplete="off">
+                    <label><b><fmt:message key='register.email'/></b></label>
+                    <input type="text" placeholder="<fmt:message key='register.email.ph'/>" name="email" id="email" autocomplete="off">
                     <small> </small>
                     </div>
                     <div class="form-field">
-                    <label><b>Name</b></label>
-                    <input type="text" placeholder="Teacher's name" name="name" id="name" autocomplete="off">
+                    <label><b><fmt:message key='register.name'/></b></label>
+                    <input type="text" placeholder="<fmt:message key='register.teacher_name.ph'/>" name="name" id="name" autocomplete="off">
                     <small> </small>
                     </div>
                     <div class="form-field">
-                    <label><b>Last name</b></label>
-                    <input type="text" placeholder="Teacher's last name" name="lastName" id="lastName" autocomplete="off">
+                    <label><b><fmt:message key='register.last_name'/></b></label>
+                    <input type="text" placeholder="<fmt:message key='register.teacher_last_name.ph'/>" name="lastName" id="lastName" autocomplete="off">
                     <small> </small>
                     </div>
                     <div class="form-field">
-                    <label><b>Password</b></label>
-                    <input type="password" placeholder="New Password" name="psw" id="psw" autocomplete="off">
+                    <label><b><fmt:message key='register.password'/></b></label>
+                    <input type="password" placeholder="<fmt:message key='register.password.ph'/>" name="psw" id="psw" autocomplete="off">
                     <small> </small>
                     </div>
                     <div class="form-field">
-                    <label><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" autocomplete="off">
+                    <label><b><fmt:message key='register.password_repeat'/></b></label>
+                    <input type="password" placeholder="<fmt:message key='register.password_repeat.ph'/>" name="psw-repeat" id="psw-repeat" autocomplete="off">
                     <small> </small>
                     </div>
                 <input type="hidden" name="adminAction" value="createTeacher">
-                <button class="applybtn" type="submit"> Create new teacher </button>
+                <button class="applybtn" type="submit"> <fmt:message key='register.create_teacher.button'/> </button>
                 </div>
          </form>
           <script type="text/javascript" src="validation.js"></script>

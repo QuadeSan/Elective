@@ -45,37 +45,37 @@
         </c:if>
     </header>
     <div class="main">
-        <h1 class="tools"> List of students </h1>
+        <h1 class="tools"> <fmt:message key='tools_students.student_list'/> </h1>
     <div class="tools">
         <c:if test="${allStudentsList == null || empty allStudentsList}">
-        <b> There are no students yet </b>
+        <b> <fmt:message key='tools_students.no_students'/> </b>
         </c:if>
         <c:if test="${allStudentsList != null && not empty allStudentsList}">
           <table class="courseTable">
             <thead>
               <tr>
               <th id="courseHead" class="num" aria-sort="ascending">
-                <button> Student ID
+                <button> <fmt:message key='journal_page.student_id'/>
                 <span aria-hidden="true"></span>
                 </button>
                 </th>
               <th id="courseHead">
-                <button> Name
+                <button> <fmt:message key='journal_page.student_name'/>
                 <span aria-hidden="true"></span>
                 </button>
               </th>
               <th id="courseHead">
-                <button> Last name
+                <button> <fmt:message key='journal_page.student_last_name'/>
                 <span aria-hidden="true"></span>
                 </button>
               </th>
               <th id="courseHead">
-                <button> Status
+                <button> <fmt:message key='tools_students.student_status'/>
                 <span aria-hidden="true"></span>
                 </button>
               </th>
               <th id="courseHead">
-                Set mark for course
+                <fmt:message key='tools_students.lock'/>
               </th>
               </tr>
             </thead>
@@ -91,7 +91,7 @@
                     <form action="toolsstudents" method="post">
                     <input type="hidden" name="student_id" value="${student.studentID}">
                     <input type="hidden" name="status" value="unlocked">
-                    <button type="submit" class="lockbtn"> unlock
+                    <button type="submit" class="lockbtn"> <fmt:message key='tools_students.lock.unlock'/>
                     </form>
                  </td>
                  </c:if>
@@ -100,7 +100,7 @@
                     <form action="toolsstudents" method="post">
                     <input type="hidden" name="student_id" value="${student.studentID}">
                     <input type="hidden" name="status" value="locked">
-                    <button type="submit" class="lockbtn"> lock
+                    <button type="submit" class="lockbtn"> <fmt:message key='tools_students.lock.lock'/>
                     </form>
                  </td>
                  </c:if>
