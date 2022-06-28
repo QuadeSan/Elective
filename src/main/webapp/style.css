@@ -54,10 +54,27 @@ footer {
     padding: 15px;
 }
 
+#right-side{
+    margin-left:auto;
+    visibility: hidden;
+}
+
+#change-locale {
+    position: relative;
+}
+
+#locale {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 #hellouser {
+    margin-left: 100px;
     padding: 15px;
     color: #FFFFFF;
-    margin-left: auto;
 }
 
 #logoutbtn {

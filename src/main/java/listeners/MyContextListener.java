@@ -9,6 +9,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 @WebListener
 public class MyContextListener implements ServletContextListener {
@@ -24,5 +27,17 @@ public class MyContextListener implements ServletContextListener {
 
         DAOFactory.setInstance(new MySQLDAOFactory());
         logger.debug("DAOFactory was set to MySQL implementation");
+
+        String localesFileName = ctx.getInitParameter("locales");
+        String localesFileRealPath = ctx.getRealPath(localesFileName);
+
+        Properties locales = new Properties();
+        try {
+            locales.load(new FileInputStream(localesFileRealPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ctx.setAttribute("locales", locales);
+        logger.debug("Locales list " + locales);
     }
 }

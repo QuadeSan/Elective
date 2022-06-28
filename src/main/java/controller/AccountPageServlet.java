@@ -5,7 +5,9 @@ import application.ValuedOperationResult;
 import application.entity.Course;
 import application.entity.Student;
 import application.entity.Teacher;
+import application.services.AdministratorService;
 import application.services.AssignmentService;
+import application.services.impl.AdministratorServiceImpl;
 import application.services.impl.AssignmentServiceImpl;
 
 import org.apache.logging.log4j.LogManager;
@@ -26,11 +28,14 @@ public class AccountPageServlet extends HttpServlet {
 
     private static final Logger logger = LogManager.getLogger(AccountPageServlet.class);
     private AssignmentService assignmentService;
+    private AdministratorService administratorService;
 
     @Override
     public void init() throws ServletException {
         assignmentService = new AssignmentServiceImpl();
         logger.debug("AssignmentService was created");
+        administratorService = new AdministratorServiceImpl();
+        logger.debug("AdministratorService was created");
     }
 
     @Override
@@ -48,6 +53,12 @@ public class AccountPageServlet extends HttpServlet {
         switch (userRole) {
             case "Student":
                 Student currentStudent = (Student) session.getAttribute("currentUser");
+                if (currentStudent.getStatus().equals("locked")) {
+                    session.setAttribute("errorMessage", "Your account is locked, " +
+                            "contact administrator for more information");
+                    resp.sendRedirect("error");
+                    return;
+                }
                 int studentID = currentStudent.getStudentID();
 
                 operationResult = assignmentService.showStudentCourses(studentID);
@@ -84,45 +95,18 @@ public class AccountPageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doPost of /account with forward to account.jsp");
+        int userId = Integer.parseInt(req.getParameter("user-id"));
+
+        OperationResult operationResult = administratorService.deleteAccount(userId);
+
         HttpSession session = req.getSession();
-        String password = req.getParameter("psw");
-        String reppassword = req.getParameter("psw-repeat");
-        String login = req.getParameter("login");
-        String email = req.getParameter("email");
-        String name = req.getParameter("firstname");
-        String lastName = req.getParameter("lastname");
-        Map<String, String> parameters = getParameters(req, resp);
-        if (!password.equals(reppassword)) {
-            logger.info("Passwords don't match");
-            session.setAttribute("errorMessage", "Passwords don't match");
-            resp.sendRedirect("editaccount");
+        if (!operationResult.isSuccess()) {
+            session.setAttribute("errorMessage", operationResult.getMessage());
+            resp.sendRedirect("error");
             return;
-        } else {
-            session.setAttribute("infoMessage", "Information was changed");
         }
-        resp.sendRedirect("account");
-    }
-
-    Map<String, String> getParameters(HttpServletRequest req, HttpServletResponse resp) {
-        Map<String, String> result = new HashMap<>();
-        HttpSession session = req.getSession();
-        String login = req.getParameter("login");
-        result.put("login", login);
-        String email = req.getParameter("email");
-        result.put("email", email);
-        String name = req.getParameter("firstname");
-        result.put("name", name);
-        String lastName = req.getParameter("lastname");
-        result.put("lastName", lastName);
-        String password = req.getParameter("psw");
-        result.put("password", password);
-        String reppassword = req.getParameter("psw-repeat");
-        result.put("reppassword", reppassword);
-        return result;
-    }
-
-    boolean checkPasswords(Map<String, String> parameters) {
-
-        return parameters.get("password").equals(parameters.get("reppassword"));
+        logger.info("Account was deleted");
+        session.setAttribute("infoMessage", "Your account was deleted");
+        resp.sendRedirect("logout");
     }
 }

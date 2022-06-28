@@ -13,4 +13,6 @@ public interface AdministratorService {
     ValuedOperationResult<Administrator> findAdministrator(String login);
 
     ValuedOperationResult<Administrator> findAdministrator(int adminId);
+
+    OperationResult deleteAccount(int userId);
 }

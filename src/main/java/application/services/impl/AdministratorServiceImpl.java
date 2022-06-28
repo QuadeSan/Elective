@@ -141,4 +141,28 @@ public class AdministratorServiceImpl implements AdministratorService {
             logger.debug("AdministratorDAO was closed");
         }
     }
+
+    @Override
+    public OperationResult deleteAccount(int userId) {
+        AdministratorDAO administratorDAO = null;
+        try {
+            administratorDAO = daoFactory.getAdministratorDAO();
+            logger.debug("StudentDAO created");
+
+            administratorDAO.deleteAccount(userId);
+            return new OperationResult(true, "Account was deleted");
+        } catch (DAOException e) {
+            logger.error("Can't delete account", e);
+            return new OperationResult(false, "Account was not deleted");
+        } finally {
+            try {
+                if (administratorDAO != null) {
+                    administratorDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close StudentDAO");
+            }
+            logger.debug("StudentDAO was closed");
+        }
+    }
 }

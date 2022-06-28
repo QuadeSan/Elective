@@ -8,7 +8,7 @@ function showPass() {
 }
 
 function confirmAlert() {
-    var confirmAction = confirm("Are you sure to execute this action?");
+    var confirmAction = confirm("Are you sure you want to perform this action?");
     if (confirmAction) {
          return true;
     } else {
