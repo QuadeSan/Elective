@@ -2,6 +2,11 @@ package application;
 
 import java.util.Objects;
 
+/**
+ * Informational class for view layer
+ * Contain success/fail boolean and high
+ * level exception message for user
+ */
 public class OperationResult {
 
     private final boolean success;

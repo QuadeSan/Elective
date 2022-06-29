@@ -2,6 +2,13 @@ package application;
 
 import java.util.Objects;
 
+/**
+ * Informational class for view layer
+ * Contain success/fail boolean,
+ * high level exception message for user
+ * and entity for servlet and jsp methods
+ * @param <T> - the type of result objects
+ */
 public class ValuedOperationResult<T> extends application.OperationResult {
 
     T result;

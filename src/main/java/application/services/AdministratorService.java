@@ -4,6 +4,9 @@ import application.OperationResult;
 import application.ValuedOperationResult;
 import application.entity.Administrator;
 
+/**
+ *
+ */
 public interface AdministratorService {
 
     OperationResult createAdministrator(String login, String password, String email);
