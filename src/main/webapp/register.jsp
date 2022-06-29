@@ -7,6 +7,17 @@
     <script type="text/javascript" src="myscripts.js"></script>
 </head>
 <body>
+<c:set var="lastpage" value="register" scope="session" />
+    <div class="top-corner">
+            <form action="changelocale" method="post">
+            		<select name="locale" onchange="this.form.submit()">
+            		    <option value=""><fmt:message key='header.dropdown.language'/></option>
+            			<c:forEach items="${applicationScope.locales}" var="locale">
+            				<option value="${locale.key}"> ${locale.value} </option>
+            			</c:forEach>
+            		</select>
+            </form>
+    </div>
  <div class="info-box"> <span class="error-span"> ${errorMessage} </span> </div>
  <c:remove var="errorMessage" scope="session" />
  <form class="form-centered" id="for-validation" action="login" method="post">

@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
 <body>
+<c:set var="lastpage" value="editaccount" scope="session" />
     <header>
         <div id="homebutton"><a class="ahead" href="main"><fmt:message key='header.button.home'/></a></div>
         <div id="coursesearch"><a class="ahead" href="courses"><fmt:message key='header.button.courses'/></a></div>
@@ -105,7 +106,7 @@
                     <textarea rows="4" placeholder="<fmt:message key='account_page.contact_about_me.field'/>" name="about-me"></textarea>
                  </div>
                  <button class="applybtn" type="submit"> <fmt:message key='edit_account_page.apply'/> </button>
-                 <button class="cancelbtn" onclick="history.back()"><fmt:message key='edit_account_page.cancel'/></button>
+                 <button class="cancelbtn" onclick="location.href = 'account'"><fmt:message key='edit_account_page.cancel'/></button>
             </div>
          </form>
           <form class="container" action="account" method="post" onSubmit="return confirmAlert()">

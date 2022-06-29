@@ -18,6 +18,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.top-corner {
+   position:absolute;
+   top:0;
+   right:0;
+}
+
 header {
     width: 100%;
     background-color: #000;

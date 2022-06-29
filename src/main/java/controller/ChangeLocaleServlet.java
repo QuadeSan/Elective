@@ -17,7 +17,7 @@ public class ChangeLocaleServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("Changing locale with forward to changeLocale.jsp");
-        req.getRequestDispatcher("changeLocale.jsp").forward(req, resp);
+        logger.info("Changing locale with forward to changelocale.jsp");
+        req.getRequestDispatcher("changelocale.jsp").forward(req, resp);
     }
 }

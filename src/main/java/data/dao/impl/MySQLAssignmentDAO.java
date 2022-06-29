@@ -26,13 +26,13 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
 
 
     @Override
-    public void assignTeacherToCourse(int courseID, int teacherID) throws AlreadyExistException {
+    public void assignTeacherToCourse(int courseId, int teacherId) throws AlreadyExistException {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("INSERT INTO teachers_assignments VALUES (?,?)");
             int k = 1;
-            stmt.setInt(k++, courseID);
-            stmt.setInt(k++, teacherID);
+            stmt.setInt(k++, courseId);
+            stmt.setInt(k++, teacherId);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
                 throw new SQLException("Assignment failed, no rows affected.");
@@ -84,13 +84,13 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
     }
 
     @Override
-    public void assignStudentToCourse(int courseID, int studentID) throws AlreadyExistException {
+    public void assignStudentToCourse(int courseId, int studentId) throws AlreadyExistException {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("INSERT INTO students_assignments VALUES (?,?,NULL)");
             int k = 1;
-            stmt.setInt(k++, courseID);
-            stmt.setInt(k++, studentID);
+            stmt.setInt(k++, courseId);
+            stmt.setInt(k++, studentId);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
                 throw new SQLException("Assignment failed, no rows affected.");
@@ -108,14 +108,14 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
     }
 
     @Override
-    public void unassignStudentFromCourse(int courseID, int studentID) {
+    public void unassignStudentFromCourse(int courseId, int studentId) {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("DELETE FROM students_assignments " +
                     "WHERE courses_course_id=? AND students_student_id=?");
             int k = 1;
-            stmt.setInt(k++, courseID);
-            stmt.setInt(k++, studentID);
+            stmt.setInt(k++, courseId);
+            stmt.setInt(k++, studentId);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
                 throw new SQLException("Assignment cancellation failed, no rows affected.");
@@ -130,7 +130,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
     }
 
     @Override
-    public Iterable<Course> showTeacherCourses(int teacherID) {
+    public Iterable<Course> showTeacherCourses(int teacherId) {
         Collection<Course> courses = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -139,7 +139,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
                     "JOIN teachers_assignments ON teachers_assignments.courses_course_id = courses.course_id " +
                     "WHERE teachers_teacher_id = ?;");
             int k = 1;
-            stmt.setInt(k++, teacherID);
+            stmt.setInt(k++, teacherId);
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Course currentCourse = new Course();
@@ -149,7 +149,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
                 currentCourse.setStatus(rs.getString("status"));
                 courses.add(currentCourse);
             }
-            logger.debug("List of courses of teacher with ID " + teacherID);
+            logger.debug("List of courses of teacher with ID " + teacherId);
             return courses;
         } catch (SQLException ex) {
             logger.debug("Can't execute showTeacherCourses query");
@@ -161,7 +161,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
     }
 
     @Override
-    public Iterable<Course> showStudentCourses(int studentID) {
+    public Iterable<Course> showStudentCourses(int studentId) {
         Collection<Course> courses = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -170,7 +170,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
                     "JOIN students_assignments ON students_assignments.courses_course_id = courses.course_id " +
                     "WHERE students_student_id = ?;");
             int k = 1;
-            stmt.setInt(k++, studentID);
+            stmt.setInt(k++, studentId);
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Course currentCourse = new Course();
@@ -181,7 +181,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
                 currentCourse.setMark(rs.getInt("mark"));
                 courses.add(currentCourse);
             }
-            logger.debug("List of courses of student with ID " + studentID);
+            logger.debug("List of courses of student with ID " + studentId);
             return courses;
         } catch (SQLException ex) {
             logger.debug("Can't execute showStudentCourses query");
@@ -193,7 +193,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
     }
 
     @Override
-    public Iterable<Student> showStudentsOnCourse(int courseID) {
+    public Iterable<Student> showStudentsOnCourse(int courseId) {
         Collection<Student> students = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -203,7 +203,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
                     "LEFT JOIN students ON  students_assignments.students_student_id = students.student_id " +
                     "WHERE course_id = ?");
             int k = 1;
-            stmt.setInt(k++, courseID);
+            stmt.setInt(k++, courseId);
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Student currentStudent = new Student();
@@ -213,7 +213,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
                 currentStudent.setMarkForCurrentCourse(rs.getInt("mark"));
                 students.add(currentStudent);
             }
-            logger.debug("List of students on course with ID " + courseID);
+            logger.debug("List of students on course with ID " + courseId);
             return students;
         } catch (SQLException ex) {
             logger.debug("Can't execute showStudentsOnCourse query");
@@ -225,15 +225,15 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
     }
 
     @Override
-    public void setMarkForStudent(int courseID, int studentID, int mark) {
+    public void setMarkForStudent(int courseId, int studentId, int mark) {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("UPDATE students_assignments SET mark=? " +
                     "WHERE courses_course_id=? AND students_student_id=?;");
             int k = 1;
             stmt.setInt(k++, mark);
-            stmt.setInt(k++, courseID);
-            stmt.setInt(k++, studentID);
+            stmt.setInt(k++, courseId);
+            stmt.setInt(k++, studentId);
             stmt.executeUpdate();
         } catch (SQLException ex) {
             logger.debug("Can't execute set mark query");

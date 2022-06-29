@@ -94,6 +94,7 @@ public class MySQLCourseDAO implements CourseDAO {
                 throw new NotExistException("Can't find course with title " + title);
             } else {
                 currentCourse.setCourseID(rs.getInt("course_id"));
+                currentCourse.setTopic(rs.getString("topic"));
                 currentCourse.setTitle(rs.getString("title"));
                 currentCourse.setStatus(rs.getString("status"));
                 return currentCourse;
@@ -129,13 +130,13 @@ public class MySQLCourseDAO implements CourseDAO {
     }
 
     @Override
-    public void changeStatus(int id, String status) {
+    public void changeStatus(int courseId, String status) {
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("UPDATE courses SET status=? WHERE course_id=?");
             int k = 1;
             stmt.setString(k++, status);
-            stmt.setInt(k++, id);
+            stmt.setInt(k++, courseId);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
                 logger.error("Course does not exist");

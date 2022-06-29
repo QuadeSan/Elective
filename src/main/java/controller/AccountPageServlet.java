@@ -82,12 +82,11 @@ public class AccountPageServlet extends HttpServlet {
             if (OperationResultU.isSuccess()) {
                 session.setAttribute("infoMessage", "You left the course # " + courseID);
                 resp.sendRedirect("account");
-                return;
             } else {
                 session.setAttribute("errorMessage", OperationResultU.getMessage());
                 resp.sendRedirect("error");
-                return;
             }
+            return;
         }
         req.getRequestDispatcher("account.jsp").forward(req, resp);
     }
@@ -95,6 +94,15 @@ public class AccountPageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doPost of /account with forward to account.jsp");
+
+        if (req.getParameter("user-id") != null) {
+            deleteAccount(req, resp);
+        }
+        resp.sendRedirect("account");
+    }
+
+    private void deleteAccount(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.debug("Trying to delete account");
         int userId = Integer.parseInt(req.getParameter("user-id"));
 
         OperationResult operationResult = administratorService.deleteAccount(userId);

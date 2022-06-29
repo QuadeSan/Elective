@@ -7,6 +7,7 @@
     <script type="text/javascript" src="myscripts.js"></script>
 </head>
 <body>
+<c:set var="lastpage" value="toolsteacher" scope="session" />
     <header>
         <div id="homebutton"><a class="ahead" href="main"><fmt:message key='header.button.home'/></a></div>
         <div id="coursesearch"><a class="ahead" href="courses"><fmt:message key='header.button.courses'/></a></div>

@@ -185,24 +185,6 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
     }
 
     @Override
-    public Iterable<Administrator> showAll() {
-        return null;
-    }
-
-    ///////////////////////////////////////////////
-
-
-    @Override
-    public void changeLogin(User user, String newLogin) {
-
-    }
-
-    @Override
-    public void changePassword(User user, String newPassword) {
-
-    }
-
-    @Override
     public void close() throws DAOException {
         try {
             con.close();
@@ -223,4 +205,38 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
             }
         }
     }
+
+//    @Override
+//    public void changeLogin(int userId, String newLogin) {
+//        PreparedStatement stmt = null;
+//        try {
+//            stmt = con.prepareStatement("UPDATE users SET login=? WHERE user_id=?");
+//            int k = 1;
+//            stmt.setString(k++, newLogin);
+//            stmt.setInt(k++, userId);
+//            stmt.executeUpdate();
+//        } catch (SQLException ex) {
+//            logger.debug("Can't execute change login query");
+//            throw new DAOException(ex);
+//        } finally {
+//            close(stmt);
+//        }
+//    }
+//
+//    @Override
+//    public void changePassword(int userId, String newPassword) {
+//        PreparedStatement stmt = null;
+//        try {
+//            stmt = con.prepareStatement("UPDATE users SET password=? WHERE user_id=?");
+//            int k = 1;
+//            stmt.setString(k++, newPassword);
+//            stmt.setInt(k++, userId);
+//            stmt.executeUpdate();
+//        } catch (SQLException ex) {
+//            logger.debug("Can't execute change password query");
+//            throw new DAOException(ex);
+//        } finally {
+//            close(stmt);
+//        }
+//    }
 }

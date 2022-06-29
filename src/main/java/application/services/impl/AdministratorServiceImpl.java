@@ -147,7 +147,7 @@ public class AdministratorServiceImpl implements AdministratorService {
         AdministratorDAO administratorDAO = null;
         try {
             administratorDAO = daoFactory.getAdministratorDAO();
-            logger.debug("StudentDAO created");
+            logger.debug("AdministratorDAO created");
 
             administratorDAO.deleteAccount(userId);
             return new OperationResult(true, "Account was deleted");
@@ -160,9 +160,9 @@ public class AdministratorServiceImpl implements AdministratorService {
                     administratorDAO.close();
                 }
             } catch (Exception e) {
-                logger.error("Can't close StudentDAO");
+                logger.error("Can't close AdministratorDAO");
             }
-            logger.debug("StudentDAO was closed");
+            logger.debug("AdministratorDAO was closed");
         }
     }
 }

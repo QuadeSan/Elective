@@ -15,3 +15,8 @@ function confirmAlert() {
          return false;
     }
 }
+
+function lastPage() {
+    var lastPage = document.referrer;
+    return lastPage;
+}
