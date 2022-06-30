@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/journal")
 public class JournalPageServlet extends HttpServlet {
@@ -44,7 +43,7 @@ public class JournalPageServlet extends HttpServlet {
         int courseID = (int) session.getAttribute("viewedCourse");
         logger.debug("Trying to find all students on course #" + courseID);
 
-        ValuedOperationResult<Iterable<Student>> operationResult = assignmentService.showStudentsOnCourse(courseID);
+        ValuedOperationResult<Iterable<Student>> operationResult = assignmentService.showJournal(courseID);
         if (operationResult.isSuccess()) {
             logger.info("List of students " + operationResult.hashCode());
             session.setAttribute("studentList", operationResult.getResult());

@@ -21,7 +21,7 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
     Connection con = DataSourcePool.getConnection();
 
     @Override
-    public void createAdministrator(String login, String pass, String email) throws AlreadyExistException {
+    public void createAdministrator(String login, String pass, String email, String name, String lastName) throws AlreadyExistException {
         User newUser = new User();
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
@@ -48,11 +48,14 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
                 logger.debug("Creating user failed");
                 throw new DAOException(ex);
             }
-            stmt2 = con.prepareStatement("INSERT INTO administrators VALUES (DEFAULT, ?, null, null)");
-            stmt2.setInt(1, newUser.getUserID());
+            stmt2 = con.prepareStatement("INSERT INTO administrators VALUES (DEFAULT, ?, ?, ?)");
+            int l = 1;
+            stmt2.setInt(l++, newUser.getUserID());
+            stmt2.setString(l++,name);
+            stmt2.setString(l++,lastName);
             stmt2.executeUpdate();
             con.commit();
-            logger.info("Administrator with empty fields created");
+            logger.info("Administrator created");
         } catch (SQLException ex) {
             try {
                 con.rollback();
@@ -75,66 +78,6 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
     }
 
     @Override
-    public Administrator findAdministrator(int adminId) {
-        Administrator currentAdmin = new Administrator();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            stmt = con.prepareStatement(
-                    "SELECT administrators.administrator_id, administrators.user_id, administrators.name, administrators.last_name FROM students " +
-                            "JOIN users ON users.user_id=administrators.user_id WHERE administrators.id =?");
-            stmt.setInt(1, adminId);
-            rs = stmt.executeQuery();
-            if (!rs.next()) {
-                logger.error("Administrator " + adminId + " does not exist");
-                throw new NotExistException("Can't find administrator with ID" + adminId);
-            } else {
-                currentAdmin.setAdministratorID(rs.getInt("administrator_id"));
-                currentAdmin.setUserID(rs.getInt("user_id"));
-                currentAdmin.setName(rs.getString("name"));
-                currentAdmin.setLastName(rs.getString("last_name"));
-                return currentAdmin;
-            }
-        } catch (SQLException ex) {
-            logger.error("can't find administrator because of ", ex);
-            throw new DAOException(ex);
-        } finally {
-            close(rs);
-            close(stmt);
-        }
-    }
-
-    @Override
-    public Administrator findAdministrator(String login) {
-        Administrator currentAdmin = new Administrator();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            stmt = con.prepareStatement(
-                    "SELECT administrators.administrator_id, administrators.user_id, administrators.name, administrators.last_name FROM students " +
-                            "JOIN users ON users.user_id=administrators.user_id WHERE users.login =?");
-            stmt.setString(1, login);
-            rs = stmt.executeQuery();
-            if (!rs.next()) {
-                logger.error("Administrator with login " + login + " does not exist");
-                throw new NotExistException("Can't find administrator with Login" + login);
-            } else {
-                currentAdmin.setAdministratorID(rs.getInt("administrator_id"));
-                currentAdmin.setUserID(rs.getInt("user_id"));
-                currentAdmin.setName(rs.getString("name"));
-                currentAdmin.setLastName(rs.getString("last_name"));
-                return currentAdmin;
-            }
-        } catch (SQLException ex) {
-            logger.error("can't find administrator because of ", ex);
-            throw new DAOException(ex);
-        } finally {
-            close(rs);
-            close(stmt);
-        }
-    }
-
-    @Override
     public Administrator findAdministrator(String login, String password) {
         Administrator currentAdmin = new Administrator();
         PreparedStatement stmt = null;
@@ -149,7 +92,7 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
             rs = stmt.executeQuery();
             if (!rs.next()) {
                 logger.error("Administrator with login " + login + " and password " + password + " does not exist");
-              throw new NotExistException("Can't find administrator with Login = " + login + "and Password = " + password);
+                throw new NotExistException("Can't find administrator with Login = " + login + "and Password = " + password);
             } else {
                 currentAdmin.setAdministratorID(rs.getInt("administrator_id"));
                 currentAdmin.setUserID(rs.getInt("user_id"));

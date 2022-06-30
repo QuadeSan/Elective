@@ -13,6 +13,7 @@ public interface AssignmentDAO extends AutoCloseable {
 
     /**
      * Inserting new record to teachers_assignments table
+     *
      * @param courseId  - foreign key refer to courses table
      * @param teacherId - foreign key refer to teachers table
      * @throws AlreadyExistException - if there are any record with same courseId
@@ -22,6 +23,7 @@ public interface AssignmentDAO extends AutoCloseable {
     /**
      * Deleting a record from teachers_assignments table with current courseId
      * then adding a new record to teachers_assignments table
+     *
      * @param courseId     - foreign key refer to courses table
      * @param newTeacherId - foreign key refer to teachers table
      * @throws NotExistException - if there are no records with current courseId
@@ -30,6 +32,7 @@ public interface AssignmentDAO extends AutoCloseable {
 
     /**
      * Inserting new record to students_assignments table
+     *
      * @param courseId  - foreign key refer to courses table
      * @param studentId - foreign key refer to students table
      * @throws AlreadyExistException - if there are any record with combination of
@@ -39,6 +42,7 @@ public interface AssignmentDAO extends AutoCloseable {
 
     /**
      * Deleting record from students_assignments table
+     *
      * @param courseId  - foreign key refer to courses table
      * @param studentId - foreign key refer to students table
      */

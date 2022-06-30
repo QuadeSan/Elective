@@ -122,13 +122,28 @@ public class AdminToolsCoursesPageServlet extends HttpServlet {
         int newTeacherId = Integer.parseInt(req.getParameter("teacher-id"));
 
         if (!newTopic.equals("")) {
-            courseService.changeTopic(courseId, newTopic);
+            OperationResult operationResult = courseService.changeTopic(courseId, newTopic);
+            if (!operationResult.isSuccess()) {
+                session.setAttribute("errorMessage", operationResult.getMessage());
+                resp.sendRedirect("error");
+                return;
+            }
         }
         if (!newTitle.equals("")) {
-            courseService.changeTitle(courseId, newTitle);
+            OperationResult operationResult = courseService.changeTitle(courseId, newTitle);
+            if (!operationResult.isSuccess()) {
+                session.setAttribute("errorMessage", operationResult.getMessage());
+                resp.sendRedirect("error");
+                return;
+            }
         }
         if (!newStatus.equals("")) {
-            courseService.changeStatus(courseId, newStatus);
+            OperationResult operationResult = courseService.changeStatus(courseId, newStatus);
+            if (!operationResult.isSuccess()) {
+                session.setAttribute("errorMessage", operationResult.getMessage());
+                resp.sendRedirect("error");
+                return;
+            }
         }
         if (newTeacherId != 0) {
             OperationResult operationResult = assignmentService.changeTeacherAssignment(courseId, newTeacherId);

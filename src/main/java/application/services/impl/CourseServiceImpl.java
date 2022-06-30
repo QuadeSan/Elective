@@ -83,37 +83,6 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public ValuedOperationResult<Course> findCourse(String title) {
-        Course currentCourse;
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = factory.getCourseDAO();
-            logger.debug("CourseDAO created");
-
-            currentCourse = courseDAO.findCourse(title);
-            logger.debug("findCurse by title Method used");
-
-            return new ValuedOperationResult<>(true, "Course was found", currentCourse);
-        } catch (NotExistException e) {
-            logger.error("Course with title " + title + " does not exist", e);
-            return new ValuedOperationResult<>(false,
-                    "Course with title " + title + " does not exist", null);
-        } catch (DAOException e) {
-            return new ValuedOperationResult<>(false,
-                    "Unhandled exception", null);
-        } finally {
-            try {
-                if (courseDAO != null) {
-                    courseDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close CourseDAO");
-            }
-            logger.debug("CourseDAO was closed");
-        }
-    }
-
-    @Override
     public OperationResult deleteCourse(int courseId) {
         CourseDAO courseDAO = null;
         try {

@@ -55,7 +55,7 @@ public class MySQLStudentDAO implements StudentDAO {
             stmt2.setString(l++, lastName);
             stmt2.executeUpdate();
             con.commit();
-            logger.info("Student with empty fields created");
+            logger.info("Student created");
         } catch (java.sql.SQLIntegrityConstraintViolationException ex) {
             logger.debug("AlreadyExistException catch clause " + ex);
             throw new AlreadyExistException("Login already exist", ex);

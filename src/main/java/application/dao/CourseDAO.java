@@ -12,6 +12,7 @@ public interface CourseDAO extends AutoCloseable {
 
     /**
      * Insert new row to course table with default status value
+     *
      * @param topic - topic of current course
      * @param title - title of current course
      * @throws AlreadyExistException if database contain any row with same title value
@@ -36,6 +37,7 @@ public interface CourseDAO extends AutoCloseable {
 
     /**
      * Deleting record from courses table
+     *
      * @param courseId - value of course_id field
      * @throws NotExistException if there are no records with current ID value
      */
@@ -43,6 +45,7 @@ public interface CourseDAO extends AutoCloseable {
 
     /**
      * Updates status of current course
+     *
      * @param courseId - value of course_id field
      * @throws NotExistException if there are no records with current ID value
      */
@@ -50,12 +53,14 @@ public interface CourseDAO extends AutoCloseable {
 
     /**
      * Updates topic of current course
+     *
      * @param newTopic - value of topic field
      */
     void changeTopic(int courseId, String newTopic);
 
     /**
      * Updates status of current course
+     *
      * @param newTitle - value of title field
      */
     void changeTitle(int courseId, String newTitle);

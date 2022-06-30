@@ -50,6 +50,7 @@ public interface TeacherDAO extends AutoCloseable {
 
     /**
      * Delete a row in user table
+     *
      * @param userId - id of user for delete.
      */
     void deleteAccount(int userId);

@@ -21,31 +21,6 @@ public class AssignmentServiceImpl implements AssignmentService {
     }
 
     @Override
-    public OperationResult assignTeacherToCourse(int courseId, int teacherId) {
-        AssignmentDAO assignmentDAO = null;
-        try {
-            assignmentDAO = daoFactory.getAssignmentDAO();
-            logger.debug("AssignmentDAO created");
-
-            assignmentDAO.assignTeacherToCourse(courseId, teacherId);
-
-            logger.info("Teacher was assigned to a course");
-            return new OperationResult(true, "Teacher was assigned to course");
-        } catch (AlreadyExistException ex) {
-            logger.error("Assignment wasn't built");
-            return new OperationResult(false, "Teacher already assigned to this course");
-        } finally {
-            try {
-                if (assignmentDAO != null) {
-                    assignmentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AssignmentDAO");
-            }
-        }
-    }
-
-    @Override
     public OperationResult changeTeacherAssignment(int courseId, int newTeacherId) {
         AssignmentDAO assignmentDAO = null;
         try {
@@ -177,7 +152,7 @@ public class AssignmentServiceImpl implements AssignmentService {
     }
 
     @Override
-    public ValuedOperationResult<Iterable<Student>> showStudentsOnCourse(int courseId) {
+    public ValuedOperationResult<Iterable<Student>> showJournal(int courseId) {
         Iterable<Student> result;
         AssignmentDAO assignmentDAO = null;
         try {

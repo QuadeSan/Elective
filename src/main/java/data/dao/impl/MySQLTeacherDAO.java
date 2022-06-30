@@ -55,7 +55,7 @@ public class MySQLTeacherDAO implements TeacherDAO {
             stmt2.setString(l++, lastName);
             stmt2.executeUpdate();
             con.commit();
-            logger.info("Teacher with empty fields created");
+            logger.info("Teacher created");
         } catch (java.sql.SQLIntegrityConstraintViolationException ex) {
             logger.debug("AlreadyExistException catch clause " + ex);
             throw new AlreadyExistException("Login already exist", ex);

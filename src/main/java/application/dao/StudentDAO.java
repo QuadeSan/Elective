@@ -12,6 +12,7 @@ public interface StudentDAO extends AutoCloseable {
 
     /**
      * Inserting new record to users table and new record to students table
+     *
      * @param login    - login of new student.
      * @param password - password of new student.
      * @param email    - email of new student
@@ -51,6 +52,7 @@ public interface StudentDAO extends AutoCloseable {
 
     /**
      * Updating status of current student
+     *
      * @param studentId - student_id value from students table
      * @param status    - new status
      * @throws NotExistException - if there is no student with current ID
