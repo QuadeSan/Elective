@@ -21,7 +21,7 @@
   </welcome-file-list>
   <filter>
     <filter-name>AdminAccessFilter</filter-name>
-    <filter-class>listeners.AdminAccessFilter</filter-class>
+    <filter-class>presentation.filters.AdminAccessFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>AdminAccessFilter</filter-name>

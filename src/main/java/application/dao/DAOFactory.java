@@ -1,10 +1,17 @@
 package application.dao;
 
+/**
+ * Abstract factory for setting implementation
+ * of DAO type
+ * {@link #setInstance(DAOFactory) Set Instance} method
+ * used to set current implementation. Method should be called
+ * when application is starting
+ * {@link #getInstance() Get Instance} main method
+ * used to get instance of DAOFactory
+ */
 public abstract class DAOFactory {
 
     private static DAOFactory instance;
-
-    public static final int MYSQL = 1;
 
     public abstract AdministratorDAO getAdministratorDAO();
 
@@ -20,8 +27,8 @@ public abstract class DAOFactory {
         return instance;
     }
 
-    public static void setInstance(DAOFactory factoryImlp) {
-        instance = factoryImlp;
+    public static void setInstance(DAOFactory factoryImpl) {
+        instance = factoryImpl;
     }
 
 }

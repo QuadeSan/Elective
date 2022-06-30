@@ -1,4 +1,4 @@
-package listeners;
+package presentation.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

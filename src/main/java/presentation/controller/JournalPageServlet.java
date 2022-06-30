@@ -1,4 +1,4 @@
-package controller;
+package presentation.controller;
 
 import application.ValuedOperationResult;
 import application.entity.Student;
