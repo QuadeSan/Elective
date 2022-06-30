@@ -19,7 +19,7 @@ public interface AdministratorService {
      * @param name     - name of new Administrator
      * @param lastName - last name of new Administrator
      * @return {@link OperationResult} entity which contain
-     * success boolean and high-level error message if method failed
+     * success boolean and high-level error message if method fails
      */
     OperationResult createAdministrator(String login, String password, String email, String name, String lastName);
 
@@ -29,7 +29,7 @@ public interface AdministratorService {
      * @return {@link ValuedOperationResult} entity which contain
      * success boolean and {@link Administrator} entity as a result
      * to set current user in session on success
-     * and high-level error message if method failed
+     * and high-level error message if method fails
      */
     ValuedOperationResult<Administrator> findAdministrator(String login, String password);
 

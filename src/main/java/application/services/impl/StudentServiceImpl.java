@@ -142,10 +142,4 @@ public class StudentServiceImpl implements StudentService {
             logger.debug("StudentDAO was closed");
         }
     }
-
-    @Override
-    public void editStudent(int id, String... params) {
-
-    }
-
 }

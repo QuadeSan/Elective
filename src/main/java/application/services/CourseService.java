@@ -17,7 +17,7 @@ public interface CourseService {
      * @param topic - topic of new course
      * @param title - title of new course
      * @return {@link OperationResult} entity which contain
-     * success boolean and high-level error message if method failed
+     * success boolean and high-level error message if method fails
      */
     OperationResult createCourse(String topic, String title);
 
@@ -26,14 +26,14 @@ public interface CourseService {
      * @return {@link ValuedOperationResult} entity which contain
      * success boolean and {@link Course} entity as a result
      * to set current course in session on success
-     * and high-level error message if method failed
+     * and high-level error message if method fails
      */
     ValuedOperationResult<Course> findCourse(int courseId);
 
     /**
      * @param courseId - Course ID you are going to delete
      * @return {@link OperationResult} entity which contain
-     * success boolean and high-level error message if method failed
+     * success boolean and high-level error message if method fails
      */
     OperationResult deleteCourse(int courseId);
 
@@ -41,7 +41,7 @@ public interface CourseService {
      * @param courseId - Course ID you are going to modify
      * @param status   - new status
      * @return {@link OperationResult} entity which contain
-     * success boolean and high-level error message if method failed
+     * success boolean and high-level error message if method fails
      */
     OperationResult changeStatus(int courseId, String status);
 
@@ -49,7 +49,7 @@ public interface CourseService {
      * @return {@link ValuedOperationResult} entity which contain
      * success boolean and Iterable of {@link Course} entity as a result
      * to set view-only list of courses in session on success
-     * and high-level error message if method failed
+     * and high-level error message if method fails
      */
     ValuedOperationResult<Iterable<Course>> showAllCourses();
 
@@ -57,7 +57,7 @@ public interface CourseService {
      * @param courseId - Course ID you are going to modify
      * @param newTopic - new topic
      * @return {@link OperationResult} entity which contain
-     * success boolean and high-level error message if method failed
+     * success boolean and high-level error message if method fails
      */
     OperationResult changeTopic(int courseId, String newTopic);
 
@@ -65,7 +65,7 @@ public interface CourseService {
      * @param courseId - Course ID you are going to modify
      * @param newTitle - new title
      * @return {@link OperationResult} entity which contain
-     * success boolean and high-level error message if method failed
+     * success boolean and high-level error message if method fails
      */
     OperationResult changeTitle(int courseId, String newTitle);
 }
