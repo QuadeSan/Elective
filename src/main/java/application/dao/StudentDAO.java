@@ -48,4 +48,18 @@ public interface StudentDAO extends AutoCloseable {
      * Each Student contain studentID, userID, name, lastName, status fields
      */
     Iterable<Student> showAllStudents();
+
+    /**
+     * @param offSet - count of records to skip
+     * @param limit  - count of records user see on webpage
+     * @return limited Iterable of {@link Student} entities
+     * Each Student contain studentID, userID, name, lastName, status fields
+     */
+    Iterable<Student> showAllStudents(int offSet, int limit);
+
+    /**
+     * @return count of students in database
+     * Method need for pagination realization
+     */
+    int studentCount();
 }

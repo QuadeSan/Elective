@@ -142,4 +142,61 @@ public class StudentServiceImpl implements StudentService {
             logger.debug("StudentDAO was closed");
         }
     }
+
+    @Override
+    public ValuedOperationResult<Iterable<Student>> showAllStudents(int offSet, int limit) {
+        StudentDAO studentDAO = null;
+        Iterable<Student> result;
+        try {
+            studentDAO = daoFactory.getStudentDAO();
+            logger.debug("StudentDAO created");
+
+            result = studentDAO.showAllStudents(offSet, limit);
+            logger.debug("showAllStudents Method used");
+
+            return new ValuedOperationResult<>(true, "List of students", result);
+        } catch (DAOException e) {
+            logger.error("Can't show all students", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
+        } finally {
+            try {
+                if (studentDAO != null) {
+                    studentDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close StudentDAO");
+            }
+            logger.debug("StudentDAO was closed");
+        }
+    }
+
+    @Override
+    public ValuedOperationResult<Integer> studentCount() {
+        StudentDAO studentDAO = null;
+        int result;
+        try {
+            studentDAO = daoFactory.getStudentDAO();
+            logger.debug("StudentDAO created");
+
+            result = studentDAO.studentCount();
+            logger.debug("studentCount Method used");
+
+            if (result == 0) {
+                return new ValuedOperationResult<>(true, "There are no students yet", 0);
+            }
+            return new ValuedOperationResult<>(true, "Count of students", result);
+        } catch (DAOException e) {
+            logger.error("Can't count all students", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", -1);
+        } finally {
+            try {
+                if (studentDAO != null) {
+                    studentDAO.close();
+                }
+            } catch (Exception e) {
+                logger.error("Can't close StudentDAO");
+            }
+            logger.debug("StudentDAO was closed");
+        }
+    }
 }

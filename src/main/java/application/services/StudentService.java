@@ -53,4 +53,19 @@ public interface StudentService {
      * and high-level error message if method fails
      */
     ValuedOperationResult<Iterable<Student>> showAllStudents();
+
+    /**
+     * @param offSet - count of records to skip
+     * @param limit  - count of records on page
+     * @return {@link ValuedOperationResult} entity which contain
+     * success boolean and limited Iterable of {@link Student} entity as a result
+     * to set view-only list of students in session on success
+     * and high-level error message if method fails
+     */
+    ValuedOperationResult<Iterable<Student>> showAllStudents(int offSet, int limit);
+
+    /**
+     * @return
+     */
+    ValuedOperationResult<Integer> studentCount();
 }

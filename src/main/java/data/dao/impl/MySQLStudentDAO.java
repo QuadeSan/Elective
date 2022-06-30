@@ -139,6 +139,57 @@ public class MySQLStudentDAO implements StudentDAO {
     }
 
     @Override
+    public Iterable<Student> showAllStudents(int offSet, int limit) {
+        Collection<Student> students = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("SELECT * FROM students LIMIT ? OFFSET ?");
+            int k = 1;
+            stmt.setInt(k++, limit);
+            stmt.setInt(k++, offSet);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Student current = new Student();
+                current.setStudentID(rs.getInt("student_id"));
+                current.setUserID(rs.getInt("user_id"));
+                current.setName(rs.getString("name"));
+                current.setLastName(rs.getString("last_name"));
+                current.setStatus(rs.getString("status"));
+                students.add(current);
+            }
+        } catch (SQLException ex) {
+            logger.debug("Can't show all students");
+            throw new DAOException(ex);
+        } finally {
+            close(rs);
+            close(stmt);
+        }
+        return students;
+    }
+
+    @Override
+    public int studentCount() {
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("SELECT COUNT(*) as count FROM students");
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("count");
+            }
+        } catch (SQLException ex) {
+            logger.debug("Can't count all students");
+            throw new DAOException(ex);
+        } finally {
+            close(rs);
+            close(stmt);
+        }
+        return -1;
+    }
+
+    @Override
     public void changeStatus(int studentId, String status) throws NotExistException {
         PreparedStatement stmt = null;
         try {

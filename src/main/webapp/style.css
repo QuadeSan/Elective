@@ -344,6 +344,14 @@ label {
    margin: auto;
 }
 
+#prevbtn {
+  width: 150px;
+}
+
+#nextbtn {
+  width: 150px;
+}
+
 
 /* Courses page */
 
