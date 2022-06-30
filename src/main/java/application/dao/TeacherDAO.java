@@ -22,22 +22,6 @@ public interface TeacherDAO extends AutoCloseable {
     void createTeacher(String login, String password, String email, String name, String lastName) throws AlreadyExistException;
 
     /**
-     * @param userId - user_id value from users table
-     * @return {@link Teacher} entity
-     * Teacher contain teacherID, userID, name, lastName fields
-     * @throws NotExistException - if there are no user with current id
-     */
-    Teacher findTeacher(int userId) throws NotExistException;
-
-    /**
-     * @param login - login value from users table
-     * @return {@link Teacher} entity
-     * Teacher contain teacherID, userID, name, lastName fields
-     * @throws NotExistException - if there are no user with current login
-     */
-    Teacher findTeacher(String login) throws NotExistException;
-
-    /**
      * @param login    - login value from users table
      * @param password - password value from users table.
      * @return {@link Teacher} entity for authorization
@@ -47,13 +31,6 @@ public interface TeacherDAO extends AutoCloseable {
      *                           combination of login and password.
      */
     Teacher findTeacher(String login, String password) throws NotExistException;
-
-    /**
-     * Delete a row in user table
-     *
-     * @param userId - id of user for delete.
-     */
-    void deleteAccount(int userId);
 
     /**
      * @return Iterable of {@link Teacher} entities

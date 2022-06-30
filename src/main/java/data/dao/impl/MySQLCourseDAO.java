@@ -236,7 +236,12 @@ public class MySQLCourseDAO implements CourseDAO {
         }
     }
 
-
+    /**
+     * Method for closing all autocloseable resources
+     * like statement, prepared statement, result set
+     *
+     * @param closeable - resource needed to close
+     */
     private void close(AutoCloseable closeable) {
         if (closeable != null) {
             try {

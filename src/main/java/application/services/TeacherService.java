@@ -33,11 +33,11 @@ public interface TeacherService {
      */
     ValuedOperationResult<Teacher> findTeacher(String login, String password);
 
-    ValuedOperationResult<Teacher> findTeacher(String login);
-
-    ValuedOperationResult<Teacher> findTeacher(int teacherId);
-
+    /**
+     * @return {@link ValuedOperationResult} entity which contain
+     * success boolean and Iterable of {@link Teacher} entity as a result
+     * to set view-only list of teachers in session on success
+     * and high-level error message if method fails
+     */
     ValuedOperationResult<Iterable<Teacher>> showAllTeachers();
-
-    OperationResult deleteAccount(int userId);
 }

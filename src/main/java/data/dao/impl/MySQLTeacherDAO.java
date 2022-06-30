@@ -77,35 +77,6 @@ public class MySQLTeacherDAO implements TeacherDAO {
     }
 
     @Override
-    public Teacher findTeacher(String login) throws NotExistException {
-        Teacher currentTeacher = new Teacher();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            stmt = con.prepareStatement("SELECT teachers.teacher_id, teachers.user_id, teachers.name, teachers.last_name FROM teachers " +
-                    "RIGHT JOIN users ON users.user_id=teachers.user_id WHERE users.login =?");
-            stmt.setString(1, login);
-            rs = stmt.executeQuery();
-            if (!rs.next()) {
-                logger.error("Teacher with login = " + login + " does not exist");
-                throw new NotExistException("Can't find teacher with Login" + login);
-            } else {
-                currentTeacher.setTeacherID(rs.getInt("teacher_id"));
-                currentTeacher.setUserID(rs.getInt("user_id"));
-                currentTeacher.setName(rs.getString("name"));
-                currentTeacher.setLastName(rs.getString("last_name"));
-                return currentTeacher;
-            }
-        } catch (SQLException ex) {
-            logger.error("can't find teacher because of ", ex);
-            throw new DAOException(ex);
-        } finally {
-            close(rs);
-            close(stmt);
-        }
-    }
-
-    @Override
     public Teacher findTeacher(String login, String password) throws NotExistException {
         Teacher currentTeacher = new Teacher();
         PreparedStatement stmt = null;
@@ -136,50 +107,6 @@ public class MySQLTeacherDAO implements TeacherDAO {
             throw new DAOException(ex);
         } finally {
             close(rs);
-            close(stmt);
-        }
-    }
-
-    @Override
-    public Teacher findTeacher(int userId) throws NotExistException {
-        Teacher currentTeacher = new Teacher();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            stmt = con.prepareStatement("SELECT teachers.teacher_id, teachers.user_id, teachers.name, teachers.last_name FROM teachers " +
-                    "RIGHT JOIN users ON users.user_id=teachers.user_id WHERE users.id =?");
-            stmt.setInt(1, userId);
-            rs = stmt.executeQuery();
-            if (!rs.next()) {
-                logger.error("Teacher with ID " + userId + " does not exist");
-                throw new NotExistException("Can't find teacher with ID " + userId);
-            } else {
-                currentTeacher.setTeacherID(rs.getInt("teacher_id"));
-                currentTeacher.setUserID(rs.getInt("user_id"));
-                currentTeacher.setName(rs.getString("name"));
-                currentTeacher.setLastName(rs.getString("last_name"));
-                return currentTeacher;
-            }
-        } catch (SQLException ex) {
-            logger.error("can't find teacher because of ", ex);
-            throw new DAOException(ex);
-        } finally {
-            close(rs);
-            close(stmt);
-        }
-    }
-
-    @Override
-    public void deleteAccount(int userId) {
-        PreparedStatement stmt = null;
-        try {
-            stmt = con.prepareStatement("DELETE FROM users WHERE userId=?");
-            stmt.setInt(1, userId);
-            stmt.executeUpdate();
-        } catch (SQLException ex) {
-            logger.error("can't delete user while deleting account", ex);
-            throw new DAOException(ex);
-        } finally {
             close(stmt);
         }
     }
@@ -225,6 +152,12 @@ public class MySQLTeacherDAO implements TeacherDAO {
         }
     }
 
+    /**
+     * Method for closing all autocloseable resources
+     * like statement, prepared statement, result set
+     *
+     * @param closeable - resource needed to close
+     */
     private void close(AutoCloseable closeable) {
         if (closeable != null) {
             try {
