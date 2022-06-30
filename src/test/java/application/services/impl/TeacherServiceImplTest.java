@@ -21,20 +21,17 @@ public class TeacherServiceImplTest {
 
 
     @Test
-    public void AddingNewTeacherWithNewAccountIsOK() {
+    public void addingNewTeacherWithNewAccountIsOK() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         TeacherDAO teacherDAOMock = mock(MySQLTeacherDAO.class);
         when(daoFactoryMock.getTeacherDAO()).thenReturn(teacherDAOMock);
 
         TeacherServiceImpl teacherService = new TeacherServiceImpl(daoFactoryMock);
-        TeacherServiceImpl teacherSpy = spy(teacherService);
         when(daoFactoryMock.getTeacherDAO()).thenReturn(teacherDAOMock);
         doNothing().when(teacherDAOMock).createTeacher(eq("newLogin"), any(), any(), any(), any());
-        doReturn(new OperationResult(true, "Account was successfully created!"))
-                .when(teacherSpy).createTeacher(eq("newLogin"), any(), any(), any(), any());
 
         OperationResult expected = new OperationResult(true, "Account was successfully created!");
-        OperationResult actual = teacherSpy.createTeacher("new", "1", "any()", "any()", "any()");
+        OperationResult actual = teacherService.createTeacher("new", "1", "any()", "any()", "any()");
 
         assertEquals(expected, actual);
     }

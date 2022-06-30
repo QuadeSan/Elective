@@ -109,6 +109,20 @@
                </c:forEach>
             </tbody>
           </table>
+          <button id="fakebtn" disabled> <fmt:message key='tools_students.current_page.button'/> ${currentPage} </button>
+          <c:if test="${currentPage == 1}">
+          <button id="fakescrollbtn"> <fmt:message key='tools_students.previous.button'/> </button>
+          </c:if>
+          <c:if test="${currentPage != 1}">
+          <a id="abutton" href="toolsstudents?current-page=${currentPage -1}"> <button id="prevbtn"> <fmt:message key='tools_students.previous.button'/> </button> </a>
+          </c:if>
+          <c:if test="${currentPage lt pageCount}">
+          <a id="abutton" href="toolsstudents?current-page=${currentPage +1}"> <button id="nextbtn"> <fmt:message key='tools_students.next.button'/> </button> </a>
+          </c:if>
+          <c:if test="${currentPage == pageCount}">
+          <button id="fakescrollbtn"> <fmt:message key='tools_students.next.button'/> </button>
+          </c:if>
+          <button id="fakebtn" disabled> <fmt:message key='tools_students.total_page.button'/> ${pageCount} </button>
        </c:if>
     </div>
     </div>

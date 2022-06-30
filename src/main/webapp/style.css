@@ -352,6 +352,23 @@ label {
   width: 150px;
 }
 
+#fakebtn {
+  margin-left: 25px;
+  margin-right: 25px;
+  width: 125px;
+  pointer-events: none;
+}
+
+#fakescrollbtn {
+  width: 150px;
+  pointer-events: none;
+  background-color: gray;
+}
+
+#abutton {
+  display: inline-block;
+}
+
 
 /* Courses page */
 

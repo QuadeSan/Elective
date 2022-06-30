@@ -38,8 +38,28 @@ public class AdminToolsStudentsPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doGet of /toolsstudents with forward to toolsstudents.jsp");
+
+        int currentPage = 1;
+        int limit = 5;
+        if (req.getParameter("current-page") != null) {
+            currentPage = Integer.parseInt(req.getParameter("current-page"));
+        }
+        int offSet = (currentPage - 1) * limit;
+
         HttpSession session = req.getSession();
-        ValuedOperationResult<Iterable<Student>> operationResult = studentService.showAllStudents();
+        session.setAttribute("currentPage", currentPage);
+
+        ValuedOperationResult<Integer> valuedOperationResult = studentService.studentCount();
+        if (!valuedOperationResult.isSuccess()) {
+            session.setAttribute("errorMessage", valuedOperationResult.getMessage());
+            resp.sendRedirect("error");
+            return;
+        }
+        int pageCount = (int) Math.ceil(valuedOperationResult.getResult() * 1.0 / limit);
+
+        session.setAttribute("pageCount", pageCount);
+
+        ValuedOperationResult<Iterable<Student>> operationResult = studentService.showAllStudents(offSet, limit);
         if (operationResult.isSuccess()) {
             logger.info("List of students " + operationResult.hashCode());
             session.setAttribute("allStudentsList", operationResult.getResult());
@@ -58,10 +78,11 @@ public class AdminToolsStudentsPageServlet extends HttpServlet {
         String status = req.getParameter("status");
 
         HttpSession session = req.getSession();
+        int currentPage = (int) session.getAttribute("currentPage");
 
         OperationResult operationResult = studentService.lockStudent(studentID, status);
         if (operationResult.isSuccess()) {
-            resp.sendRedirect("toolsstudents");
+            resp.sendRedirect("toolsstudents?current-page=" + currentPage);
             return;
         }
         session.setAttribute("errorMessage", operationResult.getMessage());

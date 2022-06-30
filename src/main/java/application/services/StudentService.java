@@ -65,7 +65,9 @@ public interface StudentService {
     ValuedOperationResult<Iterable<Student>> showAllStudents(int offSet, int limit);
 
     /**
-     * @return
+     * @return {@link ValuedOperationResult} entity which contain
+     * success boolean and limited Iterable of {@link Integer} entity as a result
+     * for pagination realization and high-level error message if method fails
      */
     ValuedOperationResult<Integer> studentCount();
 }
