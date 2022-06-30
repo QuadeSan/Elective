@@ -55,41 +55,6 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void SuccessOperationResultWhenLookingForStudentWithExistedLogin() {
-        StudentService studentServiceMock = mock(StudentServiceImpl.class);
-        DAOFactory daoFactoryMock = mock(DAOFactory.class);
-        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
-        Student studentMock = mock(Student.class);
-
-        when(daoFactoryMock.getStudentDAO()).thenReturn(studentDAOMock);
-        when(studentDAOMock.findStudent(eq("existedLogin"))).thenReturn(studentMock);
-        when(studentServiceMock.findStudent(eq("existedLogin")))
-                .thenReturn(new ValuedOperationResult<>(true, "Student found", studentMock));
-
-        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(true, "Student found", studentMock);
-        ValuedOperationResult<Student> actual = studentServiceMock.findStudent("existedLogin");
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void FailedOperationResultWhenLookingForStudentWithLoginThatIsNotExist() {
-        StudentService studentServiceMock = mock(StudentServiceImpl.class);
-        DAOFactory daoFactoryMock = mock(DAOFactory.class);
-        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
-
-        when(daoFactoryMock.getStudentDAO()).thenReturn(studentDAOMock);
-        doThrow(NotExistException.class).when(studentDAOMock).findStudent(eq("notExistedLogin"));
-        when(studentServiceMock.findStudent(eq("notExistedLogin")))
-                .thenReturn(new ValuedOperationResult<>(false, "Student does not exist", null));
-
-        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Student does not exist", null);
-        ValuedOperationResult<Student> actual = studentServiceMock.findStudent("notExistedLogin");
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
     public void SuccessOperationResultWhenTryingToLoginAsAStudentWithRightCredentials() {
         StudentService studentServiceMock = mock(StudentServiceImpl.class);
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
@@ -120,75 +85,6 @@ public class StudentServiceImplTest {
 
         ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Student does not exist", null);
         ValuedOperationResult<Student> actual = studentServiceMock.findStudent("wrongLogin", "wrongPass");
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void SuccessOperationResultWhenTryingToFindAStudentByValidId() {
-        StudentService studentServiceMock = mock(StudentServiceImpl.class);
-        DAOFactory daoFactoryMock = mock(DAOFactory.class);
-        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
-        Student studentMock = mock(Student.class);
-
-        when(daoFactoryMock.getStudentDAO()).thenReturn(studentDAOMock);
-        when(studentDAOMock.findStudent(any(Integer.class))).thenReturn(studentMock);
-        when(studentServiceMock.findStudent(any(Integer.class)))
-                .thenReturn(new ValuedOperationResult<>(true, "Student found", studentMock));
-
-        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(true, "Student found", studentMock);
-        ValuedOperationResult<Student> actual = studentServiceMock.findStudent(4);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void FailedOperationResultWhenTryingToFindAStudentByInvalidId() {
-        StudentService studentServiceMock = mock(StudentServiceImpl.class);
-        DAOFactory daoFactoryMock = mock(DAOFactory.class);
-        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
-
-        when(daoFactoryMock.getStudentDAO()).thenReturn(studentDAOMock);
-        doThrow(NotExistException.class).when(studentDAOMock).findStudent(any(Integer.class));
-        when(studentServiceMock.findStudent(any(Integer.class)))
-                .thenReturn(new ValuedOperationResult<>(false, "invalidId", null));
-
-        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "invalidId", null);
-        ValuedOperationResult<Student> actual = studentServiceMock.findStudent(1);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void AccountWasSuccessfullyDeletedWhenMethodWasUsedWithExistedId() {
-        StudentService studentServiceMock = mock(StudentServiceImpl.class);
-        DAOFactory daoFactoryMock = mock(DAOFactory.class);
-        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
-
-        when(daoFactoryMock.getStudentDAO()).thenReturn(studentDAOMock);
-        doNothing().when(studentDAOMock).deleteAccount(any(Integer.class));
-        when(studentServiceMock.deleteAccount(any(Integer.class)))
-                .thenReturn(new OperationResult(true, "Account was deleted"));
-
-        OperationResult expected = new OperationResult(true, "Account was deleted");
-        OperationResult actual = studentServiceMock.deleteAccount(1);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void ExceptionWasThrownWhenTryingToDeleteAccountWithUnExistedId() {
-        StudentService studentServiceMock = mock(StudentServiceImpl.class);
-        DAOFactory daoFactoryMock = mock(DAOFactory.class);
-        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
-
-        when(daoFactoryMock.getStudentDAO()).thenReturn(studentDAOMock);
-        doThrow(DAOException.class).when(studentDAOMock).deleteAccount(any(Integer.class));
-        when(studentServiceMock.deleteAccount(any(Integer.class)))
-                .thenReturn(new OperationResult(false, "Account was not deleted"));
-
-        OperationResult expected = new OperationResult(false, "Account was not deleted");
-        OperationResult actual = studentServiceMock.deleteAccount(1);
 
         assertEquals(expected, actual);
     }

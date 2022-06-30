@@ -24,22 +24,6 @@ public interface StudentDAO extends AutoCloseable {
     void createStudent(String login, String password, String email, String name, String lastName) throws AlreadyExistException;
 
     /**
-     * @param studentId - student_id value from students table
-     * @return {@link Student} entity
-     * Student contain studentID, userID, name, lastName, status fields
-     * @throws NotExistException - if there are no student with current id
-     */
-    Student findStudent(int studentId) throws NotExistException;
-
-    /**
-     * @param login - login value from users table
-     * @return {@link Student} entity
-     * Student contain studentID, userID, name, lastName, status fields
-     * @throws NotExistException - if there are no student with current login
-     */
-    Student findStudent(String login) throws NotExistException;
-
-    /**
      * @param login    - login value from users table
      * @param password - password value from users table.
      * @return {@link Student} entity for authorization
@@ -64,11 +48,4 @@ public interface StudentDAO extends AutoCloseable {
      * Each Student contain studentID, userID, name, lastName, status fields
      */
     Iterable<Student> showAllStudents();
-
-    /**
-     * Delete a row in user table
-     * @param userId - id of user for delete.
-     */
-    void deleteAccount(int userId);
-
 }

@@ -76,39 +76,7 @@ public class MySQLStudentDAO implements StudentDAO {
         }
     }
 
-
-    @Override
-    public Student findStudent(String login) throws NotExistException {
-        Student currentStudent = new Student();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            stmt = con.prepareStatement("SELECT students.student_id, students.user_id, students.name, " +
-                    "students.last_name, students.status FROM students " +
-                    "RIGHT JOIN users ON users.user_id=students.user_id WHERE users.login =?");
-            stmt.setString(1, login);
-            rs = stmt.executeQuery();
-            if (!rs.next()) {
-                logger.error("Student with login " + login + " does not exist");
-                throw new NotExistException("Can't find student with Login" + login);
-            } else {
-                currentStudent.setStudentID(rs.getInt("student_id"));
-                currentStudent.setUserID(rs.getInt("user_id"));
-                currentStudent.setName(rs.getString("name"));
-                currentStudent.setLastName(rs.getString("last_name"));
-                currentStudent.setStatus(rs.getString("status"));
-                return currentStudent;
-            }
-        } catch (SQLException ex) {
-            logger.error("can't find student because of ", ex);
-            throw new DAOException(ex);
-        } finally {
-            close(rs);
-            close(stmt);
-        }
-    }
-
-    public Student findStudent(String login, String password)throws NotExistException {
+    public Student findStudent(String login, String password) throws NotExistException {
         Student currentStudent = new Student();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -139,50 +107,6 @@ public class MySQLStudentDAO implements StudentDAO {
             throw new DAOException(ex);
         } finally {
             close(rs);
-            close(stmt);
-        }
-    }
-
-    @Override
-    public Student findStudent(int studentId)throws NotExistException {
-        Student currentStudent = new Student();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            stmt = con.prepareStatement("SELECT * FROM students WHERE studentId=?");
-            stmt.setInt(1, studentId);
-            rs = stmt.executeQuery();
-            if (!rs.next()) {
-                logger.info("Can't find student with ID " + studentId);
-                throw new NotExistException("Can't find student with ID " + studentId);
-            } else {
-                currentStudent.setStudentID(rs.getInt("student_id"));
-                currentStudent.setUserID(rs.getInt("user_id"));
-                currentStudent.setName(rs.getString("name"));
-                currentStudent.setLastName(rs.getString("last_name"));
-                currentStudent.setStatus(rs.getString("status"));
-                return currentStudent;
-            }
-        } catch (SQLException ex) {
-            logger.error("Can't execute findStudent query", ex);
-            throw new DAOException(ex);
-        } finally {
-            close(rs);
-            close(stmt);
-        }
-    }
-
-    @Override
-    public void deleteAccount(int userId) {
-        PreparedStatement stmt = null;
-        try {
-            stmt = con.prepareStatement("DELETE FROM users WHERE userId=?");
-            stmt.setInt(1, userId);
-            stmt.executeUpdate();
-        } catch (SQLException ex) {
-            logger.error("can't delete user while deleting account", ex);
-            throw new DAOException(ex);
-        } finally {
             close(stmt);
         }
     }
