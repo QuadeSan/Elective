@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Special filter configured in web.xml descriptor
+ * The filter denies access to the admin tools pages for non-admin users
+ * when they try to connect to those tools using a direct link.
+ */
 @WebFilter
 public class AdminAccessFilter implements Filter {
 

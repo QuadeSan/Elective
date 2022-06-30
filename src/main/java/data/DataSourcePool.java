@@ -11,6 +11,11 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * Connection pool configuration
+ * {@link #getConnection() Get Connection} is main method
+ * used to obtain connection with database
+ */
 public class DataSourcePool {
 
     private static final Logger logger = LogManager.getLogger(DataSourcePool.class);

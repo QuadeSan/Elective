@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Special filter
+ * The filter denies access to all jsp pages for non-admin users
+ * when they try to connect to those tools using a direct link.
+ */
 @WebFilter(urlPatterns = "*.jsp")
 public class JspFilter implements Filter {
 

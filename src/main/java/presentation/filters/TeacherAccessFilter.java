@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-
+/**
+ * Special filter
+ * The filter denies access to journal page for non-teacher users
+ * when they try to connect to those tools using a direct link.
+ */
 @WebFilter("/journal")
 public class TeacherAccessFilter implements Filter {
 
