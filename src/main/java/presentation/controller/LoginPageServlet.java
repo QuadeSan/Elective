@@ -14,6 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for login page
+ * {@link #doPost(HttpServletRequest, HttpServletResponse) Post} method
+ * handle registration request from {@link RegisterPageServlet} and
+ * redirect user to registration page if registration process fails
+ */
 @WebServlet("/login")
 public class LoginPageServlet extends HttpServlet {
 

@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet provide access to changelocale.jsp
+ * file for all non-admin users
+ */
 @WebServlet("/changelocale")
 public class ChangeLocaleServlet extends HttpServlet {
 

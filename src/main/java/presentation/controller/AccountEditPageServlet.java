@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-
+/**
+ * Servlet for editing personal account page
+ * {@link #doGet(HttpServletRequest, HttpServletResponse) Get} method check
+ * is user logged and if not, it redirects user to main page showing error message
+ */
 @WebServlet("/editaccount")
 public class AccountEditPageServlet extends HttpServlet {
 
@@ -23,6 +27,7 @@ public class AccountEditPageServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String userRole = (String) session.getAttribute("userRole");
         if (userRole == null || userRole.equals("guest")) {
+            session.setAttribute("errorMessage","You are not logged");
             resp.sendRedirect("main");
             return;
         }

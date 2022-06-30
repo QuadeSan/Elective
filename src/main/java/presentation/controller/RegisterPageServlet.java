@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for registration page
+ */
 @WebServlet("/register")
 public class RegisterPageServlet extends HttpServlet {
     private static Logger logger = LogManager.getLogger(LoginPageServlet.class);

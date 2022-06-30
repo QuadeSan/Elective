@@ -110,10 +110,10 @@
            <td> ${course.status} </td>
            <td> ${course.studentCount} </td>
            <td> ${course.assignedTeacher} </td>
-           <c:if test="${userRole == 'Student' && course.status == 'New'}">
+           <c:if test="${userRole == 'Student' && course.status == 'New' && currentUser.status == 'unlocked'}">
            <td> <a class="ablack" href="courses?course_id=${course.courseID}"> <fmt:message key='courses_page.availability_yes'/> </a> </td>
            </c:if>
-           <c:if test="${userRole == 'Student' && course.status == 'In progress'}">
+           <c:if test="${userRole == 'Student' && (course.status == 'In progress' || currentUser.status == 'locked')}">
            <td> <fmt:message key='courses_page.availability_no'/> </td>
            </c:if>
            </tr>

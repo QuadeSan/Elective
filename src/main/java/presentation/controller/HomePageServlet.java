@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Servlet for welcome page
+ * Gives access to index.jsp for all non-admin users
+ */
 @WebServlet("/home")
 public class HomePageServlet extends HttpServlet {
 

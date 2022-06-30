@@ -21,6 +21,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for main page
+ * {@link #doGet(HttpServletRequest, HttpServletResponse) Get} method
+ * is for authorization process from {@link LoginPageServlet} if
+ * authorization fails user redirected to login page with error message
+ */
 @WebServlet("/main")
 public class MainPageServlet extends HttpServlet {
 
@@ -44,7 +50,6 @@ public class MainPageServlet extends HttpServlet {
         logger.debug("doGet of /main with forward to main.jsp");
         HttpSession session = req.getSession();
         String userRole = (String) session.getAttribute("userRole");
-        logger.debug("Current role is " + userRole);
         if (userRole == null) {
             session.setAttribute("userRole", "guest");
         }

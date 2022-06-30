@@ -16,6 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for students admin tools
+ * {@link #doGet(HttpServletRequest, HttpServletResponse) Get} method
+ * used to show view-only list of all students
+ * {@link #doPost(HttpServletRequest, HttpServletResponse) Post} method
+ * used to handle lock/unlock student request from {@link AdminToolsStudentsPageServlet}
+ */
 @WebServlet("/toolsstudents")
 public class AdminToolsStudentsPageServlet extends HttpServlet {
 

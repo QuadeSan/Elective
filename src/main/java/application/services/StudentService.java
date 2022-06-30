@@ -37,6 +37,7 @@ public interface StudentService {
      * Method used by administrator to change
      * status of current student.
      * Locked student have no access to his profile
+     * and can't sign up to any course
      *
      * @param studentId - ID of student whose status being changed
      * @param status    - new status for current student

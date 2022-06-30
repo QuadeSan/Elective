@@ -15,6 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for journal page
+ * {@link #doGet(HttpServletRequest, HttpServletResponse) Get} method
+ * used to handle see journal request from {@link AccountPageServlet} of
+ * teacher's account page, this method used extra redirect to hide
+ * requests parameter
+ * {@link #doPost(HttpServletRequest, HttpServletResponse) Post} method
+ * handle set mark request from {@link JournalPageServlet}
+ */
 @WebServlet("/journal")
 public class JournalPageServlet extends HttpServlet {
 
@@ -31,7 +40,11 @@ public class JournalPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doGet of /journal with forward to journal.jsp");
         HttpSession session = req.getSession();
-
+        if (req.getParameter("viewedCourse") == null) {
+            session.setAttribute("errorMessage", "Unexpected error, you need to choose course ID");
+            resp.sendRedirect("error");
+            return;
+        }
         if (req.getParameter("viewedCourse") != null) {
             int courseID = Integer.parseInt(req.getParameter("viewedCourse"));
             logger.debug("Trying to find all students on course #" + courseID);

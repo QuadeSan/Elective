@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Error page servlet
+ * All unhandled exception redirect user to this servlet
+ */
 @WebServlet("/error")
 public class ErrorPageServlet extends HttpServlet {
 

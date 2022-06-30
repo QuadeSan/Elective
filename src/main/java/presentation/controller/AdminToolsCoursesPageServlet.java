@@ -18,6 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for courses admin tools
+ * {@link #doGet(HttpServletRequest, HttpServletResponse) Get} method
+ * show view-only list of courses
+ * {@link #doPost(HttpServletRequest, HttpServletResponse) Post} method
+ * used to handle create/delete/edit course requests
+ */
 @WebServlet("/toolscourses")
 public class AdminToolsCoursesPageServlet extends HttpServlet {
 

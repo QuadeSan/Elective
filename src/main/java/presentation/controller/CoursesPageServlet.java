@@ -19,6 +19,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for all courses page
+ * It shows all courses with their current status
+ * for all users no matter for their role
+ * {@link #doPost(HttpServletRequest, HttpServletResponse) Post} method
+ * handle sign for course request for all students
+ */
 @WebServlet("/courses")
 public class CoursesPageServlet extends HttpServlet {
 

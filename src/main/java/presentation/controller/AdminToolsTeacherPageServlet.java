@@ -14,6 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for teachers admin tools
+ * {@link #doPost(HttpServletRequest, HttpServletResponse) Post} method
+ * used to handle create new teacher request from {@link AdminToolsTeacherPageServlet}
+ */
 @WebServlet("/toolsteacher")
 public class AdminToolsTeacherPageServlet extends HttpServlet {
 

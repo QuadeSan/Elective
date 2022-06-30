@@ -18,6 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Servlet for edit course admin tool
+ * {@link #doGet(HttpServletRequest, HttpServletResponse) Get} method
+ * used to show all information about chosen course
+ * {@link #doPost(HttpServletRequest, HttpServletResponse) Post } method
+ * used to handle edit course request from {@link AdminToolsCoursesPageServlet}
+ */
 @WebServlet("/toolseditcourse")
 public class AdminToolsEditCoursePageServlet extends HttpServlet {
 
