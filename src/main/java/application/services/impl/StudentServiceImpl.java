@@ -23,7 +23,11 @@ public class StudentServiceImpl implements StudentService {
     private final DAOFactory daoFactory;
 
     public StudentServiceImpl() {
-        this.daoFactory = DAOFactory.getInstance();
+        this(DAOFactory.getInstance());
+    }
+
+    public StudentServiceImpl(DAOFactory daoFactory) {
+        this.daoFactory = daoFactory;
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
@@ -67,7 +71,7 @@ public class StudentServiceImpl implements StudentService {
 
             currentStudent = studentDAO.findStudent(login, password);
 
-            return new ValuedOperationResult<>(true, "Student found", currentStudent);
+            return new ValuedOperationResult<>(true, "You logged as Student", currentStudent);
         } catch (NotExistException e) {
             logger.error("Can't authorize as student");
             return new ValuedOperationResult<>(false,
@@ -99,8 +103,8 @@ public class StudentServiceImpl implements StudentService {
             logger.debug("Status was changed");
             return new OperationResult(true, "Student was " + status);
         } catch (NotExistException e) {
-            logger.error("Student with id = " + studentId + " does not exist");
-            return new OperationResult(false, "Student with id = " + studentId + " does not exist");
+            logger.error("Student with ID = " + studentId + " does not exist");
+            return new OperationResult(false, "Student with ID = " + studentId + " does not exist");
         } catch (DAOException e) {
             logger.error("Can't lock student", e);
             return new OperationResult(false, "Unhandled exception");
