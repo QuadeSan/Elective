@@ -2,14 +2,14 @@ package application.services.impl;
 
 import application.OperationResult;
 import application.ValuedOperationResult;
-import application.dao.*;
+import application.dao.AlreadyExistException;
+import application.dao.DAOFactory;
+import application.dao.NotExistException;
+import application.dao.StudentDAO;
 import application.entity.Student;
-import application.services.StudentService;
 import data.dao.impl.MySQLStudentDAO;
 import org.junit.Test;
 import org.mockito.AdditionalMatchers;
-
-import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -19,7 +19,7 @@ public class StudentServiceImplTest {
 
 
     @Test
-    public void addingNewStudentWithNewAccountIsOK() {
+    public void creationOfNewStudentWithNewAccountIsOK() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
         StudentServiceImpl studentService = new StudentServiceImpl(daoFactoryMock);
@@ -35,8 +35,8 @@ public class StudentServiceImplTest {
     }
 
 
-    @Test()
-    public void addingNewStudentWithExistedAccountIsThrowingExceptionCausingFalseOperationResult() {
+    @Test
+    public void creationOfNewStudentWithExistedAccountIsThrowingExceptionCausingFalseOperationResult() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
         StudentServiceImpl studentService = new StudentServiceImpl(daoFactoryMock);
@@ -58,7 +58,7 @@ public class StudentServiceImplTest {
         StudentServiceImpl studentService = new StudentServiceImpl(daoFactoryMock);
 
         doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
-        when(studentDAOMock.findStudent(eq("rightLogin"), eq("rightPass"))).thenReturn(new Student());
+        doReturn(new Student()).when(studentDAOMock).findStudent(eq("rightLogin"), eq("rightPass"));
 
         ValuedOperationResult<Student> expected = new ValuedOperationResult<>(true, "You logged as Student", new Student());
         ValuedOperationResult<Student> actual = studentService.findStudent("rightLogin", "rightPass");

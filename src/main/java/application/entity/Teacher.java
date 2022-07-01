@@ -88,11 +88,11 @@ public class Teacher implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Teacher teacher = (Teacher) o;
-        return teacherID == teacher.teacherID;
+        return userID == teacher.userID;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(teacherID);
+        return Objects.hash(userID);
     }
 }

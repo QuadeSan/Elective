@@ -16,7 +16,11 @@ public class AdministratorServiceImpl implements AdministratorService {
     private final DAOFactory daoFactory;
 
     public AdministratorServiceImpl() {
-        this.daoFactory = DAOFactory.getInstance();
+        this(DAOFactory.getInstance());
+    }
+
+    public AdministratorServiceImpl(DAOFactory daoFactory){
+        this.daoFactory = daoFactory;
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
@@ -36,7 +40,7 @@ public class AdministratorServiceImpl implements AdministratorService {
             return new OperationResult(false, "Login already exist");
         } catch (DAOException e) {
             logger.error("Can't create new Administrator", e);
-            return new OperationResult(false, "Something went wrong! Have no response from database");
+            return new OperationResult(false, "Unhandled exception");
         } finally {
             try {
                 if (administratorDAO != null) {
@@ -60,7 +64,7 @@ public class AdministratorServiceImpl implements AdministratorService {
 
             currentAdmin = administratorDAO.findAdministrator(login, password);
 
-            return new ValuedOperationResult<>(true, "Administrator found", currentAdmin);
+            return new ValuedOperationResult<>(true, "You logged as Administrator", currentAdmin);
         } catch (NotExistException e) {
             logger.error("Can't authorize as administrator");
             return new ValuedOperationResult<>(false,

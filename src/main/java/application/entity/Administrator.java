@@ -79,11 +79,11 @@ public class Administrator implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Administrator that = (Administrator) o;
-        return administratorID == that.administratorID;
+        return userID == that.userID;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(administratorID);
+        return Objects.hash(userID);
     }
 }

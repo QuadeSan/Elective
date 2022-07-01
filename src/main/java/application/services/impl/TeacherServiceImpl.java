@@ -40,7 +40,7 @@ public class TeacherServiceImpl implements TeacherService {
             return new OperationResult(false, "Login already exist");
         } catch (DAOException e) {
             logger.error("Can't create new teacher", e);
-            return new OperationResult(false, "Something went wrong! Have no response from database");
+            return new OperationResult(false, "Unhandled exception");
         } finally {
             try {
                 if (teacherDAO != null) {
@@ -64,11 +64,11 @@ public class TeacherServiceImpl implements TeacherService {
 
             currentTeacher = teacherDAO.findTeacher(login, password);
 
-            return new ValuedOperationResult<>(true, "Teacher found", currentTeacher);
+            return new ValuedOperationResult<>(true, "You logged as Teacher", currentTeacher);
         } catch (NotExistException e) {
             logger.error("Can't authorize as Teacher");
             return new ValuedOperationResult<>(false,
-                    "Teacher with login " + login + " does not exist", null);
+                    "Teacher with login = " + login + " does not exist", null);
         } catch (DAOException e) {
             logger.error("Unhandled exception", e);
             return new ValuedOperationResult<>(false,
@@ -91,12 +91,12 @@ public class TeacherServiceImpl implements TeacherService {
         Iterable<Teacher> result;
         try {
             teacherDAO = daoFactory.getTeacherDAO();
-            logger.debug("StudentDAO created");
+            logger.debug("TeacherDAO created");
 
             result = teacherDAO.showAllTeachers();
-            logger.debug("showAllStudents Method used");
+            logger.debug("showAllTeachers Method used");
 
-            return new ValuedOperationResult<>(true, "List of students", result);
+            return new ValuedOperationResult<>(true, "List of teachers", result);
         } catch (DAOException e) {
             logger.error("Can't show all teachers", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
