@@ -13,7 +13,7 @@ public class Course implements Serializable {
     private String assignedTeacher;
     private int studentCount;
     private int mark;
-    private List<Student> students;
+    private final List<Student> students;
     private static int k;
 
 
@@ -86,28 +86,16 @@ public class Course implements Serializable {
         return students;
     }
 
-    public void addStudent(Student student) {
-        students.add(student);
-    }
-
-    public void removeStudent(Student student) {
-        students.remove(student);
-    }
-
-    public void changeStatus(String newStatus) {
-        this.status = status;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return courseID == course.courseID;
+        return Objects.equals(title, course.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(courseID);
+        return Objects.hash(title);
     }
 }

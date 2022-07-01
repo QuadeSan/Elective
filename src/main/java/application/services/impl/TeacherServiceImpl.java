@@ -3,7 +3,6 @@ package application.services.impl;
 import application.OperationResult;
 import application.ValuedOperationResult;
 import application.dao.*;
-import application.entity.Student;
 import application.entity.Teacher;
 import application.services.TeacherService;
 import org.apache.logging.log4j.LogManager;

@@ -1,20 +1,12 @@
 package application.services.impl;
 
-import application.ValuedOperationResult;
 import application.OperationResult;
-import application.dao.AlreadyExistException;
-import application.dao.NotExistException;
-import application.dao.DAOFactory;
-import application.dao.StudentDAO;
-import application.dao.DAOException;
+import application.ValuedOperationResult;
+import application.dao.*;
 import application.entity.Student;
 import application.services.StudentService;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
-import java.util.ArrayList;
 
 public class StudentServiceImpl implements StudentService {
 

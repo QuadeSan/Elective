@@ -4,21 +4,18 @@ import application.OperationResult;
 import application.ValuedOperationResult;
 import application.dao.*;
 import application.entity.Administrator;
-import application.entity.Student;
 import data.dao.impl.MySQLAdministratorDAO;
-import data.dao.impl.MySQLStudentDAO;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.doThrow;
 
 public class AdministratorServiceImplTest {
 
     @Test
-    public void creationOfNewStudentWithNewAccountIsOK() {
+    public void creationOfNewAdministratorWithNewAccountIsOK() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
         AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
@@ -35,7 +32,7 @@ public class AdministratorServiceImplTest {
 
 
     @Test
-    public void creationOfNewStudentWithExistedAccountIsThrowingExceptionCausingFalseOperationResult() {
+    public void creationOfNewAdministratorWithExistedAccountIsThrowingExceptionCausingFalseOperationResult() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
         AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
@@ -51,7 +48,7 @@ public class AdministratorServiceImplTest {
     }
 
     @Test
-    public void successOperationResultWhenTryingToLoginAsAStudentWithRightCredentials() {
+    public void successOperationResultWhenTryingToLoginAsAnAdministratorWithRightCredentials() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
         AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
@@ -66,7 +63,7 @@ public class AdministratorServiceImplTest {
     }
 
     @Test
-    public void failedOperationResultWhenTryingToLoginAsAStudentWithWrongCredentials() {
+    public void failedOperationResultWhenTryingToLoginAsAnAdministratorWithWrongCredentials() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
         AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);

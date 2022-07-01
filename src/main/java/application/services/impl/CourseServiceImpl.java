@@ -5,11 +5,8 @@ import application.ValuedOperationResult;
 import application.dao.*;
 import application.entity.Course;
 import application.services.CourseService;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.ArrayList;
 
 public class CourseServiceImpl implements CourseService {
 
@@ -18,7 +15,12 @@ public class CourseServiceImpl implements CourseService {
     private final DAOFactory factory;
 
     public CourseServiceImpl() {
-        this.factory = DAOFactory.getInstance();
+        this(DAOFactory.getInstance());
+    }
+
+    public CourseServiceImpl(DAOFactory daoFactory){
+        this.factory = daoFactory;
+        logger.debug("DAOFactory created => " + daoFactory);
     }
 
     @Override
@@ -38,7 +40,7 @@ public class CourseServiceImpl implements CourseService {
             return new OperationResult(false, "Course with title " + title + " already exist");
         } catch (DAOException e) {
             logger.error("Can't create new Course", e);
-            return new OperationResult(false, "Something went wrong! Have no response from database");
+            return new OperationResult(false, "Unhandled exception");
         } finally {
             try {
                 if (courseDAO != null) {
@@ -64,9 +66,9 @@ public class CourseServiceImpl implements CourseService {
 
             return new ValuedOperationResult<>(true, "Course was found", currentCourse);
         } catch (NotExistException e) {
-            logger.error("Course with ID " + courseId + " does not exist", e);
+            logger.error("Course with ID = " + courseId + " does not exist", e);
             return new ValuedOperationResult<>(false,
-                    "Course with ID " + courseId + " does not exist", null);
+                    "Course with ID = " + courseId + " does not exist", null);
         } catch (DAOException e) {
             return new ValuedOperationResult<>(false,
                     "Unhandled exception", null);
@@ -95,9 +97,9 @@ public class CourseServiceImpl implements CourseService {
             logger.info("Course #" + courseId + " was deleted");
             return new OperationResult(true, "Course was successfully deleted");
         } catch (NotExistException e) {
-            logger.error("Course with ID " + courseId + " does not exist", e);
+            logger.error("Course with ID = " + courseId + " does not exist", e);
             return new OperationResult(false,
-                    "Course with ID " + courseId + " does not exist");
+                    "Course with ID = " + courseId + " does not exist");
         } catch (DAOException e) {
             logger.error("Can't delete Course with ID" + courseId, e);
             return new OperationResult(false,
@@ -175,8 +177,8 @@ public class CourseServiceImpl implements CourseService {
             logger.debug("changeStatus Method used");
             return new OperationResult(true, "Status was changed");
         } catch (NotExistException e) {
-            logger.error("Course with id " + courseId + " does not exist");
-            return new OperationResult(false, "Course with id " + courseId + " does not exist");
+            logger.error("Course with ID = " + courseId + " does not exist");
+            return new OperationResult(false, "Course with ID = " + courseId + " does not exist");
         } catch (DAOException e) {
             logger.error("Can't change status of course", e);
             return new OperationResult(false, "Unhandled exception");
