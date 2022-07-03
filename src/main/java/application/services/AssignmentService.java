@@ -42,7 +42,7 @@ public interface AssignmentService {
      * @return {@link OperationResult} entity which contain
      * success boolean and high-level error message if method fails
      */
-    OperationResult unassignStudentFromCourse(int courseId, int studentId);
+    OperationResult leaveCourse(int courseId, int studentId);
 
     /**
      * Method for teachers to see all their assignments

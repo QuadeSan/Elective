@@ -15,12 +15,8 @@ public class TeacherServiceImpl implements TeacherService {
     private final DAOFactory daoFactory;
 
     public TeacherServiceImpl() {
-        this(DAOFactory.getInstance());
+        this.daoFactory = DAOFactory.getInstance();
         logger.debug("DAOFactory created => " + daoFactory);
-    }
-
-    public TeacherServiceImpl(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
     }
 
     @Override

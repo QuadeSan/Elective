@@ -17,8 +17,9 @@ public class AdministratorServiceImplTest {
     @Test
     public void creationOfNewAdministratorWithNewAccountIsOK() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
-        AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
         doNothing().when(administratorDAOMock).createAdministrator(eq("newLogin"), any(), any(), any(), any());
@@ -34,8 +35,9 @@ public class AdministratorServiceImplTest {
     @Test
     public void creationOfNewAdministratorWithExistedAccountIsThrowingExceptionCausingFalseOperationResult() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
-        AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
         doThrow(AlreadyExistException.class).when(administratorDAOMock).createAdministrator(eq("existedLogin"), any(), any(), any(), any());
@@ -48,10 +50,28 @@ public class AdministratorServiceImplTest {
     }
 
     @Test
+    public void failedOperationResultWhenUsingCreateAdministratorMethodAndDAOExceptionThrown() {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
+
+        doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
+        doThrow(DAOException.class).when(administratorDAOMock).createAdministrator(any(), any(), any(), any(), any());
+
+        OperationResult expected = new OperationResult(false, "Unhandled exception");
+        OperationResult actual = administratorService.createAdministrator("existedLogin", "newPassword",
+                "newEmail", "newName", "newLastName");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void successOperationResultWhenTryingToLoginAsAnAdministratorWithRightCredentials() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
-        AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
         doReturn(new Administrator()).when(administratorDAOMock).findAdministrator(eq("rightLogin"), eq("rightPass"));
@@ -65,8 +85,9 @@ public class AdministratorServiceImplTest {
     @Test
     public void failedOperationResultWhenTryingToLoginAsAnAdministratorWithWrongCredentials() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
-        AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
         doThrow(NotExistException.class).when(administratorDAOMock).findAdministrator(eq("wrongLogin"), eq("wrongPass"));
@@ -79,10 +100,27 @@ public class AdministratorServiceImplTest {
     }
 
     @Test
+    public void failedValuedOperationResultWhenDAOExceptionThrown() {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
+
+        doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
+        doThrow(DAOException.class).when(administratorDAOMock).findAdministrator(any(), any());
+
+        ValuedOperationResult<Administrator> expected = new ValuedOperationResult<>(false, "Unhandled exception", null);
+        ValuedOperationResult<Administrator> actual = administratorService.findAdministrator("anyLogin", "anyPass");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void AccountWasSuccessfullyDeletedWhenMethodWasUsedWithExistedId() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
-        AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
         doNothing().when(administratorDAOMock).deleteAccount(any(Integer.class));
@@ -94,10 +132,11 @@ public class AdministratorServiceImplTest {
     }
 
     @Test
-    public void ExceptionWasThrownWhenTryingToDeleteAccountWithUnExistedId() {
+    public void failedOperationResultWhenTryingToDeleteAccountWithUnExistedId() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
-        AdministratorServiceImpl administratorService = new AdministratorServiceImpl(daoFactoryMock);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
         doThrow(DAOException.class).when(administratorDAOMock).deleteAccount(any(Integer.class));
@@ -108,5 +147,52 @@ public class AdministratorServiceImplTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void failedOperationResultWhenServiceCanNotCloseDAOInCreateAdministratorMethod() throws Exception {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
+        doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
+        doThrow(Exception.class).when(administratorDAOMock).close();
+
+        OperationResult expected = new OperationResult(false, "Unhandled exception");
+        OperationResult actual = administratorService.createAdministrator("existedLogin", "newPassword",
+                "newEmail", "newName", "newLastName");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void failedOperationResultWhenServiceCanNotCloseDAOInDeleteAccountMethod() throws Exception {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
+
+        doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
+        doThrow(Exception.class).when(administratorDAOMock).close();
+
+        OperationResult expected = new OperationResult(false, "Unhandled exception");
+        OperationResult actual = administratorService.deleteAccount(1);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void failedOperationResultWhenServiceCanNotCloseDAOInFindAdministratorMethod() throws Exception {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
+
+        doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
+        doThrow(Exception.class).when(administratorDAOMock).close();
+
+        ValuedOperationResult<Administrator> expected = new ValuedOperationResult<>(false, "Unhandled exception", null);
+        ValuedOperationResult<Administrator> actual = administratorService.findAdministrator("anyLogin", "anyPassword");
+
+        assertEquals(expected, actual);
+    }
 }

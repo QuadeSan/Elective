@@ -12,20 +12,16 @@ public class CourseServiceImpl implements CourseService {
 
     private static final Logger logger = LogManager.getLogger(CourseServiceImpl.class);
 
-    private final DAOFactory factory;
+    private final DAOFactory daoFactory;
 
     public CourseServiceImpl() {
-        this(DAOFactory.getInstance());
-    }
-
-    public CourseServiceImpl(DAOFactory daoFactory) {
-        this.factory = daoFactory;
+        this.daoFactory = DAOFactory.getInstance();
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
     @Override
     public OperationResult createCourse(String topic, String title) {
-        try (CourseDAO courseDAO = factory.getCourseDAO()) {
+        try (CourseDAO courseDAO = daoFactory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.createCourse(topic, title);
@@ -47,7 +43,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public ValuedOperationResult<Course> findCourse(int courseId) {
-        try (CourseDAO courseDAO = factory.getCourseDAO()) {
+        try (CourseDAO courseDAO = daoFactory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             Course currentCourse = courseDAO.findCourse(courseId);
@@ -69,7 +65,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public OperationResult deleteCourse(int courseId) {
-        try (CourseDAO courseDAO = factory.getCourseDAO()) {
+        try (CourseDAO courseDAO = daoFactory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.deleteCourse(courseId);
@@ -89,7 +85,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public OperationResult changeTopic(int courseId, String newTopic) {
-        try (CourseDAO courseDAO = factory.getCourseDAO()) {
+        try (CourseDAO courseDAO = daoFactory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.changeTopic(courseId, newTopic);
@@ -106,7 +102,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public OperationResult changeTitle(int courseId, String newTitle) {
-        try (CourseDAO courseDAO = factory.getCourseDAO()) {
+        try (CourseDAO courseDAO = daoFactory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.changeTitle(courseId, newTitle);
@@ -123,7 +119,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public OperationResult changeStatus(int courseId, String status) {
-        try (CourseDAO courseDAO = factory.getCourseDAO()) {
+        try (CourseDAO courseDAO = daoFactory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.changeStatus(courseId, status);
@@ -143,7 +139,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public ValuedOperationResult<Iterable<Course>> showAllCourses() {
-        try (CourseDAO courseDAO = factory.getCourseDAO()) {
+        try (CourseDAO courseDAO = daoFactory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             Iterable<Course> result = courseDAO.showAllCourses();

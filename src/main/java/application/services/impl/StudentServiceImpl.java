@@ -15,11 +15,7 @@ public class StudentServiceImpl implements StudentService {
     private final DAOFactory daoFactory;
 
     public StudentServiceImpl() {
-        this(DAOFactory.getInstance());
-    }
-
-    public StudentServiceImpl(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+        this.daoFactory = DAOFactory.getInstance();
         logger.debug("DAOFactory created => " + daoFactory);
     }
 

@@ -110,7 +110,7 @@ public class AccountPageServlet extends HttpServlet {
         Student currentStudent = (Student) session.getAttribute("currentUser");
         int studentID = currentStudent.getStudentID();
 
-        OperationResult OperationResult = assignmentService.unassignStudentFromCourse(courseID, studentID);
+        OperationResult OperationResult = assignmentService.leaveCourse(courseID, studentID);
         if (OperationResult.isSuccess()) {
             session.setAttribute("infoMessage", "You left the course # " + courseID);
             resp.sendRedirect("account");

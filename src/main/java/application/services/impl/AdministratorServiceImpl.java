@@ -16,11 +16,7 @@ public class AdministratorServiceImpl implements AdministratorService {
     private final DAOFactory daoFactory;
 
     public AdministratorServiceImpl() {
-        this(DAOFactory.getInstance());
-    }
-
-    public AdministratorServiceImpl(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+        this.daoFactory = DAOFactory.getInstance();
         logger.debug("DAOFactory created => " + daoFactory);
     }
 

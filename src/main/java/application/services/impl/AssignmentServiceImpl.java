@@ -16,11 +16,7 @@ public class AssignmentServiceImpl implements AssignmentService {
     private final DAOFactory daoFactory;
 
     public AssignmentServiceImpl() {
-        this(DAOFactory.getInstance());
-    }
-
-    public AssignmentServiceImpl(DAOFactory daoFactory) {
-        this.daoFactory = daoFactory;
+        this.daoFactory = DAOFactory.getInstance();
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
@@ -64,7 +60,7 @@ public class AssignmentServiceImpl implements AssignmentService {
 
 
     @Override
-    public OperationResult unassignStudentFromCourse(int courseId, int studentId) {
+    public OperationResult leaveCourse(int courseId, int studentId) {
         try (AssignmentDAO assignmentDAO = daoFactory.getAssignmentDAO()) {
             logger.debug("AssignmentDAO created");
 
