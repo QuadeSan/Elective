@@ -150,6 +150,7 @@ public class MySQLTeacherDAO implements TeacherDAO {
         } else {
             throw new DAOException("Connection was not created");
         }
+        logger.debug("TeacherDAO was closed");
     }
 
     /**

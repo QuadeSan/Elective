@@ -220,6 +220,7 @@ public class MySQLStudentDAO implements StudentDAO {
                 logger.debug("Can't close connection", ex);
             }
         }
+        logger.debug("StudentDAO was closed");
     }
 
     /**

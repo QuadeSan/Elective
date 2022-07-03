@@ -257,6 +257,7 @@ public class MySQLAssignmentDAO implements AssignmentDAO {
         } else {
             throw new DAOException("Connection was not created");
         }
+        logger.debug("AssignmentDAO was closed");
     }
 
     /**

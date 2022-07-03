@@ -18,16 +18,14 @@ public class CourseServiceImpl implements CourseService {
         this(DAOFactory.getInstance());
     }
 
-    public CourseServiceImpl(DAOFactory daoFactory){
+    public CourseServiceImpl(DAOFactory daoFactory) {
         this.factory = daoFactory;
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
     @Override
     public OperationResult createCourse(String topic, String title) {
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = factory.getCourseDAO();
+        try (CourseDAO courseDAO = factory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.createCourse(topic, title);
@@ -41,27 +39,18 @@ public class CourseServiceImpl implements CourseService {
         } catch (DAOException e) {
             logger.error("Can't create new Course", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (courseDAO != null) {
-                    courseDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close CourseDAO");
-            }
-            logger.debug("CourseDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close CourseDAO");
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public ValuedOperationResult<Course> findCourse(int courseId) {
-        Course currentCourse;
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = factory.getCourseDAO();
+        try (CourseDAO courseDAO = factory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
-            currentCourse = courseDAO.findCourse(courseId);
+            Course currentCourse = courseDAO.findCourse(courseId);
             logger.debug("findCurse by ID Method used");
 
             return new ValuedOperationResult<>(true, "Course was found", currentCourse);
@@ -72,23 +61,15 @@ public class CourseServiceImpl implements CourseService {
         } catch (DAOException e) {
             return new ValuedOperationResult<>(false,
                     "Unhandled exception", null);
-        } finally {
-            try {
-                if (courseDAO != null) {
-                    courseDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close CourseDAO");
-            }
-            logger.debug("CourseDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close CourseDAO");
+            return new ValuedOperationResult<>(false, "Unhandled exception",null);
         }
     }
 
     @Override
     public OperationResult deleteCourse(int courseId) {
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = factory.getCourseDAO();
+        try (CourseDAO courseDAO = factory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.deleteCourse(courseId);
@@ -100,27 +81,15 @@ public class CourseServiceImpl implements CourseService {
             logger.error("Course with ID = " + courseId + " does not exist", e);
             return new OperationResult(false,
                     "Course with ID = " + courseId + " does not exist");
-        } catch (DAOException e) {
-            logger.error("Can't delete Course with ID" + courseId, e);
-            return new OperationResult(false,
-                    "Unhandled exception");
-        } finally {
-            try {
-                if (courseDAO != null) {
-                    courseDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close CourseDAO");
-            }
-            logger.debug("CourseDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close CourseDAO");
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public OperationResult changeTopic(int courseId, String newTopic) {
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = factory.getCourseDAO();
+        try (CourseDAO courseDAO = factory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.changeTopic(courseId, newTopic);
@@ -129,23 +98,15 @@ public class CourseServiceImpl implements CourseService {
         } catch (DAOException e) {
             logger.error("Can't change status of course", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (courseDAO != null) {
-                    courseDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close CourseDAO");
-            }
-            logger.debug("CourseDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close CourseDAO");
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public OperationResult changeTitle(int courseId, String newTitle) {
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = factory.getCourseDAO();
+        try (CourseDAO courseDAO = factory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.changeTitle(courseId, newTitle);
@@ -154,23 +115,15 @@ public class CourseServiceImpl implements CourseService {
         } catch (DAOException e) {
             logger.error("Can't change status of course", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (courseDAO != null) {
-                    courseDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close CourseDAO");
-            }
-            logger.debug("CourseDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close CourseDAO");
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public OperationResult changeStatus(int courseId, String status) {
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = factory.getCourseDAO();
+        try (CourseDAO courseDAO = factory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
             courseDAO.changeStatus(courseId, status);
@@ -182,42 +135,27 @@ public class CourseServiceImpl implements CourseService {
         } catch (DAOException e) {
             logger.error("Can't change status of course", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (courseDAO != null) {
-                    courseDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close CourseDAO");
-            }
-            logger.debug("CourseDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close CourseDAO");
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public ValuedOperationResult<Iterable<Course>> showAllCourses() {
-        Iterable<Course> result;
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = factory.getCourseDAO();
+        try (CourseDAO courseDAO = factory.getCourseDAO()) {
             logger.debug("CourseDAO created");
 
-            result = courseDAO.showAllCourses();
+            Iterable<Course> result = courseDAO.showAllCourses();
             logger.debug("showAllCourses Method used");
 
             return new ValuedOperationResult<>(true, "List of courses", result);
         } catch (DAOException e) {
             logger.error("Can't show all courses", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
-        } finally {
-            try {
-                if (courseDAO != null) {
-                    courseDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close CourseDAO");
-            }
-            logger.debug("CourseDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close CourseDAO");
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
 }

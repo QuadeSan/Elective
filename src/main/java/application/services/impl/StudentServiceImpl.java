@@ -25,14 +25,11 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public OperationResult createStudent(String login, String password, String email, String name, String lastName) {
-        StudentDAO studentDAO = null;
-        try {
-            studentDAO = daoFactory.getStudentDAO();
+        try (StudentDAO studentDAO = daoFactory.getStudentDAO()) {
             logger.debug("StudentDAO created");
 
             studentDAO.createStudent(login, password, email, name, lastName);
             logger.debug("CreateStudent Method used");
-
 
             return new OperationResult(true, "Account was successfully created!");
         } catch (AlreadyExistException ex) {
@@ -41,27 +38,19 @@ public class StudentServiceImpl implements StudentService {
         } catch (DAOException e) {
             logger.error("Can't create new Student", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (studentDAO != null) {
-                    studentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close StudentDAO", e);
-            }
+        } catch (Exception e) {
+            logger.error("Can't close StudentDAO", e);
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public ValuedOperationResult<Student> findStudent(String login, String password) {
         logger.debug("Start of authorization");
-        Student currentStudent;
-        StudentDAO studentDAO = null;
-        try {
-            studentDAO = daoFactory.getStudentDAO();
+        try (StudentDAO studentDAO = daoFactory.getStudentDAO()) {
             logger.debug("StudentDAO created");
 
-            currentStudent = studentDAO.findStudent(login, password);
+            Student currentStudent = studentDAO.findStudent(login, password);
 
             return new ValuedOperationResult<>(true, "You logged as Student", currentStudent);
         } catch (NotExistException e) {
@@ -72,23 +61,16 @@ public class StudentServiceImpl implements StudentService {
             logger.error("Unhandled exception", e);
             return new ValuedOperationResult<>(false,
                     "Unhandled exception", null);
-        } finally {
-            try {
-                if (studentDAO != null) {
-                    studentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close StudentDAO", e);
-            }
-            logger.debug("StudentDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close StudentDAO", e);
+            return new ValuedOperationResult<>(false,
+                    "Unhandled exception", null);
         }
     }
 
     @Override
     public OperationResult lockStudent(int studentId, String status) {
-        StudentDAO studentDAO = null;
-        try {
-            studentDAO = daoFactory.getStudentDAO();
+        try (StudentDAO studentDAO = daoFactory.getStudentDAO()) {
             logger.debug("StudentDAO created");
 
             studentDAO.changeStatus(studentId, status);
@@ -100,81 +82,54 @@ public class StudentServiceImpl implements StudentService {
         } catch (DAOException e) {
             logger.error("Can't lock student", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (studentDAO != null) {
-                    studentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close StudentDAO");
-            }
-            logger.debug("StudentDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close StudentDAO", e);
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public ValuedOperationResult<Iterable<Student>> showAllStudents() {
-        StudentDAO studentDAO = null;
-        Iterable<Student> result;
-        try {
-            studentDAO = daoFactory.getStudentDAO();
+        try (StudentDAO studentDAO = daoFactory.getStudentDAO()) {
             logger.debug("StudentDAO created");
 
-            result = studentDAO.showAllStudents();
+            Iterable<Student> result = studentDAO.showAllStudents();
             logger.debug("showAllStudents Method used");
 
             return new ValuedOperationResult<>(true, "List of students", result);
         } catch (DAOException e) {
             logger.error("Can't show all students", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
-        } finally {
-            try {
-                if (studentDAO != null) {
-                    studentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close StudentDAO");
-            }
-            logger.debug("StudentDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close StudentDAO", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
 
     @Override
     public ValuedOperationResult<Iterable<Student>> showAllStudents(int offSet, int limit) {
-        StudentDAO studentDAO = null;
-        Iterable<Student> result;
-        try {
-            studentDAO = daoFactory.getStudentDAO();
+        try (StudentDAO studentDAO = daoFactory.getStudentDAO()) {
             logger.debug("StudentDAO created");
 
-            result = studentDAO.showAllStudents(offSet, limit);
+            Iterable<Student> result = studentDAO.showAllStudents(offSet, limit);
             logger.debug("showAllStudents Method used");
 
             return new ValuedOperationResult<>(true, "List of students", result);
         } catch (DAOException e) {
             logger.error("Can't show all students", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
-        } finally {
-            try {
-                if (studentDAO != null) {
-                    studentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close StudentDAO");
-            }
-            logger.debug("StudentDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close StudentDAO", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
 
     @Override
     public ValuedOperationResult<Integer> studentCount() {
-        StudentDAO studentDAO = null;
-        int result;
-        try {
-            studentDAO = daoFactory.getStudentDAO();
+        try (StudentDAO studentDAO = daoFactory.getStudentDAO()) {
             logger.debug("StudentDAO created");
 
-            result = studentDAO.studentCount();
+            int result = studentDAO.studentCount();
             logger.debug("studentCount Method used");
 
             if (result == 0) {
@@ -184,15 +139,9 @@ public class StudentServiceImpl implements StudentService {
         } catch (DAOException e) {
             logger.error("Can't count all students", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", -1);
-        } finally {
-            try {
-                if (studentDAO != null) {
-                    studentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close StudentDAO");
-            }
-            logger.debug("StudentDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close StudentDAO", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", -1);
         }
     }
 }

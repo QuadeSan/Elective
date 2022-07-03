@@ -19,19 +19,17 @@ public class AdministratorServiceImpl implements AdministratorService {
         this(DAOFactory.getInstance());
     }
 
-    public AdministratorServiceImpl(DAOFactory daoFactory){
+    public AdministratorServiceImpl(DAOFactory daoFactory) {
         this.daoFactory = daoFactory;
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
     @Override
     public OperationResult createAdministrator(String login, String password, String email, String name, String lastName) {
-        AdministratorDAO administratorDAO = null;
-        try {
-            administratorDAO = daoFactory.getAdministratorDAO();
+        try (AdministratorDAO administratorDAO = daoFactory.getAdministratorDAO()) {
             logger.debug("AdministratorDAO created");
 
-            administratorDAO.createAdministrator(login, password, email,name,lastName);
+            administratorDAO.createAdministrator(login, password, email, name, lastName);
             logger.debug("CreateAdministrator Method used");
 
             return new OperationResult(true, "Account was successfully created!");
@@ -41,28 +39,20 @@ public class AdministratorServiceImpl implements AdministratorService {
         } catch (DAOException e) {
             logger.error("Can't create new Administrator", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (administratorDAO != null) {
-                    administratorDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AdministratorDAO");
-            }
-            logger.debug("AdministratorDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close AdministratorDAO", e);
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public ValuedOperationResult<Administrator> findAdministrator(String login, String password) {
         logger.debug("Start of authorization");
-        Administrator currentAdmin;
-        AdministratorDAO administratorDAO = null;
-        try {
-            administratorDAO = daoFactory.getAdministratorDAO();
+        try (AdministratorDAO administratorDAO = daoFactory.getAdministratorDAO()) {
+
             logger.debug("AdministratorDAO created");
 
-            currentAdmin = administratorDAO.findAdministrator(login, password);
+            Administrator currentAdmin = administratorDAO.findAdministrator(login, password);
 
             return new ValuedOperationResult<>(true, "You logged as Administrator", currentAdmin);
         } catch (NotExistException e) {
@@ -73,23 +63,16 @@ public class AdministratorServiceImpl implements AdministratorService {
             logger.error("Unhandled exception", e);
             return new ValuedOperationResult<>(false,
                     "Unhandled exception", null);
-        } finally {
-            try {
-                if (administratorDAO != null) {
-                    administratorDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AdministratorDAO");
-            }
-            logger.debug("AdministratorDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close AdministratorDAO", e);
+            return new ValuedOperationResult<>(false,
+                    "Unhandled exception", null);
         }
     }
 
     @Override
     public OperationResult deleteAccount(int userId) {
-        AdministratorDAO administratorDAO = null;
-        try {
-            administratorDAO = daoFactory.getAdministratorDAO();
+        try (AdministratorDAO  administratorDAO = daoFactory.getAdministratorDAO()){
             logger.debug("AdministratorDAO created");
 
             administratorDAO.deleteAccount(userId);
@@ -97,15 +80,9 @@ public class AdministratorServiceImpl implements AdministratorService {
         } catch (DAOException e) {
             logger.error("Can't delete account", e);
             return new OperationResult(false, "Account was not deleted");
-        } finally {
-            try {
-                if (administratorDAO != null) {
-                    administratorDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AdministratorDAO");
-            }
-            logger.debug("AdministratorDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close AdministratorDAO",e);
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 }

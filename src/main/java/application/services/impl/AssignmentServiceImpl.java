@@ -26,9 +26,7 @@ public class AssignmentServiceImpl implements AssignmentService {
 
     @Override
     public OperationResult changeTeacherAssignment(int courseId, int newTeacherId) {
-        AssignmentDAO assignmentDAO = null;
-        try {
-            assignmentDAO = daoFactory.getAssignmentDAO();
+        try (AssignmentDAO assignmentDAO = daoFactory.getAssignmentDAO()) {
             logger.debug("AssignmentDAO created");
 
             assignmentDAO.changeTeacherAssignment(courseId, newTeacherId);
@@ -40,22 +38,15 @@ public class AssignmentServiceImpl implements AssignmentService {
             logger.error("Can't cancel assignment of teacher "
                     + "from course " + courseId, e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (assignmentDAO != null) {
-                    assignmentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AssignmentDAO");
-            }
+        } catch (Exception e) {
+            logger.error("Can't close AssignmentDAO", e);
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public OperationResult assignStudentToCourse(int courseId, int studentId) {
-        AssignmentDAO assignmentDAO = null;
-        try {
-            assignmentDAO = daoFactory.getAssignmentDAO();
+        try (AssignmentDAO assignmentDAO = daoFactory.getAssignmentDAO()) {
             logger.debug("AssignmentDAO created");
 
             assignmentDAO.assignStudentToCourse(courseId, studentId);
@@ -65,23 +56,16 @@ public class AssignmentServiceImpl implements AssignmentService {
         } catch (AlreadyExistException ex) {
             logger.error("Assignment wasn't built");
             return new OperationResult(false, "You are already enrolled in the course");
-        } finally {
-            try {
-                if (assignmentDAO != null) {
-                    assignmentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AssignmentDAO");
-            }
+        } catch (Exception e) {
+            logger.error("Can't close AssignmentDAO", e);
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
 
     @Override
     public OperationResult unassignStudentFromCourse(int courseId, int studentId) {
-        AssignmentDAO assignmentDAO = null;
-        try {
-            assignmentDAO = daoFactory.getAssignmentDAO();
+        try (AssignmentDAO assignmentDAO = daoFactory.getAssignmentDAO()) {
             logger.debug("AssignmentDAO created");
 
             assignmentDAO.unassignStudentFromCourse(courseId, studentId);
@@ -91,25 +75,18 @@ public class AssignmentServiceImpl implements AssignmentService {
             logger.error("Can't cancel assignment of Student "
                     + studentId + "from course " + courseId, e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (assignmentDAO != null) {
-                    assignmentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AssignmentDAO");
-            }
+        } catch (Exception e) {
+            logger.error("Can't close AssignmentDAO", e);
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public ValuedOperationResult<Iterable<Course>> showTeacherCourses(int teacherId) {
-        Iterable<Course> result;
-        AssignmentDAO assignmentDAO = null;
-        try {
-            assignmentDAO = daoFactory.getAssignmentDAO();
+        try (AssignmentDAO assignmentDAO = daoFactory.getAssignmentDAO()) {
             logger.debug("AssignmentDAO created");
-            result = assignmentDAO.showTeacherCourses(teacherId);
+
+            Iterable<Course> result = assignmentDAO.showTeacherCourses(teacherId);
             logger.debug("showTeacherCourses Method used");
 
             return new ValuedOperationResult<>
@@ -117,26 +94,18 @@ public class AssignmentServiceImpl implements AssignmentService {
         } catch (DAOException e) {
             logger.error("Can't show all courses", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
-        } finally {
-            try {
-                if (assignmentDAO != null) {
-                    assignmentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AssignmentDAO");
-            }
+        } catch (Exception e) {
+            logger.error("Can't close AssignmentDAO", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
 
     @Override
     public ValuedOperationResult<Iterable<Course>> showStudentCourses(int studentId) {
-        Iterable<Course> result;
-        AssignmentDAO assignmentDAO = null;
-        try {
-            assignmentDAO = daoFactory.getAssignmentDAO();
+        try (AssignmentDAO assignmentDAO = daoFactory.getAssignmentDAO()) {
             logger.debug("AssignmentDAO created");
 
-            result = assignmentDAO.showStudentCourses(studentId);
+            Iterable<Course> result = assignmentDAO.showStudentCourses(studentId);
             logger.debug("showStudentCourses Method used");
 
             return new ValuedOperationResult<>
@@ -144,26 +113,18 @@ public class AssignmentServiceImpl implements AssignmentService {
         } catch (DAOException e) {
             logger.error("Can't show all courses", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
-        } finally {
-            try {
-                if (assignmentDAO != null) {
-                    assignmentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AssignmentDAO");
-            }
+        } catch (Exception e) {
+            logger.error("Can't close AssignmentDAO", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
 
     @Override
     public ValuedOperationResult<Iterable<Student>> showJournal(int courseId) {
-        Iterable<Student> result;
-        AssignmentDAO assignmentDAO = null;
-        try {
-            assignmentDAO = daoFactory.getAssignmentDAO();
+        try (AssignmentDAO assignmentDAO = daoFactory.getAssignmentDAO()) {
             logger.debug("AssignmentDAO created");
 
-            result = assignmentDAO.showStudentsOnCourse(courseId);
+            Iterable<Student> result = assignmentDAO.showStudentsOnCourse(courseId);
             logger.debug("showStudentsOnCourses Method used");
 
             return new ValuedOperationResult<>
@@ -171,22 +132,15 @@ public class AssignmentServiceImpl implements AssignmentService {
         } catch (DAOException e) {
             logger.error("Can't show all students", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
-        } finally {
-            try {
-                if (assignmentDAO != null) {
-                    assignmentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AssignmentDAO");
-            }
+        } catch (Exception e) {
+            logger.error("Can't close AssignmentDAO", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
 
     @Override
     public OperationResult setMarkForStudent(int courseID, int studentId, int mark) {
-        AssignmentDAO assignmentDAO = null;
-        try {
-            assignmentDAO = daoFactory.getAssignmentDAO();
+        try (AssignmentDAO assignmentDAO = daoFactory.getAssignmentDAO()) {
             logger.debug("AssignmentDAO created");
 
             assignmentDAO.setMarkForStudent(courseID, studentId, mark);
@@ -196,14 +150,9 @@ public class AssignmentServiceImpl implements AssignmentService {
         } catch (DAOException e) {
             logger.error("Can't set mark for current student", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (assignmentDAO != null) {
-                    assignmentDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close AssignmentDAO");
-            }
+        } catch (Exception e) {
+            logger.error("Can't close AssignmentDAO", e);
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 }

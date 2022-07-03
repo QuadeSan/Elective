@@ -136,6 +136,7 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
             logger.error("Can't close connection");
             throw new DAOException(ex);
         }
+        logger.debug("AdministratorDAO was closed");
     }
 
     /**

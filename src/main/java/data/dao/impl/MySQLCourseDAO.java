@@ -234,6 +234,7 @@ public class MySQLCourseDAO implements CourseDAO {
         } else {
             throw new DAOException("Connection was not created");
         }
+        logger.debug("CourseDAO was closed");
     }
 
     /**

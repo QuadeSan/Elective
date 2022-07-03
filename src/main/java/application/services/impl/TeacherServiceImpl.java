@@ -25,9 +25,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public OperationResult createTeacher(String login, String password, String email, String name, String lastName) {
-        TeacherDAO teacherDAO = null;
-        try {
-            teacherDAO = daoFactory.getTeacherDAO();
+        try (TeacherDAO teacherDAO = daoFactory.getTeacherDAO()) {
             logger.debug("TeacherDAO created");
 
             teacherDAO.createTeacher(login, password, email, name, lastName);
@@ -40,28 +38,19 @@ public class TeacherServiceImpl implements TeacherService {
         } catch (DAOException e) {
             logger.error("Can't create new teacher", e);
             return new OperationResult(false, "Unhandled exception");
-        } finally {
-            try {
-                if (teacherDAO != null) {
-                    teacherDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close TeacherDAO");
-            }
-            logger.debug("TeacherDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close TeacherDAO");
+            return new OperationResult(false, "Unhandled exception");
         }
     }
 
     @Override
     public ValuedOperationResult<Teacher> findTeacher(String login, String password) {
         logger.debug("Start of authorization");
-        Teacher currentTeacher;
-        TeacherDAO teacherDAO = null;
-        try {
-            teacherDAO = daoFactory.getTeacherDAO();
+        try (TeacherDAO teacherDAO = daoFactory.getTeacherDAO()) {
             logger.debug("TeacherDAO created");
 
-            currentTeacher = teacherDAO.findTeacher(login, password);
+            Teacher currentTeacher = teacherDAO.findTeacher(login, password);
 
             return new ValuedOperationResult<>(true, "You logged as Teacher", currentTeacher);
         } catch (NotExistException e) {
@@ -70,44 +59,28 @@ public class TeacherServiceImpl implements TeacherService {
                     "Teacher with login = " + login + " does not exist", null);
         } catch (DAOException e) {
             logger.error("Unhandled exception", e);
-            return new ValuedOperationResult<>(false,
-                    "Unhandled exception", null);
-        } finally {
-            try {
-                if (teacherDAO != null) {
-                    teacherDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close TeacherDAO");
-            }
-            logger.debug("TeacherDAO was closed");
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
+        } catch (Exception e) {
+            logger.error("Can't close TeacherDAO");
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
 
     @Override
     public ValuedOperationResult<Iterable<Teacher>> showAllTeachers() {
-        TeacherDAO teacherDAO = null;
-        Iterable<Teacher> result;
-        try {
-            teacherDAO = daoFactory.getTeacherDAO();
+        try (TeacherDAO teacherDAO = daoFactory.getTeacherDAO()) {
             logger.debug("TeacherDAO created");
 
-            result = teacherDAO.showAllTeachers();
+            Iterable<Teacher> result = teacherDAO.showAllTeachers();
             logger.debug("showAllTeachers Method used");
 
             return new ValuedOperationResult<>(true, "List of teachers", result);
         } catch (DAOException e) {
             logger.error("Can't show all teachers", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
-        } finally {
-            try {
-                if (teacherDAO != null) {
-                    teacherDAO.close();
-                }
-            } catch (Exception e) {
-                logger.error("Can't close TeacherDAO");
-            }
-            logger.debug("TeacherDAO was closed");
+        } catch (Exception e) {
+            logger.error("Can't close TeacherDAO");
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
 }
