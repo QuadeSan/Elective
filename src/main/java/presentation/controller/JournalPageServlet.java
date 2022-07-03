@@ -1,5 +1,6 @@
 package presentation.controller;
 
+import application.OperationResult;
 import application.ValuedOperationResult;
 import application.entity.Student;
 import application.services.AssignmentService;
@@ -80,7 +81,12 @@ public class JournalPageServlet extends HttpServlet {
         int mark = Integer.parseInt(req.getParameter("mark"));
 
         logger.debug("Going to set mark for course #" + courseID + " for student with ID " + studentID);
-        assignmentService.setMarkForStudent(courseID, studentID, mark);
+        OperationResult operationResult = assignmentService.setMarkForStudent(courseID, studentID, mark);
+        if (!operationResult.isSuccess()) {
+            session.setAttribute("errorMessage", operationResult.getMessage());
+            resp.sendRedirect("error");
+            return;
+        }
         resp.sendRedirect("journal");
     }
 }

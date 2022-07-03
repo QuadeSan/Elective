@@ -80,6 +80,8 @@ public interface AssignmentService {
      * @param courseId  - ID of current course
      * @param studentId - ID of student to change current mark
      * @param mark      - new mark for student
+     * @return {@link OperationResult} entity which contain
+     * success boolean and high-level error message if method fails
      */
-    void setMarkForStudent(int courseId, int studentId, int mark);
+    OperationResult setMarkForStudent(int courseId, int studentId, int mark);
 }

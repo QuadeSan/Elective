@@ -16,7 +16,11 @@ public class AssignmentServiceImpl implements AssignmentService {
     private final DAOFactory daoFactory;
 
     public AssignmentServiceImpl() {
-        this.daoFactory = DAOFactory.getInstance();
+        this(DAOFactory.getInstance());
+    }
+
+    public AssignmentServiceImpl(DAOFactory daoFactory) {
+        this.daoFactory = daoFactory;
         logger.debug("DAOFactory created => " + daoFactory);
     }
 
@@ -28,10 +32,10 @@ public class AssignmentServiceImpl implements AssignmentService {
             logger.debug("AssignmentDAO created");
 
             assignmentDAO.changeTeacherAssignment(courseId, newTeacherId);
-            return new OperationResult(true, "Teacher new teacher was assigned to course");
+            return new OperationResult(true, "New teacher was assigned to course");
         } catch (NotExistException e) {
             logger.error("Teacher with id " + newTeacherId + " does not exist");
-            return new OperationResult(false, "Teacher with id " + newTeacherId + " does not exist");
+            return new OperationResult(false, "Teacher with ID = " + newTeacherId + " does not exist");
         } catch (DAOException e) {
             logger.error("Can't cancel assignment of teacher "
                     + "from course " + courseId, e);
@@ -57,10 +61,10 @@ public class AssignmentServiceImpl implements AssignmentService {
             assignmentDAO.assignStudentToCourse(courseId, studentId);
 
             logger.info("Student " + studentId + " was assigned to course" + courseId);
-            return new OperationResult(true, "You was assigned to course " + courseId);
+            return new OperationResult(true, "You joined course # " + courseId);
         } catch (AlreadyExistException ex) {
             logger.error("Assignment wasn't built");
-            return new OperationResult(false, "You have been already assigned to this course");
+            return new OperationResult(false, "You are already enrolled in the course");
         } finally {
             try {
                 if (assignmentDAO != null) {
@@ -82,7 +86,7 @@ public class AssignmentServiceImpl implements AssignmentService {
 
             assignmentDAO.unassignStudentFromCourse(courseId, studentId);
             logger.info("Student " + studentId + " left the course # " + courseId);
-            return new OperationResult(true, "Student was unassigned from course");
+            return new OperationResult(true, "You left the course");
         } catch (DAOException e) {
             logger.error("Can't cancel assignment of Student "
                     + studentId + "from course " + courseId, e);
@@ -136,7 +140,7 @@ public class AssignmentServiceImpl implements AssignmentService {
             logger.debug("showStudentCourses Method used");
 
             return new ValuedOperationResult<>
-                    (true, "list of courses of student " + studentId, result);
+                    (true, "List of courses of student " + studentId, result);
         } catch (DAOException e) {
             logger.error("Can't show all courses", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
@@ -163,7 +167,7 @@ public class AssignmentServiceImpl implements AssignmentService {
             logger.debug("showStudentsOnCourses Method used");
 
             return new ValuedOperationResult<>
-                    (true, "List of students on course " + courseId, result);
+                    (true, "List of students on course # " + courseId, result);
         } catch (DAOException e) {
             logger.error("Can't show all students", e);
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
@@ -179,7 +183,7 @@ public class AssignmentServiceImpl implements AssignmentService {
     }
 
     @Override
-    public void setMarkForStudent(int courseID, int studentId, int mark) {
+    public OperationResult setMarkForStudent(int courseID, int studentId, int mark) {
         AssignmentDAO assignmentDAO = null;
         try {
             assignmentDAO = daoFactory.getAssignmentDAO();
@@ -187,8 +191,11 @@ public class AssignmentServiceImpl implements AssignmentService {
 
             assignmentDAO.setMarkForStudent(courseID, studentId, mark);
             logger.debug("setMarkForStudent Method used");
+            return new OperationResult(true,
+                    "Student # " + studentId + " got mark " + mark + " for course # " + courseID);
         } catch (DAOException e) {
             logger.error("Can't set mark for current student", e);
+            return new OperationResult(false, "Unhandled exception");
         } finally {
             try {
                 if (assignmentDAO != null) {
