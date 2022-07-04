@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="myLib" tagdir="/WEB-INF/tags" %>
 <html>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
@@ -102,74 +103,7 @@
             </div>
        </div>
        <div class="tools">
-         <c:if test="${userRole != 'Admin'}">
-         <h2> <fmt:message key='account_page.my_courses'/> </h2> <br>
-         <c:if test="${empty currentUser.courses}">
-         <div class="myCourses">
-         <fmt:message key='account_page.no_courses'/>
-         </div>
-         </c:if>
-         <c:if test="${not empty currentUser.courses}">
-          <table class="courseTable">
-            <thead>
-              <tr>
-              <th id="courseHead" class="num" aria-sort="ascending">
-                <button> <fmt:message key='courses_page.course_id'/>
-                <span aria-hidden="true"></span>
-                </button>
-                </th>
-              <th id="courseHead">
-                <button> <fmt:message key='courses_page.topic'/>
-                <span aria-hidden="true"></span>
-                </button>
-              </th>
-              <th id="courseHead">
-                <button> <fmt:message key='courses_page.title'/>
-                <span aria-hidden="true"></span>
-                </button>
-              </th>
-              <th id="courseHead">
-                 <button> <fmt:message key='courses_page.status'/>
-                 <span aria-hidden="true"></span>
-                 </button>
-              </th>
-              <c:if test="${userRole == 'Student'}">
-              <th id="courseHead">
-                 <fmt:message key='account_page.course_mark'/>
-              </th>
-              <th id="courseHead">
-                  <fmt:message key='account_page.course_quit'/>
-              </th>
-              </c:if>
-              <c:if test="${userRole == 'Teacher'}">
-              <th id="courseHead">
-                  <fmt:message key='account_page.course_journal'/>
-              </th>
-              </c:if>
-              </tr>
-            </thead>
-            <tbody>
-               <c:forEach items="${currentUser.courses}" var="course">
-                 <tr class="courseBody">
-                 <td class="num"> ${course.courseID} </td>
-                 <td> ${course.topic} </td>
-                 <td> ${course.title} </td>
-                 <td> ${course.status} </td>
-               <c:if test="${userRole == 'Student'}">
-                 <td> ${course.mark} </td>
-                 <td> <a class="ablack" href="account?course_id=${course.courseID}" onclick="return confirmAlert()"> <fmt:message key='account_page.course_quit.link'/> </a> </td>
-               </c:if>
-               <c:if test="${userRole == 'Teacher'}">
-                 <td>
-                    <a class="ablack" href="journal?viewedCourse=${course.courseID}"> <fmt:message key='account_page.course_journal.link'/> </a>
-                 </td>
-               </c:if>
-                 </tr>
-               </c:forEach>
-            </tbody>
-          </table>
-       </c:if>
-       </c:if>
+         <myLib:courseList role="${userRole}" courses="${currentUser.courses}"/>
        </div>
     </div>
     <footer>

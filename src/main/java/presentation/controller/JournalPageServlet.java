@@ -41,11 +41,6 @@ public class JournalPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doGet of /journal with forward to journal.jsp");
         HttpSession session = req.getSession();
-        if (req.getParameter("viewedCourse") == null) {
-            session.setAttribute("errorMessage", "Unexpected error, you need to choose course ID");
-            resp.sendRedirect("error");
-            return;
-        }
         if (req.getParameter("viewedCourse") != null) {
             int courseID = Integer.parseInt(req.getParameter("viewedCourse"));
             logger.debug("Trying to find all students on course #" + courseID);
