@@ -1,6 +1,7 @@
 package application.services.impl;
 
 import application.OperationResult;
+import application.PasswordHashing;
 import application.ValuedOperationResult;
 import application.dao.*;
 import application.entity.Teacher;
@@ -24,7 +25,10 @@ public class TeacherServiceImpl implements TeacherService {
         try (TeacherDAO teacherDAO = daoFactory.getTeacherDAO()) {
             logger.debug("TeacherDAO created");
 
-            teacherDAO.createTeacher(login, password, email, name, lastName);
+            String strongPassword = PasswordHashing.createStrongPassword(password);
+            logger.debug("Strong password created");
+
+            teacherDAO.createTeacher(login, strongPassword, email, name, lastName);
             logger.debug("CreateTeacher Method used");
 
             return new OperationResult(true, "Account was successfully created!");
@@ -41,13 +45,17 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public ValuedOperationResult<Teacher> findTeacher(String login, String password) {
+    public ValuedOperationResult<Teacher> authorizeTeacher(String login, String password) {
         logger.debug("Start of authorization");
         try (TeacherDAO teacherDAO = daoFactory.getTeacherDAO()) {
             logger.debug("TeacherDAO created");
 
-            Teacher currentTeacher = teacherDAO.findTeacher(login, password);
+            Teacher currentTeacher = teacherDAO.findTeacher(login);
 
+            boolean match = PasswordHashing.validatePassword(password,currentTeacher.getPassword());
+            if (!match) {
+                return new ValuedOperationResult<>(false, "Wrong password", null);
+            }
             return new ValuedOperationResult<>(true, "You logged as Teacher", currentTeacher);
         } catch (NotExistException e) {
             logger.error("Can't authorize as Teacher");

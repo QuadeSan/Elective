@@ -25,14 +25,13 @@ public interface StudentDAO extends AutoCloseable {
 
     /**
      * @param login    - login value from users table
-     * @param password - password value from users table.
      * @return {@link Student} entity for authorization
      * Student contain studentID, userID, name,
      * lastName, status, login, password, email fields
      * @throws NotExistException - if there are no users with current
      *                           combination of login and password.
      */
-    Student findStudent(String login, String password) throws NotExistException;
+    Student findStudent(String login) throws NotExistException;
 
     /**
      * Updating status of current student

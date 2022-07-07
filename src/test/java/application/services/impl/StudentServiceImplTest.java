@@ -1,14 +1,16 @@
 package application.services.impl;
 
 import application.OperationResult;
+import application.PasswordHashing;
 import application.ValuedOperationResult;
 import application.dao.*;
-import application.entity.Administrator;
 import application.entity.Student;
-import data.dao.impl.MySQLAdministratorDAO;
 import data.dao.impl.MySQLStudentDAO;
 import org.junit.Test;
 import org.mockito.AdditionalMatchers;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -70,17 +72,37 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void successOperationResultWhenTryingToLoginAsAStudentWithRightCredentials() {
+    public void successOperationResultWhenTryingToLoginAsAStudentWithRightCredentials() throws NoSuchAlgorithmException, InvalidKeySpecException {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         DAOFactory.setInstance(daoFactoryMock);
         StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
+        Student studentMock = mock(Student.class);
         StudentServiceImpl studentService = new StudentServiceImpl();
 
+        doReturn(PasswordHashing.createStrongPassword("rightPass")).when(studentMock).getPassword();
         doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
-        doReturn(new Student()).when(studentDAOMock).findStudent(eq("rightLogin"), eq("rightPass"));
+        doReturn(studentMock).when(studentDAOMock).findStudent(eq("rightLogin"));
 
-        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(true, "You logged as Student", new Student());
-        ValuedOperationResult<Student> actual = studentService.findStudent("rightLogin", "rightPass");
+        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(true, "You logged as Student", studentMock);
+        ValuedOperationResult<Student> actual = studentService.authorizeStudent("rightLogin", "rightPass");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void failedOperationResultWhenTryingToLoginAsAStudentWithWrongPassword() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
+        Student studentMock = mock(Student.class);
+        StudentServiceImpl studentService = new StudentServiceImpl();
+
+        doReturn(PasswordHashing.createStrongPassword("rightPass")).when(studentMock).getPassword();
+        doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
+        doReturn(studentMock).when(studentDAOMock).findStudent(eq("rightLogin"));
+
+        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Wrong password", null);
+        ValuedOperationResult<Student> actual = studentService.authorizeStudent("rightLogin", "wrongPass");
 
         assertEquals(expected, actual);
     }
@@ -93,11 +115,11 @@ public class StudentServiceImplTest {
         StudentServiceImpl studentService = new StudentServiceImpl();
 
         doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
-        doThrow(NotExistException.class).when(studentDAOMock).findStudent(eq("wrongLogin"), eq("wrongPass"));
+        doThrow(NotExistException.class).when(studentDAOMock).findStudent(eq("wrongLogin"));
 
         ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Student with login = " +
                 "wrongLogin does not exist", null);
-        ValuedOperationResult<Student> actual = studentService.findStudent("wrongLogin", "wrongPass");
+        ValuedOperationResult<Student> actual = studentService.authorizeStudent("wrongLogin", "anyPass");
 
         assertEquals(expected, actual);
     }
@@ -110,10 +132,10 @@ public class StudentServiceImplTest {
         StudentServiceImpl studentService = new StudentServiceImpl();
 
         doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
-        doThrow(DAOException.class).when(studentDAOMock).findStudent(any(), any());
+        doThrow(DAOException.class).when(studentDAOMock).findStudent(any());
 
         ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Unhandled exception", null);
-        ValuedOperationResult<Student> actual = studentService.findStudent("anyLogin", "anyPassword");
+        ValuedOperationResult<Student> actual = studentService.authorizeStudent("anyLogin", "anyPassword");
 
         assertEquals(expected, actual);
     }
@@ -308,7 +330,7 @@ public class StudentServiceImplTest {
     }
 
     @Test
-    public void failedOperationResultWhenServiceCanNotCloseDAOInFindStudentMethod() throws Exception {
+    public void failedOperationResultWhenServiceCanNotCloseDAOInAuthorizeStudentMethod() throws Exception {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         DAOFactory.setInstance(daoFactoryMock);
         StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
@@ -318,7 +340,7 @@ public class StudentServiceImplTest {
         doThrow(Exception.class).when(studentDAOMock).close();
 
         ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Unhandled exception", null);
-        ValuedOperationResult<Student> actual = studentService.findStudent("anyLogin", "anyPassword");
+        ValuedOperationResult<Student> actual = studentService.authorizeStudent("anyLogin", "anyPassword");
 
         assertEquals(expected, actual);
     }

@@ -76,21 +76,20 @@ public class MySQLStudentDAO implements StudentDAO {
         }
     }
 
-    public Student findStudent(String login, String password) throws NotExistException {
+    public Student findStudent(String login) throws NotExistException {
         Student currentStudent = new Student();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             stmt = con.prepareStatement("SELECT students.student_id, students.user_id, students.name, students.last_name, students.status, " +
                     "users.login, users.password, users.email FROM students " +
-                    "JOIN users ON users.user_id=students.user_id WHERE users.login =? AND users.password =?");
+                    "JOIN users ON users.user_id=students.user_id WHERE users.login =?");
             int k = 1;
             stmt.setString(k++, login);
-            stmt.setString(k++, password);
             rs = stmt.executeQuery();
             if (!rs.next()) {
-                logger.error("Student with login= " + login + " and password= " + password + " does not exist");
-                throw new NotExistException("Can't find student with Login = " + login + "and Password = " + password);
+                logger.error("Student with login= " + login + " does not exist");
+                throw new NotExistException("Can't find student with Login = " + login);
             } else {
                 currentStudent.setStudentID(rs.getInt("student_id"));
                 currentStudent.setUserID(rs.getInt("user_id"));

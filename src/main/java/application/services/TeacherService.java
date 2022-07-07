@@ -7,7 +7,7 @@ import application.entity.Teacher;
 /**
  * Business logic service, which work with
  * {@link Teacher} entities
- * {@link #findTeacher(String, String) Find student} is
+ * {@link #authorizeTeacher(String, String) Find student} is
  * method for authorization as a teacher
  */
 public interface TeacherService {
@@ -31,7 +31,7 @@ public interface TeacherService {
      * to set current user in session on success
      * and high-level error message if method fails
      */
-    ValuedOperationResult<Teacher> findTeacher(String login, String password);
+    ValuedOperationResult<Teacher> authorizeTeacher(String login, String password);
 
     /**
      * @return {@link ValuedOperationResult} entity which contain

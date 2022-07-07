@@ -63,7 +63,7 @@ public class MainPageServlet extends HttpServlet {
         String password = req.getParameter("psw");
 
         HttpSession session = req.getSession();
-        ValuedOperationResult<Student> operationResultS = studentService.findStudent(login, password);
+        ValuedOperationResult<Student> operationResultS = studentService.authorizeStudent(login, password);
         if (operationResultS.isSuccess()) {
             session.setAttribute("currentUser", operationResultS.getResult());
             session.setAttribute("userRole", "Student");
@@ -72,7 +72,7 @@ public class MainPageServlet extends HttpServlet {
             return;
         }
         logger.info("Student was not found");
-        ValuedOperationResult<Teacher> operationResultT = teacherService.findTeacher(login, password);
+        ValuedOperationResult<Teacher> operationResultT = teacherService.authorizeTeacher(login, password);
         if (operationResultT.isSuccess()) {
             session.setAttribute("currentUser", operationResultT.getResult());
             session.setAttribute("userRole", "Teacher");
@@ -81,7 +81,7 @@ public class MainPageServlet extends HttpServlet {
             return;
         }
         logger.info("Teacher was not found");
-        ValuedOperationResult<Administrator> operationResultA = administratorService.findAdministrator(login, password);
+        ValuedOperationResult<Administrator> operationResultA = administratorService.authorizeAdministrator(login, password);
         if (operationResultA.isSuccess()) {
             session.setAttribute("currentUser", operationResultA.getResult());
             session.setAttribute("userRole", "Admin");

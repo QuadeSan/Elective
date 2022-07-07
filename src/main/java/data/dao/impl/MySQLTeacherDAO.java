@@ -77,21 +77,20 @@ public class MySQLTeacherDAO implements TeacherDAO {
     }
 
     @Override
-    public Teacher findTeacher(String login, String password) throws NotExistException {
+    public Teacher findTeacher(String login) throws NotExistException {
         Teacher currentTeacher = new Teacher();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             stmt = con.prepareStatement("SELECT teachers.teacher_id, teachers.user_id, teachers.name, teachers.last_name, " +
                     "users.login, users.password, users.email FROM teachers " +
-                    "JOIN users ON users.user_id=teachers.user_id WHERE users.login =? AND users.password =?");
+                    "JOIN users ON users.user_id=teachers.user_id WHERE users.login =?");
             int k = 1;
             stmt.setString(k++, login);
-            stmt.setString(k++, password);
             rs = stmt.executeQuery();
             if (!rs.next()) {
                 logger.error("Teacher with login = " + login + " does not exist");
-                throw new NotExistException("Can't find teacher with login= " + login + " and password= " + password);
+                throw new NotExistException("Can't find teacher with login= " + login);
             } else {
                 currentTeacher.setTeacherID(rs.getInt("teacher_id"));
                 currentTeacher.setUserID(rs.getInt("user_id"));

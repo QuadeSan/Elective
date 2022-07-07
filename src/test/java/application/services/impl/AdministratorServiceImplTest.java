@@ -1,11 +1,15 @@
 package application.services.impl;
 
 import application.OperationResult;
+import application.PasswordHashing;
 import application.ValuedOperationResult;
 import application.dao.*;
 import application.entity.Administrator;
 import data.dao.impl.MySQLAdministratorDAO;
 import org.junit.Test;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -67,17 +71,37 @@ public class AdministratorServiceImplTest {
     }
 
     @Test
-    public void successOperationResultWhenTryingToLoginAsAnAdministratorWithRightCredentials() {
+    public void successOperationResultWhenTryingToLoginAsAnAdministratorWithRightCredentials() throws NoSuchAlgorithmException, InvalidKeySpecException {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         DAOFactory.setInstance(daoFactoryMock);
         AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
+        Administrator administratorMock = mock(Administrator.class);
         AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
+        doReturn(PasswordHashing.createStrongPassword("rightPass")).when(administratorMock).getPassword();
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
-        doReturn(new Administrator()).when(administratorDAOMock).findAdministrator(eq("rightLogin"), eq("rightPass"));
+        doReturn(administratorMock).when(administratorDAOMock).findAdministrator(eq("rightLogin"));
 
-        ValuedOperationResult<Administrator> expected = new ValuedOperationResult<>(true, "You logged as Administrator", new Administrator());
-        ValuedOperationResult<Administrator> actual = administratorService.findAdministrator("rightLogin", "rightPass");
+        ValuedOperationResult<Administrator> expected = new ValuedOperationResult<>(true, "You logged as Administrator", administratorMock);
+        ValuedOperationResult<Administrator> actual = administratorService.authorizeAdministrator("rightLogin", "rightPass");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void failedOperationResultWhenTryingToLoginAsAnAdministratorWithWrongPassword() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        AdministratorDAO administratorDAOMock = mock(MySQLAdministratorDAO.class);
+        Administrator administratorMock = mock(Administrator.class);
+        AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
+
+        doReturn(PasswordHashing.createStrongPassword("rightPass")).when(administratorMock).getPassword();
+        doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
+        doReturn(administratorMock).when(administratorDAOMock).findAdministrator(eq("rightLogin"));
+
+        ValuedOperationResult<Administrator> expected = new ValuedOperationResult<>(false, "Wrong password", null);
+        ValuedOperationResult<Administrator> actual = administratorService.authorizeAdministrator("rightLogin", "wrongPass");
 
         assertEquals(expected, actual);
     }
@@ -90,11 +114,11 @@ public class AdministratorServiceImplTest {
         AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
-        doThrow(NotExistException.class).when(administratorDAOMock).findAdministrator(eq("wrongLogin"), eq("wrongPass"));
+        doThrow(NotExistException.class).when(administratorDAOMock).findAdministrator(eq("wrongLogin"));
 
         ValuedOperationResult<Administrator> expected = new ValuedOperationResult<>(false, "Administrator with login = " +
                 "wrongLogin does not exist", null);
-        ValuedOperationResult<Administrator> actual = administratorService.findAdministrator("wrongLogin", "wrongPass");
+        ValuedOperationResult<Administrator> actual = administratorService.authorizeAdministrator("wrongLogin", "anyPass");
 
         assertEquals(expected, actual);
     }
@@ -107,10 +131,10 @@ public class AdministratorServiceImplTest {
         AdministratorServiceImpl administratorService = new AdministratorServiceImpl();
 
         doReturn(administratorDAOMock).when(daoFactoryMock).getAdministratorDAO();
-        doThrow(DAOException.class).when(administratorDAOMock).findAdministrator(any(), any());
+        doThrow(DAOException.class).when(administratorDAOMock).findAdministrator(any());
 
         ValuedOperationResult<Administrator> expected = new ValuedOperationResult<>(false, "Unhandled exception", null);
-        ValuedOperationResult<Administrator> actual = administratorService.findAdministrator("anyLogin", "anyPass");
+        ValuedOperationResult<Administrator> actual = administratorService.authorizeAdministrator("anyLogin", "anyPass");
 
         assertEquals(expected, actual);
     }
@@ -191,7 +215,7 @@ public class AdministratorServiceImplTest {
         doThrow(Exception.class).when(administratorDAOMock).close();
 
         ValuedOperationResult<Administrator> expected = new ValuedOperationResult<>(false, "Unhandled exception", null);
-        ValuedOperationResult<Administrator> actual = administratorService.findAdministrator("anyLogin", "anyPassword");
+        ValuedOperationResult<Administrator> actual = administratorService.authorizeAdministrator("anyLogin", "anyPassword");
 
         assertEquals(expected, actual);
     }

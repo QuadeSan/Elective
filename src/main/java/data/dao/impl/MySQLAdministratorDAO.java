@@ -78,21 +78,20 @@ public class MySQLAdministratorDAO implements AdministratorDAO {
     }
 
     @Override
-    public Administrator findAdministrator(String login, String password) {
+    public Administrator findAdministrator(String login) {
         Administrator currentAdmin = new Administrator();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             stmt = con.prepareStatement("SELECT administrators.administrator_id, administrators.user_id, administrators.name, administrators.last_name, " +
                     "users.login, users.password, users.email FROM administrators " +
-                    "JOIN users ON users.user_id=administrators.user_id WHERE users.login =? AND users.password =?");
+                    "JOIN users ON users.user_id=administrators.user_id WHERE users.login =?");
             int k = 1;
             stmt.setString(k++, login);
-            stmt.setString(k++, password);
             rs = stmt.executeQuery();
             if (!rs.next()) {
-                logger.error("Administrator with login " + login + " and password " + password + " does not exist");
-                throw new NotExistException("Can't find administrator with Login = " + login + "and Password = " + password);
+                logger.error("Administrator with login " + login + " does not exist");
+                throw new NotExistException("Can't find administrator with Login = " + login);
             } else {
                 currentAdmin.setAdministratorID(rs.getInt("administrator_id"));
                 currentAdmin.setUserID(rs.getInt("user_id"));

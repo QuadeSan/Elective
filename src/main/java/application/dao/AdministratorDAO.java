@@ -23,14 +23,13 @@ public interface AdministratorDAO extends AutoCloseable {
 
     /**
      * @param login    - login value from users table
-     * @param password - password value from users table.
      * Administrator contain administratorID, userID, name,
      * lastName, login, password, email fields
      * @return {@link Administrator} entity for authorization
      * @throws NotExistException - if there are no users with current
      *                           combination of login and password.
      */
-    Administrator findAdministrator(String login, String password) throws NotExistException;
+    Administrator findAdministrator(String login) throws NotExistException;
 
     /**
      * Delete a row in user table

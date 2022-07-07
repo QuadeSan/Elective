@@ -23,14 +23,13 @@ public interface TeacherDAO extends AutoCloseable {
 
     /**
      * @param login    - login value from users table
-     * @param password - password value from users table.
      * @return {@link Teacher} entity for authorization
      * Teacher contain teacherID, userID, name,
      * lastName, status, login, password, email fields
      * @throws NotExistException - if there are no users with current
      *                           combination of login and password.
      */
-    Teacher findTeacher(String login, String password) throws NotExistException;
+    Teacher findTeacher(String login) throws NotExistException;
 
     /**
      * @return Iterable of {@link Teacher} entities

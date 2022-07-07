@@ -7,7 +7,7 @@ import application.entity.Student;
 /**
  * Business logic service, which work with
  * {@link Student} entities
- * {@link #findStudent(String, String) Find student} is
+ * {@link #authorizeStudent(String, String) Find student} is
  * method for authorization as a student
  */
 public interface StudentService {
@@ -31,7 +31,7 @@ public interface StudentService {
      * to set current user in session on success
      * and high-level error message if method fails
      */
-    ValuedOperationResult<Student> findStudent(String login, String password);
+    ValuedOperationResult<Student> authorizeStudent(String login, String password);
 
     /**
      * Method used by administrator to change

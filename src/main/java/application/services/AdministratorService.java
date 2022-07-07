@@ -31,7 +31,7 @@ public interface AdministratorService {
      * to set current user in session on success
      * and high-level error message if method fails
      */
-    ValuedOperationResult<Administrator> findAdministrator(String login, String password);
+    ValuedOperationResult<Administrator> authorizeAdministrator(String login, String password);
 
     /**
      * Method used for deleting all users, no matter for current role

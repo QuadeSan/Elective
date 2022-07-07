@@ -1,6 +1,7 @@
 package application.services.impl;
 
 import application.OperationResult;
+import application.PasswordHashing;
 import application.ValuedOperationResult;
 import application.dao.*;
 import application.entity.Student;
@@ -24,7 +25,10 @@ public class StudentServiceImpl implements StudentService {
         try (StudentDAO studentDAO = daoFactory.getStudentDAO()) {
             logger.debug("StudentDAO created");
 
-            studentDAO.createStudent(login, password, email, name, lastName);
+            String strongPassword = PasswordHashing.createStrongPassword(password);
+            logger.debug("Strong password created");
+
+            studentDAO.createStudent(login, strongPassword, email, name, lastName);
             logger.debug("CreateStudent Method used");
 
             return new OperationResult(true, "Account was successfully created!");
@@ -41,13 +45,17 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public ValuedOperationResult<Student> findStudent(String login, String password) {
+    public ValuedOperationResult<Student> authorizeStudent(String login, String password) {
         logger.debug("Start of authorization");
         try (StudentDAO studentDAO = daoFactory.getStudentDAO()) {
             logger.debug("StudentDAO created");
 
-            Student currentStudent = studentDAO.findStudent(login, password);
+            Student currentStudent = studentDAO.findStudent(login);
 
+            boolean match = PasswordHashing.validatePassword(password,currentStudent.getPassword());
+            if (!match) {
+                return new ValuedOperationResult<>(false, "Wrong password", null);
+            }
             return new ValuedOperationResult<>(true, "You logged as Student", currentStudent);
         } catch (NotExistException e) {
             logger.error("Can't authorize as student");
