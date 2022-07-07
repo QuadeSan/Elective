@@ -18,6 +18,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.top-corner {
+   position:absolute;
+   top:0;
+   right:0;
+}
+
 header {
     width: 100%;
     background-color: #000;
@@ -54,10 +60,27 @@ footer {
     padding: 15px;
 }
 
+#right-side{
+    margin-left:auto;
+    visibility: hidden;
+}
+
+#change-locale {
+    position: relative;
+}
+
+#locale {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 #hellouser {
+    margin-left: 100px;
     padding: 15px;
     color: #FFFFFF;
-    margin-left: auto;
 }
 
 #logoutbtn {
@@ -178,6 +201,10 @@ textarea {
  width: 75%;
 }
 
+input.account-field {
+ width: 75%;
+}
+
 label {
  display: block;
 }
@@ -248,12 +275,100 @@ label {
 
 /* Edit page style */
 
+/* Admin dropdown */
+
+.dropbtn {
+  border: none;
+  cursor: pointer;
+  margin:0;
+  padding:0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+}
+
+.dropdown-content a {
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  background-color: #000000;
+  display: block;
+}
 
 /* Admin panel */
 .tools {
   width: 100%;
   text-align: center;
 }
+
+.lockbtn {
+  width: 125px;
+  margin-bottom: auto;
+}
+.toolbtn {
+  width: auto;
+  margin-left: 10px;
+}
+
+.adminCourseTable {
+  width: 75%;
+  text-align: center;
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom:20px;
+}
+
+.editCourseTable {
+   width: 40%;
+   text-align: center;
+   border: 2px solid #000000;
+   border-collapse: collapse;
+   margin: auto;
+   margin-top:20px;
+}
+
+.teacher-form {
+   border: 1px solid #000000;
+   clear:left;
+   width: 35%;
+   margin: auto;
+}
+
+#prevbtn {
+  width: 150px;
+}
+
+#nextbtn {
+  width: 150px;
+}
+
+#fakebtn {
+  margin-left: 25px;
+  margin-right: 25px;
+  width: 125px;
+  pointer-events: none;
+}
+
+#fakescrollbtn {
+  width: 150px;
+  pointer-events: none;
+  background-color: gray;
+}
+
+#abutton {
+  display: inline-block;
+}
+
 
 /* Courses page */
 
@@ -277,11 +392,13 @@ label {
   border-bottom: 1px solid #000000;
 }
 
-table.courseTable th {
+table.courseTable th,
+table.adminCourseTable th {
   position:relative;
 }
 
-table.courseTable th button {
+table.courseTable th button,
+table.adminCourseTable th button{
   padding: 4px;
   margin: 1px;
   color: #000000;
@@ -298,27 +415,30 @@ table.courseTable th button {
   cursor: pointer;
 }
 
-table.courseTable th button span {
+table.courseTable th button span,
+table.adminCourseTable th button span {
   position: absolute;
   right: 4px;
 }
 
-table.courseTable th[aria-sort="descending"] span::after {
-  content: "▼";
+table.courseTable th[aria-sort="descending"] span::after,
+table.adminCourseTable th[aria-sort="descending"] span::after{
+  content: "\25BC";
   color: currentcolor;
   font-size: 100%;
   top: 0;
 }
 
-table.courseTable th[aria-sort="ascending"] span::after {
-  content: "▲";
+table.courseTable th[aria-sort="ascending"] span::after,
+table.adminCourseTable th[aria-sort="ascending"] span::after{
+  content: "\25B2";
   color: currentcolor;
   font-size: 100%;
   top: 0;
 }
 
 table.show-unsorted-icon th:not([aria-sort]) button span::after {
-  content: "♢";
+  content: "\2662";
   color: currentcolor;
   font-size: 100%;
   position: relative;
@@ -328,9 +448,41 @@ table.show-unsorted-icon th:not([aria-sort]) button span::after {
 
 
 table.courseTable th:not([aria-sort]) button:focus span::after,
-table.courseTable th:not([aria-sort]) button:hover span::after {
-  content: "▼";
+table.courseTable th:not([aria-sort]) button:hover span::after,
+table.adminCourseTable th:not([aria-sort]) button:focus span::after,
+table.adminCourseTable th:not([aria-sort]) button:hover span::after {
+  content: "\25BC";
   color: currentcolor;
   font-size: 100%;
   top: 0;
+}
+
+#filterInput {
+  width:50%;
+}
+
+/* Journal */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#mark {
+    margin-bottom: auto;
+    width: 75px;
+}
+
+.markbtn {
+    width: auto;
+    margin-bottom: auto;
+}
+
+
+/* Validation style */
+
+small {
+  display: block;
+  color: red;
 }

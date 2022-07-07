@@ -35,8 +35,7 @@
         </form>
         </div>
         <div id="hellouser">
-        <fmt:message key='header.hello'/>, <a class="ahead" href="account">${currentUser.login}</a>
-        <c:if test="${userRole == 'guest'}"> <fmt:message key='header.guest'/> </c:if> !
+        <customLib:hello login="${currentUser.login}" locale="${currentLocale}"/>
         </div>
         <c:if test="${userRole != 'guest'}">
             <div id="logoutbtn"><a class="ahead" href="logout"><fmt:message key='header.logout'/></a></div>

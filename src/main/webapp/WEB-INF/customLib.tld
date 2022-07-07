@@ -10,11 +10,16 @@
 
     <tag>
         <name>hello</name>
-        <tag-class>HelloTag</tag-class>
+        <tag-class>presentation.HelloTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>login</name>
             <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>locale</name>
+            <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
