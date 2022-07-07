@@ -1,11 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="customLib" uri="http://Elective" %>
 <html>
-    <meta charset="UTF-8">
+<head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
     <script type="text/javascript" src="tablescripts.js"></script>
+</head>
 <body>
 <c:set var="lastpage" value="toolseditcourse" scope="session" />
     <header>

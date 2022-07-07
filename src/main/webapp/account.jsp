@@ -2,10 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="myLib" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="customLib" uri="http://Elective" %>
 <html>
+<head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
     <script type="text/javascript" src="tablescripts.js"></script>
+</head>
 <body>
 <c:set var="lastpage" value="account" scope="session" />
     <header>
