@@ -12,6 +12,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
 
+/**
+ * Class used to check if database exist.
+ * Method {@link #initializeDataBase(ServletContextEvent) initialization} check if
+ * database exist and create a new database with main admin account if not
+ */
 public class DataBaseInitialize {
     private static final Logger logger = LogManager.getLogger(DataBaseInitialize.class);
 
@@ -21,7 +26,7 @@ public class DataBaseInitialize {
     static {
         try {
             Class.forName(DRIVER_NAME);
-            System.out.println("Driver loaded");
+            logger.debug("Driver " + DRIVER_NAME + " loaded");
         } catch (Exception e) {
             logger.error("Error: " + e);
         }
@@ -78,7 +83,7 @@ public class DataBaseInitialize {
 
     private static void insertMainAdmin() {
         AdministratorService administratorService = new AdministratorServiceImpl();
-        administratorService.createAdministrator("admin", "pass", "admin@gmail.com", "Admin", "Mainovsky");
+        administratorService.createAdministrator("mainadmin", "mainpass", "admin@gmail.com", "Admin", "Mainovsky");
     }
 
     private static boolean dataBaseExist() {
