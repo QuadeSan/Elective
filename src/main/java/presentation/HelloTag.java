@@ -20,6 +20,15 @@ public class HelloTag extends SimpleTagSupport {
     @Override
     public void doTag() throws JspException, IOException {
         String welcomeMessage;
+        if (locale.equals("")) {
+            if (login == null || login.equals("")) {
+                welcomeMessage = "Hello, guest !";
+            } else {
+                welcomeMessage = "Hello, " + login + " !";
+            }
+            getJspContext().getOut().print(welcomeMessage);
+            return;
+        }
         if (locale.equals("en")) {
             if (login == null || login.equals("")) {
                 welcomeMessage = "Hello, guest !";

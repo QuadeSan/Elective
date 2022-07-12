@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ attribute name="role" required="true" %>
-<%@ attribute name="courses" required="true" type="java.lang.Iterable" %>
 
 <c:if test="${role != 'Admin'}">
          <h2> <fmt:message key='account_page.my_courses'/> </h2> <br>
@@ -50,7 +49,7 @@
               </tr>
             </thead>
             <tbody>
-               <c:forEach items="${courses}" var="course">
+               <c:forEach items="${currentUser.courses}" var="course">
                  <tr class="courseBody">
                  <td class="num"> ${course.courseID} </td>
                  <td> ${course.topic} </td>

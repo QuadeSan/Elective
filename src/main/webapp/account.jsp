@@ -105,7 +105,7 @@
             </div>
        </div>
        <div class="tools">
-         <myLib:courseList role="${userRole}" courses="${currentUser.courses}"/>
+         <myLib:courseList role="${userRole}"/>
        </div>
     </div>
     <footer>
