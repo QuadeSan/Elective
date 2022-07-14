@@ -42,13 +42,13 @@ public class AdminToolsCoursesPageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.debug("doGet of /toolscourses with forward to toolscourses.jsp");
+        logger.debug("doGet of /toolscourses with forward to toolsCourses.jsp");
         HttpSession session = req.getSession();
         ValuedOperationResult<Iterable<Course>> operationResult = courseService.showAllCourses();
         if (operationResult.isSuccess()) {
             logger.info("List of courses " + operationResult.hashCode());
             session.setAttribute("allCoursesList", operationResult.getResult());
-            req.getRequestDispatcher("toolscourses.jsp").forward(req, resp);
+            req.getRequestDispatcher("toolsCourses.jsp").forward(req, resp);
         } else {
             session.setAttribute("errorMessage", operationResult.getMessage());
             resp.sendRedirect("error.jsp");
@@ -57,7 +57,7 @@ public class AdminToolsCoursesPageServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.debug("doPost of /toolscourses with redirect to toolscourses.jsp");
+        logger.debug("doPost of /toolscourses with redirect to toolsCourses.jsp");
         switch (req.getParameter("adminAction")) {
             case "createCourse":
                 logger.debug("Creating course process started");

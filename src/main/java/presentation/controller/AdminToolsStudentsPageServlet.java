@@ -37,7 +37,7 @@ public class AdminToolsStudentsPageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.debug("doGet of /toolsstudents with forward to toolsstudents.jsp");
+        logger.debug("doGet of /toolsstudents with forward to toolsStudents.jsp");
 
         int currentPage = 1;
         int limit = 5;
@@ -63,7 +63,7 @@ public class AdminToolsStudentsPageServlet extends HttpServlet {
         if (operationResult.isSuccess()) {
             logger.info("List of students " + operationResult.hashCode());
             session.setAttribute("allStudentsList", operationResult.getResult());
-            req.getRequestDispatcher("toolsstudents.jsp").forward(req, resp);
+            req.getRequestDispatcher("toolsStudents.jsp").forward(req, resp);
         } else {
             session.setAttribute("errorMessage", operationResult.getMessage());
             resp.sendRedirect("error.jsp");
@@ -72,7 +72,7 @@ public class AdminToolsStudentsPageServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.debug("doPost of /toolsstudents with redirect to toolsstudents.jsp");
+        logger.debug("doPost of /toolsstudents with redirect to toolsStudents.jsp");
 
         int studentID = Integer.parseInt(req.getParameter("student_id"));
         String status = req.getParameter("status");

@@ -42,7 +42,7 @@ public class AdminToolsEditCoursePageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.debug("doGet of /toolseditcourse with forward to toolseditcourse.jsp");
+        logger.debug("doGet of /toolseditcourse with forward to toolsEditCourse.jsp");
 
         HttpSession session = req.getSession();
 
@@ -53,7 +53,7 @@ public class AdminToolsEditCoursePageServlet extends HttpServlet {
             return;
         }
         session.setAttribute("teachers", operationResult.getResult());
-        req.getRequestDispatcher("toolseditcourse.jsp").forward(req, resp);
+        req.getRequestDispatcher("toolsEditCourse.jsp").forward(req, resp);
     }
 
     @Override

@@ -33,8 +33,8 @@ public class AdminToolsTeacherPageServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.debug("doGet of /toolsteacher with forward to toolsteacher.jsp");
-        req.getRequestDispatcher("toolsteacher.jsp").forward(req, resp);
+        logger.debug("doGet of /toolsteacher with forward to toolsTeacher.jsp");
+        req.getRequestDispatcher("toolsTeacher.jsp").forward(req, resp);
     }
 
     @Override
