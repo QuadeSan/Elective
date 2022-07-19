@@ -111,6 +111,40 @@ public class MySQLStudentDAO implements StudentDAO {
     }
 
     @Override
+    public Student findStudent(int userId) {
+        Student currentStudent = new Student();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("SELECT students.student_id, students.user_id, students.name, students.last_name, students.status, " +
+                    "users.login, users.password, users.email FROM students " +
+                    "JOIN users ON users.user_id=students.user_id WHERE users.user_id =?");
+            stmt.setInt(1, userId);
+            rs = stmt.executeQuery();
+            if (!rs.next()) {
+                logger.error("Can't find student with ID " + userId);
+                throw new DAOException("Can't find student with ID " + userId);
+            } else {
+                currentStudent.setStudentID(rs.getInt("student_id"));
+                currentStudent.setUserID(rs.getInt("user_id"));
+                currentStudent.setName(rs.getString("name"));
+                currentStudent.setLastName(rs.getString("last_name"));
+                currentStudent.setStatus(rs.getString("status"));
+                currentStudent.setLogin(rs.getString("login"));
+                currentStudent.setPassword(rs.getString("password"));
+                currentStudent.setEmail(rs.getString("email"));
+                return currentStudent;
+            }
+        } catch (SQLException ex) {
+            logger.error("Can't execute findStudent query", ex);
+            throw new DAOException(ex);
+        } finally {
+            close(rs);
+            close(stmt);
+        }
+    }
+
+    @Override
     public Iterable<Student> showAllStudents() {
         Collection<Student> students = new ArrayList<>();
         PreparedStatement stmt = null;
@@ -203,6 +237,96 @@ public class MySQLStudentDAO implements StudentDAO {
             }
         } catch (SQLException ex) {
             logger.debug("Can't execute change status query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updateLogin(int userId, String newLogin) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE users SET login=? WHERE user_id=?");
+            int k = 1;
+            stmt.setString(k++, newLogin);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (java.sql.SQLIntegrityConstraintViolationException ex) {
+            logger.debug("AlreadyExistException catch clause " + ex);
+            throw new AlreadyExistException("Login already exist", ex);
+        } catch (SQLException ex) {
+            logger.debug("Can't execute update login query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updateEmail(int userId, String newEmail) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE users SET email=? WHERE user_id=?");
+            int k = 1;
+            stmt.setString(k++, newEmail);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute update email query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updatePassword(int userId, String newPassword) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE users SET password=? WHERE user_id=?");
+            int k = 1;
+            stmt.setString(k++, newPassword);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute change password query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updateName(int userId, String newName) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE students " +
+                    "JOIN users ON students.user_id = users.user_id SET name=? WHERE users.user_id=?");
+            int k = 1;
+            stmt.setString(k++, newName);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute change name query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updateLastName(int userId, String newLastName) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE students " +
+                    "JOIN users ON students.user_id = users.user_id SET last_name=? WHERE users.user_id=?");
+            int k = 1;
+            stmt.setString(k++, newLastName);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute change last name query");
             throw new DAOException(ex);
         } finally {
             close(stmt);

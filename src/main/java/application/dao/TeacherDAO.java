@@ -32,8 +32,46 @@ public interface TeacherDAO extends AutoCloseable {
     Teacher findTeacher(String login) throws NotExistException;
 
     /**
+     * @param userId - student_id value from students table
+     * @return {@link Teacher} entity
+     * Student contain teacherID, userID, login, email, name, lastName fields
+     */
+    Teacher findTeacher(int userId);
+
+    /**
      * @return Iterable of {@link Teacher} entities
      * Each Teacher contain studentID, userID, name, lastName fields
      */
     Iterable<Teacher> showAllTeachers();
+
+    /**
+     * @param userId    - id of user
+     * @param newLogin  - new value of login
+     * @throws AlreadyExistException - if there is user with same login
+     */
+    void updateLogin(int userId, String newLogin) throws AlreadyExistException;
+
+    /**
+     * @param userId    - id of user
+     * @param newEmail  - new value of email
+     */
+    void updateEmail(int userId, String newEmail);
+
+    /**
+     * @param userId        - id of user
+     * @param newPassword   - new value of password
+     */
+    void updatePassword(int userId, String newPassword);
+
+    /**
+     * @param userId    - id of user
+     * @param newName   - new value of name
+     */
+    void updateName(int userId, String newName);
+
+    /**
+     * @param userId        - id of user
+     * @param newLastName   - new value of last name
+     */
+    void updateLastName(int userId, String newLastName);
 }

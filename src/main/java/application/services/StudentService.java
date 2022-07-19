@@ -70,4 +70,21 @@ public interface StudentService {
      * for pagination realization and high-level error message if method fails
      */
     ValuedOperationResult<Integer> studentCount();
+
+    /**
+     * Method for editing account information
+     * if any parameter is blank it stay unchanged
+     *
+     * @param userId      - value of userID field of current entity
+     * @param newLogin    - new login value
+     * @param newEmail    - new email value
+     * @param newPassword - new password value
+     * @param newName     - new name value
+     * @param newLastName - new last name value
+     * @return {@link ValuedOperationResult} entity which contain
+     * success boolean and {@link Student} entity as a result
+     * to set current user in session on success
+     * and high-level error message if method fails
+     */
+    ValuedOperationResult<Student> editAccount(int userId, String newLogin, String newEmail, String newPassword, String newName, String newLastName);
 }

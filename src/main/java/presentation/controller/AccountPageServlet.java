@@ -2,13 +2,18 @@ package presentation.controller;
 
 import application.OperationResult;
 import application.ValuedOperationResult;
+import application.entity.Administrator;
 import application.entity.Course;
 import application.entity.Student;
 import application.entity.Teacher;
 import application.services.AdministratorService;
 import application.services.AssignmentService;
+import application.services.StudentService;
+import application.services.TeacherService;
 import application.services.impl.AdministratorServiceImpl;
 import application.services.impl.AssignmentServiceImpl;
+import application.services.impl.StudentServiceImpl;
+import application.services.impl.TeacherServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,6 +41,8 @@ public class AccountPageServlet extends HttpServlet {
     private static final Logger logger = LogManager.getLogger(AccountPageServlet.class);
     private AssignmentService assignmentService;
     private AdministratorService administratorService;
+    private StudentService studentService;
+    private TeacherService teacherService;
 
     @Override
     public void init() throws ServletException {
@@ -43,6 +50,10 @@ public class AccountPageServlet extends HttpServlet {
         logger.debug("AssignmentService was created");
         administratorService = new AdministratorServiceImpl();
         logger.debug("AdministratorService was created");
+        studentService = new StudentServiceImpl();
+        logger.debug("StudentService was created");
+        teacherService = new TeacherServiceImpl();
+        logger.debug("TeacherService was created");
     }
 
     @Override
@@ -69,9 +80,59 @@ public class AccountPageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("doPost of /account with forward to account.jsp");
-
-        if (req.getParameter("user-id") != null) {
+        if (req.getParameter("account-action").equals("edit")) {
+            editAccount(req, resp);
+            return;
+        }
+        if (req.getParameter("account-action").equals("delete")) {
             deleteAccount(req, resp);
+            return;
+        }
+        resp.sendRedirect("account");
+    }
+
+    private void editAccount(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession session = req.getSession();
+        int userId = Integer.parseInt(req.getParameter("user-id"));
+        String newLogin = req.getParameter("login");
+        String newEmail = req.getParameter("email");
+        String newPassword = req.getParameter("psw");
+        String newPasswordRep = req.getParameter("psw-repeat");
+        String newName = req.getParameter("name");
+        String newLastName = req.getParameter("last-name");
+        if (!newPassword.equals(newPasswordRep)) {
+            session.setAttribute("errorMessage", "Passwords does not match");
+            resp.sendRedirect("editaccount");
+            return;
+        }
+        String role = (String) session.getAttribute("userRole");
+        switch (role) {
+            case "Student":
+                ValuedOperationResult<Student> studentOperationResult = studentService.editAccount(userId, newLogin, newEmail, newPassword, newName, newLastName);
+                if (!studentOperationResult.isSuccess()) {
+                    session.setAttribute("errorMessage", studentOperationResult.getMessage());
+                    resp.sendRedirect("editaccount");
+                    return;
+                }
+                session.setAttribute("currentUser", studentOperationResult.getResult());
+                break;
+            case "Teacher":
+                ValuedOperationResult<Teacher> teacherOperationResult = teacherService.editAccount(userId, newLogin, newEmail, newPassword, newName, newLastName);
+                if (!teacherOperationResult.isSuccess()) {
+                    session.setAttribute("errorMessage", teacherOperationResult.getMessage());
+                    resp.sendRedirect("editaccount");
+                    return;
+                }
+                session.setAttribute("currentUser", teacherOperationResult.getResult());
+                break;
+            case "Admin":
+                ValuedOperationResult<Administrator> adminOperationResult = administratorService.editAccount(userId, newLogin, newEmail, newPassword, newName, newLastName);
+                if (!adminOperationResult.isSuccess()) {
+                    session.setAttribute("errorMessage", adminOperationResult.getMessage());
+                    resp.sendRedirect("editaccount");
+                    return;
+                }
+                session.setAttribute("currentUser", adminOperationResult.getResult());
         }
         resp.sendRedirect("account");
     }

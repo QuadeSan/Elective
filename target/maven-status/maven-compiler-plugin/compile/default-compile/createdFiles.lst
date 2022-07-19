@@ -48,6 +48,7 @@ application\dao\CourseDAO.class
 presentation\controller\RegisterPageServlet.class
 presentation\controller\AdminToolsCoursesPageServlet.class
 application\OperationResult.class
+presentation\DataBaseInitialize.class
 presentation\controller\JournalPageServlet.class
 presentation\controller\HomePageServlet.class
 presentation\controller\MainPageServlet.class

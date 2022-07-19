@@ -54,7 +54,7 @@ public class AdministratorServiceImpl implements AdministratorService {
 
             Administrator currentAdmin = administratorDAO.findAdministrator(login);
 
-            boolean match = PasswordHashing.validatePassword(password,currentAdmin.getPassword());
+            boolean match = PasswordHashing.validatePassword(password, currentAdmin.getPassword());
             if (!match) {
                 return new ValuedOperationResult<>(false, "Wrong password", null);
             }
@@ -76,7 +76,7 @@ public class AdministratorServiceImpl implements AdministratorService {
 
     @Override
     public OperationResult deleteAccount(int userId) {
-        try (AdministratorDAO  administratorDAO = daoFactory.getAdministratorDAO()){
+        try (AdministratorDAO administratorDAO = daoFactory.getAdministratorDAO()) {
             logger.debug("AdministratorDAO created");
 
             administratorDAO.deleteAccount(userId);
@@ -85,8 +85,60 @@ public class AdministratorServiceImpl implements AdministratorService {
             logger.error("Can't delete account", e);
             return new OperationResult(false, "Account was not deleted");
         } catch (Exception e) {
-            logger.error("Can't close AdministratorDAO",e);
+            logger.error("Can't close AdministratorDAO", e);
             return new OperationResult(false, "Unhandled exception");
+        }
+    }
+
+    @Override
+    public ValuedOperationResult<Administrator> editAccount(int userId, String newLogin, String newEmail, String newPassword, String newName, String newLastName) {
+        try (AdministratorDAO administratorDAO = daoFactory.getAdministratorDAO()) {
+            logger.debug("AdministratorDAO created");
+            StringBuilder whatChanged = new StringBuilder();
+
+            if (!newLogin.equals("")) {
+                administratorDAO.updateLogin(userId, newLogin);
+                whatChanged.append("Login, ");
+                logger.debug("updateLogin method used");
+            }
+
+            if (!newEmail.equals("")) {
+                administratorDAO.updateEmail(userId, newEmail);
+                whatChanged.append("Email, ");
+                logger.debug("updateEmail method used");
+            }
+
+            if (!newPassword.equals("")) {
+                String newStrongPassword = PasswordHashing.createStrongPassword(newPassword);
+                administratorDAO.updatePassword(userId, newStrongPassword);
+                whatChanged.append("Password, ");
+                logger.debug("updatePassword method used");
+            }
+
+            if(!newName.equals("")){
+                administratorDAO.updateName(userId,newName);
+                whatChanged.append("Name, ");
+                logger.debug("updateName method used");
+            }
+
+            if(!newLastName.equals("")){
+                administratorDAO.updateLastName(userId,newLastName);
+                whatChanged.append("Last name, ");
+                logger.debug("updateLastName method used");
+            }
+            whatChanged.append("was changed");
+
+            Administrator currentAdmin = administratorDAO.findAdministrator(userId);
+            return new ValuedOperationResult<>(true, whatChanged.toString(),currentAdmin);
+        } catch (AlreadyExistException e) {
+            logger.error("Login already exist", e);
+            return new ValuedOperationResult<>(false, "Login already exist",null);
+        } catch (DAOException e) {
+            logger.error("Can't edit account", e);
+            return new ValuedOperationResult<>(false, "Account information was not changed",null);
+        } catch (Exception e) {
+            logger.error("Can't close AdministratorDAO", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception",null);
         }
     }
 }

@@ -249,6 +249,60 @@ public class StudentServiceImplTest {
     }
 
     @Test
+    public void successfulOperationResultAfterEditingAccountWhenAllFieldsExist() {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
+        Student studentMock = mock(Student.class);
+        StudentServiceImpl studentService = new StudentServiceImpl();
+
+        doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
+        doNothing().when(studentDAOMock).updateLogin(any(Integer.class), any());
+        doNothing().when(studentDAOMock).updateEmail(any(Integer.class), any());
+        doNothing().when(studentDAOMock).updatePassword(any(Integer.class), any());
+        doNothing().when(studentDAOMock).updateName(any(Integer.class), any());
+        doNothing().when(studentDAOMock).updateLastName(any(Integer.class), any());
+        doReturn(studentMock).when(studentDAOMock).findStudent(any(Integer.class));
+
+        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(true, "Login, Email, Password, Name, Last name, was changed", studentMock);
+        ValuedOperationResult<Student> actual = studentService.editAccount(1, "anyNewLogin", "anyEmail", "anyPassword", "anyName", "anyLastName");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void failedOperationResultAfterEditingAccountWhenNewLoginAlreadyExist() {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
+        StudentServiceImpl studentService = new StudentServiceImpl();
+
+        doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
+        doThrow(AlreadyExistException.class).when(studentDAOMock).updateLogin(any(Integer.class), eq("newExistedLogin"));
+
+        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Login already exist", null);
+        ValuedOperationResult<Student> actual = studentService.editAccount(1, "newExistedLogin", "anyEmail", "anyPassword", "anyName", "anyLastName");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void failedOperationResultWhenEditingAccountAndDAOExceptionThrown() {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
+        StudentServiceImpl studentService = new StudentServiceImpl();
+
+        doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
+        doThrow(DAOException.class).when(studentDAOMock).updateLogin(any(Integer.class), any());
+
+        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Account information was not changed", null);
+        ValuedOperationResult<Student> actual = studentService.editAccount(1, "anyLogin", "anyEmail", "anyPassword", "anyName", "anyLastName");
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void failedOperationResultWhenUsingShowAllStudentsWithLimitMethodAndDAOExceptionThrown() {
         DAOFactory daoFactoryMock = mock(DAOFactory.class);
         DAOFactory.setInstance(daoFactoryMock);
@@ -405,6 +459,22 @@ public class StudentServiceImplTest {
 
         ValuedOperationResult<Integer> expected = new ValuedOperationResult<>(false, "Unhandled exception", -1);
         ValuedOperationResult<Integer> actual = studentService.studentCount();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void failedOperationResultWhenServiceCanNotCloseDAOInEditAccountMethod() throws Exception {
+        DAOFactory daoFactoryMock = mock(DAOFactory.class);
+        DAOFactory.setInstance(daoFactoryMock);
+        StudentDAO studentDAOMock = mock(MySQLStudentDAO.class);
+        StudentServiceImpl studentService = new StudentServiceImpl();
+
+        doReturn(studentDAOMock).when(daoFactoryMock).getStudentDAO();
+        doThrow(Exception.class).when(studentDAOMock).close();
+
+        ValuedOperationResult<Student> expected = new ValuedOperationResult<>(false, "Unhandled exception", null);
+        ValuedOperationResult<Student> actual = studentService.editAccount(1, "anyLogin", "anyEmail", "anyPassword", "anyName", "anyLastName");
 
         assertEquals(expected, actual);
     }

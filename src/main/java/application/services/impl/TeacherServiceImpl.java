@@ -52,7 +52,7 @@ public class TeacherServiceImpl implements TeacherService {
 
             Teacher currentTeacher = teacherDAO.findTeacher(login);
 
-            boolean match = PasswordHashing.validatePassword(password,currentTeacher.getPassword());
+            boolean match = PasswordHashing.validatePassword(password, currentTeacher.getPassword());
             if (!match) {
                 return new ValuedOperationResult<>(false, "Wrong password", null);
             }
@@ -87,4 +87,58 @@ public class TeacherServiceImpl implements TeacherService {
             return new ValuedOperationResult<>(false, "Unhandled exception", null);
         }
     }
+
+    @Override
+    public ValuedOperationResult<Teacher> editAccount(int userId, String newLogin, String newEmail, String newPassword, String newName, String newLastName) {
+        try (TeacherDAO teacherDAO = daoFactory.getTeacherDAO()) {
+            logger.debug("AdministratorDAO created");
+            StringBuilder whatChanged = new StringBuilder();
+
+            if (!newLogin.equals("")) {
+                teacherDAO.updateLogin(userId, newLogin);
+                whatChanged.append("Login, ");
+                logger.debug("updateLogin method used");
+            }
+
+            if (!newEmail.equals("")) {
+                teacherDAO.updateEmail(userId, newEmail);
+                whatChanged.append("Email, ");
+                logger.debug("updateEmail method used");
+            }
+
+            if (!newPassword.equals("")) {
+                String newStrongPassword = PasswordHashing.createStrongPassword(newPassword);
+                teacherDAO.updatePassword(userId, newStrongPassword);
+                whatChanged.append("Password, ");
+                logger.debug("updatePassword method used");
+            }
+
+            if (!newName.equals("")) {
+                teacherDAO.updateName(userId, newName);
+                whatChanged.append("Name, ");
+                logger.debug("updateName method used");
+            }
+
+            if (!newLastName.equals("")) {
+                teacherDAO.updateLastName(userId, newLastName);
+                whatChanged.append("Last name, ");
+                logger.debug("updateLastName method used");
+            }
+            whatChanged.append("was changed");
+
+            Teacher currentTeacher = teacherDAO.findTeacher(userId);
+
+            return new ValuedOperationResult<>(true, whatChanged.toString(), currentTeacher);
+        } catch (AlreadyExistException e) {
+            logger.error("Login already exist", e);
+            return new ValuedOperationResult<>(false, "Login already exist", null);
+        } catch (DAOException e) {
+            logger.error("Can't edit account", e);
+            return new ValuedOperationResult<>(false, "Account information was not changed", null);
+        } catch (Exception e) {
+            logger.error("Can't close StudentDAO", e);
+            return new ValuedOperationResult<>(false, "Unhandled exception", null);
+        }
+    }
+
 }

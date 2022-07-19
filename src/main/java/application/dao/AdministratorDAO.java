@@ -32,13 +32,47 @@ public interface AdministratorDAO extends AutoCloseable {
     Administrator findAdministrator(String login) throws NotExistException;
 
     /**
+     * @param userId - student_id value from students table
+     * @return {@link Administrator} entity
+     * Administrator contain administratorID, userID, login, email, name, lastName fields
+     */
+    Administrator findAdministrator(int userId);
+
+    /**
      * Delete a row in user table
      *
      * @param userId - id of user for delete.
      */
     void deleteAccount(int userId);
 
-//    void changeLogin(int userId, String newLogin);
-//
-//    void changePassword(int userId, String newPassword);
+    /**
+     * @param userId    - id of user
+     * @param newLogin  - new value of login
+     * @throws AlreadyExistException - if there is user with same login
+     */
+    void updateLogin(int userId, String newLogin) throws AlreadyExistException;
+
+    /**
+     * @param userId    - id of user
+     * @param newEmail  - new value of email
+     */
+    void updateEmail(int userId, String newEmail);
+
+    /**
+     * @param userId        - id of user
+     * @param newPassword   - new value of email
+     */
+    void updatePassword(int userId, String newPassword);
+
+    /**
+     * @param userId    - id of user
+     * @param newName   - new value of name
+     */
+    void updateName(int userId, String newName);
+
+    /**
+     * @param userId        - id of user
+     * @param newLastName   - new value of last name
+     */
+    void updateLastName(int userId, String newLastName);
 }

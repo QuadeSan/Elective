@@ -1,73 +1,273 @@
-2022-07-07 12:13:27.866 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:31)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
-2022-07-07 12:13:27.895 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:34)] - DAOFactory was set to MySQL implementation
-2022-07-07 12:13:27.896 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:46)] - Locales list {uk=[Українська], en=[English]}
-2022-07-07 12:13:34.104 DEBUG [http-nio-8080-exec-2] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@54c7cd22
-2022-07-07 12:13:34.105 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
-2022-07-07 12:13:34.106 DEBUG [http-nio-8080-exec-2] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:19)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@54c7cd22
-2022-07-07 12:13:34.106 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
-2022-07-07 12:13:34.107 DEBUG [http-nio-8080-exec-2] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@54c7cd22
-2022-07-07 12:13:34.107 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
-2022-07-07 12:13:34.112 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 12:13:36.803 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
-2022-07-07 12:13:36.803 DEBUG [http-nio-8080-exec-4] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@54c7cd22
-2022-07-07 12:13:36.803 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
-2022-07-07 12:13:36.803 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
-2022-07-07 12:13:39.483 DEBUG [http-nio-8080-exec-5] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
-2022-07-07 12:13:39.483 DEBUG [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:49)] - Start of authorization
-2022-07-07 12:13:39.483 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
-2022-07-07 12:13:39.489 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@6f5fa871
-2022-07-07 12:13:39.489 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:13:40.097 DEBUG [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:51)] - StudentDAO created
-2022-07-07 12:13:40.113 DEBUG [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:54)] - Strong password for validation created
-2022-07-07 12:13:40.199 ERROR [http-nio-8080-exec-5] [data.dao.impl.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:92)] - Student with login= asd and password= 1000:88bdbe3883b97494171fb11e33ad22b9841a63343832be57:ae1b1e5a6aa7203afb5c3cab4aa3d1c1b77f3f3122301278 does not exist
-2022-07-07 12:13:40.200 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:218)] - connection was closed
-2022-07-07 12:13:40.200 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:223)] - StudentDAO was closed
-2022-07-07 12:13:40.201 ERROR [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:60)] - Can't authorize as student
-2022-07-07 12:13:40.202 INFO [http-nio-8080-exec-5] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:74)] - Student was not found
-2022-07-07 12:13:40.202 DEBUG [http-nio-8080-exec-5] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:45)] - Start of authorization
-2022-07-07 12:13:40.202 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLDAOFactory.getTeacherDAO(MySQLDAOFactory.java:37)] - MySQLTeacherDAO created
-2022-07-07 12:13:40.203 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:13:40.204 DEBUG [http-nio-8080-exec-5] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:47)] - TeacherDAO created
-2022-07-07 12:13:40.209 ERROR [http-nio-8080-exec-5] [data.dao.impl.MySQLTeacherDAO.findTeacher(MySQLTeacherDAO.java:93)] - Teacher with login = asd does not exist
-2022-07-07 12:13:40.210 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLTeacherDAO.close(MySQLTeacherDAO.java:145)] - connection was closed
-2022-07-07 12:13:40.210 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLTeacherDAO.close(MySQLTeacherDAO.java:153)] - TeacherDAO was closed
-2022-07-07 12:13:40.210 ERROR [http-nio-8080-exec-5] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:53)] - Can't authorize as Teacher
-2022-07-07 12:13:40.210 INFO [http-nio-8080-exec-5] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:83)] - Teacher was not found
-2022-07-07 12:13:40.210 DEBUG [http-nio-8080-exec-5] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:46)] - Start of authorization
-2022-07-07 12:13:40.211 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
-2022-07-07 12:13:40.212 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:13:40.212 DEBUG [http-nio-8080-exec-5] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:49)] - AdministratorDAO created
-2022-07-07 12:13:40.216 ERROR [http-nio-8080-exec-5] [data.dao.impl.MySQLAdministratorDAO.findAdministrator(MySQLAdministratorDAO.java:94)] - Administrator with login asd and password asd does not exist
-2022-07-07 12:13:40.217 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:134)] - connection was closed
-2022-07-07 12:13:40.217 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:139)] - AdministratorDAO was closed
-2022-07-07 12:13:40.217 ERROR [http-nio-8080-exec-5] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:55)] - Can't authorize as administrator
-2022-07-07 12:13:40.220 DEBUG [http-nio-8080-exec-6] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
-2022-07-07 12:30:47.093 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:31)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
-2022-07-07 12:30:47.105 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:34)] - DAOFactory was set to MySQL implementation
-2022-07-07 12:30:47.106 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:46)] - Locales list {uk=[Українська], en=[English]}
-2022-07-07 12:30:55.700 DEBUG [http-nio-8080-exec-1] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7e17b24f
-2022-07-07 12:30:55.701 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
-2022-07-07 12:30:55.702 DEBUG [http-nio-8080-exec-1] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:19)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7e17b24f
-2022-07-07 12:30:55.702 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
-2022-07-07 12:30:55.703 DEBUG [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7e17b24f
-2022-07-07 12:30:55.704 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
-2022-07-07 12:30:55.707 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
-2022-07-07 12:30:55.708 DEBUG [http-nio-8080-exec-1] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:49)] - Start of authorization
-2022-07-07 12:30:55.709 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
-2022-07-07 12:30:55.714 DEBUG [http-nio-8080-exec-1] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@436c26f0
-2022-07-07 12:30:55.714 DEBUG [http-nio-8080-exec-1] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:30:56.145 DEBUG [http-nio-8080-exec-1] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:51)] - StudentDAO created
-2022-07-07 12:30:56.187 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:252)] - connection was closed
-2022-07-07 12:30:56.187 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:257)] - StudentDAO was closed
-2022-07-07 12:30:56.187 ERROR [http-nio-8080-exec-1] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:69)] - Can't close StudentDAO
-java.lang.NumberFormatException: For input string: "asd"
-	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[?:?]
-	at java.lang.Integer.parseInt(Integer.java:652) ~[?:?]
-	at java.lang.Integer.parseInt(Integer.java:770) ~[?:?]
-	at application.PasswordHashing.validatePassword(PasswordHashing.java:76) ~[classes/:?]
-	at application.PasswordHashing.validatePassword(PasswordHashing.java:62) ~[classes/:?]
-	at application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:55) ~[classes/:?]
-	at presentation.controller.MainPageServlet.doPost(MainPageServlet.java:66) ~[classes/:?]
+2022-07-18 13:28:42.158 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 13:28:42.174 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 13:28:42.174 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 13:28:42.190 DEBUG [main] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 13:28:42.846 DEBUG [main] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 13:28:42.846 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 13:28:51.154 DEBUG [http-nio-8080-exec-3] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7ac03cb5
+2022-07-18 13:28:51.155 DEBUG [http-nio-8080-exec-3] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
+2022-07-18 13:28:51.156 DEBUG [http-nio-8080-exec-3] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7ac03cb5
+2022-07-18 13:28:51.156 DEBUG [http-nio-8080-exec-3] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
+2022-07-18 13:28:51.157 DEBUG [http-nio-8080-exec-3] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7ac03cb5
+2022-07-18 13:28:51.157 DEBUG [http-nio-8080-exec-3] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
+2022-07-18 13:28:51.157 DEBUG [http-nio-8080-exec-3] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 13:28:54.191 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
+2022-07-18 13:28:54.191 DEBUG [http-nio-8080-exec-4] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7ac03cb5
+2022-07-18 13:28:54.192 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
+2022-07-18 13:28:54.192 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
+2022-07-18 13:28:56.315 DEBUG [http-nio-8080-exec-5] [presentation.controller.RegisterPageServlet.doGet(RegisterPageServlet.java:22)] - doGet of /register with forward to register.jsp
+2022-07-18 13:29:13.584 DEBUG [http-nio-8080-exec-7] [presentation.controller.LoginPageServlet.doPost(LoginPageServlet.java:44)] - doPost of /login with forward to login.jsp
+2022-07-18 13:29:13.584 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 13:29:13.591 DEBUG [http-nio-8080-exec-7] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@5dd2bb4c
+2022-07-18 13:29:13.591 DEBUG [http-nio-8080-exec-7] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:29:13.661 DEBUG [http-nio-8080-exec-7] [application.services.impl.StudentServiceImpl.createStudent(StudentServiceImpl.java:26)] - StudentDAO created
+2022-07-18 13:29:13.676 DEBUG [http-nio-8080-exec-7] [application.services.impl.StudentServiceImpl.createStudent(StudentServiceImpl.java:29)] - Strong password created
+2022-07-18 13:29:13.718 INFO [http-nio-8080-exec-7] [data.dao.impl.MySQLStudentDAO.createStudent(MySQLStudentDAO.java:58)] - Student created
+2022-07-18 13:29:13.718 DEBUG [http-nio-8080-exec-7] [application.services.impl.StudentServiceImpl.createStudent(StudentServiceImpl.java:32)] - CreateStudent Method used
+2022-07-18 13:29:13.720 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:217)] - connection was closed
+2022-07-18 13:29:13.720 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:222)] - StudentDAO was closed
+2022-07-18 13:29:13.720 INFO [http-nio-8080-exec-7] [presentation.controller.LoginPageServlet.doPost(LoginPageServlet.java:83)] - Student was created
+2022-07-18 13:29:13.724 DEBUG [http-nio-8080-exec-9] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
+2022-07-18 13:29:17.577 DEBUG [http-nio-8080-exec-10] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
+2022-07-18 13:29:17.577 DEBUG [http-nio-8080-exec-10] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
+2022-07-18 13:29:17.577 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 13:29:17.578 DEBUG [http-nio-8080-exec-10] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:29:17.579 DEBUG [http-nio-8080-exec-10] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
+2022-07-18 13:29:17.593 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:217)] - connection was closed
+2022-07-18 13:29:17.594 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:222)] - StudentDAO was closed
+2022-07-18 13:29:17.594 INFO [http-nio-8080-exec-10] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@5e
+2022-07-18 13:29:17.598 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 13:29:18.821 DEBUG [http-nio-8080-exec-1] [application.services.impl.AssignmentServiceImpl.<init>(AssignmentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7ac03cb5
+2022-07-18 13:29:18.821 DEBUG [http-nio-8080-exec-1] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:43)] - AssignmentService was created
+2022-07-18 13:29:18.821 DEBUG [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7ac03cb5
+2022-07-18 13:29:18.822 DEBUG [http-nio-8080-exec-1] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:45)] - AdministratorService was created
+2022-07-18 13:29:18.822 DEBUG [http-nio-8080-exec-1] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:29:18.822 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:29:18.823 DEBUG [http-nio-8080-exec-1] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:29:18.823 DEBUG [http-nio-8080-exec-1] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:29:18.833 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:29:18.833 DEBUG [http-nio-8080-exec-1] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:29:18.833 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:29:18.833 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:29:22.689 DEBUG [http-nio-8080-exec-4] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 13:29:36.148 DEBUG [http-nio-8080-exec-5] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:71)] - doPost of /account with forward to account.jsp
+2022-07-18 13:29:36.148 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 13:29:36.149 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:29:36.150 DEBUG [http-nio-8080-exec-5] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 13:29:36.156 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:133)] - connection was closed
+2022-07-18 13:29:36.156 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:138)] - AdministratorDAO was closed
+2022-07-18 13:29:36.160 DEBUG [http-nio-8080-exec-6] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:29:36.160 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:29:36.160 DEBUG [http-nio-8080-exec-6] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:29:36.161 DEBUG [http-nio-8080-exec-6] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:29:36.162 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:29:36.162 DEBUG [http-nio-8080-exec-6] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:29:36.162 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:29:36.162 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:30:10.486 DEBUG [http-nio-8080-exec-7] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:30:10.486 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:30:10.486 DEBUG [http-nio-8080-exec-7] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:30:10.487 DEBUG [http-nio-8080-exec-7] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:30:10.488 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:30:10.488 DEBUG [http-nio-8080-exec-7] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:30:10.488 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:30:10.488 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:31:08.434 DEBUG [http-nio-8080-exec-10] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:31:08.434 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:31:08.434 DEBUG [http-nio-8080-exec-10] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:31:08.435 DEBUG [http-nio-8080-exec-10] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:31:08.436 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:31:08.436 DEBUG [http-nio-8080-exec-10] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:31:08.437 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:31:08.437 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:31:09.769 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 13:31:11.480 DEBUG [http-nio-8080-exec-1] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:31:11.480 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:31:11.480 DEBUG [http-nio-8080-exec-1] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:31:11.481 DEBUG [http-nio-8080-exec-1] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:31:11.482 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:31:11.482 DEBUG [http-nio-8080-exec-1] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:31:11.482 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:31:11.482 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:31:18.913 DEBUG [http-nio-8080-exec-3] [presentation.controller.LogoutServlet.doGet(LogoutServlet.java:25)] - doGet of /logout with redirect to main.jsp
+2022-07-18 13:31:18.918 DEBUG [http-nio-8080-exec-4] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 13:31:20.378 DEBUG [http-nio-8080-exec-5] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
+2022-07-18 13:31:22.670 DEBUG [http-nio-8080-exec-6] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
+2022-07-18 13:31:22.670 DEBUG [http-nio-8080-exec-6] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
+2022-07-18 13:31:22.670 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 13:31:22.670 DEBUG [http-nio-8080-exec-6] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:31:22.671 DEBUG [http-nio-8080-exec-6] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
+2022-07-18 13:31:22.672 ERROR [http-nio-8080-exec-6] [data.dao.impl.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:91)] - Student with login= 111 does not exist
+2022-07-18 13:31:22.673 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:217)] - connection was closed
+2022-07-18 13:31:22.674 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:222)] - StudentDAO was closed
+2022-07-18 13:31:22.674 ERROR [http-nio-8080-exec-6] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:61)] - Can't authorize as student
+2022-07-18 13:31:22.674 INFO [http-nio-8080-exec-6] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:74)] - Student was not found
+2022-07-18 13:31:22.674 DEBUG [http-nio-8080-exec-6] [application.services.impl.TeacherServiceImpl.authorizeTeacher(TeacherServiceImpl.java:49)] - Start of authorization
+2022-07-18 13:31:22.674 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLDAOFactory.getTeacherDAO(MySQLDAOFactory.java:37)] - MySQLTeacherDAO created
+2022-07-18 13:31:22.675 DEBUG [http-nio-8080-exec-6] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:31:22.676 DEBUG [http-nio-8080-exec-6] [application.services.impl.TeacherServiceImpl.authorizeTeacher(TeacherServiceImpl.java:51)] - TeacherDAO created
+2022-07-18 13:31:22.678 ERROR [http-nio-8080-exec-6] [data.dao.impl.MySQLTeacherDAO.findTeacher(MySQLTeacherDAO.java:92)] - Teacher with login = 111 does not exist
+2022-07-18 13:31:22.678 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLTeacherDAO.close(MySQLTeacherDAO.java:144)] - connection was closed
+2022-07-18 13:31:22.678 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLTeacherDAO.close(MySQLTeacherDAO.java:152)] - TeacherDAO was closed
+2022-07-18 13:31:22.678 ERROR [http-nio-8080-exec-6] [application.services.impl.TeacherServiceImpl.authorizeTeacher(TeacherServiceImpl.java:61)] - Can't authorize as Teacher
+2022-07-18 13:31:22.679 INFO [http-nio-8080-exec-6] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:83)] - Teacher was not found
+2022-07-18 13:31:22.679 DEBUG [http-nio-8080-exec-6] [application.services.impl.AdministratorServiceImpl.authorizeAdministrator(AdministratorServiceImpl.java:50)] - Start of authorization
+2022-07-18 13:31:22.679 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 13:31:22.679 DEBUG [http-nio-8080-exec-6] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:31:22.679 DEBUG [http-nio-8080-exec-6] [application.services.impl.AdministratorServiceImpl.authorizeAdministrator(AdministratorServiceImpl.java:53)] - AdministratorDAO created
+2022-07-18 13:31:22.681 ERROR [http-nio-8080-exec-6] [data.dao.impl.MySQLAdministratorDAO.findAdministrator(MySQLAdministratorDAO.java:93)] - Administrator with login 111 does not exist
+2022-07-18 13:31:22.681 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:133)] - connection was closed
+2022-07-18 13:31:22.681 DEBUG [http-nio-8080-exec-6] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:138)] - AdministratorDAO was closed
+2022-07-18 13:31:22.681 ERROR [http-nio-8080-exec-6] [application.services.impl.AdministratorServiceImpl.authorizeAdministrator(AdministratorServiceImpl.java:63)] - Can't authorize as administrator
+2022-07-18 13:31:22.686 DEBUG [http-nio-8080-exec-8] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
+2022-07-18 13:31:25.094 DEBUG [http-nio-8080-exec-7] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
+2022-07-18 13:31:25.094 DEBUG [http-nio-8080-exec-7] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
+2022-07-18 13:31:25.094 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 13:31:25.094 DEBUG [http-nio-8080-exec-7] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:31:25.095 DEBUG [http-nio-8080-exec-7] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
+2022-07-18 13:31:25.099 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:217)] - connection was closed
+2022-07-18 13:31:25.099 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:222)] - StudentDAO was closed
+2022-07-18 13:31:25.100 INFO [http-nio-8080-exec-7] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@5e
+2022-07-18 13:31:25.103 DEBUG [http-nio-8080-exec-9] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 13:31:29.348 DEBUG [http-nio-8080-exec-10] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:31:29.349 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:31:29.349 DEBUG [http-nio-8080-exec-10] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:31:29.349 DEBUG [http-nio-8080-exec-10] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:31:29.350 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:31:29.350 DEBUG [http-nio-8080-exec-10] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:31:29.350 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:31:29.350 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:57:10.081 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 13:57:10.096 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 13:57:10.096 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 13:57:10.096 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 13:57:10.330 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 13:57:10.330 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 13:57:12.586 DEBUG [http-nio-8080-exec-1] [application.services.impl.AssignmentServiceImpl.<init>(AssignmentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@291f7156
+2022-07-18 13:57:12.586 DEBUG [http-nio-8080-exec-1] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:43)] - AssignmentService was created
+2022-07-18 13:57:12.587 DEBUG [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@291f7156
+2022-07-18 13:57:12.588 DEBUG [http-nio-8080-exec-1] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:45)] - AdministratorService was created
+2022-07-18 13:57:12.588 DEBUG [http-nio-8080-exec-1] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:57:12.588 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:57:12.594 DEBUG [http-nio-8080-exec-1] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@5cdb3525
+2022-07-18 13:57:12.594 DEBUG [http-nio-8080-exec-1] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:57:12.627 DEBUG [http-nio-8080-exec-1] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:57:12.630 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:57:12.630 DEBUG [http-nio-8080-exec-1] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:57:12.632 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:57:12.632 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:57:15.740 DEBUG [http-nio-8080-exec-7] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@291f7156
+2022-07-18 13:57:15.740 DEBUG [http-nio-8080-exec-7] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
+2022-07-18 13:57:15.741 DEBUG [http-nio-8080-exec-7] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@291f7156
+2022-07-18 13:57:15.742 DEBUG [http-nio-8080-exec-7] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
+2022-07-18 13:57:15.742 DEBUG [http-nio-8080-exec-7] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@291f7156
+2022-07-18 13:57:15.742 DEBUG [http-nio-8080-exec-7] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
+2022-07-18 13:57:15.742 DEBUG [http-nio-8080-exec-7] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 13:57:16.668 DEBUG [http-nio-8080-exec-4] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:57:16.668 DEBUG [http-nio-8080-exec-4] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:57:16.668 DEBUG [http-nio-8080-exec-4] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:57:16.670 DEBUG [http-nio-8080-exec-4] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:57:16.671 DEBUG [http-nio-8080-exec-4] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:57:16.671 DEBUG [http-nio-8080-exec-4] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:57:16.671 DEBUG [http-nio-8080-exec-4] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:57:16.671 DEBUG [http-nio-8080-exec-4] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:57:19.663 DEBUG [http-nio-8080-exec-6] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 13:57:35.214 DEBUG [http-nio-8080-exec-8] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:71)] - doPost of /account with forward to account.jsp
+2022-07-18 13:57:35.214 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 13:57:35.216 DEBUG [http-nio-8080-exec-8] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:57:35.217 DEBUG [http-nio-8080-exec-8] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 13:57:35.227 DEBUG [http-nio-8080-exec-8] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:108)] - updateEmail method used
+2022-07-18 13:57:35.227 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:133)] - connection was closed
+2022-07-18 13:57:35.227 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:138)] - AdministratorDAO was closed
+2022-07-18 13:57:35.231 DEBUG [http-nio-8080-exec-10] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:57:35.231 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:57:35.231 DEBUG [http-nio-8080-exec-10] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:57:35.232 DEBUG [http-nio-8080-exec-10] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:57:35.233 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:57:35.233 DEBUG [http-nio-8080-exec-10] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:57:35.233 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:57:35.233 DEBUG [http-nio-8080-exec-10] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 13:57:37.104 DEBUG [http-nio-8080-exec-9] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:50)] - doGet of /account with forward to account.jsp
+2022-07-18 13:57:37.104 DEBUG [http-nio-8080-exec-9] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 13:57:37.104 DEBUG [http-nio-8080-exec-9] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 13:57:37.104 DEBUG [http-nio-8080-exec-9] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 13:57:37.105 DEBUG [http-nio-8080-exec-9] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 13:57:37.105 DEBUG [http-nio-8080-exec-9] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 13:57:37.105 DEBUG [http-nio-8080-exec-9] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 13:57:37.105 DEBUG [http-nio-8080-exec-9] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 14:20:51.249 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 14:20:51.249 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 14:20:51.249 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 14:20:51.264 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 14:20:51.483 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 14:20:51.483 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 15:54:38.934 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 15:54:38.946 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 15:54:38.946 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 15:54:38.953 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 15:54:39.196 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 15:54:39.196 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 15:55:00.333 DEBUG [http-nio-8080-exec-21] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2a697529
+2022-07-18 15:55:00.333 DEBUG [http-nio-8080-exec-21] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
+2022-07-18 15:55:00.334 DEBUG [http-nio-8080-exec-21] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2a697529
+2022-07-18 15:55:00.334 DEBUG [http-nio-8080-exec-21] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
+2022-07-18 15:55:00.335 DEBUG [http-nio-8080-exec-21] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2a697529
+2022-07-18 15:55:00.335 DEBUG [http-nio-8080-exec-21] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
+2022-07-18 15:55:00.335 DEBUG [http-nio-8080-exec-21] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 15:55:01.397 DEBUG [http-nio-8080-exec-25] [application.services.impl.AssignmentServiceImpl.<init>(AssignmentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2a697529
+2022-07-18 15:55:01.397 DEBUG [http-nio-8080-exec-25] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:46)] - AssignmentService was created
+2022-07-18 15:55:01.397 DEBUG [http-nio-8080-exec-25] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2a697529
+2022-07-18 15:55:01.397 DEBUG [http-nio-8080-exec-25] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:48)] - AdministratorService was created
+2022-07-18 15:55:01.397 DEBUG [http-nio-8080-exec-25] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2a697529
+2022-07-18 15:55:01.397 DEBUG [http-nio-8080-exec-25] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:50)] - StudentService was created
+2022-07-18 15:55:01.397 DEBUG [http-nio-8080-exec-25] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:55:01.398 DEBUG [http-nio-8080-exec-25] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:59)] - You are not logged
+2022-07-18 15:55:03.854 DEBUG [http-nio-8080-exec-22] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
+2022-07-18 15:55:03.854 DEBUG [http-nio-8080-exec-22] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2a697529
+2022-07-18 15:55:03.854 DEBUG [http-nio-8080-exec-22] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
+2022-07-18 15:55:03.854 DEBUG [http-nio-8080-exec-22] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
+2022-07-18 15:55:06.610 DEBUG [http-nio-8080-exec-29] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
+2022-07-18 15:55:06.611 DEBUG [http-nio-8080-exec-29] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
+2022-07-18 15:55:06.611 DEBUG [http-nio-8080-exec-29] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 15:55:06.614 DEBUG [http-nio-8080-exec-29] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@1db0d3ee
+2022-07-18 15:55:06.615 DEBUG [http-nio-8080-exec-29] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:55:06.643 DEBUG [http-nio-8080-exec-29] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
+2022-07-18 15:55:06.652 DEBUG [http-nio-8080-exec-29] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:246)] - connection was closed
+2022-07-18 15:55:06.652 DEBUG [http-nio-8080-exec-29] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:251)] - StudentDAO was closed
+2022-07-18 15:55:06.653 INFO [http-nio-8080-exec-29] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@5e
+2022-07-18 15:55:06.657 DEBUG [http-nio-8080-exec-28] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 15:55:09.092 DEBUG [http-nio-8080-exec-27] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:55:09.093 DEBUG [http-nio-8080-exec-27] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:55:09.094 DEBUG [http-nio-8080-exec-27] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:55:09.096 DEBUG [http-nio-8080-exec-27] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:55:09.098 DEBUG [http-nio-8080-exec-27] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:55:09.099 DEBUG [http-nio-8080-exec-27] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:55:09.099 DEBUG [http-nio-8080-exec-27] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:55:09.099 DEBUG [http-nio-8080-exec-27] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 15:55:11.520 DEBUG [http-nio-8080-exec-23] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 15:55:13.947 DEBUG [http-nio-8080-exec-26] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:76)] - doPost of /account with forward to account.jsp
+2022-07-18 15:55:13.948 DEBUG [http-nio-8080-exec-26] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 15:55:13.949 DEBUG [http-nio-8080-exec-26] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:55:13.949 DEBUG [http-nio-8080-exec-26] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 15:55:13.956 DEBUG [http-nio-8080-exec-26] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:102)] - updateLogin method used
+2022-07-18 15:55:13.956 DEBUG [http-nio-8080-exec-26] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:187)] - connection was closed
+2022-07-18 15:55:13.956 DEBUG [http-nio-8080-exec-26] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:192)] - AdministratorDAO was closed
+2022-07-18 15:55:13.956 DEBUG [http-nio-8080-exec-26] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 15:55:13.956 DEBUG [http-nio-8080-exec-26] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:55:13.957 DEBUG [http-nio-8080-exec-26] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:81)] - StudentDAO created
+2022-07-18 15:55:13.970 ERROR [http-nio-8080-exec-26] [data.dao.impl.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:134)] - Can't execute findStudent query
+java.sql.SQLSyntaxErrorException: Unknown column 'studentId' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:972) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:121) ~[tomcat-dbcp.jar:9.0.62]
+	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:121) ~[tomcat-dbcp.jar:9.0.62]
+	at data.dao.impl.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:121) ~[classes/:?]
+	at application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:83) ~[classes/:?]
+	at presentation.controller.AccountPageServlet.updateCurrentUser(AccountPageServlet.java:113) ~[classes/:?]
+	at presentation.controller.AccountPageServlet.editAccount(AccountPageServlet.java:105) ~[classes/:?]
+	at presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:78) ~[classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
@@ -95,210 +295,370 @@ java.lang.NumberFormatException: For input string: "asd"
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
 	at java.lang.Thread.run(Thread.java:829) ~[?:?]
-2022-07-07 12:30:56.195 INFO [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:74)] - Student was not found
-2022-07-07 12:30:56.196 DEBUG [http-nio-8080-exec-1] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:45)] - Start of authorization
-2022-07-07 12:30:56.196 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLDAOFactory.getTeacherDAO(MySQLDAOFactory.java:37)] - MySQLTeacherDAO created
-2022-07-07 12:30:56.197 DEBUG [http-nio-8080-exec-1] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:30:56.198 DEBUG [http-nio-8080-exec-1] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:47)] - TeacherDAO created
-2022-07-07 12:30:56.200 ERROR [http-nio-8080-exec-1] [data.dao.impl.MySQLTeacherDAO.findTeacher(MySQLTeacherDAO.java:93)] - Teacher with login = asd does not exist
-2022-07-07 12:30:56.204 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLTeacherDAO.close(MySQLTeacherDAO.java:145)] - connection was closed
-2022-07-07 12:30:56.204 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLTeacherDAO.close(MySQLTeacherDAO.java:153)] - TeacherDAO was closed
-2022-07-07 12:30:56.204 ERROR [http-nio-8080-exec-1] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:53)] - Can't authorize as Teacher
-2022-07-07 12:30:56.204 INFO [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:83)] - Teacher was not found
-2022-07-07 12:30:56.204 DEBUG [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:46)] - Start of authorization
-2022-07-07 12:30:56.204 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
-2022-07-07 12:30:56.205 DEBUG [http-nio-8080-exec-1] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:30:56.206 DEBUG [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:49)] - AdministratorDAO created
-2022-07-07 12:30:56.208 ERROR [http-nio-8080-exec-1] [data.dao.impl.MySQLAdministratorDAO.findAdministrator(MySQLAdministratorDAO.java:94)] - Administrator with login asd and password asd does not exist
-2022-07-07 12:30:56.208 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:134)] - connection was closed
-2022-07-07 12:30:56.208 DEBUG [http-nio-8080-exec-1] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:139)] - AdministratorDAO was closed
-2022-07-07 12:30:56.208 ERROR [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:55)] - Can't authorize as administrator
-2022-07-07 12:30:56.215 DEBUG [http-nio-8080-exec-2] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
-2022-07-07 12:30:56.215 DEBUG [http-nio-8080-exec-2] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7e17b24f
-2022-07-07 12:30:56.215 DEBUG [http-nio-8080-exec-2] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
-2022-07-07 12:30:56.215 DEBUG [http-nio-8080-exec-2] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
-2022-07-07 12:32:08.609 DEBUG [http-nio-8080-exec-8] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
-2022-07-07 12:32:08.610 DEBUG [http-nio-8080-exec-8] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:49)] - Start of authorization
-2022-07-07 12:32:08.610 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
-2022-07-07 12:32:08.610 DEBUG [http-nio-8080-exec-8] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:32:08.611 DEBUG [http-nio-8080-exec-8] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:51)] - StudentDAO created
-2022-07-07 12:32:08.613 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:252)] - connection was closed
-2022-07-07 12:32:08.613 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:257)] - StudentDAO was closed
-2022-07-07 12:32:08.614 ERROR [http-nio-8080-exec-8] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:69)] - Can't close StudentDAO
-java.lang.NumberFormatException: For input string: "asd"
-	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[?:?]
-	at java.lang.Integer.parseInt(Integer.java:652) ~[?:?]
-	at java.lang.Integer.parseInt(Integer.java:770) ~[?:?]
-	at application.PasswordHashing.validatePassword(PasswordHashing.java:76) ~[classes/:?]
-	at application.PasswordHashing.validatePassword(PasswordHashing.java:62) ~[classes/:?]
-	at application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:55) ~[classes/:?]
-	at presentation.controller.MainPageServlet.doPost(MainPageServlet.java:66) ~[classes/:?]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[servlet-api.jar:4.0.FR]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[servlet-api.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
-	at presentation.filters.EncodingFilter.doFilter(EncodingFilter.java:28) ~[classes/:?]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:687) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:9.0.62]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[catalina.jar:9.0.62]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:9.0.62]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:9.0.62]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-coyote.jar:9.0.62]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-coyote.jar:9.0.62]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:9.0.62]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:9.0.62]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:9.0.62]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:9.0.62]
-	at java.lang.Thread.run(Thread.java:829) ~[?:?]
-2022-07-07 12:32:08.617 INFO [http-nio-8080-exec-8] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:74)] - Student was not found
-2022-07-07 12:32:08.617 DEBUG [http-nio-8080-exec-8] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:45)] - Start of authorization
-2022-07-07 12:32:08.617 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLDAOFactory.getTeacherDAO(MySQLDAOFactory.java:37)] - MySQLTeacherDAO created
-2022-07-07 12:32:08.617 DEBUG [http-nio-8080-exec-8] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:32:08.618 DEBUG [http-nio-8080-exec-8] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:47)] - TeacherDAO created
-2022-07-07 12:32:08.619 ERROR [http-nio-8080-exec-8] [data.dao.impl.MySQLTeacherDAO.findTeacher(MySQLTeacherDAO.java:93)] - Teacher with login = zxc does not exist
-2022-07-07 12:32:08.619 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLTeacherDAO.close(MySQLTeacherDAO.java:145)] - connection was closed
-2022-07-07 12:32:08.619 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLTeacherDAO.close(MySQLTeacherDAO.java:153)] - TeacherDAO was closed
-2022-07-07 12:32:08.619 ERROR [http-nio-8080-exec-8] [application.services.impl.TeacherServiceImpl.findTeacher(TeacherServiceImpl.java:53)] - Can't authorize as Teacher
-2022-07-07 12:32:08.619 INFO [http-nio-8080-exec-8] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:83)] - Teacher was not found
-2022-07-07 12:32:08.619 DEBUG [http-nio-8080-exec-8] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:46)] - Start of authorization
-2022-07-07 12:32:08.619 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
-2022-07-07 12:32:08.619 DEBUG [http-nio-8080-exec-8] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:32:08.620 DEBUG [http-nio-8080-exec-8] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:49)] - AdministratorDAO created
-2022-07-07 12:32:08.621 ERROR [http-nio-8080-exec-8] [data.dao.impl.MySQLAdministratorDAO.findAdministrator(MySQLAdministratorDAO.java:94)] - Administrator with login zxc and password asd does not exist
-2022-07-07 12:32:08.621 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:134)] - connection was closed
-2022-07-07 12:32:08.622 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:139)] - AdministratorDAO was closed
-2022-07-07 12:32:08.622 ERROR [http-nio-8080-exec-8] [application.services.impl.AdministratorServiceImpl.findAdministrator(AdministratorServiceImpl.java:55)] - Can't authorize as administrator
-2022-07-07 12:32:08.625 DEBUG [http-nio-8080-exec-5] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
-2022-07-07 12:35:31.580 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:31)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
-2022-07-07 12:35:31.591 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:34)] - DAOFactory was set to MySQL implementation
-2022-07-07 12:35:31.592 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:46)] - Locales list {uk=[Українська], en=[English]}
-2022-07-07 12:35:39.626 DEBUG [http-nio-8080-exec-2] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2c57e5fb
-2022-07-07 12:35:39.626 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
-2022-07-07 12:35:39.627 DEBUG [http-nio-8080-exec-2] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:19)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2c57e5fb
-2022-07-07 12:35:39.627 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
-2022-07-07 12:35:39.628 DEBUG [http-nio-8080-exec-2] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2c57e5fb
-2022-07-07 12:35:39.628 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
-2022-07-07 12:35:39.628 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
-2022-07-07 12:35:39.628 DEBUG [http-nio-8080-exec-2] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:49)] - Start of authorization
-2022-07-07 12:35:39.628 DEBUG [http-nio-8080-exec-2] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
-2022-07-07 12:35:39.635 DEBUG [http-nio-8080-exec-2] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@4015405
-2022-07-07 12:35:39.635 DEBUG [http-nio-8080-exec-2] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 12:35:39.882 DEBUG [http-nio-8080-exec-2] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:51)] - StudentDAO created
-2022-07-07 12:35:39.931 DEBUG [http-nio-8080-exec-2] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:252)] - connection was closed
-2022-07-07 12:35:39.931 DEBUG [http-nio-8080-exec-2] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:257)] - StudentDAO was closed
-2022-07-07 12:35:39.932 INFO [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@52
-2022-07-07 12:35:39.937 DEBUG [http-nio-8080-exec-5] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:13:22.170 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:31)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
-2022-07-07 15:13:22.184 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:34)] - DAOFactory was set to MySQL implementation
-2022-07-07 15:13:22.185 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:46)] - Locales list {uk=[Українська], en=[English]}
-2022-07-07 15:13:39.800 DEBUG [http-nio-8080-exec-1] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@542c2372
-2022-07-07 15:13:39.800 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
-2022-07-07 15:13:39.802 DEBUG [http-nio-8080-exec-1] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@542c2372
-2022-07-07 15:13:39.802 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
-2022-07-07 15:13:39.803 DEBUG [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@542c2372
-2022-07-07 15:13:39.803 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
-2022-07-07 15:13:39.807 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:14:21.262 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
-2022-07-07 15:14:21.262 DEBUG [http-nio-8080-exec-4] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@542c2372
-2022-07-07 15:14:21.262 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
-2022-07-07 15:14:21.263 DEBUG [http-nio-8080-exec-4] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
-2022-07-07 15:14:24.324 DEBUG [http-nio-8080-exec-5] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
-2022-07-07 15:14:24.325 DEBUG [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
-2022-07-07 15:14:24.325 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
-2022-07-07 15:14:24.333 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@5afc0d40
-2022-07-07 15:14:24.333 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 15:14:24.744 DEBUG [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
-2022-07-07 15:14:24.801 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:217)] - connection was closed
-2022-07-07 15:14:24.801 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:222)] - StudentDAO was closed
-2022-07-07 15:14:24.802 INFO [http-nio-8080-exec-5] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@52
-2022-07-07 15:14:24.806 DEBUG [http-nio-8080-exec-6] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:15:10.013 DEBUG [http-nio-8080-exec-9] [presentation.controller.LogoutServlet.doGet(LogoutServlet.java:25)] - doGet of /logout with redirect to main.jsp
-2022-07-07 15:15:10.017 DEBUG [http-nio-8080-exec-10] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:16:11.395 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:31)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
-2022-07-07 15:16:11.406 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:34)] - DAOFactory was set to MySQL implementation
-2022-07-07 15:16:11.408 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:46)] - Locales list {uk=[Українська], en=[English]}
-2022-07-07 15:16:25.318 DEBUG [http-nio-8080-exec-1] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@39c029d5
-2022-07-07 15:16:25.319 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
-2022-07-07 15:16:25.320 DEBUG [http-nio-8080-exec-1] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@39c029d5
-2022-07-07 15:16:25.320 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
-2022-07-07 15:16:25.321 DEBUG [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@39c029d5
-2022-07-07 15:16:25.321 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
-2022-07-07 15:16:25.321 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:16:32.091 DEBUG [http-nio-8080-exec-8] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
-2022-07-07 15:16:32.091 DEBUG [http-nio-8080-exec-8] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@39c029d5
-2022-07-07 15:16:32.091 DEBUG [http-nio-8080-exec-8] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
-2022-07-07 15:16:32.091 DEBUG [http-nio-8080-exec-8] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
-2022-07-07 15:16:39.849 DEBUG [http-nio-8080-exec-5] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
-2022-07-07 15:16:39.849 DEBUG [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
-2022-07-07 15:16:39.849 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
-2022-07-07 15:16:39.855 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@9cd58f1
-2022-07-07 15:16:39.855 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 15:16:40.094 DEBUG [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
-2022-07-07 15:16:40.140 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:217)] - connection was closed
-2022-07-07 15:16:40.140 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:222)] - StudentDAO was closed
-2022-07-07 15:16:40.140 INFO [http-nio-8080-exec-5] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@52
-2022-07-07 15:16:40.142 DEBUG [http-nio-8080-exec-10] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:16:42.930 INFO [http-nio-8080-exec-4] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:16:42.983 DEBUG [http-nio-8080-exec-2] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:16:49.631 INFO [http-nio-8080-exec-9] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:16:49.639 DEBUG [http-nio-8080-exec-7] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:23:00.828 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:31)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
-2022-07-07 15:23:00.840 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:34)] - DAOFactory was set to MySQL implementation
-2022-07-07 15:23:00.841 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:46)] - Locales list {uk=[Українська], en=[English]}
-2022-07-07 15:23:02.482 DEBUG [http-nio-8080-exec-20] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@480e1fc2
-2022-07-07 15:23:02.482 DEBUG [http-nio-8080-exec-20] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
-2022-07-07 15:23:02.483 DEBUG [http-nio-8080-exec-20] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@480e1fc2
-2022-07-07 15:23:02.483 DEBUG [http-nio-8080-exec-20] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
-2022-07-07 15:23:02.484 DEBUG [http-nio-8080-exec-20] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@480e1fc2
-2022-07-07 15:23:02.485 DEBUG [http-nio-8080-exec-20] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
-2022-07-07 15:23:02.485 DEBUG [http-nio-8080-exec-20] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:23:05.371 DEBUG [http-nio-8080-exec-11] [presentation.controller.LogoutServlet.doGet(LogoutServlet.java:25)] - doGet of /logout with redirect to main.jsp
-2022-07-07 15:23:05.376 DEBUG [http-nio-8080-exec-15] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:23:06.393 DEBUG [http-nio-8080-exec-14] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
-2022-07-07 15:23:06.393 DEBUG [http-nio-8080-exec-14] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@480e1fc2
-2022-07-07 15:23:06.393 DEBUG [http-nio-8080-exec-14] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
-2022-07-07 15:23:06.393 DEBUG [http-nio-8080-exec-14] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
-2022-07-07 15:23:09.349 DEBUG [http-nio-8080-exec-13] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
-2022-07-07 15:23:09.349 DEBUG [http-nio-8080-exec-13] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
-2022-07-07 15:23:09.349 DEBUG [http-nio-8080-exec-13] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
-2022-07-07 15:23:09.354 DEBUG [http-nio-8080-exec-13] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@6b0902b8
-2022-07-07 15:23:09.355 DEBUG [http-nio-8080-exec-13] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
-2022-07-07 15:23:09.599 DEBUG [http-nio-8080-exec-13] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
-2022-07-07 15:23:09.644 DEBUG [http-nio-8080-exec-13] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:217)] - connection was closed
-2022-07-07 15:23:09.644 DEBUG [http-nio-8080-exec-13] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:222)] - StudentDAO was closed
-2022-07-07 15:23:09.644 INFO [http-nio-8080-exec-13] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@52
-2022-07-07 15:23:09.648 DEBUG [http-nio-8080-exec-19] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:23:12.005 INFO [http-nio-8080-exec-18] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:23:12.019 DEBUG [http-nio-8080-exec-17] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:23:13.276 INFO [http-nio-8080-exec-16] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:23:13.283 DEBUG [http-nio-8080-exec-12] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:23:14.896 INFO [http-nio-8080-exec-21] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:23:14.900 DEBUG [http-nio-8080-exec-22] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:26:05.392 DEBUG [http-nio-8080-exec-24] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:26:07.653 INFO [http-nio-8080-exec-25] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:26:07.659 DEBUG [http-nio-8080-exec-26] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:26:10.164 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:31)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
-2022-07-07 15:26:10.176 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:34)] - DAOFactory was set to MySQL implementation
-2022-07-07 15:26:10.177 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:46)] - Locales list {uk=[Українська], en=[English]}
-2022-07-07 15:26:10.883 INFO [http-nio-8080-exec-23] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:26:10.918 DEBUG [http-nio-8080-exec-25] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@605bb6e5
-2022-07-07 15:26:10.918 DEBUG [http-nio-8080-exec-25] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
-2022-07-07 15:26:10.919 DEBUG [http-nio-8080-exec-25] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@605bb6e5
-2022-07-07 15:26:10.919 DEBUG [http-nio-8080-exec-25] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
-2022-07-07 15:26:10.920 DEBUG [http-nio-8080-exec-25] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@605bb6e5
-2022-07-07 15:26:10.920 DEBUG [http-nio-8080-exec-25] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
-2022-07-07 15:26:10.920 DEBUG [http-nio-8080-exec-25] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:26:12.428 INFO [http-nio-8080-exec-28] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:26:12.433 DEBUG [http-nio-8080-exec-26] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
-2022-07-07 15:26:17.228 INFO [http-nio-8080-exec-22] [presentation.controller.ChangeLocaleServlet.doPost(ChangeLocaleServlet.java:24)] - Changing locale with forward to changelocale.jsp
-2022-07-07 15:26:17.233 DEBUG [http-nio-8080-exec-27] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 15:55:13.978 DEBUG [http-nio-8080-exec-26] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:246)] - connection was closed
+2022-07-18 15:55:13.978 DEBUG [http-nio-8080-exec-26] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:251)] - StudentDAO was closed
+2022-07-18 15:55:13.978 DEBUG [http-nio-8080-exec-26] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:101)] - StudentDAO was closed
+2022-07-18 15:55:13.982 DEBUG [http-nio-8080-exec-30] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:55:13.983 DEBUG [http-nio-8080-exec-30] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:55:13.983 DEBUG [http-nio-8080-exec-30] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:55:13.983 DEBUG [http-nio-8080-exec-30] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:55:13.984 DEBUG [http-nio-8080-exec-30] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:55:13.984 DEBUG [http-nio-8080-exec-30] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:55:13.984 DEBUG [http-nio-8080-exec-30] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:55:13.984 DEBUG [http-nio-8080-exec-30] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 15:56:53.311 DEBUG [http-nio-8080-exec-31] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 15:56:57.326 DEBUG [http-nio-8080-exec-32] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:56:57.326 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:56:57.326 DEBUG [http-nio-8080-exec-32] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:56:57.327 DEBUG [http-nio-8080-exec-32] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:56:57.328 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:56:57.328 DEBUG [http-nio-8080-exec-32] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:56:57.328 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:56:57.328 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 15:57:00.160 DEBUG [http-nio-8080-exec-33] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 15:57:01.086 DEBUG [http-nio-8080-exec-34] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:57:01.086 DEBUG [http-nio-8080-exec-34] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:57:01.086 DEBUG [http-nio-8080-exec-34] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:57:01.086 DEBUG [http-nio-8080-exec-34] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:57:01.087 DEBUG [http-nio-8080-exec-34] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:57:01.087 DEBUG [http-nio-8080-exec-34] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:57:01.087 DEBUG [http-nio-8080-exec-34] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:57:01.087 DEBUG [http-nio-8080-exec-34] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 15:57:15.947 DEBUG [http-nio-8080-exec-35] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 15:57:16.840 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 15:57:16.853 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 15:57:16.853 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 15:57:16.859 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 15:57:17.088 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 15:57:17.089 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 15:57:17.434 DEBUG [http-nio-8080-exec-39] [application.services.impl.AssignmentServiceImpl.<init>(AssignmentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@635ad510
+2022-07-18 15:57:17.434 DEBUG [http-nio-8080-exec-39] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:46)] - AssignmentService was created
+2022-07-18 15:57:17.435 DEBUG [http-nio-8080-exec-39] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@635ad510
+2022-07-18 15:57:17.435 DEBUG [http-nio-8080-exec-39] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:48)] - AdministratorService was created
+2022-07-18 15:57:17.436 DEBUG [http-nio-8080-exec-39] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@635ad510
+2022-07-18 15:57:17.436 DEBUG [http-nio-8080-exec-39] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:50)] - StudentService was created
+2022-07-18 15:57:17.437 DEBUG [http-nio-8080-exec-39] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:57:17.437 DEBUG [http-nio-8080-exec-39] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:57:17.442 DEBUG [http-nio-8080-exec-39] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@22c4acb3
+2022-07-18 15:57:17.442 DEBUG [http-nio-8080-exec-39] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:57:17.468 DEBUG [http-nio-8080-exec-39] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:57:17.470 DEBUG [http-nio-8080-exec-39] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:57:17.471 DEBUG [http-nio-8080-exec-39] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:57:17.472 DEBUG [http-nio-8080-exec-39] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:57:17.472 DEBUG [http-nio-8080-exec-39] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 15:57:17.535 DEBUG [http-nio-8080-exec-33] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:57:17.535 DEBUG [http-nio-8080-exec-33] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:57:17.535 DEBUG [http-nio-8080-exec-33] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:57:17.536 DEBUG [http-nio-8080-exec-33] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:57:17.538 DEBUG [http-nio-8080-exec-33] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:57:17.538 DEBUG [http-nio-8080-exec-33] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:57:17.538 DEBUG [http-nio-8080-exec-33] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:57:17.538 DEBUG [http-nio-8080-exec-33] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 15:57:22.025 DEBUG [http-nio-8080-exec-31] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 15:57:24.731 DEBUG [http-nio-8080-exec-32] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:76)] - doPost of /account with forward to account.jsp
+2022-07-18 15:57:24.732 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 15:57:24.733 DEBUG [http-nio-8080-exec-32] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:57:24.734 DEBUG [http-nio-8080-exec-32] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 15:57:24.745 DEBUG [http-nio-8080-exec-32] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:102)] - updateLogin method used
+2022-07-18 15:57:24.745 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:187)] - connection was closed
+2022-07-18 15:57:24.745 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:192)] - AdministratorDAO was closed
+2022-07-18 15:57:24.745 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 15:57:24.745 DEBUG [http-nio-8080-exec-32] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:57:24.746 DEBUG [http-nio-8080-exec-32] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:81)] - StudentDAO created
+2022-07-18 15:57:24.747 INFO [http-nio-8080-exec-32] [data.dao.impl.MySQLStudentDAO.findStudent(MySQLStudentDAO.java:123)] - Can't find student with ID 63
+2022-07-18 15:57:24.747 ERROR [http-nio-8080-exec-32] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:87)] - Can't find Student by ID
+2022-07-18 15:57:24.748 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:246)] - connection was closed
+2022-07-18 15:57:24.748 DEBUG [http-nio-8080-exec-32] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:251)] - StudentDAO was closed
+2022-07-18 15:57:24.748 DEBUG [http-nio-8080-exec-32] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:101)] - StudentDAO was closed
+2022-07-18 15:57:24.752 DEBUG [http-nio-8080-exec-36] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:57:24.753 DEBUG [http-nio-8080-exec-36] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:57:24.753 DEBUG [http-nio-8080-exec-36] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:57:24.753 DEBUG [http-nio-8080-exec-36] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:57:24.754 DEBUG [http-nio-8080-exec-36] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:57:24.754 DEBUG [http-nio-8080-exec-36] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:57:24.754 DEBUG [http-nio-8080-exec-36] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:57:24.754 DEBUG [http-nio-8080-exec-36] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 15:59:54.381 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 15:59:54.393 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 15:59:54.393 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 15:59:54.399 DEBUG [Catalina-utility-1] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 15:59:54.627 DEBUG [Catalina-utility-1] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 15:59:54.628 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 15:59:54.761 DEBUG [http-nio-8080-exec-45] [application.services.impl.AssignmentServiceImpl.<init>(AssignmentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7a96a39
+2022-07-18 15:59:54.762 DEBUG [http-nio-8080-exec-45] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:46)] - AssignmentService was created
+2022-07-18 15:59:54.763 DEBUG [http-nio-8080-exec-45] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7a96a39
+2022-07-18 15:59:54.763 DEBUG [http-nio-8080-exec-45] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:48)] - AdministratorService was created
+2022-07-18 15:59:54.763 DEBUG [http-nio-8080-exec-45] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@7a96a39
+2022-07-18 15:59:54.764 DEBUG [http-nio-8080-exec-45] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:50)] - StudentService was created
+2022-07-18 15:59:54.764 DEBUG [http-nio-8080-exec-45] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:59:54.764 DEBUG [http-nio-8080-exec-45] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:59:54.769 DEBUG [http-nio-8080-exec-45] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@778e0635
+2022-07-18 15:59:54.769 DEBUG [http-nio-8080-exec-45] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:59:54.795 DEBUG [http-nio-8080-exec-45] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:59:54.797 DEBUG [http-nio-8080-exec-45] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:59:54.797 DEBUG [http-nio-8080-exec-45] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:59:54.799 DEBUG [http-nio-8080-exec-45] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:59:54.799 DEBUG [http-nio-8080-exec-45] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 15:59:56.377 DEBUG [http-nio-8080-exec-48] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 15:59:59.748 DEBUG [http-nio-8080-exec-40] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:76)] - doPost of /account with forward to account.jsp
+2022-07-18 15:59:59.748 DEBUG [http-nio-8080-exec-40] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 15:59:59.750 DEBUG [http-nio-8080-exec-40] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:59:59.751 DEBUG [http-nio-8080-exec-40] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 15:59:59.759 DEBUG [http-nio-8080-exec-40] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:102)] - updateLogin method used
+2022-07-18 15:59:59.759 DEBUG [http-nio-8080-exec-40] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:187)] - connection was closed
+2022-07-18 15:59:59.759 DEBUG [http-nio-8080-exec-40] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:192)] - AdministratorDAO was closed
+2022-07-18 15:59:59.760 DEBUG [http-nio-8080-exec-40] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 15:59:59.760 DEBUG [http-nio-8080-exec-40] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:59:59.761 DEBUG [http-nio-8080-exec-40] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:81)] - StudentDAO created
+2022-07-18 15:59:59.762 DEBUG [http-nio-8080-exec-40] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:246)] - connection was closed
+2022-07-18 15:59:59.762 DEBUG [http-nio-8080-exec-40] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:251)] - StudentDAO was closed
+2022-07-18 15:59:59.762 DEBUG [http-nio-8080-exec-40] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:101)] - StudentDAO was closed
+2022-07-18 15:59:59.766 DEBUG [http-nio-8080-exec-47] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 15:59:59.766 DEBUG [http-nio-8080-exec-47] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 15:59:59.766 DEBUG [http-nio-8080-exec-47] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 15:59:59.767 DEBUG [http-nio-8080-exec-47] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 15:59:59.768 DEBUG [http-nio-8080-exec-47] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 15:59:59.768 DEBUG [http-nio-8080-exec-47] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 15:59:59.768 DEBUG [http-nio-8080-exec-47] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 15:59:59.768 DEBUG [http-nio-8080-exec-47] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:00:06.982 DEBUG [http-nio-8080-exec-46] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:00:06.982 DEBUG [http-nio-8080-exec-46] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:00:06.982 DEBUG [http-nio-8080-exec-46] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:00:06.982 DEBUG [http-nio-8080-exec-46] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:00:06.983 DEBUG [http-nio-8080-exec-46] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:00:06.983 DEBUG [http-nio-8080-exec-46] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:00:06.984 DEBUG [http-nio-8080-exec-46] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:00:06.984 DEBUG [http-nio-8080-exec-46] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:03:34.625 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 16:03:34.637 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 16:03:34.637 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 16:03:34.643 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 16:03:34.879 DEBUG [Catalina-utility-2] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 16:03:34.880 DEBUG [Catalina-utility-2] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 16:03:41.280 DEBUG [http-nio-8080-exec-42] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 16:03:44.408 DEBUG [http-nio-8080-exec-50] [application.services.impl.AssignmentServiceImpl.<init>(AssignmentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2de8528d
+2022-07-18 16:03:44.408 DEBUG [http-nio-8080-exec-50] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:46)] - AssignmentService was created
+2022-07-18 16:03:44.409 DEBUG [http-nio-8080-exec-50] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2de8528d
+2022-07-18 16:03:44.409 DEBUG [http-nio-8080-exec-50] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:48)] - AdministratorService was created
+2022-07-18 16:03:44.410 DEBUG [http-nio-8080-exec-50] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2de8528d
+2022-07-18 16:03:44.411 DEBUG [http-nio-8080-exec-50] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:50)] - StudentService was created
+2022-07-18 16:03:44.411 DEBUG [http-nio-8080-exec-50] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:76)] - doPost of /account with forward to account.jsp
+2022-07-18 16:03:44.411 DEBUG [http-nio-8080-exec-50] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 16:03:44.415 DEBUG [http-nio-8080-exec-50] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@c8bda77
+2022-07-18 16:03:44.415 DEBUG [http-nio-8080-exec-50] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:03:44.440 DEBUG [http-nio-8080-exec-50] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 16:03:44.448 DEBUG [http-nio-8080-exec-50] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:102)] - updateLogin method used
+2022-07-18 16:03:44.449 DEBUG [http-nio-8080-exec-50] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:187)] - connection was closed
+2022-07-18 16:03:44.449 DEBUG [http-nio-8080-exec-50] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:192)] - AdministratorDAO was closed
+2022-07-18 16:03:44.449 DEBUG [http-nio-8080-exec-50] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 16:03:44.449 DEBUG [http-nio-8080-exec-50] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:03:44.450 DEBUG [http-nio-8080-exec-50] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:81)] - StudentDAO created
+2022-07-18 16:03:44.451 DEBUG [http-nio-8080-exec-50] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:248)] - connection was closed
+2022-07-18 16:03:44.451 DEBUG [http-nio-8080-exec-50] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:253)] - StudentDAO was closed
+2022-07-18 16:03:44.451 DEBUG [http-nio-8080-exec-50] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:101)] - StudentDAO was closed
+2022-07-18 16:03:44.455 DEBUG [http-nio-8080-exec-56] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:03:44.455 DEBUG [http-nio-8080-exec-56] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:03:44.456 DEBUG [http-nio-8080-exec-56] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:03:44.457 DEBUG [http-nio-8080-exec-56] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:03:44.459 DEBUG [http-nio-8080-exec-56] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:03:44.459 DEBUG [http-nio-8080-exec-56] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:03:44.460 DEBUG [http-nio-8080-exec-56] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:03:44.460 DEBUG [http-nio-8080-exec-56] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:04:13.519 DEBUG [http-nio-8080-exec-52] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:04:13.519 DEBUG [http-nio-8080-exec-52] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:04:13.519 DEBUG [http-nio-8080-exec-52] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:04:13.519 DEBUG [http-nio-8080-exec-52] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:04:13.520 DEBUG [http-nio-8080-exec-52] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:04:13.520 DEBUG [http-nio-8080-exec-52] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:04:13.520 DEBUG [http-nio-8080-exec-52] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:04:13.520 DEBUG [http-nio-8080-exec-52] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:04:14.225 DEBUG [http-nio-8080-exec-57] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:04:14.225 DEBUG [http-nio-8080-exec-57] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:04:14.225 DEBUG [http-nio-8080-exec-57] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:04:14.226 DEBUG [http-nio-8080-exec-57] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:04:14.226 DEBUG [http-nio-8080-exec-57] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:04:14.227 DEBUG [http-nio-8080-exec-57] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:04:14.227 DEBUG [http-nio-8080-exec-57] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:04:14.227 DEBUG [http-nio-8080-exec-57] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:04:15.898 DEBUG [http-nio-8080-exec-54] [presentation.controller.LogoutServlet.doGet(LogoutServlet.java:25)] - doGet of /logout with redirect to main.jsp
+2022-07-18 16:04:15.903 DEBUG [http-nio-8080-exec-55] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2de8528d
+2022-07-18 16:04:15.903 DEBUG [http-nio-8080-exec-55] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
+2022-07-18 16:04:15.905 DEBUG [http-nio-8080-exec-55] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2de8528d
+2022-07-18 16:04:15.905 DEBUG [http-nio-8080-exec-55] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
+2022-07-18 16:04:15.905 DEBUG [http-nio-8080-exec-55] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2de8528d
+2022-07-18 16:04:15.905 DEBUG [http-nio-8080-exec-55] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
+2022-07-18 16:04:15.905 DEBUG [http-nio-8080-exec-55] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 16:04:17.241 DEBUG [http-nio-8080-exec-51] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
+2022-07-18 16:04:17.241 DEBUG [http-nio-8080-exec-51] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@2de8528d
+2022-07-18 16:04:17.241 DEBUG [http-nio-8080-exec-51] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
+2022-07-18 16:04:17.241 DEBUG [http-nio-8080-exec-51] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
+2022-07-18 16:04:24.155 DEBUG [http-nio-8080-exec-53] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
+2022-07-18 16:04:24.155 DEBUG [http-nio-8080-exec-53] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
+2022-07-18 16:04:24.155 DEBUG [http-nio-8080-exec-53] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 16:04:24.156 DEBUG [http-nio-8080-exec-53] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:04:24.156 DEBUG [http-nio-8080-exec-53] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
+2022-07-18 16:04:24.161 DEBUG [http-nio-8080-exec-53] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:248)] - connection was closed
+2022-07-18 16:04:24.161 DEBUG [http-nio-8080-exec-53] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:253)] - StudentDAO was closed
+2022-07-18 16:04:24.161 INFO [http-nio-8080-exec-53] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@5e
+2022-07-18 16:04:24.165 DEBUG [http-nio-8080-exec-58] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 16:04:25.846 DEBUG [http-nio-8080-exec-59] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:04:25.847 DEBUG [http-nio-8080-exec-59] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:04:25.847 DEBUG [http-nio-8080-exec-59] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:04:25.847 DEBUG [http-nio-8080-exec-59] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:04:25.848 DEBUG [http-nio-8080-exec-59] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:04:25.848 DEBUG [http-nio-8080-exec-59] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:04:25.849 DEBUG [http-nio-8080-exec-59] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:04:25.849 DEBUG [http-nio-8080-exec-59] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:04:34.012 DEBUG [http-nio-8080-exec-56] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 16:04:36.776 DEBUG [http-nio-8080-exec-60] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:76)] - doPost of /account with forward to account.jsp
+2022-07-18 16:04:36.776 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 16:04:36.776 DEBUG [http-nio-8080-exec-60] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:04:36.777 DEBUG [http-nio-8080-exec-60] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 16:04:36.782 DEBUG [http-nio-8080-exec-60] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:102)] - updateLogin method used
+2022-07-18 16:04:36.782 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:187)] - connection was closed
+2022-07-18 16:04:36.782 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:192)] - AdministratorDAO was closed
+2022-07-18 16:04:36.782 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 16:04:36.782 DEBUG [http-nio-8080-exec-60] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:04:36.782 DEBUG [http-nio-8080-exec-60] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:81)] - StudentDAO created
+2022-07-18 16:04:36.783 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:248)] - connection was closed
+2022-07-18 16:04:36.784 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:253)] - StudentDAO was closed
+2022-07-18 16:04:36.784 DEBUG [http-nio-8080-exec-60] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:101)] - StudentDAO was closed
+2022-07-18 16:04:36.788 DEBUG [http-nio-8080-exec-61] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:04:36.788 DEBUG [http-nio-8080-exec-61] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:04:36.788 DEBUG [http-nio-8080-exec-61] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:04:36.788 DEBUG [http-nio-8080-exec-61] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:04:36.789 DEBUG [http-nio-8080-exec-61] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:04:36.789 DEBUG [http-nio-8080-exec-61] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:04:36.789 DEBUG [http-nio-8080-exec-61] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:04:36.789 DEBUG [http-nio-8080-exec-61] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:05:11.936 DEBUG [http-nio-8080-exec-62] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 16:05:15.361 DEBUG [http-nio-8080-exec-55] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:76)] - doPost of /account with forward to account.jsp
+2022-07-18 16:05:15.361 DEBUG [http-nio-8080-exec-55] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 16:05:15.361 DEBUG [http-nio-8080-exec-55] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:05:15.361 DEBUG [http-nio-8080-exec-55] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 16:05:15.369 DEBUG [http-nio-8080-exec-55] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:102)] - updateLogin method used
+2022-07-18 16:05:15.369 DEBUG [http-nio-8080-exec-55] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:187)] - connection was closed
+2022-07-18 16:05:15.369 DEBUG [http-nio-8080-exec-55] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:192)] - AdministratorDAO was closed
+2022-07-18 16:05:15.369 DEBUG [http-nio-8080-exec-55] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 16:05:15.369 DEBUG [http-nio-8080-exec-55] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:05:15.369 DEBUG [http-nio-8080-exec-55] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:81)] - StudentDAO created
+2022-07-18 16:05:15.370 DEBUG [http-nio-8080-exec-55] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:248)] - connection was closed
+2022-07-18 16:05:15.370 DEBUG [http-nio-8080-exec-55] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:253)] - StudentDAO was closed
+2022-07-18 16:05:15.371 DEBUG [http-nio-8080-exec-55] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:101)] - StudentDAO was closed
+2022-07-18 16:05:15.374 DEBUG [http-nio-8080-exec-63] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:05:15.375 DEBUG [http-nio-8080-exec-63] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:05:15.375 DEBUG [http-nio-8080-exec-63] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:05:15.375 DEBUG [http-nio-8080-exec-63] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:05:15.376 DEBUG [http-nio-8080-exec-63] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:05:15.376 DEBUG [http-nio-8080-exec-63] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:05:15.376 DEBUG [http-nio-8080-exec-63] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:05:15.376 DEBUG [http-nio-8080-exec-63] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:05:29.205 DEBUG [http-nio-8080-exec-64] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 16:05:41.070 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 16:05:41.084 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 16:05:41.084 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 16:05:41.091 DEBUG [Catalina-utility-1] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 16:05:41.385 DEBUG [Catalina-utility-1] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 16:05:41.385 DEBUG [Catalina-utility-1] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 16:05:42.319 DEBUG [http-nio-8080-exec-61] [application.services.impl.AssignmentServiceImpl.<init>(AssignmentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@4befc156
+2022-07-18 16:05:42.319 DEBUG [http-nio-8080-exec-61] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:46)] - AssignmentService was created
+2022-07-18 16:05:42.320 DEBUG [http-nio-8080-exec-61] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@4befc156
+2022-07-18 16:05:42.320 DEBUG [http-nio-8080-exec-61] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:48)] - AdministratorService was created
+2022-07-18 16:05:42.321 DEBUG [http-nio-8080-exec-61] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@4befc156
+2022-07-18 16:05:42.321 DEBUG [http-nio-8080-exec-61] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:50)] - StudentService was created
+2022-07-18 16:05:42.321 DEBUG [http-nio-8080-exec-61] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:05:42.321 DEBUG [http-nio-8080-exec-61] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:05:42.327 DEBUG [http-nio-8080-exec-61] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@4fdf5eec
+2022-07-18 16:05:42.327 DEBUG [http-nio-8080-exec-61] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:05:42.351 DEBUG [http-nio-8080-exec-61] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:05:42.353 DEBUG [http-nio-8080-exec-61] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:05:42.353 DEBUG [http-nio-8080-exec-61] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:05:42.355 DEBUG [http-nio-8080-exec-61] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:05:42.355 DEBUG [http-nio-8080-exec-61] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:05:42.379 DEBUG [http-nio-8080-exec-60] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:05:42.379 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:05:42.379 DEBUG [http-nio-8080-exec-60] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:05:42.381 DEBUG [http-nio-8080-exec-60] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:05:42.382 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:05:42.382 DEBUG [http-nio-8080-exec-60] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:05:42.383 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:05:42.383 DEBUG [http-nio-8080-exec-60] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 16:05:49.773 DEBUG [http-nio-8080-exec-67] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 16:05:51.817 DEBUG [http-nio-8080-exec-65] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:76)] - doPost of /account with forward to account.jsp
+2022-07-18 16:05:51.818 DEBUG [http-nio-8080-exec-65] [data.dao.impl.MySQLDAOFactory.getAdministratorDAO(MySQLDAOFactory.java:13)] - MySQLAdministratorDAO created
+2022-07-18 16:05:51.819 DEBUG [http-nio-8080-exec-65] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:05:51.820 DEBUG [http-nio-8080-exec-65] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:96)] - AdministratorDAO created
+2022-07-18 16:05:51.828 DEBUG [http-nio-8080-exec-65] [application.services.impl.AdministratorServiceImpl.editAccount(AdministratorServiceImpl.java:102)] - updateLogin method used
+2022-07-18 16:05:51.828 DEBUG [http-nio-8080-exec-65] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:187)] - connection was closed
+2022-07-18 16:05:51.828 DEBUG [http-nio-8080-exec-65] [data.dao.impl.MySQLAdministratorDAO.close(MySQLAdministratorDAO.java:192)] - AdministratorDAO was closed
+2022-07-18 16:05:51.828 DEBUG [http-nio-8080-exec-65] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 16:05:51.828 DEBUG [http-nio-8080-exec-65] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:05:51.829 DEBUG [http-nio-8080-exec-65] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:81)] - StudentDAO created
+2022-07-18 16:05:51.830 DEBUG [http-nio-8080-exec-65] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:251)] - connection was closed
+2022-07-18 16:05:51.830 DEBUG [http-nio-8080-exec-65] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:256)] - StudentDAO was closed
+2022-07-18 16:05:51.830 DEBUG [http-nio-8080-exec-65] [application.services.impl.StudentServiceImpl.findStudent(StudentServiceImpl.java:101)] - StudentDAO was closed
+2022-07-18 16:05:51.834 DEBUG [http-nio-8080-exec-59] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 16:05:51.834 DEBUG [http-nio-8080-exec-59] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 16:05:51.834 DEBUG [http-nio-8080-exec-59] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 16:05:51.834 DEBUG [http-nio-8080-exec-59] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 16:05:51.835 DEBUG [http-nio-8080-exec-59] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 16:05:51.835 DEBUG [http-nio-8080-exec-59] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 16:05:51.835 DEBUG [http-nio-8080-exec-59] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 16:05:51.836 DEBUG [http-nio-8080-exec-59] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 21:12:06.510 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:37)] - path = C:\Users\Caruzo\IdeaProjects\Elective\target\Elective\WEB-INF\
+2022-07-18 21:12:06.523 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:40)] - DAOFactory was set to MySQL implementation
+2022-07-18 21:12:06.523 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:42)] - DataBase initialization
+2022-07-18 21:12:06.532 DEBUG [main] [presentation.DataBaseInitialize.<clinit>(DataBaseInitialize.java:29)] - Driver com.mysql.cj.jdbc.Driver loaded
+2022-07-18 21:12:07.158 DEBUG [main] [presentation.DataBaseInitialize.initializeDataBase(DataBaseInitialize.java:51)] - Data base already exist
+2022-07-18 21:12:07.159 DEBUG [main] [presentation.listeners.MyContextListener.contextInitialized(MyContextListener.java:55)] - Locales list {uk=[Українська], en=[English]}
+2022-07-18 21:12:12.075 DEBUG [http-nio-8080-exec-1] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@5cc80375
+2022-07-18 21:12:12.076 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:41)] - StudentService was created
+2022-07-18 21:12:12.077 DEBUG [http-nio-8080-exec-1] [application.services.impl.TeacherServiceImpl.<init>(TeacherServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@5cc80375
+2022-07-18 21:12:12.077 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:43)] - TeacherService was created
+2022-07-18 21:12:12.078 DEBUG [http-nio-8080-exec-1] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@5cc80375
+2022-07-18 21:12:12.078 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.init(MainPageServlet.java:45)] - AdministratorService was created
+2022-07-18 21:12:12.081 DEBUG [http-nio-8080-exec-1] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 21:12:13.595 DEBUG [http-nio-8080-exec-2] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:31)] - creating studentService
+2022-07-18 21:12:13.595 DEBUG [http-nio-8080-exec-2] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@5cc80375
+2022-07-18 21:12:13.596 DEBUG [http-nio-8080-exec-2] [presentation.controller.LoginPageServlet.init(LoginPageServlet.java:33)] - StudentService was created
+2022-07-18 21:12:13.596 DEBUG [http-nio-8080-exec-2] [presentation.controller.LoginPageServlet.doGet(LoginPageServlet.java:38)] - doGet of /login with forward to login.jsp
+2022-07-18 21:12:18.181 DEBUG [http-nio-8080-exec-3] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:61)] - doPost of /main with redirect to main
+2022-07-18 21:12:18.182 DEBUG [http-nio-8080-exec-3] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:49)] - Start of authorization
+2022-07-18 21:12:18.182 DEBUG [http-nio-8080-exec-3] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 21:12:18.189 DEBUG [http-nio-8080-exec-3] [data.DataSourcePool.getConnection(DataSourcePool.java:31)] - Data source created: org.apache.tomcat.dbcp.dbcp2.BasicDataSource@288a9b14
+2022-07-18 21:12:18.189 DEBUG [http-nio-8080-exec-3] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 21:12:18.262 DEBUG [http-nio-8080-exec-3] [application.services.impl.StudentServiceImpl.authorizeStudent(StudentServiceImpl.java:51)] - StudentDAO created
+2022-07-18 21:12:18.285 DEBUG [http-nio-8080-exec-3] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:305)] - connection was closed
+2022-07-18 21:12:18.285 DEBUG [http-nio-8080-exec-3] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:310)] - StudentDAO was closed
+2022-07-18 21:12:18.286 INFO [http-nio-8080-exec-3] [presentation.controller.MainPageServlet.doPost(MainPageServlet.java:70)] - You was logged as application.entity.Student@5e
+2022-07-18 21:12:18.290 DEBUG [http-nio-8080-exec-4] [presentation.controller.MainPageServlet.doGet(MainPageServlet.java:50)] - doGet of /main with forward to main.jsp
+2022-07-18 21:12:19.030 DEBUG [http-nio-8080-exec-5] [application.services.impl.AssignmentServiceImpl.<init>(AssignmentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@5cc80375
+2022-07-18 21:12:19.030 DEBUG [http-nio-8080-exec-5] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:46)] - AssignmentService was created
+2022-07-18 21:12:19.030 DEBUG [http-nio-8080-exec-5] [application.services.impl.AdministratorServiceImpl.<init>(AdministratorServiceImpl.java:21)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@5cc80375
+2022-07-18 21:12:19.031 DEBUG [http-nio-8080-exec-5] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:48)] - AdministratorService was created
+2022-07-18 21:12:19.031 DEBUG [http-nio-8080-exec-5] [application.services.impl.StudentServiceImpl.<init>(StudentServiceImpl.java:20)] - DAOFactory created => data.dao.impl.MySQLDAOFactory@5cc80375
+2022-07-18 21:12:19.031 DEBUG [http-nio-8080-exec-5] [presentation.controller.AccountPageServlet.init(AccountPageServlet.java:50)] - StudentService was created
+2022-07-18 21:12:19.031 DEBUG [http-nio-8080-exec-5] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 21:12:19.031 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 21:12:19.032 DEBUG [http-nio-8080-exec-5] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 21:12:19.034 DEBUG [http-nio-8080-exec-5] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 21:12:19.039 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 21:12:19.039 DEBUG [http-nio-8080-exec-5] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 21:12:19.039 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 21:12:19.039 DEBUG [http-nio-8080-exec-5] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed
+2022-07-18 21:12:20.624 DEBUG [http-nio-8080-exec-6] [presentation.controller.AccountEditPageServlet.doGet(AccountEditPageServlet.java:26)] - doGet of /editaccount with forward to edit.jsp
+2022-07-18 21:12:26.294 DEBUG [http-nio-8080-exec-7] [presentation.controller.AccountPageServlet.doPost(AccountPageServlet.java:76)] - doPost of /account with forward to account.jsp
+2022-07-18 21:12:26.295 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLDAOFactory.getStudentDAO(MySQLDAOFactory.java:31)] - MySQLStudentDAO created
+2022-07-18 21:12:26.295 DEBUG [http-nio-8080-exec-7] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 21:12:26.296 DEBUG [http-nio-8080-exec-7] [application.services.impl.StudentServiceImpl.editAccount(StudentServiceImpl.java:177)] - AdministratorDAO created
+2022-07-18 21:12:26.302 DEBUG [http-nio-8080-exec-7] [application.services.impl.StudentServiceImpl.editAccount(StudentServiceImpl.java:183)] - updateLogin method used
+2022-07-18 21:12:26.303 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:305)] - connection was closed
+2022-07-18 21:12:26.303 DEBUG [http-nio-8080-exec-7] [data.dao.impl.MySQLStudentDAO.close(MySQLStudentDAO.java:310)] - StudentDAO was closed
+2022-07-18 21:12:26.308 DEBUG [http-nio-8080-exec-8] [presentation.controller.AccountPageServlet.doGet(AccountPageServlet.java:55)] - doGet of /account with forward to account.jsp
+2022-07-18 21:12:26.309 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLDAOFactory.getAssignmentDAO(MySQLDAOFactory.java:19)] - MySQLAssignmentDAO created
+2022-07-18 21:12:26.309 DEBUG [http-nio-8080-exec-8] [data.DataSourcePool.getConnection(DataSourcePool.java:38)] - Connection created
+2022-07-18 21:12:26.309 DEBUG [http-nio-8080-exec-8] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:102)] - AssignmentDAO created
+2022-07-18 21:12:26.310 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLAssignmentDAO.showStudentCourses(MySQLAssignmentDAO.java:184)] - List of courses of student with ID 21
+2022-07-18 21:12:26.310 DEBUG [http-nio-8080-exec-8] [application.services.impl.AssignmentServiceImpl.showStudentCourses(AssignmentServiceImpl.java:105)] - showStudentCourses Method used
+2022-07-18 21:12:26.310 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:252)] - connection was closed
+2022-07-18 21:12:26.310 DEBUG [http-nio-8080-exec-8] [data.dao.impl.MySQLAssignmentDAO.close(MySQLAssignmentDAO.java:260)] - AssignmentDAO was closed

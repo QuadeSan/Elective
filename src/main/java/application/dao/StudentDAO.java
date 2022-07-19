@@ -34,6 +34,13 @@ public interface StudentDAO extends AutoCloseable {
     Student findStudent(String login) throws NotExistException;
 
     /**
+     * @param userId - student_id value from students table
+     * @return {@link Student} entity
+     * Student contain studentID, userID, login, email, name, lastName, status fields
+     */
+    Student findStudent(int userId);
+
+    /**
      * Updating status of current student
      *
      * @param studentId - student_id value from students table
@@ -61,4 +68,35 @@ public interface StudentDAO extends AutoCloseable {
      * Method need for pagination realization
      */
     int studentCount();
+
+    /**
+     * @param userId    - id of user
+     * @param newLogin  - new value of login
+     * @throws AlreadyExistException - if there is user with same login
+     */
+    void updateLogin(int userId, String newLogin) throws AlreadyExistException;
+
+    /**
+     * @param userId    - id of user
+     * @param newEmail  - new value of email
+     */
+    void updateEmail(int userId, String newEmail);
+
+    /**
+     * @param userId        - id of user
+     * @param newPassword   - new value of password
+     */
+    void updatePassword(int userId, String newPassword);
+
+    /**
+     * @param userId    - id of user
+     * @param newName   - new value of name
+     */
+    void updateName(int userId, String newName);
+
+    /**
+     * @param userId        - id of user
+     * @param newLastName   - new value of last name
+     */
+    void updateLastName(int userId, String newLastName);
 }

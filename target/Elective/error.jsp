@@ -1,8 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="customLib" uri="http://Elective" %>
 <html>
+<head>
     <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
 <c:set var="lastpage" value="error" scope="session" />
     <header>

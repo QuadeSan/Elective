@@ -1,9 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="customLib" uri="http://Elective" %>
 <html>
+<head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="myscripts.js"></script>
+</head>
 <body>
 <c:set var="lastpage" value="editaccount" scope="session" />
     <header>
@@ -63,11 +66,11 @@
                 </div>
                 <div class="col-1-2">
                     <label><b><fmt:message key='account_page.first_name_field'/></b></label>
-                    <input type="text" placeholder="New First name" name="firstname" class="account-field" autocomplete="off">
+                    <input type="text" placeholder="New First name" name="name" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b><fmt:message key='account_page.last_name_field'/></b></label>
-                    <input type="text" placeholder="New Last name" name="lastname" class="account-field" autocomplete="off">
+                    <input type="text" placeholder="New Last name" name="last-name" class="account-field" autocomplete="off">
                 </div>
                 <div class="col-1-2">
                     <label><b><fmt:message key='account_page.password_field'/></b></label>
@@ -106,10 +109,13 @@
                  </div>
                  <button class="applybtn" type="submit"> <fmt:message key='edit_account_page.apply'/> </button>
                  <button class="cancelbtn" onclick="location.href = 'account'"><fmt:message key='edit_account_page.cancel'/></button>
+            <input type="hidden" name="account-action" value="edit">
+            <input type="hidden" name="user-id" value="${currentUser.userID}">
             </div>
          </form>
           <form class="container" action="account" method="post" onSubmit="return confirmAlert()">
           <button type="submit" class="cancelbtn"> <fmt:message key='edit_account_page.delete_account'/>
+          <input type="hidden" name="account-action" value="delete">
           <input type="hidden" name="user-id" value="${currentUser.userID}">
           </form>
     </div>

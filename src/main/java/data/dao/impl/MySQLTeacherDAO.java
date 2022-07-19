@@ -111,6 +111,40 @@ public class MySQLTeacherDAO implements TeacherDAO {
     }
 
     @Override
+    public Teacher findTeacher(int userId){
+        Teacher currentTeacher = new Teacher();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = con.prepareStatement("SELECT teachers.teacher_id, teachers.user_id, teachers.name, teachers.last_name, " +
+                    "users.login, users.password, users.email FROM teachers " +
+                    "JOIN users ON users.user_id=teachers.user_id WHERE users.user_id =?");
+            int k = 1;
+            stmt.setInt(k++, userId);
+            rs = stmt.executeQuery();
+            if (!rs.next()) {
+                logger.error("Teacher with ID = " + userId + " does not exist");
+                throw new DAOException("Can't find teacher with ID = " + userId);
+            } else {
+                currentTeacher.setTeacherID(rs.getInt("teacher_id"));
+                currentTeacher.setUserID(rs.getInt("user_id"));
+                currentTeacher.setName(rs.getString("name"));
+                currentTeacher.setLastName(rs.getString("last_name"));
+                currentTeacher.setLogin(rs.getString("login"));
+                currentTeacher.setPassword(rs.getString("password"));
+                currentTeacher.setEmail(rs.getString("email"));
+                return currentTeacher;
+            }
+        } catch (SQLException ex) {
+            logger.error("can't find teacher because of ", ex);
+            throw new DAOException(ex);
+        } finally {
+            close(rs);
+            close(stmt);
+        }
+    }
+
+    @Override
     public Iterable<Teacher> showAllTeachers() {
         Collection<Teacher> teachers = new ArrayList<>();
         PreparedStatement stmt = null;
@@ -134,6 +168,96 @@ public class MySQLTeacherDAO implements TeacherDAO {
             close(stmt);
         }
         return teachers;
+    }
+
+    @Override
+    public void updateLogin(int userId, String newLogin) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE users SET login=? WHERE user_id=?");
+            int k = 1;
+            stmt.setString(k++, newLogin);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (java.sql.SQLIntegrityConstraintViolationException ex) {
+            logger.debug("AlreadyExistException catch clause " + ex);
+            throw new AlreadyExistException("Login already exist", ex);
+        } catch (SQLException ex) {
+            logger.debug("Can't execute update login query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updateEmail(int userId, String newEmail) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE users SET email=? WHERE user_id=?");
+            int k = 1;
+            stmt.setString(k++, newEmail);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute update email query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updatePassword(int userId, String newPassword) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE users SET password=? WHERE user_id=?");
+            int k = 1;
+            stmt.setString(k++, newPassword);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute change password query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updateName(int userId, String newName) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE teachers " +
+                    "JOIN users ON teachers.user_id = users.user_id SET name=? WHERE users.user_id=?");
+            int k = 1;
+            stmt.setString(k++, newName);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute change name query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
+    }
+
+    @Override
+    public void updateLastName(int userId, String newLastName) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("UPDATE teachers " +
+                    "JOIN users ON teachers.user_id = users.user_id SET last_name=? WHERE users.user_id=?");
+            int k = 1;
+            stmt.setString(k++, newLastName);
+            stmt.setInt(k++, userId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            logger.debug("Can't execute change last name query");
+            throw new DAOException(ex);
+        } finally {
+            close(stmt);
+        }
     }
 
     @Override

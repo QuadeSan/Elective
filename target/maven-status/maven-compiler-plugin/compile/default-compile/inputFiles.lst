@@ -6,6 +6,7 @@ C:\Users\Caruzo\IdeaProjects\Elective\src\main\java\presentation\controller\Logo
 C:\Users\Caruzo\IdeaProjects\Elective\src\main\java\application\dao\StudentDAO.java
 C:\Users\Caruzo\IdeaProjects\Elective\src\main\java\application\OperationResult.java
 C:\Users\Caruzo\IdeaProjects\Elective\src\main\java\data\dao\impl\MySQLTeacherDAO.java
+C:\Users\Caruzo\IdeaProjects\Elective\src\main\java\presentation\DataBaseInitialize.java
 C:\Users\Caruzo\IdeaProjects\Elective\src\main\java\application\services\AdministratorService.java
 C:\Users\Caruzo\IdeaProjects\Elective\src\main\java\data\dao\impl\MySQLAdministratorDAO.java
 C:\Users\Caruzo\IdeaProjects\Elective\src\main\java\presentation\filters\AdminAccessFilter.java
