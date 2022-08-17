@@ -68,13 +68,14 @@ public class AccountPageServlet extends HttpServlet {
             return;
         }
 
-        showCoursesForRole(req, resp, userRole);
-
-        if (req.getParameter("course_id") != null) {
-            dropCourse(req, resp);
-            return;
+        boolean unlocked = showCoursesForRole(req, resp, userRole);
+        if (unlocked) {
+            if (req.getParameter("course_id") != null) {
+                dropCourse(req, resp);
+                return;
+            }
+            req.getRequestDispatcher("account.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("account.jsp").forward(req, resp);
     }
 
     @Override
@@ -137,7 +138,7 @@ public class AccountPageServlet extends HttpServlet {
         resp.sendRedirect("account");
     }
 
-    private void showCoursesForRole(HttpServletRequest req, HttpServletResponse resp, String userRole) throws IOException {
+    private boolean showCoursesForRole(HttpServletRequest req, HttpServletResponse resp, String userRole) throws IOException {
         HttpSession session = req.getSession();
         ValuedOperationResult<Iterable<Course>> operationResult;
         switch (userRole) {
@@ -147,7 +148,8 @@ public class AccountPageServlet extends HttpServlet {
                     session.setAttribute("errorMessage", "Your account is locked, " +
                             "contact administrator for more information");
                     resp.sendRedirect("error");
-                    return;
+                    logger.debug("User is locked, boolean is false");
+                    return false;
                 }
                 int studentID = currentStudent.getStudentID();
 
@@ -162,6 +164,8 @@ public class AccountPageServlet extends HttpServlet {
                 currentTeacher.setCourses(operationResult.getResult());
                 break;
         }
+        logger.debug("User unlocked");
+        return true;
     }
 
     private void dropCourse(HttpServletRequest req, HttpServletResponse resp) throws IOException {

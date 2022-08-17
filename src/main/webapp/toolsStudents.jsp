@@ -59,7 +59,7 @@
                 <button> <fmt:message key='journal_page.student_id'/>
                 <span aria-hidden="true"></span>
                 </button>
-                </th>
+              </th>
               <th id="courseHead">
                 <button> <fmt:message key='journal_page.student_name'/>
                 <span aria-hidden="true"></span>
@@ -75,6 +75,11 @@
                 <span aria-hidden="true"></span>
                 </button>
               </th>
+               <th id="courseHead" class="num">
+                    <button> <fmt:message key='journal_page.student_avg'/>
+                    <span aria-hidden="true"></span>
+                    </button>
+               </th>
               <th id="courseHead">
                 <fmt:message key='tools_students.lock'/>
               </th>
@@ -87,6 +92,7 @@
                  <td> ${student.name} </td>
                  <td> ${student.lastName} </td>
                  <td> ${student.status} </td>
+                 <td> ${student.averageMark} </td>
                  <c:if test="${student.status == 'locked'}">
                  <td>
                     <form action="toolsstudents" method="post">

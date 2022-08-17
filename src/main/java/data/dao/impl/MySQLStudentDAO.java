@@ -177,7 +177,12 @@ public class MySQLStudentDAO implements StudentDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            stmt = con.prepareStatement("SELECT * FROM students LIMIT ? OFFSET ?");
+            stmt = con.prepareStatement("SELECT * FROM students " +
+                    "LEFT JOIN (SELECT AVG(mark) as avg_mark, students_student_id " +
+                    "FROM students_assignments " +
+                    "GROUP BY students_student_id) AS avg_mark  " +
+                    "ON students.student_id = avg_mark.students_student_id " +
+                    "LIMIT ? OFFSET ?;");
             int k = 1;
             stmt.setInt(k++, limit);
             stmt.setInt(k++, offSet);
@@ -189,6 +194,7 @@ public class MySQLStudentDAO implements StudentDAO {
                 current.setName(rs.getString("name"));
                 current.setLastName(rs.getString("last_name"));
                 current.setStatus(rs.getString("status"));
+                current.setAverageMark(rs.getDouble("avg_mark"));
                 students.add(current);
             }
         } catch (SQLException ex) {

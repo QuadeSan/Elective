@@ -16,11 +16,9 @@ public class Student implements Serializable {
     private Iterable<Course> courses;
     private String status;
     private int markForCurrentCourse;
-    private static int k;
+    private double averageMark;
 
     public Student() {
-        this.studentID = k;
-        k++;
         courses = new ArrayList<>();
     }
 
@@ -64,6 +62,14 @@ public class Student implements Serializable {
         return courses;
     }
 
+    public int getMarkForCurrentCourse() {
+        return markForCurrentCourse;
+    }
+
+    public double getAverageMark() {
+        return averageMark;
+    }
+
     public void setLogin(String login) {
         this.login = login;
     }
@@ -100,8 +106,8 @@ public class Student implements Serializable {
         this.markForCurrentCourse = markForCurrentCourse;
     }
 
-    public int getMarkForCurrentCourse() {
-        return markForCurrentCourse;
+    public void setAverageMark(double averageMark) {
+        this.averageMark = averageMark;
     }
 
     public boolean isLocked() {
